@@ -112,20 +112,30 @@
 
   <!--Language-->
   <ItemGroup>
-    <Compile Include="..\Lift.UI.Shared\Properties\Langs\Lang.Designer.cs">
+    <!--<Compile Include="..\Lift.UI.Shared\Properties\Langs\Lang.Designer.cs">
       <Link>Properties\Langs\Lang.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.resx</DependentUpon>
-    </Compile>
-    <Compile Include="..\Lift.UI.Shared\Properties\Langs\LangProvider.cs">
+    </Compile>-->
+
+    <!--<Compile Include="Properties\Langs\Lang.Designer.cs">
+      <Link>Properties\Langs\Lang.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>-->
+
+
+    
+    <!--<Compile Include="..\Lift.UI.Shared\Properties\Langs\LangProvider.cs">
       <Link>Properties\Langs\LangProvider.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LangProvider.tt</DependentUpon>
-    </Compile>
+    </Compile>-->
 
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.tr.resx">
+    <!--<EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.tr.resx">
       <Link>Properties\Langs\Lang.tr.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.ca-ES.resx">
@@ -157,17 +167,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.ru.resx">
       <Link>Properties\Langs\Lang.ru.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.resx">
+    </EmbeddedResource>-->
+
+
+    
+    <!--<EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.resx">
       <Link>Properties\Langs\Lang.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Content Include="..\Lift.UI.Shared\Properties\Langs\LangProvider.tt">
+    </EmbeddedResource>-->
+
+    
+    <!--<Content Include="..\Lift.UI.Shared\Properties\Langs\LangProvider.tt">
       <Link>Properties\Langs\LangProvider.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LangProvider.cs</LastGenOutput>
-    </Content>
+    </Content>-->
   </ItemGroup>
 
   <ItemGroup>
@@ -181,10 +196,10 @@
   -->
 
   <!--NOTE: must be using link-->
-  <ItemGroup>
+  <!--<ItemGroup>
     <Compile Include="..\Lift.UI.Shared\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-  </ItemGroup>
+  </ItemGroup>-->
   
 </Project>

@@ -9,71 +9,6 @@
     <Import_RootNamespace>Lift.UI.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Args\CancelRoutedEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Args\FunctionEventArgs`1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Args\KeyboardHookEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Args\MouseHookEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\DisposableObject.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\EnumItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\BadgeStatus.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ChatMessageType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ChatRoleType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ColLayoutStatus.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\DrawerShowMode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\EnumDataProvider.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ExpandMode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\GrowlShowMode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HatchStyle.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HitMode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ImageCodecFlags.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\InfoType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\IpType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\LinearLayout.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\MouseHookMessageType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\NotifyIconInfoType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ResultType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\RunningDirection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ShowAnimation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\SideMenuItemRole.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StepStatus.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StrokePosition.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TextType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TipPlacement.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TitlePlacementType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TransitionMode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\VisualWrapping.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexContentAlignment.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexContentJustify.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexDirection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexItemAlignment.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexItemsAlignment.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexWrap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifFrameDimension.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifImageInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifPropertyItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifPropertyItemInternal.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GPStream.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\ChangeScope.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowBitmap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowBitmapPart.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowDrawingContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowEdge.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\HwndWrapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Info\GrowlInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Info\ImageCodecInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Info\MessageBoxInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Info\SystemVersionInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\LiftUIConfig.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Operation\OperationResult.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Operation\OperationResult`1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\PanelUvSize.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Range\ColorRange.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Range\DateTimeRange.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Range\DoubleRange.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Range\IValueRange.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\ResourceToken.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\ValueBoxes.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DesignTime\IntellisenseResources.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exernals\Microsoft.Expression.Drawing\Drawing\BezierCurveFlattener.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exernals\Microsoft.Expression.Drawing\Drawing\CommonExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exernals\Microsoft.Expression.Drawing\Drawing\ExceptionStringTable.cs" />
@@ -570,10 +505,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\ValidationRule\RegexRule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)DesignTime\DesignTimeResources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Basic\Colors\Dark.xaml">
       <SubType>Designer</SubType>
     </Page>

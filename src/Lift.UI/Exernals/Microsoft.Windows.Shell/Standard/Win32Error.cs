@@ -18,6 +18,7 @@ internal struct Win32Error
         {
             return new HRESULT((uint) error._value);
         }
+
         return HRESULT.Make(true, Facility.Win32, error._value & 65535);
     }
 
@@ -43,6 +44,7 @@ internal struct Win32Error
         {
             result = false;
         }
+
         return result;
     }
 
@@ -61,8 +63,7 @@ internal struct Win32Error
         return !(errLeft == errRight);
     }
 
-    [FieldOffset(0)]
-    private readonly int _value;
+    [FieldOffset(0)] private readonly int _value;
 
     [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
     public static readonly Win32Error ERROR_SUCCESS = new Win32Error(0);

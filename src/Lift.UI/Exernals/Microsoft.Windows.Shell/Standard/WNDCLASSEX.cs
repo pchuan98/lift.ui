@@ -24,11 +24,9 @@ internal struct WNDCLASSEX
 
     public IntPtr hbrBackground;
 
-    [MarshalAs(UnmanagedType.LPWStr)]
-    public string lpszMenuName;
+    [MarshalAs(UnmanagedType.LPWStr)] public string lpszMenuName;
 
-    [MarshalAs(UnmanagedType.LPWStr)]
-    public string lpszClassName;
+    [MarshalAs(UnmanagedType.LPWStr)] public string lpszClassName;
 
     public IntPtr hIconSm;
 }

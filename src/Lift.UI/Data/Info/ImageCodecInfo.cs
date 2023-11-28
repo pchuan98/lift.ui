@@ -22,8 +22,10 @@ internal sealed class ImageCodecInfo
         {
             if (_dllName != null)
             {
-                new System.Security.Permissions.FileIOPermission(System.Security.Permissions.FileIOPermissionAccess.PathDiscovery, _dllName).Demand();
+                new System.Security.Permissions.FileIOPermission(
+                    System.Security.Permissions.FileIOPermissionAccess.PathDiscovery, _dllName).Demand();
             }
+
             return _dllName;
         }
         [SuppressMessage("Microsoft.Security", "CA2103:ReviewImperativeSecurity")]
@@ -31,8 +33,10 @@ internal sealed class ImageCodecInfo
         {
             if (value != null)
             {
-                new System.Security.Permissions.FileIOPermission(System.Security.Permissions.FileIOPermissionAccess.PathDiscovery, value).Demand();
+                new System.Security.Permissions.FileIOPermission(
+                    System.Security.Permissions.FileIOPermissionAccess.PathDiscovery, value).Demand();
             }
+
             _dllName = value;
         }
     }
@@ -123,7 +127,8 @@ internal sealed class ImageCodecInfo
 
         for (index = 0; index < numCodecs; index++)
         {
-            var curcodec = (IntPtr) ((long) memoryStart + Marshal.SizeOf(typeof(InteropValues.ImageCodecInfoPrivate)) * index);
+            var curcodec = (IntPtr) ((long) memoryStart +
+                                     Marshal.SizeOf(typeof(InteropValues.ImageCodecInfoPrivate)) * index);
             var codecp = new InteropValues.ImageCodecInfoPrivate();
             InteropMethods.PtrToStructure(curcodec, codecp);
 
@@ -147,8 +152,10 @@ internal sealed class ImageCodecInfo
                 codecs[index].SignaturePatterns[j] = new byte[codecp.SigSize];
                 codecs[index].SignatureMasks[j] = new byte[codecp.SigSize];
 
-                Marshal.Copy((IntPtr) ((long) codecp.SigMask + j * codecp.SigSize), codecs[index].SignatureMasks[j], 0, codecp.SigSize);
-                Marshal.Copy((IntPtr) ((long) codecp.SigPattern + j * codecp.SigSize), codecs[index].SignaturePatterns[j], 0, codecp.SigSize);
+                Marshal.Copy((IntPtr) ((long) codecp.SigMask + j * codecp.SigSize), codecs[index].SignatureMasks[j], 0,
+                    codecp.SigSize);
+                Marshal.Copy((IntPtr) ((long) codecp.SigPattern + j * codecp.SigSize),
+                    codecs[index].SignaturePatterns[j], 0, codecp.SigSize);
             }
         }
 

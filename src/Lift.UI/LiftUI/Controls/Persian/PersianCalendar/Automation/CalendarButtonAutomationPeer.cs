@@ -73,7 +73,7 @@ public sealed class CalendarButtonAutomationPeer : ButtonAutomationPeer, IGridIt
         {
             if (this.OwningCalendarButton != null && this.OwningCalendarButton.DataContext is DateTime)
             {
-                return (DateTime?)this.OwningCalendarButton.DataContext;
+                return (DateTime?) this.OwningCalendarButton.DataContext;
             }
             else
             {
@@ -99,24 +99,25 @@ public sealed class CalendarButtonAutomationPeer : ButtonAutomationPeer, IGridIt
         {
             case PatternInterface.SelectionItem:
             case PatternInterface.GridItem:
+            {
+                if (this.OwningPersianCalendar != null && this.OwningPersianCalendar.MonthControl != null &&
+                    this.OwningCalendarButton != null)
                 {
-                    if (this.OwningPersianCalendar != null && this.OwningPersianCalendar.MonthControl != null && this.OwningCalendarButton != null)
-                    {
-                        result = this;
-                    }
-                    else
-                    {
-                        result = base.GetPattern(patternInterface);
-                    }
-
-                    break;
+                    result = this;
                 }
-
-            default:
+                else
                 {
                     result = base.GetPattern(patternInterface);
-                    break;
                 }
+
+                break;
+            }
+
+            default:
+            {
+                result = base.GetPattern(patternInterface);
+                break;
+            }
         }
 
         return result;
@@ -161,7 +162,9 @@ public sealed class CalendarButtonAutomationPeer : ButtonAutomationPeer, IGridIt
     protected override string GetHelpTextCore()
     {
         DateTime? date = this.Date;
-        return date.HasValue ? DateTimeHelper.ToLongDateString(date, DateTimeHelper.GetCulture(this.OwningCalendarButton)) : base.GetHelpTextCore();
+        return date.HasValue
+            ? DateTimeHelper.ToLongDateString(date, DateTimeHelper.GetCulture(this.OwningCalendarButton))
+            : base.GetHelpTextCore();
     }
 
     /// <summary>
@@ -179,7 +182,8 @@ public sealed class CalendarButtonAutomationPeer : ButtonAutomationPeer, IGridIt
             }
             else
             {
-                return DateTimeHelper.ToYearMonthPatternString(date, DateTimeHelper.GetCulture(this.OwningCalendarButton));
+                return DateTimeHelper.ToYearMonthPatternString(date,
+                    DateTimeHelper.GetCulture(this.OwningCalendarButton));
             }
         }
         else
@@ -196,15 +200,15 @@ public sealed class CalendarButtonAutomationPeer : ButtonAutomationPeer, IGridIt
     {
         get
         {
-            return (int)this.OwningCalendarButton.GetValue(Grid.ColumnProperty);
+            return (int) this.OwningCalendarButton.GetValue(Grid.ColumnProperty);
         }
     }
 
-    int IGridItemProvider.ColumnSpan 
+    int IGridItemProvider.ColumnSpan
     {
         get
         {
-            return (int)this.OwningCalendarButton.GetValue(Grid.ColumnSpanProperty);
+            return (int) this.OwningCalendarButton.GetValue(Grid.ColumnSpanProperty);
         }
     }
 
@@ -220,28 +224,28 @@ public sealed class CalendarButtonAutomationPeer : ButtonAutomationPeer, IGridIt
     {
         get
         {
-            return (int)this.OwningCalendarButton.GetValue(Grid.RowSpanProperty);
+            return (int) this.OwningCalendarButton.GetValue(Grid.RowSpanProperty);
         }
     }
 
-    int IGridItemProvider.RowSpan 
-    { 
-        get 
-        { 
-            return 1; 
-        } 
+    int IGridItemProvider.RowSpan
+    {
+        get
+        {
+            return 1;
+        }
     }
 
     #endregion IGridItemProvider
 
     #region ISelectionItemProvider
 
-    bool ISelectionItemProvider.IsSelected 
-    { 
-        get 
-        { 
-            return this.OwningCalendarButton.IsFocused; 
-        } 
+    bool ISelectionItemProvider.IsSelected
+    {
+        get
+        {
+            return this.OwningCalendarButton.IsFocused;
+        }
     }
 
     IRawElementProviderSimple ISelectionItemProvider.SelectionContainer

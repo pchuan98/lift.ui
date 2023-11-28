@@ -22,6 +22,7 @@ public class SharedResourceDictionary : ResourceDictionary
                 base.Source = value;
                 return;
             }
+
             _sourceUri = value;
 
             if (!SharedDictionaries.ContainsKey(value))

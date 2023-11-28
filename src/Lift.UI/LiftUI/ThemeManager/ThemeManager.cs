@@ -51,6 +51,7 @@ namespace Lift.UI.Themes
         }
 
         #region SystemTheme
+
         internal Brush DefaultAccentColor;
         private const string RegistryThemePath = @"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
         private const string RegSysMode = "SystemUsesLightTheme";
@@ -58,6 +59,7 @@ namespace Lift.UI.Themes
         private ApplicationTheme _currenTheme;
         private Brush _currentAccent;
         private bool _usingSystemTheme;
+
         public bool UsingSystemTheme
         {
             get => _usingSystemTheme;
@@ -77,7 +79,9 @@ namespace Lift.UI.Themes
                 }
             }
         }
+
         private bool _usingWindowsAppTheme;
+
         public bool UsingWindowsAppTheme
         {
             get => _usingWindowsAppTheme;
@@ -97,6 +101,7 @@ namespace Lift.UI.Themes
                 }
             }
         }
+
         private void initSystemTheme(bool isSystemTheme)
         {
             _currenTheme = GetSystemTheme(isSystemTheme);
@@ -135,7 +140,6 @@ namespace Lift.UI.Themes
             {
                 return appThemeValue != 0 ? Themes.ApplicationTheme.Light : Themes.ApplicationTheme.Dark;
             }
-
         }
 
         public Brush GetAccentColorFromSystem()
@@ -156,6 +160,7 @@ namespace Lift.UI.Themes
         }
 
         public event EventHandler<FunctionEventArgs<SystemTheme>> SystemThemeChanged;
+
         public virtual void OnSystemThemeChanged(SystemTheme theme)
         {
             EventHandler<FunctionEventArgs<SystemTheme>> handler = SystemThemeChanged;
@@ -182,7 +187,7 @@ namespace Lift.UI.Themes
                         {
                             changedTheme = GetSystemTheme(true);
                         }
-                        
+
                         var changedAccent = GetAccentColorFromSystem();
                         if ((_currenTheme != changedTheme) || (_currentAccent != changedAccent))
                         {
@@ -194,6 +199,7 @@ namespace Lift.UI.Themes
                                 ApplicationTheme = changedTheme;
                                 AccentColor = changedAccent;
                             }
+
                             var systemTheme = new SystemTheme()
                             {
                                 AccentBrush = changedAccent, CurrentTheme = changedTheme

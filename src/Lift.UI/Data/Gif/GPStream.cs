@@ -31,6 +31,7 @@ internal class GPStream : InteropValues.IStream
                     Array.Copy(bytes, newData, bytes.Length);
                     bytes = newData;
                 }
+
                 readLen = stream.Read(bytes, current, readBlock);
                 current += readLen;
             } while (readLen != 0);
@@ -74,7 +75,6 @@ internal class GPStream : InteropValues.IStream
     ]
     public virtual long CopyTo(InteropValues.IStream pstm, long cb, long[] pcbRead)
     {
-
         const int bufsize = 4096;
         var buffer = Marshal.AllocHGlobal(bufsize);
         if (buffer == IntPtr.Zero) throw new OutOfMemoryException();
@@ -91,6 +91,7 @@ internal class GPStream : InteropValues.IStream
                 {
                     throw EFail("Wrote an incorrect number of bytes");
                 }
+
                 written += read;
             }
         }
@@ -98,6 +99,7 @@ internal class GPStream : InteropValues.IStream
         {
             Marshal.FreeHGlobal(buffer);
         }
+
         if (pcbRead != null && pcbRead.Length > 0)
         {
             pcbRead[0] = written;
@@ -151,6 +153,7 @@ internal class GPStream : InteropValues.IStream
         {
             pos = DataStream.Position;
         }
+
         var len = DataStream.Length;
         switch (origin)
         {
@@ -164,6 +167,7 @@ internal class GPStream : InteropValues.IStream
                 {
                     _virtualPosition = offset;
                 }
+
                 break;
             case InteropValues.StreamConsts.STREAM_SEEK_END:
                 if (offset <= 0)
@@ -175,6 +179,7 @@ internal class GPStream : InteropValues.IStream
                 {
                     _virtualPosition = len + offset;
                 }
+
                 break;
             case InteropValues.StreamConsts.STREAM_SEEK_CUR:
                 if (offset + pos <= len)
@@ -186,8 +191,10 @@ internal class GPStream : InteropValues.IStream
                 {
                     _virtualPosition = offset + pos;
                 }
+
                 break;
         }
+
         return _virtualPosition != -1 ? _virtualPosition : DataStream.Position;
     }
 
@@ -224,47 +231,29 @@ internal class GPStream : InteropValues.IStream
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class STATSTG
     {
-
         [SuppressMessage("Microsoft.Reliability", "CA2006:UseSafeHandleToEncapsulateNativeResources")]
         public IntPtr pwcsName = IntPtr.Zero;
+
         public int type;
-        [MarshalAs(UnmanagedType.I8)]
-        public long cbSize;
-        [MarshalAs(UnmanagedType.I8)]
-        public long mtime;
-        [MarshalAs(UnmanagedType.I8)]
-        public long ctime;
-        [MarshalAs(UnmanagedType.I8)]
-        public long atime;
-        [MarshalAs(UnmanagedType.I4)]
-        public int grfMode;
-        [MarshalAs(UnmanagedType.I4)]
-        public int grfLocksSupported;
+        [MarshalAs(UnmanagedType.I8)] public long cbSize;
+        [MarshalAs(UnmanagedType.I8)] public long mtime;
+        [MarshalAs(UnmanagedType.I8)] public long ctime;
+        [MarshalAs(UnmanagedType.I8)] public long atime;
+        [MarshalAs(UnmanagedType.I4)] public int grfMode;
+        [MarshalAs(UnmanagedType.I4)] public int grfLocksSupported;
 
         public int clsid_data1;
-        [MarshalAs(UnmanagedType.I2)]
-        public short clsid_data2;
-        [MarshalAs(UnmanagedType.I2)]
-        public short clsid_data3;
-        [MarshalAs(UnmanagedType.U1)]
-        public byte clsid_b0;
-        [MarshalAs(UnmanagedType.U1)]
-        public byte clsid_b1;
-        [MarshalAs(UnmanagedType.U1)]
-        public byte clsid_b2;
-        [MarshalAs(UnmanagedType.U1)]
-        public byte clsid_b3;
-        [MarshalAs(UnmanagedType.U1)]
-        public byte clsid_b4;
-        [MarshalAs(UnmanagedType.U1)]
-        public byte clsid_b5;
-        [MarshalAs(UnmanagedType.U1)]
-        public byte clsid_b6;
-        [MarshalAs(UnmanagedType.U1)]
-        public byte clsid_b7;
-        [MarshalAs(UnmanagedType.I4)]
-        public int grfStateBits;
-        [MarshalAs(UnmanagedType.I4)]
-        public int reserved;
+        [MarshalAs(UnmanagedType.I2)] public short clsid_data2;
+        [MarshalAs(UnmanagedType.I2)] public short clsid_data3;
+        [MarshalAs(UnmanagedType.U1)] public byte clsid_b0;
+        [MarshalAs(UnmanagedType.U1)] public byte clsid_b1;
+        [MarshalAs(UnmanagedType.U1)] public byte clsid_b2;
+        [MarshalAs(UnmanagedType.U1)] public byte clsid_b3;
+        [MarshalAs(UnmanagedType.U1)] public byte clsid_b4;
+        [MarshalAs(UnmanagedType.U1)] public byte clsid_b5;
+        [MarshalAs(UnmanagedType.U1)] public byte clsid_b6;
+        [MarshalAs(UnmanagedType.U1)] public byte clsid_b7;
+        [MarshalAs(UnmanagedType.I4)] public int grfStateBits;
+        [MarshalAs(UnmanagedType.I4)] public int reserved;
     }
 }

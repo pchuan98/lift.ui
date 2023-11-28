@@ -46,7 +46,8 @@ public class Divider : Control
     }
 
     public static readonly DependencyProperty ContentTemplateSelectorProperty = DependencyProperty.Register(
-        nameof(ContentTemplateSelector), typeof(DataTemplateSelector), typeof(Divider), new PropertyMetadata(default(DataTemplateSelector)));
+        nameof(ContentTemplateSelector), typeof(DataTemplateSelector), typeof(Divider),
+        new PropertyMetadata(default(DataTemplateSelector)));
 
     public DataTemplateSelector ContentTemplateSelector
     {
@@ -73,7 +74,8 @@ public class Divider : Control
     }
 
     public static readonly DependencyProperty LineStrokeDashArrayProperty = DependencyProperty.Register(
-        nameof(LineStrokeDashArray), typeof(DoubleCollection), typeof(Divider), new PropertyMetadata(new DoubleCollection()));
+        nameof(LineStrokeDashArray), typeof(DoubleCollection), typeof(Divider),
+        new PropertyMetadata(new DoubleCollection()));
 
     public DoubleCollection LineStrokeDashArray
     {

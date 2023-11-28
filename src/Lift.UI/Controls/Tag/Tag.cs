@@ -81,8 +81,7 @@ public class Tag : ContentControl
 
     public static readonly DependencyProperty HasHeaderProperty = HasHeaderPropertyKey.DependencyProperty;
 
-    [Bindable(false), Browsable(false)]
-    public bool HasHeader => (bool) GetValue(HasHeaderProperty);
+    [Bindable(false), Browsable(false)] public bool HasHeader => (bool) GetValue(HasHeaderProperty);
 
     public static readonly DependencyProperty HeaderStringFormatProperty = DependencyProperty.Register(
         nameof(HeaderStringFormat), typeof(string), typeof(Tag), new PropertyMetadata(default(string)));
@@ -94,7 +93,8 @@ public class Tag : ContentControl
     }
 
     public static readonly DependencyProperty HeaderTemplateSelectorProperty = DependencyProperty.Register(
-        nameof(HeaderTemplateSelector), typeof(DataTemplateSelector), typeof(Tag), new PropertyMetadata(default(DataTemplateSelector)));
+        nameof(HeaderTemplateSelector), typeof(DataTemplateSelector), typeof(Tag),
+        new PropertyMetadata(default(DataTemplateSelector)));
 
     public DataTemplateSelector HeaderTemplateSelector
     {
@@ -111,7 +111,8 @@ public class Tag : ContentControl
         set => SetValue(HeaderTemplateProperty, value);
     }
 
-    public static readonly RoutedEvent SelectedEvent = EventManager.RegisterRoutedEvent("Selected", RoutingStrategy.Bubble, typeof(EventHandler), typeof(Tag));
+    public static readonly RoutedEvent SelectedEvent =
+        EventManager.RegisterRoutedEvent("Selected", RoutingStrategy.Bubble, typeof(EventHandler), typeof(Tag));
 
     public event EventHandler Selected
     {
@@ -119,7 +120,8 @@ public class Tag : ContentControl
         remove => RemoveHandler(SelectedEvent, value);
     }
 
-    public static readonly RoutedEvent ClosingEvent = EventManager.RegisterRoutedEvent("Closing", RoutingStrategy.Bubble, typeof(EventHandler), typeof(Tag));
+    public static readonly RoutedEvent ClosingEvent =
+        EventManager.RegisterRoutedEvent("Closing", RoutingStrategy.Bubble, typeof(EventHandler), typeof(Tag));
 
     public event EventHandler Closing
     {
@@ -127,7 +129,8 @@ public class Tag : ContentControl
         remove => RemoveHandler(ClosingEvent, value);
     }
 
-    public static readonly RoutedEvent ClosedEvent = EventManager.RegisterRoutedEvent("Closed", RoutingStrategy.Bubble, typeof(EventHandler), typeof(Tag));
+    public static readonly RoutedEvent ClosedEvent =
+        EventManager.RegisterRoutedEvent("Closed", RoutingStrategy.Bubble, typeof(EventHandler), typeof(Tag));
 
     public event EventHandler Closed
     {

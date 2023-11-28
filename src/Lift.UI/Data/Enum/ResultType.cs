@@ -1,5 +1,4 @@
-﻿
-namespace Lift.UI.Data;
+﻿namespace Lift.UI.Data;
 
 /// <summary>
 /// 表示一个操作的返回结果类型

@@ -31,7 +31,8 @@ public class LangExtension : MarkupExtension
     }
 
     private static readonly DependencyProperty TargetPropertyProperty = DependencyProperty.RegisterAttached(
-        "TargetProperty", typeof(DependencyProperty), typeof(LangExtension), new PropertyMetadata(default(DependencyProperty)));
+        "TargetProperty", typeof(DependencyProperty), typeof(LangExtension),
+        new PropertyMetadata(default(DependencyProperty)));
 
     private static void SetTargetProperty(DependencyObject element, DependencyProperty value)
         => element.SetValue(TargetPropertyProperty, value);
@@ -49,7 +50,8 @@ public class LangExtension : MarkupExtension
 
     public override object ProvideValue(IServiceProvider serviceProvider)
     {
-        if (!(serviceProvider.GetService(typeof(IProvideValueTarget)) is IProvideValueTarget provideValueTarget)) return this;
+        if (!(serviceProvider.GetService(typeof(IProvideValueTarget)) is IProvideValueTarget provideValueTarget))
+            return this;
         if (provideValueTarget.TargetObject.GetType().FullName == "System.Windows.SharedDp") return this;
         if (!(provideValueTarget.TargetObject is DependencyObject targetObject)) return this;
         if (!(provideValueTarget.TargetProperty is DependencyProperty targetProperty)) return this;
@@ -57,37 +59,37 @@ public class LangExtension : MarkupExtension
         switch (Key)
         {
             case string key:
+            {
+                var binding = CreateLangBinding(key);
+                BindingOperations.SetBinding(targetObject, targetProperty, binding);
+                return binding.ProvideValue(serviceProvider);
+            }
+            case Binding keyBinding when targetObject is FrameworkElement element:
+            {
+                if (element.DataContext != null)
                 {
-                    var binding = CreateLangBinding(key);
-                    BindingOperations.SetBinding(targetObject, targetProperty, binding);
+                    var binding = SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
                     return binding.ProvideValue(serviceProvider);
                 }
-            case Binding keyBinding when targetObject is FrameworkElement element:
-                {
-                    if (element.DataContext != null)
-                    {
-                        var binding = SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
-                        return binding.ProvideValue(serviceProvider);
-                    }
 
-                    SetTargetProperty(element, targetProperty);
-                    element.DataContextChanged += LangExtension_DataContextChanged;
+                SetTargetProperty(element, targetProperty);
+                element.DataContextChanged += LangExtension_DataContextChanged;
 
-                    break;
-                }
+                break;
+            }
             case Binding keyBinding when targetObject is FrameworkContentElement element:
+            {
+                if (element.DataContext != null)
                 {
-                    if (element.DataContext != null)
-                    {
-                        var binding = SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
-                        return binding.ProvideValue(serviceProvider);
-                    }
-
-                    SetTargetProperty(element, targetProperty);
-                    element.DataContextChanged += LangExtension_DataContextChanged;
-
-                    break;
+                    var binding = SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
+                    return binding.ProvideValue(serviceProvider);
                 }
+
+                SetTargetProperty(element, targetProperty);
+                element.DataContextChanged += LangExtension_DataContextChanged;
+
+                break;
+            }
         }
 
         return string.Empty;
@@ -98,29 +100,30 @@ public class LangExtension : MarkupExtension
         switch (sender)
         {
             case FrameworkElement element:
-                {
-                    element.DataContextChanged -= LangExtension_DataContextChanged;
-                    if (!(Key is Binding keyBinding)) return;
+            {
+                element.DataContextChanged -= LangExtension_DataContextChanged;
+                if (!(Key is Binding keyBinding)) return;
 
-                    var targetProperty = GetTargetProperty(element);
-                    SetTargetProperty(element, null);
-                    SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
-                    break;
-                }
+                var targetProperty = GetTargetProperty(element);
+                SetTargetProperty(element, null);
+                SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
+                break;
+            }
             case FrameworkContentElement element:
-                {
-                    element.DataContextChanged -= LangExtension_DataContextChanged;
-                    if (!(Key is Binding keyBinding)) return;
+            {
+                element.DataContextChanged -= LangExtension_DataContextChanged;
+                if (!(Key is Binding keyBinding)) return;
 
-                    var targetProperty = GetTargetProperty(element);
-                    SetTargetProperty(element, null);
-                    SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
-                    break;
-                }
+                var targetProperty = GetTargetProperty(element);
+                SetTargetProperty(element, null);
+                SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
+                break;
+            }
         }
     }
 
-    private BindingBase SetLangBinding(DependencyObject targetObject, DependencyProperty targetProperty, PropertyPath path, object dataContext)
+    private BindingBase SetLangBinding(DependencyObject targetObject, DependencyProperty targetProperty,
+        PropertyPath path, object dataContext)
     {
         if (targetProperty == null) return null;
 

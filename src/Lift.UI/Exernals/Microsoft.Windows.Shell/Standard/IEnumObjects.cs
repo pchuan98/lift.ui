@@ -8,7 +8,9 @@ namespace Standard;
 [ComImport]
 internal interface IEnumObjects
 {
-    void Next(uint celt, [In] ref Guid riid, [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.IUnknown, SizeParamIndex = 0)][Out] object[] rgelt, out uint pceltFetched);
+    void Next(uint celt, [In] ref Guid riid,
+        [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.IUnknown, SizeParamIndex = 0)] [Out]
+        object[] rgelt, out uint pceltFetched);
 
     void Skip(uint celt);
 

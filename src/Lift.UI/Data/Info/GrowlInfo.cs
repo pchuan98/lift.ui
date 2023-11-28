@@ -47,6 +47,5 @@ public class GrowlInfo
             ShowPersianDateTime = true,
             StaysOpen = false,
             IsCustom = true,
-
         };
 }

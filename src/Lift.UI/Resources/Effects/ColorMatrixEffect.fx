@@ -38,7 +38,7 @@ float t : register(c19);
 float4 main(float2 uv : TEXCOORD) : COLOR
 {
     float4 color = tex2D(implicitInput, uv);
-    
+
     float4x4 matrixA1 =
     {
         a, b, c, d,
@@ -46,6 +46,6 @@ float4 main(float2 uv : TEXCOORD) : COLOR
         k, l, m, n,
         p, q, r, s
     };
-    
-    return mul(matrixA1, color) + float4( e, j, o, t );
+
+    return mul(matrixA1, color) + float4(e, j, o, t);
 }

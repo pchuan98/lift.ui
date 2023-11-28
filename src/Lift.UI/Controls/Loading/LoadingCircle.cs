@@ -142,7 +142,8 @@ public class LoadingCircle : LoadingBase
             framesMove.KeyFrames.Add(frame6);
 
             Storyboard.SetTarget(framesMove, border);
-            Storyboard.SetTargetProperty(framesMove, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"));
+            Storyboard.SetTargetProperty(framesMove,
+                new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"));
             Storyboard.Children.Add(framesMove);
 
             if (NeedHidden)
@@ -176,6 +177,7 @@ public class LoadingCircle : LoadingBase
                 Storyboard.SetTargetProperty(framesVisibility, new PropertyPath("(UIElement.Visibility)"));
                 Storyboard.Children.Add(framesVisibility);
             }
+
             PrivateCanvas.Children.Add(border);
         }
 

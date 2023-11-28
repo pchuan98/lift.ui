@@ -13,6 +13,7 @@ public class Color2ChannelAConverter : IValueConverter
         {
             return brush.Color.A;
         }
+
         return 0;
     }
 
@@ -31,8 +32,10 @@ public class Color2ChannelAConverter : IValueConverter
             {
                 return parameter;
             }
+
             return parameter;
         }
+
         return parameter;
     }
 }

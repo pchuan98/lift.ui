@@ -71,6 +71,7 @@ public partial class Window
     #endregion
 
     #region Show/Hide NonClientArea Buttons
+
     public static readonly DependencyProperty ShowMinButtonProperty = DependencyProperty.Register(
         "ShowMinButton", typeof(bool), typeof(Window),
         new PropertyMetadata(ValueBoxes.TrueBox));
@@ -100,17 +101,21 @@ public partial class Window
         get => (bool) GetValue(ShowCloseButtonProperty);
         set => SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
     }
+
     #endregion
 
     #region SnapLayout
+
     private const int HTMAXBUTTON = 9;
     private const string ButtonMax = "ButtonMax";
     private const string ButtonRestore = "ButtonRestore";
     private Button _ButtonMax;
     private Button _ButtonRestore;
+
     #endregion
 
     private const int GW_HWNDNEXT = 2;
+
     public void FixCut()
     {
         if (WindowState == WindowState.Maximized)

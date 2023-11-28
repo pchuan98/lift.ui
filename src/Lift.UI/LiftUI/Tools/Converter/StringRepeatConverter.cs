@@ -28,12 +28,15 @@ public class StringRepeatConverter : IValueConverter
             {
                 return strValue;
             }
+
             for (var i = 0; i < num; i++)
             {
                 builder.Append(strValue);
             }
+
             return builder.ToString();
         }
+
         return string.Empty;
     }
 

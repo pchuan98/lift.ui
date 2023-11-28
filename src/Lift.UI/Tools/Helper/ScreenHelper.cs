@@ -8,7 +8,8 @@ namespace Lift.UI.Tools;
 
 public class ScreenHelper
 {
-    internal static void FindMaximumSingleMonitorRectangle(Rect windowRect, out Rect screenSubRect, out Rect monitorRect)
+    internal static void FindMaximumSingleMonitorRectangle(Rect windowRect, out Rect screenSubRect,
+        out Rect monitorRect)
     {
         var windowRect2 = new InteropValues.RECT(windowRect);
         FindMaximumSingleMonitorRectangle(windowRect2, out var rect, out var rect2);
@@ -16,11 +17,12 @@ public class ScreenHelper
         monitorRect = new Rect(rect2.Position, rect2.Size);
     }
 
-    private static void FindMaximumSingleMonitorRectangle(InteropValues.RECT windowRect, out InteropValues.RECT screenSubRect, out InteropValues.RECT monitorRect)
+    private static void FindMaximumSingleMonitorRectangle(InteropValues.RECT windowRect,
+        out InteropValues.RECT screenSubRect, out InteropValues.RECT monitorRect)
     {
         var rects = new List<InteropValues.RECT>();
         InteropMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero,
-            delegate (IntPtr hMonitor, IntPtr hdcMonitor, ref InteropValues.RECT rect, IntPtr lpData)
+            delegate(IntPtr hMonitor, IntPtr hdcMonitor, ref InteropValues.RECT rect, IntPtr lpData)
             {
                 var monitorInfo = default(InteropValues.MONITORINFO);
                 monitorInfo.cbSize = (uint) Marshal.SizeOf(typeof(InteropValues.MONITORINFO));

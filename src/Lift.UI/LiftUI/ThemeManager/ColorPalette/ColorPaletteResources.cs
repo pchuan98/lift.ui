@@ -24,6 +24,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private ApplicationTheme? _targetTheme;
+
     public ApplicationTheme? TargetTheme
     {
         get => _targetTheme;
@@ -43,7 +44,9 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     #region Brush
+
     private Brush? _regionBrush;
+
     public Brush? RegionBrush
     {
         get => _regionBrush;
@@ -55,11 +58,14 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
                 {
                     UpdateBrushes();
                 }
-            };
+            }
+
+            ;
         }
     }
 
     private Brush? _LightPrimaryBrush;
+
     public Brush? LightPrimaryBrush
     {
         get => _LightPrimaryBrush;
@@ -67,6 +73,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _PrimaryBrush;
+
     public Brush? PrimaryBrush
     {
         get => _PrimaryBrush;
@@ -74,6 +81,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DarkPrimaryBrush;
+
     public Brush? DarkPrimaryBrush
     {
         get => _DarkPrimaryBrush;
@@ -81,6 +89,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _PrimaryTextBrush;
+
     public Brush? PrimaryTextBrush
     {
         get => _PrimaryTextBrush;
@@ -88,12 +97,15 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _SecondaryTextBrush;
+
     public Brush? SecondaryTextBrush
     {
         get => _SecondaryTextBrush;
         set => Set(ref _SecondaryTextBrush, value);
     }
+
     private Brush? _ThirdlyTextBrush;
+
     public Brush? ThirdlyTextBrush
     {
         get => _ThirdlyTextBrush;
@@ -101,6 +113,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _ReverseTextBrush;
+
     public Brush? ReverseTextBrush
     {
         get => _ReverseTextBrush;
@@ -108,6 +121,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _TextIconBrush;
+
     public Brush? TextIconBrush
     {
         get => _TextIconBrush;
@@ -115,6 +129,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _BorderBrush;
+
     public Brush? BorderBrush
     {
         get => _BorderBrush;
@@ -122,6 +137,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _SecondaryBorderBrush;
+
     public Brush? SecondaryBorderBrush
     {
         get => _SecondaryBorderBrush;
@@ -129,6 +145,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _BackgroundBrush;
+
     public Brush? BackgroundBrush
     {
         get => _BackgroundBrush;
@@ -136,6 +153,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _SecondaryRegionBrush;
+
     public Brush? SecondaryRegionBrush
     {
         get => _SecondaryRegionBrush;
@@ -143,6 +161,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _ThirdlyRegionBrush;
+
     public Brush? ThirdlyRegionBrush
     {
         get => _ThirdlyRegionBrush;
@@ -150,6 +169,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _OddEvenRegionBrush;
+
     public Brush? OddEvenRegionBrush
     {
         get => _OddEvenRegionBrush;
@@ -157,6 +177,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _TitleBrush;
+
     public Brush? TitleBrush
     {
         get => _TitleBrush;
@@ -164,6 +185,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DefaultBrush;
+
     public Brush? DefaultBrush
     {
         get => _DefaultBrush;
@@ -171,6 +193,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DarkDefaultBrush;
+
     public Brush? DarkDefaultBrush
     {
         get => _DarkDefaultBrush;
@@ -178,6 +201,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _LightDangerBrush;
+
     public Brush? LightDangerBrush
     {
         get => _LightDangerBrush;
@@ -185,6 +209,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DangerBrush;
+
     public Brush? DangerBrush
     {
         get => _DangerBrush;
@@ -192,6 +217,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DarkDangerBrush;
+
     public Brush? DarkDangerBrush
     {
         get => _DarkDangerBrush;
@@ -199,6 +225,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _LightWarningBrush;
+
     public Brush? LightWarningBrush
     {
         get => _LightWarningBrush;
@@ -206,6 +233,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _WarningBrush;
+
     public Brush? WarningBrush
     {
         get => _WarningBrush;
@@ -213,6 +241,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DarkWarningBrush;
+
     public Brush? DarkWarningBrush
     {
         get => _DarkWarningBrush;
@@ -220,6 +249,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _LightInfoBrush;
+
     public Brush? LightInfoBrush
     {
         get => _LightInfoBrush;
@@ -227,6 +257,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _InfoBrush;
+
     public Brush? InfoBrush
     {
         get => _InfoBrush;
@@ -234,6 +265,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DarkInfoBrush;
+
     public Brush? DarkInfoBrush
     {
         get => _DarkInfoBrush;
@@ -241,6 +273,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _LightSuccessBrush;
+
     public Brush? LightSuccessBrush
     {
         get => _LightSuccessBrush;
@@ -248,6 +281,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _SuccessBrush;
+
     public Brush? SuccessBrush
     {
         get => _SuccessBrush;
@@ -255,6 +289,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DarkSuccessBrush;
+
     public Brush? DarkSuccessBrush
     {
         get => _DarkSuccessBrush;
@@ -262,6 +297,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _VioletBrush;
+
     public Brush? VioletBrush
     {
         get => _VioletBrush;
@@ -269,6 +305,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DarkVioletBrush;
+
     public Brush? DarkVioletBrush
     {
         get => _DarkVioletBrush;
@@ -276,6 +313,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DarkMaskBrush;
+
     public Brush? DarkMaskBrush
     {
         get => _DarkMaskBrush;
@@ -283,6 +321,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _DarkOpacityBrush;
+
     public Brush? DarkOpacityBrush
     {
         get => _DarkOpacityBrush;
@@ -290,6 +329,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _MainContentBackgroundBrush;
+
     public Brush? MainContentBackgroundBrush
     {
         get => _MainContentBackgroundBrush;
@@ -297,6 +337,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Brush? _MainContentForegroundBrush;
+
     public Brush? MainContentForegroundBrush
     {
         get => _MainContentForegroundBrush;
@@ -306,7 +347,9 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     #endregion
 
     #region Colors
+
     private Color? _regionColor;
+
     public Color? RegionColor
     {
         get => _regionColor;
@@ -318,11 +361,14 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
                 {
                     UpdateBrushes();
                 }
-            };
+            }
+
+            ;
         }
     }
 
     private Color? _LightPrimaryColor;
+
     public Color? LightPrimaryColor
     {
         get => _LightPrimaryColor;
@@ -330,6 +376,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _PrimaryColor;
+
     public Color? PrimaryColor
     {
         get => _PrimaryColor;
@@ -337,6 +384,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DarkPrimaryColor;
+
     public Color? DarkPrimaryColor
     {
         get => _DarkPrimaryColor;
@@ -344,6 +392,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _LightDangerColor;
+
     public Color? LightDangerColor
     {
         get => _LightDangerColor;
@@ -351,6 +400,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DangerColor;
+
     public Color? DangerColor
     {
         get => _DangerColor;
@@ -358,6 +408,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DarkDangerColor;
+
     public Color? DarkDangerColor
     {
         get => _DarkDangerColor;
@@ -365,6 +416,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _LightWarningColor;
+
     public Color? LightWarningColor
     {
         get => _LightWarningColor;
@@ -372,6 +424,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _WarningColor;
+
     public Color? WarningColor
     {
         get => _WarningColor;
@@ -379,6 +432,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DarkWarningColor;
+
     public Color? DarkWarningColor
     {
         get => _DarkWarningColor;
@@ -386,6 +440,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _LightInfoColor;
+
     public Color? LightInfoColor
     {
         get => _LightInfoColor;
@@ -393,6 +448,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _InfoColor;
+
     public Color? InfoColor
     {
         get => _InfoColor;
@@ -400,6 +456,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DarkInfoColor;
+
     public Color? DarkInfoColor
     {
         get => _DarkInfoColor;
@@ -407,6 +464,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _LightSuccessColor;
+
     public Color? LightSuccessColor
     {
         get => _LightSuccessColor;
@@ -414,6 +472,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _SuccessColor;
+
     public Color? SuccessColor
     {
         get => _SuccessColor;
@@ -421,6 +480,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DarkSuccessColor;
+
     public Color? DarkSuccessColor
     {
         get => _DarkSuccessColor;
@@ -428,6 +488,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _VioletColor;
+
     public Color? VioletColor
     {
         get => _VioletColor;
@@ -435,6 +496,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DarkVioletColor;
+
     public Color? DarkVioletColor
     {
         get => _DarkVioletColor;
@@ -442,6 +504,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _PrimaryTextColor;
+
     public Color? PrimaryTextColor
     {
         get => _PrimaryTextColor;
@@ -449,12 +512,15 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _SecondaryTextColor;
+
     public Color? SecondaryTextColor
     {
         get => _SecondaryTextColor;
         set => Set(ref _SecondaryTextColor, value);
     }
+
     private Color? _ThirdlyTextColor;
+
     public Color? ThirdlyTextColor
     {
         get => _ThirdlyTextColor;
@@ -462,6 +528,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _ReverseTextColor;
+
     public Color? ReverseTextColor
     {
         get => _ReverseTextColor;
@@ -469,6 +536,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _TextIconColor;
+
     public Color? TextIconColor
     {
         get => _TextIconColor;
@@ -476,6 +544,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _BorderColor;
+
     public Color? BorderColor
     {
         get => _BorderColor;
@@ -483,6 +552,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _SecondaryBorderColor;
+
     public Color? SecondaryBorderColor
     {
         get => _SecondaryBorderColor;
@@ -490,6 +560,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _BackgroundColor;
+
     public Color? BackgroundColor
     {
         get => _BackgroundColor;
@@ -497,6 +568,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _SecondaryRegionColor;
+
     public Color? SecondaryRegionColor
     {
         get => _SecondaryRegionColor;
@@ -504,6 +576,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _ThirdlyRegionColor;
+
     public Color? ThirdlyRegionColor
     {
         get => _ThirdlyRegionColor;
@@ -511,6 +584,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _OddEvenRegionColor;
+
     public Color? OddEvenRegionColor
     {
         get => _OddEvenRegionColor;
@@ -518,6 +592,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _TitleColor;
+
     public Color? TitleColor
     {
         get => _TitleColor;
@@ -525,6 +600,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _SecondaryTitleColor;
+
     public Color? SecondaryTitleColor
     {
         get => _SecondaryTitleColor;
@@ -532,6 +608,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DefaultColor;
+
     public Color? DefaultColor
     {
         get => _DefaultColor;
@@ -539,6 +616,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DarkDefaultColor;
+
     public Color? DarkDefaultColor
     {
         get => _DarkDefaultColor;
@@ -546,6 +624,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DarkMaskColor;
+
     public Color? DarkMaskColor
     {
         get => _DarkMaskColor;
@@ -553,6 +632,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _DarkOpacityColor;
+
     public Color? DarkOpacityColor
     {
         get => _DarkOpacityColor;
@@ -560,6 +640,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _MainContentBackgroundColor;
+
     public Color? MainContentBackgroundColor
     {
         get => _MainContentBackgroundColor;
@@ -567,6 +648,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _MainContentForegroundColor;
+
     public Color? MainContentForegroundColor
     {
         get => _MainContentForegroundColor;
@@ -574,6 +656,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     private Color? _ForthlyRegionColor;
+
     public Color? ForthlyRegionColor
     {
         get => _ForthlyRegionColor;
@@ -581,7 +664,9 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
     }
 
     #endregion
-    private bool Set(ref Brush? storage, Brush? value, bool updateBrushes = true, [CallerMemberName]string propertyName = null)
+
+    private bool Set(ref Brush? storage, Brush? value, bool updateBrushes = true,
+        [CallerMemberName] string propertyName = null)
     {
         if (storage != value)
         {
@@ -602,7 +687,9 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
 
         return false;
     }
-    private bool Set(ref Color? storage, Color? value, bool updateBrushes = true, [CallerMemberName] string propertyName = null)
+
+    private bool Set(ref Color? storage, Color? value, bool updateBrushes = true,
+        [CallerMemberName] string propertyName = null)
     {
         if (storage != value)
         {
@@ -628,6 +715,7 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
 
         return false;
     }
+
     private void UpdateBrushes()
     {
         if (IsInitializePending)
@@ -660,9 +748,10 @@ public class ColorPaletteResources : ResourceDictionary, ISupportInitialize
                     if (!originalsToOverrides.TryGetValue(originalBrush, out SolidColorBrush overrideBrush))
                     {
                         overrideBrush = originalBrush.CloneCurrentValue();
-                        overrideBrush.Color = (Color)this[colorKey];
+                        overrideBrush.Color = (Color) this[colorKey];
                         originalsToOverrides[originalBrush] = overrideBrush;
                     }
+
                     overrides.Add(entry.Key, overrideBrush);
                 }
             }

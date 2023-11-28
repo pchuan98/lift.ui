@@ -101,11 +101,13 @@ public static class StringExtension1
     /// <param name="from">The input encoding.</param>
     /// <param name="to">The output encoding.</param>
     /// <returns>A new <see cref="string"/> with its data converted to <paramref name="to"/>.</returns>
-    public static string ChangeEncoding(this string value, Encoding from, Encoding to) => to.GetString(value.GetBytes(from));
+    public static string ChangeEncoding(this string value, Encoding from, Encoding to) =>
+        to.GetString(value.GetBytes(from));
 
-    public static byte[] GetBytes(this string value, Encoding? encoding = null) => (encoding ?? Encoding.Default).GetBytes(value);
+    public static byte[] GetBytes(this string value, Encoding? encoding = null) =>
+        (encoding ?? Encoding.Default).GetBytes(value);
 
-     public static DirectoryInfo ToDirectoryInfo(this string value)
+    public static DirectoryInfo ToDirectoryInfo(this string value)
     {
         return new DirectoryInfo(value);
     }

@@ -30,11 +30,13 @@ public readonly struct SystemVersionInfo
 
     public int Revision { get; }
 
-    public bool Equals(SystemVersionInfo other) => Major == other.Major && Minor == other.Minor && Build == other.Build && Revision == other.Revision;
+    public bool Equals(SystemVersionInfo other) => Major == other.Major && Minor == other.Minor &&
+                                                   Build == other.Build && Revision == other.Revision;
 
     public override bool Equals(object obj) => obj is SystemVersionInfo other && Equals(other);
 
-    public override int GetHashCode() => Major.GetHashCode() ^ Minor.GetHashCode() ^ Build.GetHashCode() ^ Revision.GetHashCode();
+    public override int GetHashCode() =>
+        Major.GetHashCode() ^ Minor.GetHashCode() ^ Build.GetHashCode() ^ Revision.GetHashCode();
 
     public static bool operator ==(SystemVersionInfo left, SystemVersionInfo right) => left.Equals(right);
 
@@ -57,7 +59,7 @@ public readonly struct SystemVersionInfo
             return Build.CompareTo(other.Build);
         }
 
-        if(Revision != other.Revision)
+        if (Revision != other.Revision)
         {
             return Revision.CompareTo(other.Revision);
         }

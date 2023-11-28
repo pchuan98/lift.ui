@@ -8,7 +8,8 @@ namespace Lift.UI.Tools.Extension;
 /// </summary>
 internal class FixedNumberOfWordsTruncator : ITruncator
 {
-    public string Truncate(string value, int length, string truncationString, TruncateFrom truncateFrom = TruncateFrom.Right)
+    public string Truncate(string value, int length, string truncationString,
+        TruncateFrom truncateFrom = TruncateFrom.Right)
     {
         if (value == null)
         {
@@ -20,7 +21,7 @@ internal class FixedNumberOfWordsTruncator : ITruncator
             return value;
         }
 
-        var numberOfWords = value.Split((char[])null, StringSplitOptions.RemoveEmptyEntries).Count();
+        var numberOfWords = value.Split((char[]) null, StringSplitOptions.RemoveEmptyEntries).Count();
         if (numberOfWords <= length)
         {
             return value;
@@ -56,6 +57,7 @@ internal class FixedNumberOfWordsTruncator : ITruncator
                 lastCharactersWasWhiteSpace = false;
             }
         }
+
         return value + truncationString;
     }
 
@@ -84,6 +86,7 @@ internal class FixedNumberOfWordsTruncator : ITruncator
                 lastCharactersWasWhiteSpace = false;
             }
         }
+
         return truncationString + value;
     }
 }

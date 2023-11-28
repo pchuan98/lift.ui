@@ -166,7 +166,8 @@ public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSou
     }
 
     public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
-        nameof(Command), typeof(ICommand), typeof(SideMenuItem), new PropertyMetadata(default(ICommand), OnCommandChanged));
+        nameof(Command), typeof(ICommand), typeof(SideMenuItem),
+        new PropertyMetadata(default(ICommand), OnCommandChanged));
 
     private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -175,6 +176,7 @@ public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSou
         {
             oldCommand.CanExecuteChanged -= ctl.CanExecuteChanged;
         }
+
         if (e.NewValue is ICommand newCommand)
         {
             newCommand.CanExecuteChanged += ctl.CanExecuteChanged;
@@ -197,7 +199,8 @@ public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSou
     }
 
     public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register(
-        nameof(CommandTarget), typeof(IInputElement), typeof(SideMenuItem), new PropertyMetadata(default(IInputElement)));
+        nameof(CommandTarget), typeof(IInputElement), typeof(SideMenuItem),
+        new PropertyMetadata(default(IInputElement)));
 
     public IInputElement CommandTarget
     {

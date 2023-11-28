@@ -54,7 +54,8 @@ public class PreviewSlider : Slider
     }
 
     public static readonly DependencyProperty PreviewPositionProperty = DependencyProperty.RegisterAttached(
-        "PreviewPosition", typeof(double), typeof(PreviewSlider), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.Inherits));
+        "PreviewPosition", typeof(double), typeof(PreviewSlider),
+        new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetPreviewPosition(DependencyObject element, double value)
         => element.SetValue(PreviewPositionProperty, value);
@@ -96,39 +97,46 @@ public class PreviewSlider : Slider
 
         if (Orientation == Orientation.Horizontal)
         {
-
             var pos = !IsDirectionReversed
-                ? (e.GetPosition(this).X - _thumb.ActualWidth * 0.5) / _track.ActualWidth * (maximum - minimum) + minimum
-                : (1 - (e.GetPosition(this).X - _thumb.ActualWidth * 0.5) / _track.ActualWidth) * (maximum - minimum) + minimum;
+                ? (e.GetPosition(this).X - _thumb.ActualWidth * 0.5) / _track.ActualWidth * (maximum - minimum) +
+                  minimum
+                : (1 - (e.GetPosition(this).X - _thumb.ActualWidth * 0.5) / _track.ActualWidth) * (maximum - minimum) +
+                  minimum;
             if (pos > maximum || pos < 0)
             {
                 if (_thumb.IsMouseCaptureWithin)
                 {
                     PreviewPosition = Value;
                 }
+
                 return;
             }
 
             _transform.X = p.X - _previewContent.ActualWidth * 0.5;
-            _transform.Y = _thumb.TranslatePoint(new Point(), _adorner).Y - _previewContent.ActualHeight - PreviewContentOffset;
+            _transform.Y = _thumb.TranslatePoint(new Point(), _adorner).Y - _previewContent.ActualHeight -
+                           PreviewContentOffset;
 
             PreviewPosition = _thumb.IsMouseCaptureWithin ? Value : pos;
         }
         else
         {
             var pos = !IsDirectionReversed
-                ? (1 - (e.GetPosition(this).Y - _thumb.ActualHeight * 0.5) / _track.ActualHeight) * (maximum - minimum) + minimum
-                : (e.GetPosition(this).Y - _thumb.ActualHeight * 0.5) / _track.ActualHeight * (maximum - minimum) + minimum;
+                ? (1 - (e.GetPosition(this).Y - _thumb.ActualHeight * 0.5) / _track.ActualHeight) *
+                (maximum - minimum) + minimum
+                : (e.GetPosition(this).Y - _thumb.ActualHeight * 0.5) / _track.ActualHeight * (maximum - minimum) +
+                  minimum;
             if (pos > maximum || pos < 0)
             {
                 if (_thumb.IsMouseCaptureWithin)
                 {
                     PreviewPosition = Value;
                 }
+
                 return;
             }
 
-            _transform.X = _thumb.TranslatePoint(new Point(), _adorner).X - _previewContent.ActualWidth - PreviewContentOffset;
+            _transform.X = _thumb.TranslatePoint(new Point(), _adorner).X - _previewContent.ActualWidth -
+                           PreviewContentOffset;
             _transform.Y = p.Y - _previewContent.ActualHeight * 0.5;
 
             PreviewPosition = _thumb.IsMouseCaptureWithin ? Value : pos;
@@ -185,7 +193,8 @@ public class PreviewSlider : Slider
         {
             DataContext = this
         };
-        contentControl.SetBinding(ContentControl.ContentProperty, new Binding(PreviewContentProperty.Name) { Source = this });
+        contentControl.SetBinding(ContentControl.ContentProperty,
+            new Binding(PreviewContentProperty.Name) { Source = this });
         _previewContent = contentControl;
 
         _track = Template.FindName(TrackKey, this) as Track;

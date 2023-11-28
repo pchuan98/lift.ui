@@ -233,24 +233,24 @@ public class ScreenshotWindow : System.Windows.Window
             switch (e.Key)
             {
                 case Key.Left:
-                    {
-                        MoveTargetArea(MoveRect(_targetWindowRect, -1, rightFlag: -1));
-                    }
+                {
+                    MoveTargetArea(MoveRect(_targetWindowRect, -1, rightFlag: -1));
+                }
                     break;
                 case Key.Up:
-                    {
-                        MoveTargetArea(MoveRect(_targetWindowRect, bottomFlag: -1, topFlag: -1));
-                    }
+                {
+                    MoveTargetArea(MoveRect(_targetWindowRect, bottomFlag: -1, topFlag: -1));
+                }
                     break;
                 case Key.Right:
-                    {
-                        MoveTargetArea(MoveRect(_targetWindowRect, 1, rightFlag: 1));
-                    }
+                {
+                    MoveTargetArea(MoveRect(_targetWindowRect, 1, rightFlag: 1));
+                }
                     break;
                 case Key.Down:
-                    {
-                        MoveTargetArea(MoveRect(_targetWindowRect, bottomFlag: 1, topFlag: 1));
-                    }
+                {
+                    MoveTargetArea(MoveRect(_targetWindowRect, bottomFlag: 1, topFlag: 1));
+                }
                     break;
                 case Key.Enter:
                     _saveScreenshot = true;
@@ -260,7 +260,8 @@ public class ScreenshotWindow : System.Windows.Window
         }
     }
 
-    protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e) => _mousePointOld = e.GetPosition(this);
+    protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e) =>
+        _mousePointOld = e.GetPosition(this);
 
     protected override void OnPreviewMouseLeftButtonUp(MouseButtonEventArgs e) => _magnifier.Collapse();
 
@@ -542,7 +543,9 @@ public class ScreenshotWindow : System.Windows.Window
 
     private void SaveScreenshot()
     {
-        var cb = new CroppedBitmap(_imageSource, new Int32Rect(_targetWindowRect.Left, _targetWindowRect.Top, _targetWindowRect.Width, _targetWindowRect.Height));
+        var cb = new CroppedBitmap(_imageSource,
+            new Int32Rect(_targetWindowRect.Left, _targetWindowRect.Top, _targetWindowRect.Width,
+                _targetWindowRect.Height));
         _screenshot.OnSnapped(cb);
 
         Close();
@@ -560,12 +563,14 @@ public class ScreenshotWindow : System.Windows.Window
 
         var hbitmap = InteropMethods.CreateCompatibleBitmap(hdcSrc, desktopWindowWidth, desktopWindowHeight);
         var hOld = InteropMethods.SelectObject(hdcDest, hbitmap);
-        InteropMethods.BitBlt(hdcDest, 0, 0, desktopWindowWidth, desktopWindowHeight, hdcSrc, 0, 0, InteropValues.SRCCOPY);
+        InteropMethods.BitBlt(hdcDest, 0, 0, desktopWindowWidth, desktopWindowHeight, hdcSrc, 0, 0,
+            InteropValues.SRCCOPY);
         InteropMethods.SelectObject(hdcDest, hOld);
         InteropMethods.DeleteDC(hdcDest);
         InteropMethods.ReleaseDC(_desktopWindowHandle, hdcSrc);
 
-        var status = InteropMethods.Gdip.GdipCreateBitmapFromHBITMAP(new HandleRef(null, hbitmap), new HandleRef(null, IntPtr.Zero), out var bitmap);
+        var status = InteropMethods.Gdip.GdipCreateBitmapFromHBITMAP(new HandleRef(null, hbitmap),
+            new HandleRef(null, IntPtr.Zero), out var bitmap);
         if (status != InteropMethods.Gdip.Ok) throw InteropMethods.Gdip.StatusException(status);
 
         using var ms = new MemoryStream();
@@ -578,7 +583,8 @@ public class ScreenshotWindow : System.Windows.Window
             status = InteropMethods.Gdip.GdipGetImageEncoders(numEncoders, size, memory);
             if (status != InteropMethods.Gdip.Ok) throw InteropMethods.Gdip.StatusException(status);
 
-            var codecInfo = ImageCodecInfo.ConvertFromMemory(memory, numEncoders).FirstOrDefault(item => item.FormatID.Equals(BmpGuid));
+            var codecInfo = ImageCodecInfo.ConvertFromMemory(memory, numEncoders)
+                .FirstOrDefault(item => item.FormatID.Equals(BmpGuid));
             if (codecInfo == null) throw new Exception("ImageCodecInfo is null");
 
             var encoderParamsMemory = IntPtr.Zero;
@@ -637,7 +643,8 @@ public class ScreenshotWindow : System.Windows.Window
         }
     }
 
-    private static InteropValues.RECT MoveRect(InteropValues.RECT rect, int leftFlag = 0, int topFlag = 0, int rightFlag = 0, int bottomFlag = 0)
+    private static InteropValues.RECT MoveRect(InteropValues.RECT rect, int leftFlag = 0, int topFlag = 0,
+        int rightFlag = 0, int bottomFlag = 0)
     {
         var moveLength = Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)
             ? IntervalBigLength
@@ -717,6 +724,8 @@ public class ScreenshotWindow : System.Windows.Window
     private void MoveMagnifier(InteropValues.POINT point)
     {
         _magnifier.Margin = new Thickness(point.X + 4, point.Y + 26, 0, 0);
-        _visualPreview.Viewbox = new Rect(new Point(point.X - _viewboxSize.Width / 2 + 0.5, point.Y - _viewboxSize.Height / 2 + 0.5), _viewboxSize);
+        _visualPreview.Viewbox =
+            new Rect(new Point(point.X - _viewboxSize.Width / 2 + 0.5, point.Y - _viewboxSize.Height / 2 + 0.5),
+                _viewboxSize);
     }
 }

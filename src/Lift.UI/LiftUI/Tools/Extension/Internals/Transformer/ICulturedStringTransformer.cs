@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+
 namespace Lift.UI.Tools.Extension;
 
 public interface ICulturedStringTransformer : IStringTransformer

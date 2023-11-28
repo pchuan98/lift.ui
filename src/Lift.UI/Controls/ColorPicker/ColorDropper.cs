@@ -19,6 +19,7 @@ internal class ColorDropper
     Window window;
     Rectangle rect;
     TextBlock txtHex;
+
     public ColorDropper(ColorPicker colorPicker)
     {
         _colorPicker = colorPicker;
@@ -104,8 +105,11 @@ internal class ColorDropper
         InteropMethods.SetWindowPlacement(handle, InteropValues.ShowWindowCommands.Restore);
 
         var position = InteropMethods.GetCursorPos();
-        InteropMethods.SetWindowPos(handle, IntPtr.Zero, (int) position.X - 20, (int) position.Y - -20, 0, 0, (int) InteropValues.SetWindowPosFlags.IgnoreZOrder | (int) InteropValues.SetWindowPosFlags.IgnoreResize | (int) InteropValues.SetWindowPosFlags.ShowWindow);
+        InteropMethods.SetWindowPos(handle, IntPtr.Zero, (int) position.X - 20, (int) position.Y - -20, 0, 0,
+            (int) InteropValues.SetWindowPosFlags.IgnoreZOrder | (int) InteropValues.SetWindowPosFlags.IgnoreResize |
+            (int) InteropValues.SetWindowPosFlags.ShowWindow);
     }
+
     private void MouseHook_StatusChanged(object sender, MouseHookEventArgs e)
     {
         UpdateCursor(true);

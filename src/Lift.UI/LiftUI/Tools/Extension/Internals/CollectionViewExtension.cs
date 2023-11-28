@@ -34,6 +34,7 @@ public class CollectionViewExtension<TSource>
             {
                 _view.SortDescriptions.Add(s);
             }
+
             _view.GroupDescriptions.Clear();
             foreach (var g in _groupDescriptions)
             {
@@ -94,7 +95,8 @@ public class CollectionViewExtension<TSource>
         return OrderBy(keySelector, false, ListSortDirection.Descending);
     }
 
-    private CollectionViewExtension<TSource> OrderBy<TKey>(Expression<Func<TSource, TKey>> keySelector, bool clear, ListSortDirection direction)
+    private CollectionViewExtension<TSource> OrderBy<TKey>(Expression<Func<TSource, TKey>> keySelector, bool clear,
+        ListSortDirection direction)
     {
         string path = GetPropertyPath(keySelector.Body);
         if (clear)
@@ -122,6 +124,7 @@ public class CollectionViewExtension<TSource>
             names.Push(memberExpr.Member.Name);
             expr = memberExpr.Expression;
         }
+
         return String.Join(".", names.ToArray());
     }
 }

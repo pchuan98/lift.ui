@@ -4,6 +4,7 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+
 namespace Lift.UI.Tools.Command;
 
 internal sealed class AsyncDelegateCommand : IDelegateCommand
@@ -43,7 +44,6 @@ internal sealed class AsyncDelegateCommand : IDelegateCommand
             _isExecuting = false;
             RaiseCanExecuteChanged();
         }
-
     }
 
     public void RaiseCanExecuteChanged()

@@ -24,11 +24,9 @@ internal struct CREATESTRUCT
 
     public WS style;
 
-    [MarshalAs(UnmanagedType.LPWStr)]
-    public string lpszName;
+    [MarshalAs(UnmanagedType.LPWStr)] public string lpszName;
 
-    [MarshalAs(UnmanagedType.LPWStr)]
-    public string lpszClass;
+    [MarshalAs(UnmanagedType.LPWStr)] public string lpszClass;
 
     public WS_EX dwExStyle;
 }

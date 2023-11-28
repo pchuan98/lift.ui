@@ -90,7 +90,8 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty EditorProperty = DependencyProperty.Register(
-        nameof(Editor), typeof(PropertyEditorBase), typeof(PropertyItem), new PropertyMetadata(default(PropertyEditorBase)));
+        nameof(Editor), typeof(PropertyEditorBase), typeof(PropertyItem),
+        new PropertyMetadata(default(PropertyEditorBase)));
 
     public PropertyEditorBase Editor
     {
@@ -99,7 +100,8 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty EditorElementProperty = DependencyProperty.Register(
-        nameof(EditorElement), typeof(FrameworkElement), typeof(PropertyItem), new PropertyMetadata(default(FrameworkElement)));
+        nameof(EditorElement), typeof(FrameworkElement), typeof(PropertyItem),
+        new PropertyMetadata(default(FrameworkElement)));
 
     public FrameworkElement EditorElement
     {

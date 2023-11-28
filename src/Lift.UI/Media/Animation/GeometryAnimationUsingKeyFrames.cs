@@ -27,7 +27,8 @@ public class GeometryAnimationUsingKeyFrames : GeometryAnimationBase, IKeyFrameA
                 return null;
             }
 
-            return _strings ??= Regex.Split(_keyFrames[0].Value.ToString(CultureInfo.InvariantCulture), RegexPatterns.DigitsPattern);
+            return _strings ??= Regex.Split(_keyFrames[0].Value.ToString(CultureInfo.InvariantCulture),
+                RegexPatterns.DigitsPattern);
         }
     }
 
@@ -44,7 +45,8 @@ public class GeometryAnimationUsingKeyFrames : GeometryAnimationBase, IKeyFrameA
 
     public new GeometryAnimationUsingKeyFrames Clone() => (GeometryAnimationUsingKeyFrames) base.Clone();
 
-    public new GeometryAnimationUsingKeyFrames CloneCurrentValue() => (GeometryAnimationUsingKeyFrames) base.CloneCurrentValue();
+    public new GeometryAnimationUsingKeyFrames CloneCurrentValue() =>
+        (GeometryAnimationUsingKeyFrames) base.CloneCurrentValue();
 
     protected override bool FreezeCore(bool isChecking)
     {
@@ -165,7 +167,8 @@ public class GeometryAnimationUsingKeyFrames : GeometryAnimationBase, IKeyFrameA
     [EditorBrowsable(EditorBrowsableState.Advanced)]
     protected virtual void AddText(string childText) => throw new InvalidOperationException("Animation_NoTextChildren");
 
-    protected override Geometry GetCurrentValueCore(Geometry defaultOriginValue, Geometry defaultDestinationValue, AnimationClock animationClock)
+    protected override Geometry GetCurrentValueCore(Geometry defaultOriginValue, Geometry defaultDestinationValue,
+        AnimationClock animationClock)
     {
         if (_keyFrames == null)
         {
@@ -190,12 +193,14 @@ public class GeometryAnimationUsingKeyFrames : GeometryAnimationBase, IKeyFrameA
 
         var currentResolvedKeyFrameIndex = 0;
 
-        while (currentResolvedKeyFrameIndex < keyFrameCount && currentTime > _sortedResolvedKeyFrames[currentResolvedKeyFrameIndex]._resolvedKeyTime)
+        while (currentResolvedKeyFrameIndex < keyFrameCount &&
+               currentTime > _sortedResolvedKeyFrames[currentResolvedKeyFrameIndex]._resolvedKeyTime)
         {
             currentResolvedKeyFrameIndex++;
         }
 
-        while (currentResolvedKeyFrameIndex < maxKeyFrameIndex && currentTime == _sortedResolvedKeyFrames[currentResolvedKeyFrameIndex + 1]._resolvedKeyTime)
+        while (currentResolvedKeyFrameIndex < maxKeyFrameIndex &&
+               currentTime == _sortedResolvedKeyFrames[currentResolvedKeyFrameIndex + 1]._resolvedKeyTime)
         {
             currentResolvedKeyFrameIndex++;
         }
@@ -215,9 +220,11 @@ public class GeometryAnimationUsingKeyFrames : GeometryAnimationBase, IKeyFrameA
 
             if (currentResolvedKeyFrameIndex == 0)
             {
-                AnimationHelper.DecomposeGeometryStr(defaultOriginValue.ToString(CultureInfo.InvariantCulture), out fromValue);
+                AnimationHelper.DecomposeGeometryStr(defaultOriginValue.ToString(CultureInfo.InvariantCulture),
+                    out fromValue);
 
-                currentSegmentProgress = currentTime.TotalMilliseconds / _sortedResolvedKeyFrames[0]._resolvedKeyTime.TotalMilliseconds;
+                currentSegmentProgress = currentTime.TotalMilliseconds /
+                                         _sortedResolvedKeyFrames[0]._resolvedKeyTime.TotalMilliseconds;
             }
             else
             {
@@ -227,12 +234,14 @@ public class GeometryAnimationUsingKeyFrames : GeometryAnimationBase, IKeyFrameA
                 fromValue = GetResolvedKeyFrameValue(previousResolvedKeyFrameIndex);
 
                 var segmentCurrentTime = currentTime - previousResolvedKeyTime;
-                var segmentDuration = _sortedResolvedKeyFrames[currentResolvedKeyFrameIndex]._resolvedKeyTime - previousResolvedKeyTime;
+                var segmentDuration = _sortedResolvedKeyFrames[currentResolvedKeyFrameIndex]._resolvedKeyTime -
+                                      previousResolvedKeyTime;
 
                 currentSegmentProgress = segmentCurrentTime.TotalMilliseconds / segmentDuration.TotalMilliseconds;
             }
 
-            currentIterationValue = GetResolvedKeyFrame(currentResolvedKeyFrameIndex).InterpolateValue(fromValue, currentSegmentProgress);
+            currentIterationValue = GetResolvedKeyFrame(currentResolvedKeyFrameIndex)
+                .InterpolateValue(fromValue, currentSegmentProgress);
         }
 
         return AnimationHelper.ComposeGeometry(Strings, currentIterationValue);
@@ -383,7 +392,8 @@ public class GeometryAnimationUsingKeyFrames : GeometryAnimationBase, IKeyFrameA
             {
                 case KeyTimeType.Percent:
 
-                    _sortedResolvedKeyFrames[index]._resolvedKeyTime = TimeSpan.FromMilliseconds(keyTime.Percent * calculationDuration.TotalMilliseconds);
+                    _sortedResolvedKeyFrames[index]._resolvedKeyTime =
+                        TimeSpan.FromMilliseconds(keyTime.Percent * calculationDuration.TotalMilliseconds);
                     index++;
                     break;
 
@@ -452,7 +462,9 @@ public class GeometryAnimationUsingKeyFrames : GeometryAnimationBase, IKeyFrameA
             }
 
             long segmentCount = block.EndIndex - block.BeginIndex + 1;
-            var uniformTimeStep = TimeSpan.FromTicks((_sortedResolvedKeyFrames[block.EndIndex]._resolvedKeyTime - blockBeginTime).Ticks / segmentCount);
+            var uniformTimeStep =
+                TimeSpan.FromTicks((_sortedResolvedKeyFrames[block.EndIndex]._resolvedKeyTime - blockBeginTime).Ticks /
+                                   segmentCount);
 
             index = block.BeginIndex;
             var resolvedTime = blockBeginTime + uniformTimeStep;
@@ -499,22 +511,25 @@ public class GeometryAnimationUsingKeyFrames : GeometryAnimationBase, IKeyFrameA
                     segmentLengths.Add(totalLength);
                     prevKeyValue = currentKeyValue;
                     index++;
-                }
-                while (index < maxKeyFrameIndex && _keyFrames[index].KeyTime.Type == KeyTimeType.Paced);
+                } while (index < maxKeyFrameIndex && _keyFrames[index].KeyTime.Type == KeyTimeType.Paced);
+
                 totalLength += Math.Abs(_keyFrames[index].Numbers[0] - prevKeyValue[0]);
 
                 var pacedBlockDuration = _sortedResolvedKeyFrames[index]._resolvedKeyTime - prePacedBlockKeyTime;
 
-                for (int i = 0, currentKeyFrameIndex = firstPacedBlockKeyFrameIndex; i < segmentLengths.Count; i++, currentKeyFrameIndex++)
+                for (int i = 0, currentKeyFrameIndex = firstPacedBlockKeyFrameIndex;
+                     i < segmentLengths.Count;
+                     i++, currentKeyFrameIndex++)
                 {
-                    _sortedResolvedKeyFrames[currentKeyFrameIndex]._resolvedKeyTime = prePacedBlockKeyTime + TimeSpan.FromMilliseconds(segmentLengths[i] / totalLength * pacedBlockDuration.TotalMilliseconds);
+                    _sortedResolvedKeyFrames[currentKeyFrameIndex]._resolvedKeyTime = prePacedBlockKeyTime +
+                        TimeSpan.FromMilliseconds(
+                            segmentLengths[i] / totalLength * pacedBlockDuration.TotalMilliseconds);
                 }
             }
             else
             {
                 index++;
             }
-        }
-        while (index < maxKeyFrameIndex);
+        } while (index < maxKeyFrameIndex);
     }
 }

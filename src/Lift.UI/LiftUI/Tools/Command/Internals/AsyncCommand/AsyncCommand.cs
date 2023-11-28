@@ -19,22 +19,31 @@ public class AsyncCommand<TResult> : AsyncCommandBase, INotifyPropertyChanged
     private readonly ManualResetAsyncCommand _manualResetAsyncCommand;
     private bool _isCancelUpTask;
     private bool isSuspend;
+
     public bool IsSuspend
     {
         get => isSuspend;
-        private set { isSuspend = value; OnPropertyChanged(); }
+        private set
+        {
+            isSuspend = value;
+            OnPropertyChanged();
+        }
     }
+
     private NotifyTaskCompletion<TResult> _execution;
+
     public AsyncCommand(Func<Task<TResult>> command)
     {
         _command1 = command;
     }
+
     public AsyncCommand(Func<CancellationToken, Task<TResult>> command, bool isCancelUpTask)
     {
         _isCancelUpTask = isCancelUpTask;
         _command2 = command;
         _cancelCommand = new CancelAsyncCommand();
     }
+
     public AsyncCommand(Func<CancellationToken, ManualResetEvent, Task<TResult>> command, bool isCancelUpTask)
     {
         _isCancelUpTask = isCancelUpTask;
@@ -50,7 +59,10 @@ public class AsyncCommand<TResult> : AsyncCommandBase, INotifyPropertyChanged
 
     private void _cancelCommand_OnCancel()
     {
-        { if (isSuspend) _manualResetAsyncCommand.Execute(null); };
+        {
+            if (isSuspend) _manualResetAsyncCommand.Execute(null);
+        }
+        ;
     }
 
     public override bool CanExecute(object parameter)
@@ -87,7 +99,8 @@ public class AsyncCommand<TResult> : AsyncCommandBase, INotifyPropertyChanged
             if (_isCancelUpTask) _cancelCommand.Execute(null);
             _cancelCommand.NotifyCommandStarting();
             _manualResetAsyncCommand.NotifyCommandStarting();
-            Execution = new NotifyTaskCompletion<TResult>(_command3(_cancelCommand.Token, _manualResetAsyncCommand.manualResetEvent));
+            Execution = new NotifyTaskCompletion<TResult>(_command3(_cancelCommand.Token,
+                _manualResetAsyncCommand.manualResetEvent));
             RaiseCanExecuteChanged();
             await Execution.TaskCompletion;
             if (Execution.IsCompleted)
@@ -98,6 +111,7 @@ public class AsyncCommand<TResult> : AsyncCommandBase, INotifyPropertyChanged
                 _manualResetAsyncCommand.OnStateChang -= _manualResetAsyncCommand_OnStateChang;
             }
         }
+
         RaiseCanExecuteChanged();
     }
 
@@ -115,7 +129,9 @@ public class AsyncCommand<TResult> : AsyncCommandBase, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) =>
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }
 
 public class AsyncCommand<T, TResult> : AsyncCommandBase, INotifyPropertyChanged
@@ -127,23 +143,31 @@ public class AsyncCommand<T, TResult> : AsyncCommandBase, INotifyPropertyChanged
     private readonly ManualResetAsyncCommand _manualResetAsyncCommand;
     private bool _isCancelUpTask;
     private bool isSuspend;
+
     public bool IsSuspend
     {
         get => isSuspend;
-        private set { isSuspend = value; OnPropertyChanged(); }
+        private set
+        {
+            isSuspend = value;
+            OnPropertyChanged();
+        }
     }
+
     private NotifyTaskCompletion<TResult> _execution;
 
     public AsyncCommand(Func<T, Task<TResult>> command)
     {
         _command1 = command;
     }
+
     public AsyncCommand(Func<T, CancellationToken, Task<TResult>> command, bool isCancelUpTask)
     {
         _isCancelUpTask = isCancelUpTask;
         _command2 = command;
         _cancelCommand = new CancelAsyncCommand();
     }
+
     public AsyncCommand(Func<T, CancellationToken, ManualResetEvent, Task<TResult>> command, bool isCancelUpTask)
     {
         _isCancelUpTask = isCancelUpTask;
@@ -196,9 +220,11 @@ public class AsyncCommand<T, TResult> : AsyncCommandBase, INotifyPropertyChanged
             {
                 _cancelCommand.Execute(null);
             }
+
             _cancelCommand.NotifyCommandStarting();
             _manualResetAsyncCommand.NotifyCommandStarting();
-            Execution = new NotifyTaskCompletion<TResult>(_command3((T) parameter, _cancelCommand.Token, _manualResetAsyncCommand.manualResetEvent));
+            Execution = new NotifyTaskCompletion<TResult>(_command3((T) parameter, _cancelCommand.Token,
+                _manualResetAsyncCommand.manualResetEvent));
             RaiseCanExecuteChanged();
             await Execution.TaskCompletion;
             if (Execution.IsCompleted)
@@ -209,11 +235,13 @@ public class AsyncCommand<T, TResult> : AsyncCommandBase, INotifyPropertyChanged
                 _manualResetAsyncCommand.OnStateChang -= _manualResetAsyncCommand_OnStateChang;
             }
         }
+
         RaiseCanExecuteChanged();
     }
 
     public ICommand CancelCommand => _cancelCommand;
     public ICommand ManualResetAsyncCommand => _manualResetAsyncCommand;
+
     public NotifyTaskCompletion<TResult> Execution
     {
         get => _execution;
@@ -225,6 +253,8 @@ public class AsyncCommand<T, TResult> : AsyncCommandBase, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) =>
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }
 #endif

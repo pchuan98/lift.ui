@@ -12,8 +12,8 @@ public class ProgressBarWidthConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
-        var contentWidth = (double)values[0];
-        var parentMinWidth = (double)values[1];
+        var contentWidth = (double) values[0];
+        var parentMinWidth = (double) values[1];
 
         return Math.Max(contentWidth, parentMinWidth);
     }

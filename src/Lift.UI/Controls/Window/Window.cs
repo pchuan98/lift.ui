@@ -50,7 +50,8 @@ namespace Lift.UI.Controls
 
         static Window()
         {
-            StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(ResourceHelper.GetResourceInternal<Style>(ResourceToken.WindowWin10)));
+            StyleProperty.OverrideMetadata(typeof(Window),
+                new FrameworkPropertyMetadata(ResourceHelper.GetResourceInternal<Style>(ResourceToken.WindowWin10)));
         }
 
         public Window()
@@ -78,7 +79,7 @@ namespace Lift.UI.Controls
             Loaded += (s, e) => OnLoaded(e);
         }
 
-        #endregion 
+        #endregion
 
         #region prop
 
@@ -374,18 +375,25 @@ namespace Lift.UI.Controls
             switch (msg)
             {
                 case InteropValues.WM_WINDOWPOSCHANGED:
-                    Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
+                    Padding = WindowState == WindowState.Maximized
+                        ? WindowHelper.WindowMaximizedPadding
+                        : _commonPadding;
                     break;
                 case InteropValues.WM_GETMINMAXINFO:
                     WmGetMinMaxInfo(hwnd, lparam);
-                    Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
+                    Padding = WindowState == WindowState.Maximized
+                        ? WindowHelper.WindowMaximizedPadding
+                        : _commonPadding;
                     break;
+
                 #region SnapLayout
+
                 case InteropValues.WM_NCHITTEST:
                     try
                     {
                         int x = lparam.ToInt32() & 0xffff;
-                        if (OSVersionHelper.IsWindows11_OrGreater && ShowNonClientArea && ShowMaxButton && ResizeMode is not ResizeMode.NoResize and not ResizeMode.CanMinimize)
+                        if (OSVersionHelper.IsWindows11_OrGreater && ShowNonClientArea && ShowMaxButton &&
+                            ResizeMode is not ResizeMode.NoResize and not ResizeMode.CanMinimize)
                         {
                             int y = lparam.ToInt32() >> 16;
                             var DPI_SCALE = DpiHelper.LogicalToDeviceUnitsScalingFactorX;
@@ -393,8 +401,8 @@ namespace Lift.UI.Controls
                             if (_button != null)
                             {
                                 var rect = new Rect(_button.PointToScreen(
-                                new Point()),
-                                new Size(_button.Width * DPI_SCALE, _button.Height * DPI_SCALE));
+                                        new Point()),
+                                    new Size(_button.Width * DPI_SCALE, _button.Height * DPI_SCALE));
                                 if (rect.Contains(new Point(x, y)))
                                 {
                                     handled = true;
@@ -404,6 +412,7 @@ namespace Lift.UI.Controls
                                 {
                                     _button.Background = OtherButtonBackground;
                                 }
+
                                 return new IntPtr(HTMAXBUTTON);
                             }
                         }
@@ -412,9 +421,11 @@ namespace Lift.UI.Controls
                     {
                         handled = true;
                     }
+
                     break;
                 case InteropValues.WM_NCLBUTTONDOWN:
-                    if (OSVersionHelper.IsWindows11_OrGreater && ShowNonClientArea && ShowMaxButton && ResizeMode is not ResizeMode.NoResize and not ResizeMode.CanMinimize)
+                    if (OSVersionHelper.IsWindows11_OrGreater && ShowNonClientArea && ShowMaxButton &&
+                        ResizeMode is not ResizeMode.NoResize and not ResizeMode.CanMinimize)
                     {
                         int x = lparam.ToInt32() & 0xffff;
                         int y = lparam.ToInt32() >> 16;
@@ -423,19 +434,25 @@ namespace Lift.UI.Controls
                         if (_button != null)
                         {
                             var rect = new Rect(_button.PointToScreen(
-                            new Point()),
-                            new Size(_button.Width * DPI_SCALE, _button.Height * DPI_SCALE));
+                                    new Point()),
+                                new Size(_button.Width * DPI_SCALE, _button.Height * DPI_SCALE));
                             if (rect.Contains(new Point(x, y)))
                             {
                                 handled = true;
-                                IInvokeProvider invokeProv = new ButtonAutomationPeer(_button).GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                                IInvokeProvider invokeProv =
+                                    new ButtonAutomationPeer(_button).GetPattern(PatternInterface.Invoke) as
+                                        IInvokeProvider;
                                 invokeProv?.Invoke();
                             }
                         }
                     }
+
                     break;
+
                 #endregion
+
                 #region System Command
+
                 case InteropValues.WM_SYSCOMMAND:
                     if (!ShowMaxButton)
                     {
@@ -444,6 +461,7 @@ namespace Lift.UI.Controls
                             handled = true;
                         }
                     }
+
                     if (!ShowMinButton)
                     {
                         if ((int) wparam == InteropValues.SC_MINIMIZE)
@@ -451,6 +469,7 @@ namespace Lift.UI.Controls
                             handled = true;
                         }
                     }
+
                     if (!ShowCloseButton)
                     {
                         if ((int) wparam == InteropValues.SC_CLOSE)
@@ -458,14 +477,18 @@ namespace Lift.UI.Controls
                             handled = true;
                         }
                     }
+
                     break;
                 case InteropValues.WM_NCLBUTTONDBLCLK:
                     if (!ShowMaxButton)
                     {
                         handled = true;
                     }
+
                     break;
+
                 #endregion
+
                 default:
                     handled = false;
                     break;

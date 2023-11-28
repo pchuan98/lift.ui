@@ -114,7 +114,6 @@ public static class RegistryHelper
                     {
                         Location.DeleteSubKey(Folder, true);
                         return true;
-
                     }
                     else
                     {

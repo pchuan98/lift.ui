@@ -10,6 +10,5 @@ internal class SHARDAPPIDINFOLINK
 {
     private IntPtr psl;
 
-    [MarshalAs(UnmanagedType.LPWStr)]
-    private string pszAppID;
+    [MarshalAs(UnmanagedType.LPWStr)] private string pszAppID;
 }

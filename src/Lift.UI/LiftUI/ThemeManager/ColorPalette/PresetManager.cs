@@ -7,7 +7,7 @@ namespace Lift.UI.Themes;
 
 public class PresetManager : BindablePropertyBase
 {
-    private Preset _colorPreset ;
+    private Preset _colorPreset;
 
     private PresetManager()
     {

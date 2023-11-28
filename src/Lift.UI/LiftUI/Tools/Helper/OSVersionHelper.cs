@@ -190,6 +190,7 @@ public static class OSVersionHelper
         osv.dwOSVersionInfoSize = (uint) Marshal.SizeOf(osv);
 #endif
         InteropMethods.RtlGetVersion(out osv);
-        return new Version((int) osv.dwMajorVersion, (int) osv.dwMinorVersion, (int) osv.dwBuildNumber, (int) osv.dwRevision);
+        return new Version((int) osv.dwMajorVersion, (int) osv.dwMinorVersion, (int) osv.dwBuildNumber,
+            (int) osv.dwRevision);
     }
 }

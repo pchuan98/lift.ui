@@ -122,6 +122,7 @@ public class ExtendedVisualStateManager : VisualStateManager
             TransferLocalValue(panel, Panel.BackgroundProperty, CachedBackgroundProperty);
             panel.Background = Brushes.Transparent;
         }
+
         sb.Completed += delegate
         {
             if (Equals(GetTransitionEffectStoryboard(stateGroupsRoot), sb))
@@ -157,6 +158,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                             renderTransform = new TranslateTransform();
                             parent.RenderTransform = renderTransform;
                         }
+
                         renderTransform.X = num3;
                         renderTransform.Y = num4;
                     }
@@ -225,6 +227,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                     Storyboard.SetTargetProperty(animation3, new PropertyPath(FrameworkElement.WidthProperty));
                     storyboard.Children.Add(animation3);
                 }
+
                 if (!IsClose(parent.Height, newRect.Height))
                 {
                     var animation5 = new DoubleAnimation
@@ -237,6 +240,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                     Storyboard.SetTargetProperty(animation5, new PropertyPath(FrameworkElement.HeightProperty));
                     storyboard.Children.Add(animation5);
                 }
+
                 if (parent.DestinationVisibilityCache == Visibility.Collapsed)
                 {
                     var margin = parent.Margin;
@@ -259,6 +263,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                         Storyboard.SetTargetProperty(frames, new PropertyPath(FrameworkElement.MarginProperty));
                         storyboard.Children.Add(frames);
                     }
+
                     if (!IsClose(parent.MinWidth, 0.0))
                     {
                         var animation7 = new DoubleAnimation
@@ -272,6 +277,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                             new PropertyPath(FrameworkElement.MinWidthProperty));
                         storyboard.Children.Add(animation7);
                     }
+
                     if (!IsClose(parent.MinHeight, 0.0))
                     {
                         var animation9 = new DoubleAnimation
@@ -288,6 +294,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 }
             }
         }
+
         foreach (var element2 in oldOpacities.Keys)
         {
             if (element2.Parent is WrapperCanvas canvas2)
@@ -309,6 +316,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 }
             }
         }
+
         return storyboard;
     }
 
@@ -330,9 +338,11 @@ public class ExtendedVisualStateManager : VisualStateManager
                         layoutStoryboard.Children.Add(timeline);
                     }
                 }
+
                 SetLayoutStoryboard(state.Storyboard, layoutStoryboard);
             }
         }
+
         if (layoutStoryboard == null)
             return new Storyboard();
         return layoutStoryboard;
@@ -361,6 +371,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 }
             }
         }
+
         foreach (var record in originalValueRecords)
         {
             if (!list.Contains(record.Element))
@@ -373,6 +384,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                             list.Add(element3);
             }
         }
+
         for (var i = 0; i < list.Count; i++)
         {
             var reference = list[i];
@@ -385,11 +397,13 @@ public class ExtendedVisualStateManager : VisualStateManager
                     list.Add(parent);
                 for (var j = 0; j < VisualTreeHelper.GetChildrenCount(parent); j++)
                 {
-                    if (VisualTreeHelper.GetChild(parent, j) is FrameworkElement child && !list.Contains(child) && !(child is WrapperCanvas))
+                    if (VisualTreeHelper.GetChild(parent, j) is FrameworkElement child && !list.Contains(child) &&
+                        !(child is WrapperCanvas))
                         list.Add(child);
                 }
             }
         }
+
         return list;
     }
 
@@ -417,6 +431,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 transition = transition2;
             }
         }
+
         return transition;
     }
 
@@ -430,6 +445,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                     var valueFromTimeline = GetValueFromTimeline(timeline, out var flag);
                     return flag && valueFromTimeline is double d && Math.Abs(d) < 0.001;
                 }
+
         if (previousState?.Storyboard == null)
             return Math.Abs(stateGroupsRoot.Opacity) < 0.001;
         foreach (var timeline2 in previousState.Storyboard.Children)
@@ -484,6 +500,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 actualWidth = element.RenderSize.Width;
                 actualHeight = element.RenderSize.Height;
             }
+
         actualWidth = element.Visibility == Visibility.Collapsed ? 0.0 : actualWidth;
         actualHeight = element.Visibility == Visibility.Collapsed ? 0.0 : actualHeight;
         var margin = element.Margin;
@@ -529,6 +546,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 if (element.Parent is WrapperCanvas parent)
                     dictionary.Add(element, parent.Opacity);
             }
+
         for (var i = originalValueRecords.Count - 1; i >= 0; i--)
         {
             var record = originalValueRecords[i];
@@ -538,6 +556,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 dictionary.Add(record.Element, num2);
             }
         }
+
         foreach (var timeline in layoutStoryboard.Children)
         {
             var key = (FrameworkElement) GetTimelineTarget(control, templateRoot, timeline);
@@ -548,6 +567,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 dictionary.Add(key, num3);
             }
         }
+
         return dictionary;
     }
 
@@ -579,8 +599,10 @@ public class ExtendedVisualStateManager : VisualStateManager
             {
                 layoutRect = GetLayoutRect(element);
             }
+
             dictionary.Add(element, layoutRect);
         }
+
         return dictionary;
     }
 
@@ -622,36 +644,43 @@ public class ExtendedVisualStateManager : VisualStateManager
             gotValue = true;
             return frames.KeyFrames[0].Value;
         }
+
         if (timeline is DoubleAnimationUsingKeyFrames frames2)
         {
             gotValue = true;
             return frames2.KeyFrames[0].Value;
         }
+
         if (timeline is DoubleAnimation animation)
         {
             gotValue = true;
             return animation.To;
         }
+
         if (timeline is ThicknessAnimationUsingKeyFrames frames3)
         {
             gotValue = true;
             return frames3.KeyFrames[0].Value;
         }
+
         if (timeline is ThicknessAnimation animation2)
         {
             gotValue = true;
             return animation2.To;
         }
+
         if (timeline is Int32AnimationUsingKeyFrames frames4)
         {
             gotValue = true;
             return frames4.KeyFrames[0].Value;
         }
+
         if (timeline is Int32Animation animation3)
         {
             gotValue = true;
             return animation3.To;
         }
+
         gotValue = false;
         return null;
     }
@@ -677,6 +706,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 originalLayoutValues = new List<OriginalLayoutValueRecord>();
                 SetOriginalLayoutValues(group, originalLayoutValues);
             }
+
             if (!useTransitions)
             {
                 if (LayoutTransitionStoryboard != null)
@@ -686,6 +716,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 SetLayoutStoryboardProperties(control, stateGroupsRoot, layoutStoryboard, originalLayoutValues);
                 return flag2;
             }
+
             if (layoutStoryboard.Children.Count == 0 && originalLayoutValues.Count == 0)
                 return TransitionEffectAwareGoToStateCore(control, stateGroupsRoot, stateName, group, state,
                     true, transition, animateWithTransitionEffect, currentState);
@@ -704,6 +735,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                     StopAnimations();
                     stateGroupsRoot.UpdateLayout();
                 }
+
                 TransitionEffectAwareGoToStateCore(control, stateGroupsRoot, stateName, group, state,
                     true, transition, animateWithTransitionEffect, currentState);
                 SetLayoutStoryboardProperties(control, stateGroupsRoot, layoutStoryboard, originalLayoutValues);
@@ -735,6 +767,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 _changingState = false;
             }
         }
+
         return true;
     }
 
@@ -767,6 +800,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                         return UIElement.VisibilityProperty;
                     return item;
                 }
+
                 if (item.Name == "RuntimeWidth" &&
                     item.OwnerType.Name.EndsWith("DesignTimeProperties", StringComparison.Ordinal))
                 {
@@ -776,6 +810,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                         return FrameworkElement.WidthProperty;
                     return item;
                 }
+
                 if (item.Name == "RuntimeHeight" &&
                     item.OwnerType.Name.EndsWith("DesignTimeProperties", StringComparison.Ordinal))
                 {
@@ -785,10 +820,12 @@ public class ExtendedVisualStateManager : VisualStateManager
                         return FrameworkElement.HeightProperty;
                     return item;
                 }
+
                 if (LayoutProperties.Contains(item))
                     return item;
             }
         }
+
         return null;
     }
 
@@ -813,18 +850,21 @@ public class ExtendedVisualStateManager : VisualStateManager
                 };
                 effect.OldImage = brush;
             }
+
             var transitionEffectStoryboard = GetTransitionEffectStoryboard(stateGroupsRoot);
             if (transitionEffectStoryboard != null)
             {
                 transitionEffectStoryboard.Stop();
                 FinishTransitionEffectAnimation(stateGroupsRoot);
             }
+
             if (useTransitions)
             {
                 TransferLocalValue(stateGroupsRoot, UIElement.EffectProperty, CachedEffectProperty);
                 stateGroupsRoot.Effect = effect;
             }
         }
+
         return flag;
     }
 
@@ -929,6 +969,7 @@ public class ExtendedVisualStateManager : VisualStateManager
             LayoutTransitionStoryboard.Stop();
             LayoutTransitionStoryboard = null;
         }
+
         if (MovingElements != null)
         {
             UnwrapMovingElementsFromCanvases(MovingElements);
@@ -968,6 +1009,7 @@ public class ExtendedVisualStateManager : VisualStateManager
             };
             transition.GeneratedEasingFunction = function2;
         }
+
         var flag = base.GoToStateCore(control, stateGroupsRoot, stateName, group, state, useTransitions);
         if (animateWithTransitionEffect)
         {
@@ -975,6 +1017,7 @@ public class ExtendedVisualStateManager : VisualStateManager
             if (flag)
                 AnimateTransitionEffect(stateGroupsRoot, transition);
         }
+
         SetCurrentState(group, state);
         return flag;
     }
@@ -1000,6 +1043,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                     if (element2 is Decorator decorator)
                         decorator.Child = element;
                 }
+
                 CopyLayoutProperties(parent, element, true);
                 ReplaceCachedLocalValueHelper(element, FrameworkElement.DataContextProperty, obj2);
             }
@@ -1033,6 +1077,7 @@ public class ExtendedVisualStateManager : VisualStateManager
                 else
                     flag = false;
             }
+
             if (flag)
             {
                 canvas.Children.Add(element);

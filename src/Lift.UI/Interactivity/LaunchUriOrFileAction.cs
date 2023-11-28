@@ -9,7 +9,8 @@ namespace Lift.UI.Interactivity;
 /// </summary>
 public class LaunchUriOrFileAction : TriggerAction<DependencyObject>
 {
-    public static readonly DependencyProperty PathProperty = DependencyProperty.Register("Path", typeof(string), typeof(LaunchUriOrFileAction));
+    public static readonly DependencyProperty PathProperty =
+        DependencyProperty.Register("Path", typeof(string), typeof(LaunchUriOrFileAction));
 
     public LaunchUriOrFileAction()
     {
@@ -20,7 +21,7 @@ public class LaunchUriOrFileAction : TriggerAction<DependencyObject>
     /// </summary>
     public string Path
     {
-        get { return (string)this.GetValue(PathProperty); }
+        get { return (string) this.GetValue(PathProperty); }
         set { this.SetValue(PathProperty, value); }
     }
 

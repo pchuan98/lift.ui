@@ -59,12 +59,14 @@ public sealed class JumpList : ISupportInitialize
             {
                 jumpList._application = null;
             }
+
             JumpList.s_applicationMap[application] = value;
             if (value != null)
             {
                 value._application = application;
             }
         }
+
         if (value != null)
         {
             value.ApplyFromApplication();
@@ -94,6 +96,7 @@ public sealed class JumpList : ISupportInitialize
         {
             this._jumpItems = new List<JumpItem>();
         }
+
         this.ShowFrequentCategory = showFrequent;
         this.ShowRecentCategory = showRecent;
         this._initializing = new bool?(false);
@@ -116,7 +119,8 @@ public sealed class JumpList : ISupportInitialize
     {
         get
         {
-            return this._initializing == null && this.JumpItems.Count == 0 && !this.ShowRecentCategory && !this.ShowFrequentCategory;
+            return this._initializing == null && this.JumpItems.Count == 0 && !this.ShowRecentCategory &&
+                   !this.ShowFrequentCategory;
         }
     }
 
@@ -127,6 +131,7 @@ public sealed class JumpList : ISupportInitialize
         {
             throw new InvalidOperationException("Calls to BeginInit cannot be nested.");
         }
+
         this._initializing = new bool?(true);
     }
 
@@ -138,6 +143,7 @@ public sealed class JumpList : ISupportInitialize
         {
             throw new NotSupportedException("Can't call EndInit without first calling BeginInit.");
         }
+
         this._initializing = new bool?(false);
         this.ApplyFromApplication();
     }
@@ -153,6 +159,7 @@ public sealed class JumpList : ISupportInitialize
                 hrLeft = HRESULT.S_OK;
                 result = null;
             }
+
             hrLeft.ThrowIfFailed();
             return result;
         }
@@ -166,6 +173,7 @@ public sealed class JumpList : ISupportInitialize
         {
             throw new InvalidOperationException("The JumpList can't be applied until EndInit has been called.");
         }
+
         this._initializing = new bool?(false);
         this._ApplyList();
     }
@@ -176,13 +184,15 @@ public sealed class JumpList : ISupportInitialize
         {
             this._initializing = new bool?(false);
         }
+
         if (this._application == Application.Current && this._initializing == false)
         {
             this._ApplyList();
         }
     }
 
-    [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "Standard.Verify.IsApartmentState(System.Threading.ApartmentState,System.String)")]
+    [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters",
+        MessageId = "Standard.Verify.IsApartmentState(System.Threading.ApartmentState,System.String)")]
     [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
     [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "JumpLists")]
     private void _ApplyList()
@@ -193,6 +203,7 @@ public sealed class JumpList : ISupportInitialize
             this.RejectEverything();
             return;
         }
+
         List<JumpItem> jumpItems;
         List<JumpList._RejectedJumpItemPair> list;
         List<JumpList._ShellObjectPair> list2;
@@ -205,6 +216,7 @@ public sealed class JumpList : ISupportInitialize
             this.RejectEverything();
             return;
         }
+
         this._jumpItems = jumpItems;
         EventHandler<JumpItemsRejectedEventArgs> jumpItemsRejected = this.JumpItemsRejected;
         EventHandler<JumpItemsRemovedEventArgs> jumpItemsRemovedByUser = this.JumpItemsRemovedByUser;
@@ -217,8 +229,10 @@ public sealed class JumpList : ISupportInitialize
                 list3.Add(rejectedJumpItemPair.JumpItem);
                 list4.Add(rejectedJumpItemPair.Reason);
             }
+
             jumpItemsRejected(this, new JumpItemsRejectedEventArgs(list3, list4));
         }
+
         if (list2.Count > 0 && jumpItemsRemovedByUser != null)
         {
             List<JumpItem> list5 = new List<JumpItem>(list2.Count);
@@ -229,6 +243,7 @@ public sealed class JumpList : ISupportInitialize
                     list5.Add(shellObjectPair.JumpItem);
                 }
             }
+
             if (list5.Count > 0)
             {
                 jumpItemsRemovedByUser(this, new JumpItemsRemovedEventArgs(list5));
@@ -236,11 +251,13 @@ public sealed class JumpList : ISupportInitialize
         }
     }
 
-    private void _BuildShellLists(out List<JumpItem> successList, out List<JumpList._RejectedJumpItemPair> rejectedList, out List<JumpList._ShellObjectPair> removedList)
+    private void _BuildShellLists(out List<JumpItem> successList, out List<JumpList._RejectedJumpItemPair> rejectedList,
+        out List<JumpList._ShellObjectPair> removedList)
     {
         List<List<JumpList._ShellObjectPair>> list = null;
         removedList = null;
-        ICustomDestinationList customDestinationList = CLSID.CoCreateInstance<ICustomDestinationList>("77f10cf0-3db5-4966-b520-b7c54fd35ed6");
+        ICustomDestinationList customDestinationList =
+            CLSID.CoCreateInstance<ICustomDestinationList>("77f10cf0-3db5-4966-b520-b7c54fd35ed6");
         try
         {
             string runtimeId = JumpList._RuntimeId;
@@ -248,6 +265,7 @@ public sealed class JumpList : ISupportInitialize
             {
                 customDestinationList.SetAppID(runtimeId);
             }
+
             Guid guid = new Guid("92CA9DCD-5622-4bba-A805-5E9F541BD8C9");
             uint num;
             IObjectArray shellObjects = (IObjectArray) customDestinationList.BeginList(out num, ref guid);
@@ -313,6 +331,7 @@ public sealed class JumpList : ISupportInitialize
                                         break;
                                     }
                                 }
+
                                 if (!flag)
                                 {
                                     list.Add(new List<JumpList._ShellObjectPair>
@@ -321,6 +340,7 @@ public sealed class JumpList : ISupportInitialize
                                     });
                                 }
                             }
+
                             obj = null;
                         }
                     }
@@ -330,15 +350,18 @@ public sealed class JumpList : ISupportInitialize
                     }
                 }
             }
+
             list.Reverse();
             if (this.ShowFrequentCategory)
             {
                 customDestinationList.AppendKnownCategory(KDC.FREQUENT);
             }
+
             if (this.ShowRecentCategory)
             {
                 customDestinationList.AppendKnownCategory(KDC.RECENT);
             }
+
             foreach (List<JumpList._ShellObjectPair> list3 in list)
             {
                 if (list3.Count > 0)
@@ -347,6 +370,7 @@ public sealed class JumpList : ISupportInitialize
                     JumpList.AddCategory(customDestinationList, customCategory, list3, successList, rejectedList);
                 }
             }
+
             customDestinationList.CommitList();
             successList.Reverse();
         }
@@ -360,6 +384,7 @@ public sealed class JumpList : ISupportInitialize
                     JumpList._ShellObjectPair.ReleaseShellObjects(list4);
                 }
             }
+
             JumpList._ShellObjectPair.ReleaseShellObjects(removedList);
         }
     }
@@ -370,6 +395,7 @@ public sealed class JumpList : ISupportInitialize
         {
             return false;
         }
+
         IShellItem shellItem = shellObject as IShellItem;
         if (shellItem != null)
         {
@@ -381,8 +407,10 @@ public sealed class JumpList : ISupportInitialize
                     return true;
                 }
             }
+
             return false;
         }
+
         IShellLinkW shellLinkW = shellObject as IShellLinkW;
         if (shellLinkW != null)
         {
@@ -399,8 +427,10 @@ public sealed class JumpList : ISupportInitialize
                     }
                 }
             }
+
             return false;
         }
+
         return false;
     }
 
@@ -412,10 +442,12 @@ public sealed class JumpList : ISupportInitialize
         {
             return JumpList.CreateItemFromJumpPath(jumpPath);
         }
+
         if (jumpTask != null)
         {
             return JumpList.CreateLinkFromJumpTask(jumpTask, true);
         }
+
         return null;
     }
 
@@ -439,27 +471,36 @@ public sealed class JumpList : ISupportInitialize
                     throw;
                 }
             }
+
             list.Add(new JumpList._ShellObjectPair
             {
                 ShellObject = at,
                 JumpItem = jumpItem
             });
         }
+
         return list;
     }
 
-    private static void AddCategory(ICustomDestinationList cdl, string category, List<JumpList._ShellObjectPair> jumpItems, List<JumpItem> successList, List<JumpList._RejectedJumpItemPair> rejectionList)
+    private static void AddCategory(ICustomDestinationList cdl, string category,
+        List<JumpList._ShellObjectPair> jumpItems, List<JumpItem> successList,
+        List<JumpList._RejectedJumpItemPair> rejectionList)
     {
         JumpList.AddCategory(cdl, category, jumpItems, successList, rejectionList, true);
     }
 
-    private static void AddCategory(ICustomDestinationList cdl, string category, List<JumpList._ShellObjectPair> jumpItems, List<JumpItem> successList, List<JumpList._RejectedJumpItemPair> rejectionList, bool isHeterogenous)
+    private static void AddCategory(ICustomDestinationList cdl, string category,
+        List<JumpList._ShellObjectPair> jumpItems, List<JumpItem> successList,
+        List<JumpList._RejectedJumpItemPair> rejectionList, bool isHeterogenous)
     {
-        IObjectCollection objectCollection = (IObjectCollection) Activator.CreateInstance(Type.GetTypeFromCLSID(new Guid("2d3468c1-36a7-43b6-ac24-d3f02fd9607a")));
+        IObjectCollection objectCollection =
+            (IObjectCollection) Activator.CreateInstance(
+                Type.GetTypeFromCLSID(new Guid("2d3468c1-36a7-43b6-ac24-d3f02fd9607a")));
         foreach (JumpList._ShellObjectPair shellObjectPair in jumpItems)
         {
             objectCollection.AddObject(shellObjectPair.ShellObject);
         }
+
         HRESULT hrLeft;
         if (string.IsNullOrEmpty(category))
         {
@@ -469,6 +510,7 @@ public sealed class JumpList : ISupportInitialize
         {
             hrLeft = cdl.AppendCategory(category, objectCollection);
         }
+
         if (hrLeft.Succeeded)
         {
             int num = jumpItems.Count;
@@ -476,8 +518,10 @@ public sealed class JumpList : ISupportInitialize
             {
                 successList.Add(jumpItems[num].JumpItem);
             }
+
             return;
         }
+
         if (isHeterogenous && hrLeft == HRESULT.DESTS_E_NO_MATCHING_ASSOC_HANDLER)
         {
             Utility.SafeRelease<IObjectCollection>(ref objectCollection);
@@ -497,6 +541,7 @@ public sealed class JumpList : ISupportInitialize
                     list.Add(shellObjectPair2);
                 }
             }
+
             if (list.Count > 0)
             {
                 JumpList.AddCategory(cdl, category, list, successList, rejectionList, false);
@@ -519,11 +564,15 @@ public sealed class JumpList : ISupportInitialize
     [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
     private static IShellLinkW CreateLinkFromJumpTask(JumpTask jumpTask, bool allowSeparators)
     {
-        if (string.IsNullOrEmpty(jumpTask.Title) && (!allowSeparators || !string.IsNullOrEmpty(jumpTask.CustomCategory)))
+        if (string.IsNullOrEmpty(jumpTask.Title) &&
+            (!allowSeparators || !string.IsNullOrEmpty(jumpTask.CustomCategory)))
         {
             return null;
         }
-        IShellLinkW shellLinkW = (IShellLinkW) Activator.CreateInstance(Type.GetTypeFromCLSID(new Guid("00021401-0000-0000-C000-000000000046")));
+
+        IShellLinkW shellLinkW =
+            (IShellLinkW) Activator.CreateInstance(
+                Type.GetTypeFromCLSID(new Guid("00021401-0000-0000-C000-000000000046")));
         IShellLinkW result;
         try
         {
@@ -532,15 +581,18 @@ public sealed class JumpList : ISupportInitialize
             {
                 path = jumpTask.ApplicationPath;
             }
+
             shellLinkW.SetPath(path);
             if (!string.IsNullOrEmpty(jumpTask.WorkingDirectory))
             {
                 shellLinkW.SetWorkingDirectory(jumpTask.WorkingDirectory);
             }
+
             if (!string.IsNullOrEmpty(jumpTask.Arguments))
             {
                 shellLinkW.SetArguments(jumpTask.Arguments);
             }
+
             if (jumpTask.IconResourceIndex != -1)
             {
                 string pszIconPath = JumpList._FullName;
@@ -550,14 +602,18 @@ public sealed class JumpList : ISupportInitialize
                     {
                         return null;
                     }
+
                     pszIconPath = jumpTask.IconResourcePath;
                 }
+
                 shellLinkW.SetIconLocation(pszIconPath, jumpTask.IconResourceIndex);
             }
+
             if (!string.IsNullOrEmpty(jumpTask.Description))
             {
                 shellLinkW.SetDescription(jumpTask.Description);
             }
+
             IPropertyStore propertyStore = (IPropertyStore) shellLinkW;
             using (PROPVARIANT propvariant = new PROPVARIANT())
             {
@@ -572,8 +628,10 @@ public sealed class JumpList : ISupportInitialize
                     propvariant.SetValue(true);
                     pkey = PKEY.AppUserModel_IsDestListSeparator;
                 }
+
                 propertyStore.SetValue(ref pkey, propvariant);
             }
+
             propertyStore.Commit();
             IShellLinkW shellLinkW2 = shellLinkW;
             shellLinkW = null;
@@ -587,6 +645,7 @@ public sealed class JumpList : ISupportInitialize
         {
             Utility.SafeRelease<IShellLinkW>(ref shellLinkW);
         }
+
         return result;
     }
 
@@ -596,6 +655,7 @@ public sealed class JumpList : ISupportInitialize
         {
             return null;
         }
+
         Guid guid = new Guid("7e9fb0d3-919f-4307-ab2e-9b1860310c93");
         object obj;
         HRESULT hrLeft = NativeMethods.SHCreateItemFromParsingName(path, null, ref guid, out obj);
@@ -604,6 +664,7 @@ public sealed class JumpList : ISupportInitialize
             hrLeft = HRESULT.S_OK;
             obj = null;
         }
+
         hrLeft.ThrowIfFailed();
         return (IShellItem2) obj;
     }
@@ -618,6 +679,7 @@ public sealed class JumpList : ISupportInitialize
         catch (Exception)
         {
         }
+
         return null;
     }
 
@@ -632,6 +694,7 @@ public sealed class JumpList : ISupportInitialize
                 Path = shellItem.GetDisplayName((SIGDN) 2147647488u)
             };
         }
+
         if (shellLinkW != null)
         {
             StringBuilder stringBuilder = new StringBuilder(260);
@@ -661,8 +724,10 @@ public sealed class JumpList : ISupportInitialize
                 propertyStore.GetValue(ref title, propvariant);
                 jumpTask.Title = (propvariant.GetValue() ?? "");
             }
+
             return jumpTask;
         }
+
         return null;
     }
 
@@ -678,6 +743,7 @@ public sealed class JumpList : ISupportInitialize
             propertyStore.GetValue(ref title, propvariant);
             text = (propvariant.GetValue() ?? "");
         }
+
         StringBuilder stringBuilder2 = new StringBuilder(1024);
         shellLink.GetArguments(stringBuilder2, stringBuilder2.Capacity);
         return stringBuilder.ToString().ToUpperInvariant() + text.ToUpperInvariant() + stringBuilder2.ToString();
@@ -691,6 +757,7 @@ public sealed class JumpList : ISupportInitialize
             this._jumpItems.Clear();
             return;
         }
+
         if (this._jumpItems.Count > 0)
         {
             List<JumpItemRejectionReason> list = new List<JumpItemRejectionReason>(this.JumpItems.Count);
@@ -698,6 +765,7 @@ public sealed class JumpList : ISupportInitialize
             {
                 list.Add(JumpItemRejectionReason.InvalidItem);
             }
+
             JumpItemsRejectedEventArgs e = new JumpItemsRejectedEventArgs(this.JumpItems, list);
             this._jumpItems.Clear();
             jumpItemsRejected(this, e);
@@ -710,7 +778,8 @@ public sealed class JumpList : ISupportInitialize
 
     private static readonly object s_lock = new object();
 
-    private static readonly Dictionary<Application, JumpList> s_applicationMap = new Dictionary<Application, JumpList>();
+    private static readonly Dictionary<Application, JumpList>
+        s_applicationMap = new Dictionary<Application, JumpList>();
 
     private Application _application;
 

@@ -20,6 +20,7 @@ namespace Microsoft.Windows.Controls;
 public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
 {
     #region Data
+
     private Collection<DateTime> _addedItems;
     private Collection<DateTime> _removedItems;
     private Thread _dispatcherThread;
@@ -136,7 +137,8 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
     {
         if (!IsValidThread())
         {
-            throw new NotSupportedException("This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
+            throw new NotSupportedException(
+                "This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
         }
 
         // Turn off highlight
@@ -153,7 +155,8 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
     {
         if (!IsValidThread())
         {
-            throw new NotSupportedException("This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
+            throw new NotSupportedException(
+                "This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
         }
 
         if (!this.Contains(item))
@@ -176,7 +179,8 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
                 UpdateMinMax(item);
 
                 // The event fires after SelectedDate changes
-                if (index == 0 && !(this._owner.SelectedDate.HasValue && DateTime.Compare(this._owner.SelectedDate.Value, item) == 0))
+                if (index == 0 && !(this._owner.SelectedDate.HasValue &&
+                                    DateTime.Compare(this._owner.SelectedDate.Value, item) == 0))
                 {
                     this._owner.SelectedDate = item;
                 }
@@ -214,7 +218,8 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
     {
         if (!IsValidThread())
         {
-            throw new NotSupportedException("This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
+            throw new NotSupportedException(
+                "This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
         }
 
         if (index >= this.Count)
@@ -263,7 +268,8 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
     {
         if (!IsValidThread())
         {
-            throw new NotSupportedException("This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
+            throw new NotSupportedException(
+                "This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
         }
 
         if (!this.Contains(item))
@@ -278,7 +284,8 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
             }
             else
             {
-                if (item != null && DateTime.Compare(this[index], item) != 0 && PersianCalendar.IsValidDateSelection(this._owner, item))
+                if (item != null && DateTime.Compare(this[index], item) != 0 &&
+                    PersianCalendar.IsValidDateSelection(this._owner, item))
                 {
                     removedItems.Add(this[index]);
                     base.SetItem(index, item);
@@ -287,7 +294,8 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
                     addedItems.Add(item);
 
                     // The event fires after SelectedDate changes
-                    if (index == 0 && !(this._owner.SelectedDate.HasValue && DateTime.Compare(this._owner.SelectedDate.Value, item) == 0))
+                    if (index == 0 && !(this._owner.SelectedDate.HasValue &&
+                                        DateTime.Compare(this._owner.SelectedDate.Value, item) == 0))
                     {
                         this._owner.SelectedDate = item;
                     }
@@ -388,11 +396,12 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
             {
                 case CalendarSelectionMode.SingleDate:
                 {
-                    if (!this._owner.SelectedDate.HasValue || DateTimeHelper.CompareDays(this._owner.SelectedDate.Value, date) != 0)
+                    if (!this._owner.SelectedDate.HasValue ||
+                        DateTimeHelper.CompareDays(this._owner.SelectedDate.Value, date) != 0)
                     {
                         this._owner.SelectedDate = date;
                     }
-                    else 
+                    else
                     {
                         this._owner.SelectedDate = null;
                     }
@@ -410,7 +419,7 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
                     break;
                 }
 
-                default: 
+                default:
                 {
                     Debug.Assert(false);
                     break;
@@ -425,7 +434,8 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
 
     private void RaiseSelectionChanged(IList removedItems, IList addedItems)
     {
-        this._owner.OnSelectedDatesCollectionChanged(new CalendarSelectionChangedEventArgs(PersianCalendar.SelectedDatesChangedEvent, removedItems, addedItems));
+        this._owner.OnSelectedDatesCollectionChanged(
+            new CalendarSelectionChangedEventArgs(PersianCalendar.SelectedDatesChangedEvent, removedItems, addedItems));
     }
 
     private void BeginAddRange()
@@ -449,12 +459,14 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
     {
         if (this._owner.SelectionMode == CalendarSelectionMode.None)
         {
-            throw new InvalidOperationException("The SelectedDate property cannot be set when the selection mode is None.");
+            throw new InvalidOperationException(
+                "The SelectedDate property cannot be set when the selection mode is None.");
         }
 
         if (this._owner.SelectionMode == CalendarSelectionMode.SingleDate && this.Count > 0)
         {
-            throw new InvalidOperationException("The SelectedDates collection can be changed only in a multiple selection mode. Use the SelectedDate in a single selection mode.");
+            throw new InvalidOperationException(
+                "The SelectedDates collection can be changed only in a multiple selection mode. Use the SelectedDate in a single selection mode.");
         }
 
         // if user tries to add an item into the SelectedDates in SingleRange mode, we throw away the old range and replace it with the new one
@@ -506,8 +518,7 @@ public sealed class SelectedDatesCollection : ObservableCollection<DateTime>
         {
             yield return rangeStart.Value;
             rangeStart = DateTimeHelper.AddDays(rangeStart.Value, increment);
-        }
-        while (rangeStart.HasValue && DateTime.Compare(end, rangeStart.Value) != -increment);
+        } while (rangeStart.HasValue && DateTime.Compare(end, rangeStart.Value) != -increment);
     }
 
     private static int GetDirection(DateTime start, DateTime end)

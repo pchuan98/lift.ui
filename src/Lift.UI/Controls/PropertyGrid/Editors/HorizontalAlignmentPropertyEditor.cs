@@ -16,7 +16,8 @@ public class HorizontalAlignmentPropertyEditor : PropertyEditorBase
     {
         Style = ResourceHelper.GetResourceInternal<Style>("ComboBoxCapsule"),
         ItemsSource = Enum.GetValues(propertyItem.PropertyType),
-        ItemTemplateSelector = ResourceHelper.GetResourceInternal<DataTemplateSelector>("HorizontalAlignmentPathTemplateSelector"),
+        ItemTemplateSelector =
+            ResourceHelper.GetResourceInternal<DataTemplateSelector>("HorizontalAlignmentPathTemplateSelector"),
         HorizontalAlignment = HorizontalAlignment.Left
     };
 
@@ -48,16 +49,20 @@ public class HorizontalAlignmentPathTemplateSelector : DataTemplateSelector
             switch (horizontalAlignment)
             {
                 case HorizontalAlignment.Left:
-                    factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignLeftGeometry"));
+                    factory.SetValue(Path.DataProperty,
+                        ResourceHelper.GetResourceInternal<Geometry>("AlignLeftGeometry"));
                     break;
                 case HorizontalAlignment.Center:
-                    factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignHCenterGeometry"));
+                    factory.SetValue(Path.DataProperty,
+                        ResourceHelper.GetResourceInternal<Geometry>("AlignHCenterGeometry"));
                     break;
                 case HorizontalAlignment.Right:
-                    factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignRightGeometry"));
+                    factory.SetValue(Path.DataProperty,
+                        ResourceHelper.GetResourceInternal<Geometry>("AlignRightGeometry"));
                     break;
                 case HorizontalAlignment.Stretch:
-                    factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignHStretchGeometry"));
+                    factory.SetValue(Path.DataProperty,
+                        ResourceHelper.GetResourceInternal<Geometry>("AlignHStretchGeometry"));
                     break;
             }
 

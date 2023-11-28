@@ -75,7 +75,8 @@ public class Pagination : Control
         CommandBindings.Add(new CommandBinding(ControlCommands.Prev, ButtonPrev_OnClick));
         CommandBindings.Add(new CommandBinding(ControlCommands.Next, ButtonNext_OnClick));
         CommandBindings.Add(new CommandBinding(ControlCommands.Selected, ToggleButton_OnChecked));
-        CommandBindings.Add(new CommandBinding(ControlCommands.Jump, (s, e) => PageIndex = (int) _jumpNumericUpDown.Value));
+        CommandBindings.Add(new CommandBinding(ControlCommands.Jump,
+            (s, e) => PageIndex = (int) _jumpNumericUpDown.Value));
 
         OnAutoHidingChanged(AutoHiding);
         Update();
@@ -89,7 +90,9 @@ public class Pagination : Control
     /// 最大页数
     /// </summary>
     public static readonly DependencyProperty MaxPageCountProperty = DependencyProperty.Register(
-        nameof(MaxPageCount), typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnMaxPageCountChanged, CoerceMaxPageCount), ValidateHelper.IsInRangeOfPosIntIncludeZero);
+        nameof(MaxPageCount), typeof(int), typeof(Pagination),
+        new PropertyMetadata(ValueBoxes.Int1Box, OnMaxPageCountChanged, CoerceMaxPageCount),
+        ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
     private static object CoerceMaxPageCount(DependencyObject d, object basevalue)
     {
@@ -157,7 +160,9 @@ public class Pagination : Control
     /// 当前页
     /// </summary>
     public static readonly DependencyProperty PageIndexProperty = DependencyProperty.Register(
-        nameof(PageIndex), typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnPageIndexChanged, CoercePageIndex), ValidateHelper.IsInRangeOfPosIntIncludeZero);
+        nameof(PageIndex), typeof(int), typeof(Pagination),
+        new PropertyMetadata(ValueBoxes.Int1Box, OnPageIndexChanged, CoercePageIndex),
+        ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
     private static object CoercePageIndex(DependencyObject d, object basevalue)
     {
@@ -200,7 +205,8 @@ public class Pagination : Control
     /// 表示当前选中的按钮距离左右两个方向按钮的最大间隔（4表示间隔4个按钮，如果超过则用省略号表示）
     /// </summary>       
     public static readonly DependencyProperty MaxPageIntervalProperty = DependencyProperty.Register(
-        nameof(MaxPageInterval), typeof(int), typeof(Pagination), new PropertyMetadata(3, OnMaxPageIntervalChanged), ValidateHelper.IsInRangeOfPosIntIncludeZero);
+        nameof(MaxPageInterval), typeof(int), typeof(Pagination), new PropertyMetadata(3, OnMaxPageIntervalChanged),
+        ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
     private static void OnMaxPageIntervalChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -237,7 +243,8 @@ public class Pagination : Control
     #region AutoHiding
 
     public static readonly DependencyProperty AutoHidingProperty = DependencyProperty.Register(
-        nameof(AutoHiding), typeof(bool), typeof(Pagination), new PropertyMetadata(ValueBoxes.TrueBox, OnAutoHidingChanged));
+        nameof(AutoHiding), typeof(bool), typeof(Pagination),
+        new PropertyMetadata(ValueBoxes.TrueBox, OnAutoHidingChanged));
 
     private static void OnAutoHidingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -321,6 +328,7 @@ public class Pagination : Control
             selectButton.IsChecked = true;
             return;
         }
+
         _buttonFirst.Show();
         _buttonLast.Show();
         _moreLeft.Show();
@@ -372,6 +380,7 @@ public class Pagination : Control
                 break;
             }
         }
+
         var add = PageIndex;
         for (var i = 0; i < MaxPageInterval - 1; i++)
         {
@@ -406,5 +415,5 @@ public class Pagination : Control
         PageIndex = int.Parse(button.Content.ToString());
     }
 
-    #endregion Private Methods       
+    #endregion Private Methods
 }

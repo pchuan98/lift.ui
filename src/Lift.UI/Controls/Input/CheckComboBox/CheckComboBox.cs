@@ -37,7 +37,8 @@ public class CheckComboBox : ListBox
     }
 
     public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-        nameof(IsDropDownOpen), typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDropDownOpenChanged));
+        nameof(IsDropDownOpen), typeof(bool), typeof(CheckComboBox),
+        new PropertyMetadata(ValueBoxes.FalseBox, OnIsDropDownOpenChanged));
 
     private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -130,7 +131,8 @@ public class CheckComboBox : ListBox
 
     protected override DependencyObject GetContainerForItemOverride() => new CheckComboBoxItem();
 
-    protected override void OnDisplayMemberPathChanged(string oldDisplayMemberPath, string newDisplayMemberPath) => UpdateTags();
+    protected override void OnDisplayMemberPathChanged(string oldDisplayMemberPath, string newDisplayMemberPath) =>
+        UpdateTags();
 
     private void Tags_OnClosed(object sender, RoutedEventArgs e)
     {

@@ -81,6 +81,7 @@ public sealed class ThumbButtonInfo : Freezable, ICommandSource
         {
             text = text.Substring(0, 259);
         }
+
         return text;
     }
 
@@ -122,10 +123,12 @@ public sealed class ThumbButtonInfo : Freezable, ICommandSource
         {
             return;
         }
+
         if (command != null)
         {
             this._UnhookCommand(command);
         }
+
         if (command2 != null)
         {
             this._HookCommand(command2);
@@ -153,6 +156,7 @@ public sealed class ThumbButtonInfo : Freezable, ICommandSource
         {
             click(this, EventArgs.Empty);
         }
+
         this._InvokeCommand();
     }
 
@@ -188,7 +192,7 @@ public sealed class ThumbButtonInfo : Freezable, ICommandSource
 
     private void _HookCommand(ICommand command)
     {
-        this._commandEvent = delegate (object sender, EventArgs e)
+        this._commandEvent = delegate(object sender, EventArgs e)
         {
             this._UpdateCanExecute();
         };
@@ -203,6 +207,7 @@ public sealed class ThumbButtonInfo : Freezable, ICommandSource
             this._CanExecute = true;
             return;
         }
+
         object commandParameter = this.CommandParameter;
         IInputElement commandTarget = this.CommandTarget;
         RoutedCommand routedCommand = this.Command as RoutedCommand;
@@ -211,6 +216,7 @@ public sealed class ThumbButtonInfo : Freezable, ICommandSource
             this._CanExecute = routedCommand.CanExecute(commandParameter, commandTarget);
             return;
         }
+
         this._CanExecute = this.Command.CanExecute(commandParameter);
     }
 
@@ -252,37 +258,57 @@ public sealed class ThumbButtonInfo : Freezable, ICommandSource
 
     private EventHandler _commandEvent;
 
-    public static readonly DependencyProperty VisibilityProperty = DependencyProperty.Register("Visibility", typeof(Visibility), typeof(ThumbButtonInfo), new PropertyMetadata(Visibility.Visible));
+    public static readonly DependencyProperty VisibilityProperty = DependencyProperty.Register("Visibility",
+        typeof(Visibility), typeof(ThumbButtonInfo), new PropertyMetadata(Visibility.Visible));
 
-    public static readonly DependencyProperty DismissWhenClickedProperty = DependencyProperty.Register("DismissWhenClicked", typeof(bool), typeof(ThumbButtonInfo), new PropertyMetadata(false));
+    public static readonly DependencyProperty DismissWhenClickedProperty =
+        DependencyProperty.Register("DismissWhenClicked", typeof(bool), typeof(ThumbButtonInfo),
+            new PropertyMetadata(false));
 
-    public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register("ImageSource", typeof(ImageSource), typeof(ThumbButtonInfo), new PropertyMetadata(null));
+    public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register("ImageSource",
+        typeof(ImageSource), typeof(ThumbButtonInfo), new PropertyMetadata(null));
 
-    public static readonly DependencyProperty IsBackgroundVisibleProperty = DependencyProperty.Register("IsBackgroundVisible", typeof(bool), typeof(ThumbButtonInfo), new PropertyMetadata(true));
+    public static readonly DependencyProperty IsBackgroundVisibleProperty =
+        DependencyProperty.Register("IsBackgroundVisible", typeof(bool), typeof(ThumbButtonInfo),
+            new PropertyMetadata(true));
 
-    public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(ThumbButtonInfo), new PropertyMetadata(string.Empty, null, new CoerceValueCallback(ThumbButtonInfo._CoerceDescription)));
+    public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description",
+        typeof(string), typeof(ThumbButtonInfo),
+        new PropertyMetadata(string.Empty, null, new CoerceValueCallback(ThumbButtonInfo._CoerceDescription)));
 
-    public static readonly DependencyProperty IsEnabledProperty = DependencyProperty.Register("IsEnabled", typeof(bool), typeof(ThumbButtonInfo), new PropertyMetadata(true, null, (DependencyObject d, object e) => ((ThumbButtonInfo) d)._CoerceIsEnabledValue(e)));
+    public static readonly DependencyProperty IsEnabledProperty = DependencyProperty.Register("IsEnabled", typeof(bool),
+        typeof(ThumbButtonInfo),
+        new PropertyMetadata(true, null,
+            (DependencyObject d, object e) => ((ThumbButtonInfo) d)._CoerceIsEnabledValue(e)));
 
-    public static readonly DependencyProperty IsInteractiveProperty = DependencyProperty.Register("IsInteractive", typeof(bool), typeof(ThumbButtonInfo), new PropertyMetadata(true));
+    public static readonly DependencyProperty IsInteractiveProperty =
+        DependencyProperty.Register("IsInteractive", typeof(bool), typeof(ThumbButtonInfo), new PropertyMetadata(true));
 
-    public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(ThumbButtonInfo), new PropertyMetadata(null, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((ThumbButtonInfo) d)._OnCommandChanged(e);
-    }));
+    public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand),
+        typeof(ThumbButtonInfo), new PropertyMetadata(null,
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((ThumbButtonInfo) d)._OnCommandChanged(e);
+            }));
 
-    public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register("CommandParameter", typeof(object), typeof(ThumbButtonInfo), new PropertyMetadata(null, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((ThumbButtonInfo) d)._UpdateCanExecute();
-    }));
+    public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register("CommandParameter",
+        typeof(object), typeof(ThumbButtonInfo), new PropertyMetadata(null,
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((ThumbButtonInfo) d)._UpdateCanExecute();
+            }));
 
-    public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register("CommandTarget", typeof(IInputElement), typeof(ThumbButtonInfo), new PropertyMetadata(null, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((ThumbButtonInfo) d)._UpdateCanExecute();
-    }));
+    public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register("CommandTarget",
+        typeof(IInputElement), typeof(ThumbButtonInfo), new PropertyMetadata(null,
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((ThumbButtonInfo) d)._UpdateCanExecute();
+            }));
 
-    private static readonly DependencyProperty _CanExecuteProperty = DependencyProperty.Register("_CanExecute", typeof(bool), typeof(ThumbButtonInfo), new PropertyMetadata(true, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        d.CoerceValue(ThumbButtonInfo.IsEnabledProperty);
-    }));
+    private static readonly DependencyProperty _CanExecuteProperty = DependencyProperty.Register("_CanExecute",
+        typeof(bool), typeof(ThumbButtonInfo), new PropertyMetadata(true,
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                d.CoerceValue(ThumbButtonInfo.IsEnabledProperty);
+            }));
 }

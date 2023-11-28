@@ -119,14 +119,14 @@ public sealed class DatePickerAutomationPeer : FrameworkElementAutomationPeer, I
 
     #region IValueProvider
 
-    bool IValueProvider.IsReadOnly 
-    { 
-        get { return false; } 
+    bool IValueProvider.IsReadOnly
+    {
+        get { return false; }
     }
 
-    string IValueProvider.Value 
+    string IValueProvider.Value
     {
-        get { return this.OwningPersianDatePicker.ToString(); } 
+        get { return this.OwningPersianDatePicker.ToString(); }
     }
 
     void IValueProvider.SetValue(string value)
@@ -137,6 +137,7 @@ public sealed class DatePickerAutomationPeer : FrameworkElementAutomationPeer, I
     #endregion IValueProvider
 
     #region Internal Methods
+
     // Never inline, as we don't want to unnecessarily link the automation DLL
     [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
     internal void RaiseValuePropertyChangedEvent(string oldValue, string newValue)
@@ -146,5 +147,6 @@ public sealed class DatePickerAutomationPeer : FrameworkElementAutomationPeer, I
             RaisePropertyChangedEvent(ValuePatternIdentifiers.ValueProperty, oldValue, newValue);
         }
     }
+
     #endregion
 }

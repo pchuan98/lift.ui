@@ -12,12 +12,18 @@ internal sealed class ManualResetAsyncCommand : ICommand
     private bool isSuspend { get; set; }
 
     private Action<bool> onStateChang;
+
     public event Action<bool> OnStateChang
     {
-        add { if (onStateChang is null) onStateChang += value; }
+        add
+        {
+            if (onStateChang is null) onStateChang += value;
+        }
         remove { onStateChang -= value; }
     }
+
     private bool _commandExecuting;
+
     public void NotifyCommandStarting()
     {
         _commandExecuting = true;
@@ -29,11 +35,13 @@ internal sealed class ManualResetAsyncCommand : ICommand
         _commandExecuting = false;
         RaiseCanExecuteChanged();
     }
+
     public event EventHandler CanExecuteChanged
     {
         add { CommandManager.RequerySuggested += value; }
         remove { CommandManager.RequerySuggested -= value; }
     }
+
     public bool CanExecute(object parameter) => _commandExecuting;
 
     public void Execute(object parameter)
@@ -46,5 +54,6 @@ internal sealed class ManualResetAsyncCommand : ICommand
         else
             manualResetEvent.Reset();
     }
+
     private void RaiseCanExecuteChanged() => CommandManager.InvalidateRequerySuggested();
 }

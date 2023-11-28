@@ -44,12 +44,15 @@ public static partial class ApplicationHelper
             switch (msg)
             {
                 case InteropValues.WM_COPYDATA:
-                    {
-                        InteropValues.COPYDATASTRUCT dataStruct = (InteropValues.COPYDATASTRUCT) Marshal.PtrToStructure(lParam, typeof(InteropValues.COPYDATASTRUCT));
-                        action.Invoke(dataStruct.lpData);
-                        break;
-                    }
+                {
+                    InteropValues.COPYDATASTRUCT dataStruct =
+                        (InteropValues.COPYDATASTRUCT) Marshal.PtrToStructure(lParam,
+                            typeof(InteropValues.COPYDATASTRUCT));
+                    action.Invoke(dataStruct.lpData);
+                    break;
+                }
             }
+
             return IntPtr.Zero;
         };
         hWndSource.AddHook(eventHandler);

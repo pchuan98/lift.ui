@@ -12,8 +12,11 @@ public class Color2HexStringConverter : IValueConverter
         if (value is SolidColorBrush brush)
         {
             var color = brush.Color;
-            return color.A < 255 ? $"#{color.A:X2}{color.R:X2}{color.G:X2}{color.B:X2}" : $"#{color.R:X2}{color.G:X2}{color.B:X2}";
+            return color.A < 255
+                ? $"#{color.A:X2}{color.R:X2}{color.G:X2}{color.B:X2}"
+                : $"#{color.R:X2}{color.G:X2}{color.B:X2}";
         }
+
         return "";
     }
 
@@ -32,8 +35,10 @@ public class Color2HexStringConverter : IValueConverter
             {
                 return new SolidColorBrush(default);
             }
+
             return new SolidColorBrush(default);
         }
+
         return new SolidColorBrush(default);
     }
 }

@@ -10,7 +10,8 @@ namespace Lift.UI.Controls;
 public class ScrollViewerAttach
 {
     public static readonly DependencyProperty AutoHideProperty = DependencyProperty.RegisterAttached(
-        "AutoHide", typeof(bool), typeof(ScrollViewerAttach), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
+        "AutoHide", typeof(bool), typeof(ScrollViewerAttach),
+        new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetAutoHide(DependencyObject element, bool value)
         => element.SetValue(AutoHideProperty, ValueBoxes.BooleanBox(value));
@@ -19,7 +20,9 @@ public class ScrollViewerAttach
         => (bool) element.GetValue(AutoHideProperty);
 
     public static readonly DependencyProperty OrientationProperty = DependencyProperty.RegisterAttached(
-        "Orientation", typeof(Orientation), typeof(ScrollViewerAttach), new FrameworkPropertyMetadata(ValueBoxes.VerticalBox, FrameworkPropertyMetadataOptions.Inherits, OnOrientationChanged));
+        "Orientation", typeof(Orientation), typeof(ScrollViewerAttach),
+        new FrameworkPropertyMetadata(ValueBoxes.VerticalBox, FrameworkPropertyMetadataOptions.Inherits,
+            OnOrientationChanged));
 
     private static void OnOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -43,7 +46,8 @@ public class ScrollViewerAttach
         void ScrollViewerPreviewMouseWheel(object sender, MouseWheelEventArgs args)
         {
             var scrollViewerNative = (System.Windows.Controls.ScrollViewer) sender;
-            scrollViewerNative.ScrollToHorizontalOffset(Math.Min(Math.Max(0, scrollViewerNative.HorizontalOffset - args.Delta), scrollViewerNative.ScrollableWidth));
+            scrollViewerNative.ScrollToHorizontalOffset(Math.Min(
+                Math.Max(0, scrollViewerNative.HorizontalOffset - args.Delta), scrollViewerNative.ScrollableWidth));
 
             args.Handled = true;
         }
@@ -56,7 +60,8 @@ public class ScrollViewerAttach
         => (Orientation) element.GetValue(OrientationProperty);
 
     public static readonly DependencyProperty IsDisabledProperty = DependencyProperty.RegisterAttached(
-        "IsDisabled", typeof(bool), typeof(ScrollViewerAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDisabledChanged));
+        "IsDisabled", typeof(bool), typeof(ScrollViewerAttach),
+        new PropertyMetadata(ValueBoxes.FalseBox, OnIsDisabledChanged));
 
     private static void OnIsDisabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

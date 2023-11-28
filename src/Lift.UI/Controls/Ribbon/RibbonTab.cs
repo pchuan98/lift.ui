@@ -38,7 +38,8 @@ namespace Lift.UI.Controls
 
         static RibbonTab()
         {
-            VisibilityProperty.OverrideMetadata(typeof(RibbonTab), new PropertyMetadata(Visibility.Visible, OnVisibilityChanged));
+            VisibilityProperty.OverrideMetadata(typeof(RibbonTab),
+                new PropertyMetadata(Visibility.Visible, OnVisibilityChanged));
         }
 
         public static readonly DependencyProperty IsSelectedProperty =

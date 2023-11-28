@@ -16,6 +16,7 @@ public sealed class JumpItemsRemovedEventArgs : EventArgs
             this.RemovedItems = new List<JumpItem>(removedItems).AsReadOnly();
             return;
         }
+
         this.RemovedItems = new List<JumpItem>().AsReadOnly();
     }
 

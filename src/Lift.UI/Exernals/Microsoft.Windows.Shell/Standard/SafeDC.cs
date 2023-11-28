@@ -27,7 +27,9 @@ internal sealed class SafeDC : SafeHandleZeroOrMinusOneIsInvalid
         {
             return SafeDC.NativeMethods.DeleteDC(this.handle);
         }
-        return this._hwnd == null || this._hwnd.Value == IntPtr.Zero || SafeDC.NativeMethods.ReleaseDC(this._hwnd.Value, this.handle) == 1;
+
+        return this._hwnd == null || this._hwnd.Value == IntPtr.Zero ||
+               SafeDC.NativeMethods.ReleaseDC(this._hwnd.Value, this.handle) == 1;
     }
 
     [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
@@ -46,11 +48,13 @@ internal sealed class SafeDC : SafeHandleZeroOrMinusOneIsInvalid
                 safeDC._created = true;
             }
         }
+
         if (safeDC.IsInvalid)
         {
             safeDC.Dispose();
             throw new SystemException("Unable to create a device context from the specified device information.");
         }
+
         return safeDC;
     }
 
@@ -66,6 +70,7 @@ internal sealed class SafeDC : SafeHandleZeroOrMinusOneIsInvalid
             {
                 hdc2 = hdc.handle;
             }
+
             safeDC = SafeDC.NativeMethods.CreateCompatibleDC(hdc2);
             if (safeDC == null)
             {
@@ -79,11 +84,13 @@ internal sealed class SafeDC : SafeHandleZeroOrMinusOneIsInvalid
                 safeDC._created = true;
             }
         }
+
         if (safeDC.IsInvalid)
         {
             safeDC.Dispose();
             throw new SystemException("Unable to create a device context from the specified device information.");
         }
+
         return safeDC;
     }
 
@@ -101,10 +108,12 @@ internal sealed class SafeDC : SafeHandleZeroOrMinusOneIsInvalid
                 safeDC.Hwnd = hwnd;
             }
         }
+
         if (safeDC.IsInvalid)
         {
             HRESULT.E_FAIL.ThrowIfFailed();
         }
+
         return safeDC;
     }
 
@@ -141,7 +150,8 @@ internal sealed class SafeDC : SafeHandleZeroOrMinusOneIsInvalid
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("gdi32.dll", CharSet = CharSet.Unicode)]
-        public static extern SafeDC CreateDC([MarshalAs(UnmanagedType.LPWStr)] string lpszDriver, [MarshalAs(UnmanagedType.LPWStr)] string lpszDevice, IntPtr lpszOutput, IntPtr lpInitData);
+        public static extern SafeDC CreateDC([MarshalAs(UnmanagedType.LPWStr)] string lpszDriver,
+            [MarshalAs(UnmanagedType.LPWStr)] string lpszDevice, IntPtr lpszOutput, IntPtr lpInitData);
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("gdi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]

@@ -33,7 +33,8 @@ public class GifImage : Image, IDisposable
 
     static GifImage()
     {
-        VisibilityProperty.OverrideMetadata(typeof(GifImage), new PropertyMetadata(default(Visibility), OnVisibilityChanged));
+        VisibilityProperty.OverrideMetadata(typeof(GifImage),
+            new PropertyMetadata(default(Visibility), OnVisibilityChanged));
     }
 
     public static readonly DependencyProperty UriProperty = DependencyProperty.Register(
@@ -346,7 +347,8 @@ public class GifImage : Image, IDisposable
     {
         get
         {
-            var status = InteropMethods.Gdip.GdipImageGetFrameDimensionsCount(new HandleRef(this, NativeImage), out var count);
+            var status =
+                InteropMethods.Gdip.GdipImageGetFrameDimensionsCount(new HandleRef(this, NativeImage), out var count);
 
             if (status != InteropMethods.Gdip.Ok)
             {
@@ -366,7 +368,8 @@ public class GifImage : Image, IDisposable
                 throw InteropMethods.Gdip.StatusException(InteropMethods.Gdip.OutOfMemory);
             }
 
-            status = InteropMethods.Gdip.GdipImageGetFrameDimensionsList(new HandleRef(this, NativeImage), buffer, count);
+            status = InteropMethods.Gdip.GdipImageGetFrameDimensionsList(new HandleRef(this, NativeImage), buffer,
+                count);
 
             if (status != InteropMethods.Gdip.Ok)
             {
@@ -397,7 +400,8 @@ public class GifImage : Image, IDisposable
         var count = new[] { 0 };
 
         var dimensionId = dimension.Guid;
-        var status = InteropMethods.Gdip.GdipImageGetFrameCount(new HandleRef(this, NativeImage), ref dimensionId, count);
+        var status =
+            InteropMethods.Gdip.GdipImageGetFrameCount(new HandleRef(this, NativeImage), ref dimensionId, count);
 
         if (status != InteropMethods.Gdip.Ok)
             throw InteropMethods.Gdip.StatusException(status);
@@ -409,7 +413,8 @@ public class GifImage : Image, IDisposable
     {
         GifPropertyItem propitem;
 
-        var status = InteropMethods.Gdip.GdipGetPropertyItemSize(new HandleRef(this, NativeImage), propid, out var size);
+        var status =
+            InteropMethods.Gdip.GdipGetPropertyItemSize(new HandleRef(this, NativeImage), propid, out var size);
 
         if (status != InteropMethods.Gdip.Ok)
             throw InteropMethods.Gdip.StatusException(status);
@@ -446,7 +451,9 @@ public class GifImage : Image, IDisposable
         var count = new[] { 0 };
 
         var dimensionId = dimension.Guid;
-        var status = InteropMethods.Gdip.GdipImageSelectActiveFrame(new HandleRef(this, NativeImage), ref dimensionId, frameIndex);
+        var status =
+            InteropMethods.Gdip.GdipImageSelectActiveFrame(new HandleRef(this, NativeImage), ref dimensionId,
+                frameIndex);
 
         if (status != InteropMethods.Gdip.Ok)
             throw InteropMethods.Gdip.StatusException(status);

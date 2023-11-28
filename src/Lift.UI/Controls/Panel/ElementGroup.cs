@@ -42,16 +42,20 @@ public class ElementGroup : ItemsControl
             [Orientation.Horizontal] = new()
             {
                 [ChildLocation.Single] = defaultCornerRadius,
-                [ChildLocation.First] = new CornerRadius(defaultCornerRadius.TopLeft, 0, 0, defaultCornerRadius.BottomLeft),
+                [ChildLocation.First] =
+                    new CornerRadius(defaultCornerRadius.TopLeft, 0, 0, defaultCornerRadius.BottomLeft),
                 [ChildLocation.Middle] = new CornerRadius(),
-                [ChildLocation.Last] = new CornerRadius(0, defaultCornerRadius.TopRight, defaultCornerRadius.BottomRight, 0)
+                [ChildLocation.Last] =
+                    new CornerRadius(0, defaultCornerRadius.TopRight, defaultCornerRadius.BottomRight, 0)
             },
             [Orientation.Vertical] = new()
             {
                 [ChildLocation.Single] = defaultCornerRadius,
-                [ChildLocation.First] = new CornerRadius(defaultCornerRadius.TopLeft, defaultCornerRadius.TopRight, 0, 0),
+                [ChildLocation.First] =
+                    new CornerRadius(defaultCornerRadius.TopLeft, defaultCornerRadius.TopRight, 0, 0),
                 [ChildLocation.Middle] = new CornerRadius(),
-                [ChildLocation.Last] = new CornerRadius(0, 0, defaultCornerRadius.BottomRight, defaultCornerRadius.BottomLeft)
+                [ChildLocation.Last] =
+                    new CornerRadius(0, 0, defaultCornerRadius.BottomRight, defaultCornerRadius.BottomLeft)
             }
         };
     }
@@ -140,7 +144,8 @@ public class ElementGroup : ItemsControl
 
     private static void MaximizeElementZIndex(object element) => Panel.SetZIndex((UIElement) element, int.MaxValue);
 
-    private void ElementAdded_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) => UpdateChildrenCornerRadius();
+    private void ElementAdded_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) =>
+        UpdateChildrenCornerRadius();
 
     private enum ChildLocation
     {

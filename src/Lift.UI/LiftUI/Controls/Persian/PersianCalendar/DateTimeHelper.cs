@@ -106,7 +106,7 @@ internal static class DateTimeHelper
     public static DateTime DiscardDayTime(DateTime d)
     {
         int year = cal.GetYear(d);
-        int month = cal.GetMonth(d);            
+        int month = cal.GetMonth(d);
         return cal.ToDateTime(year, month, 1, 0, 0, 0, 0);
     }
 
@@ -152,7 +152,8 @@ internal static class DateTimeHelper
     internal static CultureInfo GetCulture(FrameworkElement element)
     {
         CultureInfo culture;
-        if (DependencyPropertyHelper.GetValueSource(element, FrameworkElement.LanguageProperty).BaseValueSource != BaseValueSource.Default)
+        if (DependencyPropertyHelper.GetValueSource(element, FrameworkElement.LanguageProperty).BaseValueSource !=
+            BaseValueSource.Default)
         {
             culture = GetCultureInfo(element);
         }
@@ -160,6 +161,7 @@ internal static class DateTimeHelper
         {
             culture = CultureInfo.CurrentCulture;
         }
+
         return culture;
     }
 
@@ -168,7 +170,7 @@ internal static class DateTimeHelper
     // ------------------------------------------------------------------
     internal static CultureInfo GetCultureInfo(DependencyObject element)
     {
-        XmlLanguage language = (XmlLanguage)element.GetValue(FrameworkElement.LanguageProperty);
+        XmlLanguage language = (XmlLanguage) element.GetValue(FrameworkElement.LanguageProperty);
         try
         {
             return language.GetSpecificCulture();

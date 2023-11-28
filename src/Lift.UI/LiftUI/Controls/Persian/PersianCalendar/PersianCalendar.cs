@@ -44,6 +44,7 @@ public class PersianCalendar : Control
     #endregion Constants
 
     #region Data
+
     private DateTime? _hoverStart;
     private DateTime? _hoverEnd;
     private bool _isShiftPressed;
@@ -56,7 +57,9 @@ public class PersianCalendar : Control
 
     #region Public Events
 
-    public static readonly RoutedEvent SelectedDatesChangedEvent = EventManager.RegisterRoutedEvent("SelectedDatesChanged", RoutingStrategy.Direct, typeof(EventHandler<SelectionChangedEventArgs>), typeof(PersianCalendar));
+    public static readonly RoutedEvent SelectedDatesChangedEvent =
+        EventManager.RegisterRoutedEvent("SelectedDatesChanged", RoutingStrategy.Direct,
+            typeof(EventHandler<SelectionChangedEventArgs>), typeof(PersianCalendar));
 
     /// <summary>
     /// Occurs when a date is selected.
@@ -89,12 +92,17 @@ public class PersianCalendar : Control
     /// </summary>
     static PersianCalendar()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(PersianCalendar), new FrameworkPropertyMetadata(typeof(PersianCalendar)));
-        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(PersianCalendar), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
-        KeyboardNavigation.DirectionalNavigationProperty.OverrideMetadata(typeof(PersianCalendar), new FrameworkPropertyMetadata(KeyboardNavigationMode.Contained));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(typeof(PersianCalendar)));
+        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
+        KeyboardNavigation.DirectionalNavigationProperty.OverrideMetadata(typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(KeyboardNavigationMode.Contained));
 
-        EventManager.RegisterClassHandler(typeof(PersianCalendar), UIElement.GotFocusEvent, new RoutedEventHandler(OnGotFocus));
-        LanguageProperty.OverrideMetadata(typeof(PersianCalendar), new FrameworkPropertyMetadata(new PropertyChangedCallback(OnLanguageChanged)));
+        EventManager.RegisterClassHandler(typeof(PersianCalendar), UIElement.GotFocusEvent,
+            new RoutedEventHandler(OnGotFocus));
+        LanguageProperty.OverrideMetadata(typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(new PropertyChangedCallback(OnLanguageChanged)));
     }
 
     /// <summary>
@@ -128,7 +136,7 @@ public class PersianCalendar : Control
     /// </summary>
     public Style CalendarButtonStyle
     {
-        get { return (Style)GetValue(CalendarButtonStyleProperty); }
+        get { return (Style) GetValue(CalendarButtonStyleProperty); }
         set { SetValue(CalendarButtonStyleProperty, value); }
     }
 
@@ -137,9 +145,9 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty CalendarButtonStyleProperty =
         DependencyProperty.Register(
-        "CalendarButtonStyle",
-        typeof(Style),
-        typeof(PersianCalendar));
+            "CalendarButtonStyle",
+            typeof(Style),
+            typeof(PersianCalendar));
 
     #endregion CalendarButtonStyle
 
@@ -150,7 +158,7 @@ public class PersianCalendar : Control
     /// </summary>
     public Style CalendarDayButtonStyle
     {
-        get { return (Style)GetValue(CalendarDayButtonStyleProperty); }
+        get { return (Style) GetValue(CalendarDayButtonStyleProperty); }
         set { SetValue(CalendarDayButtonStyleProperty, value); }
     }
 
@@ -159,9 +167,9 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty CalendarDayButtonStyleProperty =
         DependencyProperty.Register(
-        "CalendarDayButtonStyle",
-        typeof(Style),
-        typeof(PersianCalendar));
+            "CalendarDayButtonStyle",
+            typeof(Style),
+            typeof(PersianCalendar));
 
     #endregion CalendarDayButtonStyle
 
@@ -172,7 +180,7 @@ public class PersianCalendar : Control
     /// </summary>
     public Style CalendarItemStyle
     {
-        get { return (Style)GetValue(CalendarItemStyleProperty); }
+        get { return (Style) GetValue(CalendarItemStyleProperty); }
         set { SetValue(CalendarItemStyleProperty, value); }
     }
 
@@ -181,9 +189,9 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty CalendarItemStyleProperty =
         DependencyProperty.Register(
-        "CalendarItemStyle",
-        typeof(Style),
-        typeof(PersianCalendar));
+            "CalendarItemStyle",
+            typeof(Style),
+            typeof(PersianCalendar));
 
     #endregion CalendarItemStyle
 
@@ -195,7 +203,7 @@ public class PersianCalendar : Control
     /// 
     public DateTime DisplayDate
     {
-        get { return (DateTime)GetValue(DisplayDateProperty); }
+        get { return (DateTime) GetValue(DisplayDateProperty); }
         set { SetValue(DisplayDateProperty, value); }
     }
 
@@ -204,10 +212,11 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty DisplayDateProperty =
         DependencyProperty.Register(
-        "DisplayDate",
-        typeof(DateTime),
-        typeof(PersianCalendar),
-        new FrameworkPropertyMetadata(DateTime.MinValue, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayDateChanged, CoerceDisplayDate));
+            "DisplayDate",
+            typeof(DateTime),
+            typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(DateTime.MinValue, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnDisplayDateChanged, CoerceDisplayDate));
 
     /// <summary>
     /// DisplayDateProperty property changed handler.
@@ -219,16 +228,16 @@ public class PersianCalendar : Control
         PersianCalendar c = d as PersianCalendar;
         Debug.Assert(c != null);
 
-        c.DisplayDateInternal = DateTimeHelper.DiscardDayTime((DateTime)e.NewValue);
+        c.DisplayDateInternal = DateTimeHelper.DiscardDayTime((DateTime) e.NewValue);
         c.UpdateCellItems();
-        c.OnDisplayDateChanged(new CalendarDateChangedEventArgs((DateTime)e.OldValue, (DateTime)e.NewValue));
+        c.OnDisplayDateChanged(new CalendarDateChangedEventArgs((DateTime) e.OldValue, (DateTime) e.NewValue));
     }
 
     private static object CoerceDisplayDate(DependencyObject d, object value)
     {
         PersianCalendar c = d as PersianCalendar;
 
-        DateTime date = (DateTime)value;
+        DateTime date = (DateTime) value;
         if (c.DisplayDateStart.HasValue && (date < c.DisplayDateStart.Value))
         {
             value = c.DisplayDateStart.Value;
@@ -251,7 +260,7 @@ public class PersianCalendar : Control
     /// 
     public DateTime? DisplayDateEnd
     {
-        get { return (DateTime?)GetValue(DisplayDateEndProperty); }
+        get { return (DateTime?) GetValue(DisplayDateEndProperty); }
         set { SetValue(DisplayDateEndProperty, value); }
     }
 
@@ -260,10 +269,11 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty DisplayDateEndProperty =
         DependencyProperty.Register(
-        "DisplayDateEnd",
-        typeof(DateTime?),
-        typeof(PersianCalendar),
-        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayDateEndChanged, CoerceDisplayDateEnd));
+            "DisplayDateEnd",
+            typeof(DateTime?),
+            typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnDisplayDateEndChanged, CoerceDisplayDateEnd));
 
     /// <summary>
     /// DisplayDateEndProperty property changed handler.
@@ -283,7 +293,7 @@ public class PersianCalendar : Control
     {
         PersianCalendar c = d as PersianCalendar;
 
-        DateTime? date = (DateTime?)value;
+        DateTime? date = (DateTime?) value;
 
         if (date.HasValue)
         {
@@ -312,7 +322,7 @@ public class PersianCalendar : Control
     /// 
     public DateTime? DisplayDateStart
     {
-        get { return (DateTime?)GetValue(DisplayDateStartProperty); }
+        get { return (DateTime?) GetValue(DisplayDateStartProperty); }
         set { SetValue(DisplayDateStartProperty, value); }
     }
 
@@ -321,10 +331,11 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty DisplayDateStartProperty =
         DependencyProperty.Register(
-        "DisplayDateStart",
-        typeof(DateTime?),
-        typeof(PersianCalendar),
-        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayDateStartChanged, CoerceDisplayDateStart));
+            "DisplayDateStart",
+            typeof(DateTime?),
+            typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnDisplayDateStartChanged, CoerceDisplayDateStart));
 
     /// <summary>
     /// DisplayDateStartProperty property changed handler.
@@ -345,7 +356,7 @@ public class PersianCalendar : Control
     {
         PersianCalendar c = d as PersianCalendar;
 
-        DateTime? date = (DateTime?)value;
+        DateTime? date = (DateTime?) value;
 
         if (date.HasValue)
         {
@@ -368,7 +379,7 @@ public class PersianCalendar : Control
     /// </summary>
     public CalendarMode DisplayMode
     {
-        get { return (CalendarMode)GetValue(DisplayModeProperty); }
+        get { return (CalendarMode) GetValue(DisplayModeProperty); }
         set { SetValue(DisplayModeProperty, value); }
     }
 
@@ -377,11 +388,12 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty DisplayModeProperty =
         DependencyProperty.Register(
-        "DisplayMode",
-        typeof(CalendarMode),
-        typeof(PersianCalendar),
-        new FrameworkPropertyMetadata(CalendarMode.Month, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayModePropertyChanged),
-        new ValidateValueCallback(IsValidDisplayMode));
+            "DisplayMode",
+            typeof(CalendarMode),
+            typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(CalendarMode.Month, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnDisplayModePropertyChanged),
+            new ValidateValueCallback(IsValidDisplayMode));
 
     /// <summary>
     /// DisplayModeProperty property changed handler.
@@ -392,43 +404,43 @@ public class PersianCalendar : Control
     {
         PersianCalendar c = d as PersianCalendar;
         Debug.Assert(c != null);
-        CalendarMode mode = (CalendarMode)e.NewValue;
-        CalendarMode oldMode = (CalendarMode)e.OldValue;
+        CalendarMode mode = (CalendarMode) e.NewValue;
+        CalendarMode oldMode = (CalendarMode) e.OldValue;
         CalendarItem monthControl = c.MonthControl;
 
         switch (mode)
         {
             case CalendarMode.Month:
+            {
+                if (oldMode == CalendarMode.Year || oldMode == CalendarMode.Decade)
                 {
-                    if (oldMode == CalendarMode.Year || oldMode == CalendarMode.Decade)
-                    {
-                        // Cancel highlight when switching to month display mode
-                        c.HoverStart = c.HoverEnd = null;
-                        c.CurrentDate = c.DisplayDate;
-                    }
-
-                    c.UpdateCellItems();
-                    break;
+                    // Cancel highlight when switching to month display mode
+                    c.HoverStart = c.HoverEnd = null;
+                    c.CurrentDate = c.DisplayDate;
                 }
+
+                c.UpdateCellItems();
+                break;
+            }
 
             case CalendarMode.Year:
             case CalendarMode.Decade:
+            {
+                if (oldMode == CalendarMode.Month)
                 {
-                    if (oldMode == CalendarMode.Month)
-                    {
-                        c.DisplayDate = c.CurrentDate;
-                    }
-
-                    c.UpdateCellItems();
-                    break;
+                    c.DisplayDate = c.CurrentDate;
                 }
+
+                c.UpdateCellItems();
+                break;
+            }
 
             default:
                 Debug.Assert(false);
                 break;
         }
 
-        c.OnDisplayModeChanged(new CalendarModeChangedEventArgs((CalendarMode)e.OldValue, mode));
+        c.OnDisplayModeChanged(new CalendarModeChangedEventArgs((CalendarMode) e.OldValue, mode));
     }
 
     #endregion DisplayMode
@@ -440,7 +452,7 @@ public class PersianCalendar : Control
     /// </summary>
     public DayOfWeek FirstDayOfWeek
     {
-        get { return (DayOfWeek)GetValue(FirstDayOfWeekProperty); }
+        get { return (DayOfWeek) GetValue(FirstDayOfWeekProperty); }
         set { SetValue(FirstDayOfWeekProperty, value); }
     }
 
@@ -449,12 +461,12 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty FirstDayOfWeekProperty =
         DependencyProperty.Register(
-        "FirstDayOfWeek",
-        typeof(DayOfWeek),
-        typeof(PersianCalendar),
-        new FrameworkPropertyMetadata(DateTimeHelper.GetCurrentDateFormat().FirstDayOfWeek,
-                            OnFirstDayOfWeekChanged),
-        new ValidateValueCallback(IsValidFirstDayOfWeek));
+            "FirstDayOfWeek",
+            typeof(DayOfWeek),
+            typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(DateTimeHelper.GetCurrentDateFormat().FirstDayOfWeek,
+                OnFirstDayOfWeekChanged),
+            new ValidateValueCallback(IsValidFirstDayOfWeek));
 
     /// <summary>
     /// FirstDayOfWeekProperty property changed handler.
@@ -476,7 +488,7 @@ public class PersianCalendar : Control
     /// </summary>
     public bool IsTodayHighlighted
     {
-        get { return (bool)GetValue(IsTodayHighlightedProperty); }
+        get { return (bool) GetValue(IsTodayHighlightedProperty); }
         set { SetValue(IsTodayHighlightedProperty, value); }
     }
 
@@ -485,10 +497,10 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty IsTodayHighlightedProperty =
         DependencyProperty.Register(
-        "IsTodayHighlighted",
-        typeof(bool),
-        typeof(PersianCalendar),
-        new FrameworkPropertyMetadata(true, OnIsTodayHighlightedChanged));
+            "IsTodayHighlighted",
+            typeof(bool),
+            typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(true, OnIsTodayHighlightedChanged));
 
     /// <summary>
     /// IsTodayHighlightedProperty property changed handler.
@@ -508,17 +520,20 @@ public class PersianCalendar : Control
     }
 
     #endregion IsTodayHighlighted
-    
+
     #region Language
+
     private static void OnLanguageChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         PersianCalendar c = d as PersianCalendar;
-        if (DependencyPropertyHelper.GetValueSource(d, PersianCalendar.FirstDayOfWeekProperty).BaseValueSource == BaseValueSource.Default)
+        if (DependencyPropertyHelper.GetValueSource(d, PersianCalendar.FirstDayOfWeekProperty).BaseValueSource ==
+            BaseValueSource.Default)
         {
             c.CoerceValue(FirstDayOfWeekProperty);
             c.UpdateCellItems();
         }
     }
+
     #endregion
 
     #region SelectedDate
@@ -529,7 +544,7 @@ public class PersianCalendar : Control
     /// 
     public DateTime? SelectedDate
     {
-        get { return (DateTime?)GetValue(SelectedDateProperty); }
+        get { return (DateTime?) GetValue(SelectedDateProperty); }
         set { SetValue(SelectedDateProperty, value); }
     }
 
@@ -538,10 +553,11 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty SelectedDateProperty =
         DependencyProperty.Register(
-        "SelectedDate",
-        typeof(DateTime?),
-        typeof(PersianCalendar),
-        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedDateChanged));
+            "SelectedDate",
+            typeof(DateTime?),
+            typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnSelectedDateChanged));
 
     /// <summary>
     /// SelectedDateProperty property changed handler.
@@ -557,7 +573,7 @@ public class PersianCalendar : Control
         {
             DateTime? addedDate;
 
-            addedDate = (DateTime?)e.NewValue;
+            addedDate = (DateTime?) e.NewValue;
 
             if (IsValidDateSelection(c, addedDate))
             {
@@ -592,7 +608,8 @@ public class PersianCalendar : Control
         }
         else
         {
-            throw new InvalidOperationException("The SelectedDate property cannot be set when the selection mode is None.");
+            throw new InvalidOperationException(
+                "The SelectedDate property cannot be set when the selection mode is None.");
         }
     }
 
@@ -619,7 +636,7 @@ public class PersianCalendar : Control
     /// </summary>
     public CalendarSelectionMode SelectionMode
     {
-        get { return (CalendarSelectionMode)GetValue(SelectionModeProperty); }
+        get { return (CalendarSelectionMode) GetValue(SelectionModeProperty); }
         set { SetValue(SelectionModeProperty, value); }
     }
 
@@ -628,11 +645,11 @@ public class PersianCalendar : Control
     /// </summary>
     public static readonly DependencyProperty SelectionModeProperty =
         DependencyProperty.Register(
-        "SelectionMode",
-        typeof(CalendarSelectionMode),
-        typeof(PersianCalendar),
-        new FrameworkPropertyMetadata(CalendarSelectionMode.SingleDate, OnSelectionModeChanged),
-        new ValidateValueCallback(IsValidSelectionMode));
+            "SelectionMode",
+            typeof(CalendarSelectionMode),
+            typeof(PersianCalendar),
+            new FrameworkPropertyMetadata(CalendarSelectionMode.SingleDate, OnSelectionModeChanged),
+            new ValidateValueCallback(IsValidSelectionMode));
 
     private static void OnSelectionModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -678,7 +695,8 @@ public class PersianCalendar : Control
     {
         get
         {
-            return this.DisplayDateEnd.GetValueOrDefault(PersianCalendarHelper.GetCurrentCalendar().MaxSupportedDateTime);
+            return this.DisplayDateEnd.GetValueOrDefault(
+                PersianCalendarHelper.GetCurrentCalendar().MaxSupportedDateTime);
         }
     }
 
@@ -686,7 +704,8 @@ public class PersianCalendar : Control
     {
         get
         {
-            return this.DisplayDateStart.GetValueOrDefault(PersianCalendarHelper.GetCurrentCalendar().MinSupportedDateTime);
+            return this.DisplayDateStart.GetValueOrDefault(PersianCalendarHelper.GetCurrentCalendar()
+                .MinSupportedDateTime);
         }
     }
 
@@ -703,9 +722,9 @@ public class PersianCalendar : Control
             return this.SelectionMode == CalendarSelectionMode.None ? null : _hoverStart;
         }
 
-        set 
-        { 
-            _hoverStart = value; 
+        set
+        {
+            _hoverStart = value;
         }
     }
 
@@ -750,11 +769,12 @@ public class PersianCalendar : Control
 
     private bool IsRightToLeft
     {
-        get 
+        get
         {
             return FlowDirection == FlowDirection.RightToLeft;
         }
     }
+
     #endregion Private Properties
 
     #region Public Methods
@@ -877,7 +897,7 @@ public class PersianCalendar : Control
             {
                 if (b.DataContext is DateTime)
                 {
-                    if (DateTimeHelper.CompareDays((DateTime)b.DataContext, day) == 0)
+                    if (DateTimeHelper.CompareDays((DateTime) b.DataContext, day) == 0)
                     {
                         return b;
                     }
@@ -890,7 +910,7 @@ public class PersianCalendar : Control
 
     internal static bool IsValidDateSelection(PersianCalendar cal, object value)
     {
-        return (value == null) || (!cal.BlackoutDates.Contains((DateTime)value));
+        return (value == null) || (!cal.BlackoutDates.Contains((DateTime) value));
     }
 
     internal void OnDayButtonMouseUp(MouseButtonEventArgs e)
@@ -927,14 +947,14 @@ public class PersianCalendar : Control
         {
             UpdateCellItems();
             FocusDate(selectedDate);
-        }            
+        }
     }
 
     internal void OnCalendarButtonPressed(CalendarButton b, bool switchDisplayMode)
     {
         if (b.DataContext is DateTime)
         {
-            DateTime d = (DateTime)b.DataContext;
+            DateTime d = (DateTime) b.DataContext;
 
             DateTime? newDate = null;
             CalendarMode newMode = CalendarMode.Month;
@@ -961,8 +981,8 @@ public class PersianCalendar : Control
                     break;
                 }
 
-                default: 
-                    Debug.Assert(false); 
+                default:
+                    Debug.Assert(false);
                     break;
             }
 
@@ -1002,8 +1022,8 @@ public class PersianCalendar : Control
             }
 
             default:
-            Debug.Assert(false);
-            break;
+                Debug.Assert(false);
+                break;
         }
 
         return result;
@@ -1030,13 +1050,13 @@ public class PersianCalendar : Control
                 {
                     this.DisplayDate = d;
                     UpdateCellItems();
-                    
+
                     break;
                 }
 
                 default:
-                Debug.Assert(false);
-                break;
+                    Debug.Assert(false);
+                    break;
             }
 
             FocusDate(d);
@@ -1069,7 +1089,8 @@ public class PersianCalendar : Control
                 AutomationPeer.ListenerExists(AutomationEvents.SelectionItemPatternOnElementAddedToSelection) ||
                 AutomationPeer.ListenerExists(AutomationEvents.SelectionItemPatternOnElementRemovedFromSelection))
             {
-                CalendarAutomationPeer peer = FrameworkElementAutomationPeer.FromElement(this) as CalendarAutomationPeer;
+                CalendarAutomationPeer peer =
+                    FrameworkElementAutomationPeer.FromElement(this) as CalendarAutomationPeer;
                 if (peer != null)
                 {
                     peer.RaiseSelectionEvents(e);
@@ -1106,8 +1127,8 @@ public class PersianCalendar : Control
                     break;
                 }
 
-                default: 
-                    Debug.Assert(false); 
+                default:
+                    Debug.Assert(false);
                     break;
             }
         }
@@ -1156,24 +1177,24 @@ public class PersianCalendar : Control
 
     private static bool IsValidDisplayMode(object value)
     {
-        CalendarMode mode = (CalendarMode)value;
+        CalendarMode mode = (CalendarMode) value;
 
         return mode == CalendarMode.Month
-            || mode == CalendarMode.Year
-            || mode == CalendarMode.Decade;
+               || mode == CalendarMode.Year
+               || mode == CalendarMode.Decade;
     }
 
     internal static bool IsValidFirstDayOfWeek(object value)
     {
-        DayOfWeek day = (DayOfWeek)value;
+        DayOfWeek day = (DayOfWeek) value;
 
         return day == DayOfWeek.Sunday
-            || day == DayOfWeek.Monday
-            || day == DayOfWeek.Tuesday
-            || day == DayOfWeek.Wednesday
-            || day == DayOfWeek.Thursday
-            || day == DayOfWeek.Friday
-            || day == DayOfWeek.Saturday;
+               || day == DayOfWeek.Monday
+               || day == DayOfWeek.Tuesday
+               || day == DayOfWeek.Wednesday
+               || day == DayOfWeek.Thursday
+               || day == DayOfWeek.Friday
+               || day == DayOfWeek.Saturday;
     }
 
     private static bool IsValidKeyboardSelection(PersianCalendar cal, object value)
@@ -1184,25 +1205,26 @@ public class PersianCalendar : Control
         }
         else
         {
-            if (cal.BlackoutDates.Contains((DateTime)value))
+            if (cal.BlackoutDates.Contains((DateTime) value))
             {
                 return false;
             }
             else
             {
-                return DateTime.Compare((DateTime)value, cal.DisplayDateStartInternal) >= 0 && DateTime.Compare((DateTime)value, cal.DisplayDateEndInternal) <= 0;
+                return DateTime.Compare((DateTime) value, cal.DisplayDateStartInternal) >= 0 &&
+                       DateTime.Compare((DateTime) value, cal.DisplayDateEndInternal) <= 0;
             }
         }
     }
 
     private static bool IsValidSelectionMode(object value)
     {
-        CalendarSelectionMode mode = (CalendarSelectionMode)value;
+        CalendarSelectionMode mode = (CalendarSelectionMode) value;
 
         return mode == CalendarSelectionMode.SingleDate
-            || mode == CalendarSelectionMode.SingleRange
-            || mode == CalendarSelectionMode.MultipleRange
-            || mode == CalendarSelectionMode.None;
+               || mode == CalendarSelectionMode.SingleRange
+               || mode == CalendarSelectionMode.MultipleRange
+               || mode == CalendarSelectionMode.None;
     }
 
     private void OnSelectedMonthChanged(DateTime? selectedMonth)
@@ -1245,13 +1267,14 @@ public class PersianCalendar : Control
     private static void OnGotFocus(object sender, RoutedEventArgs e)
     {
         // When PersianCalendar gets focus move it to the DisplayDate
-        var c = (PersianCalendar)sender;
+        var c = (PersianCalendar) sender;
         if (!e.Handled && e.OriginalSource == c)
         {
             // This check is for the case where the DisplayDate is the first of the month
             // and the SelectedDate is in the middle of the month.  If you tab into the PersianCalendar
             // the focus should go to the SelectedDate, not the DisplayDate.
-            if (c.SelectedDate.HasValue && DateTimeHelper.CompareYearMonth(c.SelectedDate.Value, c.DisplayDateInternal) == 0)
+            if (c.SelectedDate.HasValue &&
+                DateTimeHelper.CompareYearMonth(c.SelectedDate.Value, c.DisplayDateInternal) == 0)
             {
                 c.FocusDate(c.SelectedDate.Value);
             }
@@ -1270,9 +1293,11 @@ public class PersianCalendar : Control
         {
             // If a blackout day is inactive, when clicked on it, the previous inactive day which is not a blackout day can get the focus.
             // In this case we should allow keyboard functions on that inactive day
-            CalendarDayButton currentDayButton = (MonthControl != null) ? MonthControl.GetCalendarDayButton(this.CurrentDate) : null;
+            CalendarDayButton currentDayButton =
+                (MonthControl != null) ? MonthControl.GetCalendarDayButton(this.CurrentDate) : null;
 
-            if (DateTimeHelper.CompareYearMonth(this.CurrentDate, this.DisplayDateInternal) != 0 && currentDayButton != null && !currentDayButton.IsInactive)
+            if (DateTimeHelper.CompareYearMonth(this.CurrentDate, this.DisplayDateInternal) != 0 &&
+                currentDayButton != null && !currentDayButton.IsInactive)
             {
                 return false;
             }
@@ -1349,7 +1374,8 @@ public class PersianCalendar : Control
             {
                 if (!ctrl || shift)
                 {
-                    DateTime? selectedDate = this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddDays(this.CurrentDate, COLS), 1);
+                    DateTime? selectedDate =
+                        this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddDays(this.CurrentDate, COLS), 1);
                     ProcessSelection(shift, selectedDate);
                 }
 
@@ -1375,7 +1401,7 @@ public class PersianCalendar : Control
             case CalendarMode.Decade:
             {
                 if (ctrl)
-                {                        
+                {
                     this.DisplayMode = CalendarMode.Year;
                     FocusDate(this.DisplayDate);
                 }
@@ -1494,7 +1520,9 @@ public class PersianCalendar : Control
         {
             case CalendarMode.Month:
             {
-                DateTime? selectedDate = this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddDays(this.CurrentDate, moveAmmount), moveAmmount);
+                DateTime? selectedDate =
+                    this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddDays(this.CurrentDate, moveAmmount),
+                        moveAmmount);
                 ProcessSelection(shift, selectedDate);
                 break;
             }
@@ -1521,7 +1549,8 @@ public class PersianCalendar : Control
         {
             case CalendarMode.Month:
             {
-                DateTime? selectedDate = this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddMonths(this.CurrentDate, 1), 1);
+                DateTime? selectedDate =
+                    this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddMonths(this.CurrentDate, 1), 1);
                 ProcessSelection(shift, selectedDate);
                 break;
             }
@@ -1548,7 +1577,8 @@ public class PersianCalendar : Control
         {
             case CalendarMode.Month:
             {
-                DateTime? selectedDate = this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddMonths(this.CurrentDate, -1), -1);
+                DateTime? selectedDate =
+                    this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddMonths(this.CurrentDate, -1), -1);
                 ProcessSelection(shift, selectedDate);
                 break;
             }
@@ -1576,7 +1606,9 @@ public class PersianCalendar : Control
         {
             case CalendarMode.Month:
             {
-                DateTime? selectedDate = this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddDays(this.CurrentDate, moveAmmount), moveAmmount);
+                DateTime? selectedDate =
+                    this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddDays(this.CurrentDate, moveAmmount),
+                        moveAmmount);
                 ProcessSelection(shift, selectedDate);
                 break;
             }
@@ -1607,7 +1639,8 @@ public class PersianCalendar : Control
 
         if (lastSelectedDate != null && IsValidKeyboardSelection(this, lastSelectedDate.Value))
         {
-            if (this.SelectionMode == CalendarSelectionMode.SingleRange || this.SelectionMode == CalendarSelectionMode.MultipleRange)
+            if (this.SelectionMode == CalendarSelectionMode.SingleRange ||
+                this.SelectionMode == CalendarSelectionMode.MultipleRange)
             {
                 this.SelectedDates.ClearInternal();
                 if (shift)
@@ -1617,7 +1650,7 @@ public class PersianCalendar : Control
                     {
                         this.HoverStart = this.HoverEnd = this.CurrentDate;
                     }
-                    
+
                     // If we hit a BlackOutDay with keyboard we do not update the HoverEnd
                     CalendarDateRange range;
 
@@ -1642,8 +1675,8 @@ public class PersianCalendar : Control
                 {
                     this.HoverStart = this.HoverEnd = this.CurrentDate = lastSelectedDate.Value;
                     AddKeyboardSelection();
-                    OnDayClick(lastSelectedDate.Value);                        
-                }                    
+                    OnDayClick(lastSelectedDate.Value);
+                }
             }
             else
             {
@@ -1668,7 +1701,8 @@ public class PersianCalendar : Control
 
     private void ProcessShiftKeyUp()
     {
-        if (this._isShiftPressed && (this.SelectionMode == CalendarSelectionMode.SingleRange || this.SelectionMode == CalendarSelectionMode.MultipleRange))
+        if (this._isShiftPressed && (this.SelectionMode == CalendarSelectionMode.SingleRange ||
+                                     this.SelectionMode == CalendarSelectionMode.MultipleRange))
         {
             AddKeyboardSelection();
             this._isShiftPressed = false;
@@ -1689,7 +1723,8 @@ public class PersianCalendar : Control
                 }
                 else
                 {
-                    DateTime? selectedDate = this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddDays(this.CurrentDate, -COLS), -1);
+                    DateTime? selectedDate =
+                        this._blackoutDates.GetNonBlackoutDate(DateTimeHelper.AddDays(this.CurrentDate, -COLS), -1);
                     ProcessSelection(shift, selectedDate);
                 }
 

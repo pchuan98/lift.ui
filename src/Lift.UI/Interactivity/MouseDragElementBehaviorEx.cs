@@ -19,7 +19,8 @@ internal class MouseDragElementBehaviorEx : Behavior<FrameworkElement>
 
     public static readonly DependencyProperty ConstrainToParentBoundsProperty =
         DependencyProperty.Register(nameof(ConstrainToParentBounds), typeof(bool),
-            typeof(MouseDragElementBehaviorEx), new PropertyMetadata(ValueBoxes.FalseBox, OnConstrainToParentBoundsChanged));
+            typeof(MouseDragElementBehaviorEx),
+            new PropertyMetadata(ValueBoxes.FalseBox, OnConstrainToParentBoundsChanged));
 
     private Transform _cachedRenderTransform;
     private Point _relativePosition;
@@ -154,6 +155,7 @@ internal class MouseDragElementBehaviorEx : Behavior<FrameworkElement>
                     var num = rect2.Right - rect1.Right;
                     x -= num;
                 }
+
                 if (rect2.Y < rect1.Top)
                 {
                     var num = rect2.Y - rect1.Top;
@@ -166,6 +168,7 @@ internal class MouseDragElementBehaviorEx : Behavior<FrameworkElement>
                 }
             }
         }
+
         ApplyTranslationTransform(x, y);
     }
 
@@ -197,10 +200,12 @@ internal class MouseDragElementBehaviorEx : Behavior<FrameworkElement>
                     {
                         matrix.OffsetX += x;
                     }
+
                     if (!LockY)
                     {
                         matrix.OffsetY += y;
                     }
+
                     //修改结束
                     RenderTransform = new MatrixTransform
                     {
@@ -208,6 +213,7 @@ internal class MouseDragElementBehaviorEx : Behavior<FrameworkElement>
                     };
                     return;
                 }
+
                 var transformGroup2 = new TransformGroup();
                 translateTransform = new TranslateTransform();
                 if (renderTransform != null)
@@ -216,11 +222,13 @@ internal class MouseDragElementBehaviorEx : Behavior<FrameworkElement>
                 RenderTransform = transformGroup2;
             }
         }
+
         //在该处对微软的类进行了修改
         if (!LockX)
         {
             translateTransform.X += x;
         }
+
         if (!LockY)
         {
             translateTransform.Y += y;

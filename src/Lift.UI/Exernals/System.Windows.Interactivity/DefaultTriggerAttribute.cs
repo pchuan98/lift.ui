@@ -43,6 +43,7 @@ public sealed class DefaultTriggerAttribute : Attribute
         {
             // ignored
         }
+
         return (TriggerBase) obj2;
     }
 }

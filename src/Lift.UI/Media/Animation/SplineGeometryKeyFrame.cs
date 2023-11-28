@@ -11,17 +11,14 @@ public class SplineGeometryKeyFrame : GeometryKeyFrame
 {
     public SplineGeometryKeyFrame()
     {
-
     }
 
     public SplineGeometryKeyFrame(Geometry value) : base(value)
     {
-
     }
 
     public SplineGeometryKeyFrame(Geometry value, KeyTime keyTime) : base(value, keyTime)
     {
-
     }
 
     public SplineGeometryKeyFrame(Geometry value, KeyTime keyTime, KeySpline keySpline) : base(value, keyTime)

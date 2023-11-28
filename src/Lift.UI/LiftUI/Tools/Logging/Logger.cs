@@ -88,7 +88,7 @@ public static class Logger
     public static void LogAsync<TClass>(Exception exception) where TClass : class
     {
         var message = string.Format("Log exception -> Message: {0}\nStackTrace: {1}", exception.Message,
-                                    exception.StackTrace);
+            exception.StackTrace);
         LogAsync<TClass>(Level.Error, message);
     }
 
@@ -167,7 +167,7 @@ public static class Logger
     public static void Log<TClass>(Exception exception) where TClass : class
     {
         var message = string.Format("Log exception -> Message: {0}\nStackTrace: {1}", exception.Message,
-                                    exception.StackTrace);
+            exception.StackTrace);
         Log<TClass>(Level.Error, message);
     }
 
@@ -196,7 +196,8 @@ public static class Logger
         }
     }
 
-    private static LogMessage GetLogMessage(Level level, string message, string callingClass, string callingMethod, int lineNumber)
+    private static LogMessage GetLogMessage(Level level, string message, string callingClass, string callingMethod,
+        int lineNumber)
     {
         if (!_isTurned)
             return null;
@@ -209,7 +210,8 @@ public static class Logger
     private static MethodBase GetCallingMethodBase(StackFrame stackFrame)
     {
         return stackFrame == null
-            ? MethodBase.GetCurrentMethod() : stackFrame.GetMethod();
+            ? MethodBase.GetCurrentMethod()
+            : stackFrame.GetMethod();
     }
 
     private static StackFrame FindStackFrame()
@@ -222,6 +224,7 @@ public static class Logger
             if (!methodBase.Name.Equals("Log") && !methodBase.Name.Equals(name))
                 return new StackFrame(i, true);
         }
+
         return null;
     }
 
@@ -241,7 +244,7 @@ public static class Logger
     }
 
     public static bool StoreLogMessages
-    { 
+    {
         get { return LogPublisher.StoreLogMessages; }
         set { LogPublisher.StoreLogMessages = value; }
     }
@@ -250,17 +253,17 @@ public static class Logger
     {
         public static bool ByLevelHigher(Level logMessLevel, Level filterLevel)
         {
-            return ((int)logMessLevel >= (int)filterLevel);
+            return ((int) logMessLevel >= (int) filterLevel);
         }
 
         public static bool ByLevelLower(Level logMessLevel, Level filterLevel)
         {
-            return ((int)logMessLevel <= (int)filterLevel);
+            return ((int) logMessLevel <= (int) filterLevel);
         }
 
         public static bool ByLevelExactly(Level logMessLevel, Level filterLevel)
         {
-            return ((int)logMessLevel == (int)filterLevel);
+            return ((int) logMessLevel == (int) filterLevel);
         }
 
         public static bool ByLevel(LogMessage logMessage, Level filterLevel, Func<Level, Level, bool> filterPred)
@@ -282,22 +285,29 @@ public static class Logger
             OnlyHigherLevel = true;
         }
 
-        public FilterByLevel() 
+        public FilterByLevel()
         {
             ExactlyLevel = false;
             OnlyHigherLevel = true;
         }
 
-        public Predicate<LogMessage> Filter { get { return delegate(LogMessage logMessage) {
-            return FilterPredicates.ByLevel(logMessage, FilteredLevel, delegate(Level lm, Level fl) {
-            return ExactlyLevel ? 
-                FilterPredicates.ByLevelExactly(lm, fl) : 
-                (OnlyHigherLevel ? 
-                    FilterPredicates.ByLevelHigher(lm, fl) : 
-                    FilterPredicates.ByLevelLower(lm, fl)
-                );
-                });
-            }; 
-        }  }
+        public Predicate<LogMessage> Filter
+        {
+            get
+            {
+                return delegate(LogMessage logMessage)
+                {
+                    return FilterPredicates.ByLevel(logMessage, FilteredLevel, delegate(Level lm, Level fl)
+                    {
+                        return ExactlyLevel
+                            ? FilterPredicates.ByLevelExactly(lm, fl)
+                            : (OnlyHigherLevel
+                                ? FilterPredicates.ByLevelHigher(lm, fl)
+                                : FilterPredicates.ByLevelLower(lm, fl)
+                            );
+                    });
+                };
+            }
+        }
     }
 }

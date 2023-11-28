@@ -20,12 +20,15 @@ public class OutlineText : FrameworkElement
 
     static OutlineText()
     {
-        SnapsToDevicePixelsProperty.OverrideMetadata(typeof(OutlineText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
-        UseLayoutRoundingProperty.OverrideMetadata(typeof(OutlineText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
+        SnapsToDevicePixelsProperty.OverrideMetadata(typeof(OutlineText),
+            new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
+        UseLayoutRoundingProperty.OverrideMetadata(typeof(OutlineText),
+            new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
     }
 
     public static readonly DependencyProperty StrokePositionProperty = DependencyProperty.Register(
-        nameof(StrokePosition), typeof(StrokePosition), typeof(OutlineText), new PropertyMetadata(default(StrokePosition)));
+        nameof(StrokePosition), typeof(StrokePosition), typeof(OutlineText),
+        new PropertyMetadata(default(StrokePosition)));
 
     public StrokePosition StrokePosition
     {
@@ -85,7 +88,8 @@ public class OutlineText : FrameworkElement
     }
 
     public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register(
-        nameof(Stroke), typeof(Brush), typeof(OutlineText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
+        nameof(Stroke), typeof(Brush), typeof(OutlineText),
+        new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
 
     public Brush Stroke
     {
@@ -94,7 +98,8 @@ public class OutlineText : FrameworkElement
     }
 
     public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register(
-        nameof(StrokeThickness), typeof(double), typeof(OutlineText), new PropertyMetadata(ValueBoxes.Double0Box, OnFormattedTextUpdated));
+        nameof(StrokeThickness), typeof(double), typeof(OutlineText),
+        new PropertyMetadata(ValueBoxes.Double0Box, OnFormattedTextUpdated));
 
     public double StrokeThickness
     {

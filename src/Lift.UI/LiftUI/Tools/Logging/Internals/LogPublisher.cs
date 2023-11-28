@@ -8,10 +8,10 @@ internal class FilteredHandler : ILoggerHandler
     public Predicate<LogMessage> Filter { get; set; }
     public ILoggerHandler Handler { get; set; }
 
-    public void Publish(LogMessage logMessage) 
+    public void Publish(LogMessage logMessage)
     {
         if (Filter(logMessage))
-            Handler.Publish (logMessage);
+            Handler.Publish(logMessage);
     }
 
 #if !NET40
@@ -72,7 +72,8 @@ internal class LogPublisher : ILoggerHandlerManager
         if ((filter == null) || loggerHandler == null)
             return this;
 
-        return AddHandler(new FilteredHandler() {
+        return AddHandler(new FilteredHandler()
+        {
             Filter = filter,
             Handler = loggerHandler
         });

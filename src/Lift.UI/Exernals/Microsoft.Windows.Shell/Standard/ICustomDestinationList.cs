@@ -8,7 +8,7 @@ namespace Standard;
 [ComImport]
 internal interface ICustomDestinationList
 {
-    void SetAppID([MarshalAs(UnmanagedType.LPWStr)][In] string pszAppID);
+    void SetAppID([MarshalAs(UnmanagedType.LPWStr)] [In] string pszAppID);
 
     [return: MarshalAs(UnmanagedType.Interface)]
     object BeginList(out uint pcMaxSlots, [In] ref Guid riid);

@@ -56,6 +56,7 @@ public class InteropValues
         /// <summary>Height of bottom border that retains its size.</summary>
         public int Bottom;
     }
+
     public const int
         BITSPIXEL = 12,
         PLANES = 14,
@@ -139,15 +140,21 @@ public class InteropValues
         public int uFlags;
         public int uCallbackMessage;
         public IntPtr hIcon;
+
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
         public string szTip = string.Empty;
+
         public int dwState = 0x01;
         public int dwStateMask = 0x01;
+
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
         public string szInfo = string.Empty;
+
         public int uTimeoutOrVersion;
+
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
         public string szInfoTitle = string.Empty;
+
         public int dwInfoFlags;
     }
 
@@ -295,7 +302,8 @@ public class InteropValues
     [Flags]
     public enum ProcessAccess
     {
-        AllAccess = CreateThread | DuplicateHandle | QueryInformation | SetInformation | Terminate | VMOperation | VMRead | VMWrite | Synchronize,
+        AllAccess = CreateThread | DuplicateHandle | QueryInformation | SetInformation | Terminate | VMOperation |
+                    VMRead | VMWrite | Synchronize,
         CreateThread = 0x2,
         DuplicateHandle = 0x40,
         QueryInformation = 0x400,
@@ -480,6 +488,7 @@ public class InteropValues
         public POINT MinPosition;
         public POINT MaxPosition;
         public RECT NormalPosition;
+
         public static WINDOWPLACEMENT2 Default
         {
             get
@@ -496,6 +505,7 @@ public class InteropValues
     {
         [ComAliasName("Microsoft.VisualStudio.OLE.Interop.LONG")]
         public int cx;
+
         [ComAliasName("Microsoft.VisualStudio.OLE.Interop.LONG")]
         public int cy;
     }
@@ -750,10 +760,8 @@ public class InteropValues
         public IntPtr hIcon;
         public IntPtr hCursor;
         public IntPtr hbrBackground;
-        [MarshalAs(UnmanagedType.LPWStr)]
-        public string lpszMenuName;
-        [MarshalAs(UnmanagedType.LPWStr)]
-        public string lpszClassName;
+        [MarshalAs(UnmanagedType.LPWStr)] public string lpszMenuName;
+        [MarshalAs(UnmanagedType.LPWStr)] public string lpszClassName;
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
@@ -873,15 +881,18 @@ public class InteropValues
         void SetSize([In, MarshalAs(UnmanagedType.I8)] long libNewSize);
 
         [return: MarshalAs(UnmanagedType.I8)]
-        long CopyTo([In, MarshalAs(UnmanagedType.Interface)] IStream pstm, [In, MarshalAs(UnmanagedType.I8)] long cb, [Out, MarshalAs(UnmanagedType.LPArray)] long[] pcbRead);
+        long CopyTo([In, MarshalAs(UnmanagedType.Interface)] IStream pstm, [In, MarshalAs(UnmanagedType.I8)] long cb,
+            [Out, MarshalAs(UnmanagedType.LPArray)] long[] pcbRead);
 
         void Commit([In] int grfCommitFlags);
 
         void Revert();
 
-        void LockRegion([In, MarshalAs(UnmanagedType.I8)] long libOffset, [In, MarshalAs(UnmanagedType.I8)] long cb, [In] int dwLockType);
+        void LockRegion([In, MarshalAs(UnmanagedType.I8)] long libOffset, [In, MarshalAs(UnmanagedType.I8)] long cb,
+            [In] int dwLockType);
 
-        void UnlockRegion([In, MarshalAs(UnmanagedType.I8)] long libOffset, [In, MarshalAs(UnmanagedType.I8)] long cb, [In] int dwLockType);
+        void UnlockRegion([In, MarshalAs(UnmanagedType.I8)] long libOffset, [In, MarshalAs(UnmanagedType.I8)] long cb,
+            [In] int dwLockType);
 
         void Stat([In] IntPtr pStatstg, [In] int grfStatFlag);
 
@@ -910,10 +921,8 @@ public class InteropValues
     [StructLayout(LayoutKind.Sequential, Pack = 8)]
     public class ImageCodecInfoPrivate
     {
-        [MarshalAs(UnmanagedType.Struct)]
-        public Guid Clsid;
-        [MarshalAs(UnmanagedType.Struct)]
-        public Guid FormatID;
+        [MarshalAs(UnmanagedType.Struct)] public Guid Clsid;
+        [MarshalAs(UnmanagedType.Struct)] public Guid FormatID;
 
         public IntPtr CodecName = IntPtr.Zero;
         public IntPtr DllName = IntPtr.Zero;
@@ -985,6 +994,7 @@ public class InteropValues
                     {
                         throw EFail("Wrote an incorrect number of bytes");
                     }
+
                     written += read;
                 }
             }
@@ -992,6 +1002,7 @@ public class InteropValues
             {
                 Marshal.FreeHGlobal(buffer);
             }
+
             if (pcbRead != null && pcbRead.Length > 0)
             {
                 pcbRead[0] = written;
@@ -1033,6 +1044,7 @@ public class InteropValues
             {
                 pos = DataStream.Position;
             }
+
             var len = DataStream.Length;
 
             switch (origin)
@@ -1047,6 +1059,7 @@ public class InteropValues
                     {
                         _virtualPosition = offset;
                     }
+
                     break;
                 case StreamConsts.STREAM_SEEK_END:
                     if (offset <= 0)
@@ -1058,6 +1071,7 @@ public class InteropValues
                     {
                         _virtualPosition = len + offset;
                     }
+
                     break;
                 case StreamConsts.STREAM_SEEK_CUR:
                     if (offset + pos <= len)
@@ -1069,6 +1083,7 @@ public class InteropValues
                     {
                         _virtualPosition = offset + pos;
                     }
+
                     break;
             }
 
@@ -1123,7 +1138,8 @@ public class InteropValues
     public struct RTL_OSVERSIONINFOEX
     {
 #if NET5_0_OR_GREATER
-        public RTL_OSVERSIONINFOEX(uint dwMajorVersion, uint dwMinorVersion, uint dwBuildNumber, uint dwRevision, uint dwPlatformId, string szCSDVersion) : this()
+        public RTL_OSVERSIONINFOEX(uint dwMajorVersion, uint dwMinorVersion, uint dwBuildNumber, uint dwRevision,
+            uint dwPlatformId, string szCSDVersion) : this()
         {
             this.dwMajorVersion = dwMajorVersion;
             this.dwMinorVersion = dwMinorVersion;
@@ -1132,6 +1148,7 @@ public class InteropValues
             this.dwPlatformId = dwPlatformId;
             this.szCSDVersion = szCSDVersion;
         }
+
         public readonly uint dwOSVersionInfoSize { get; init; } = (uint) Marshal.SizeOf<RTL_OSVERSIONINFOEX>();
 #else
         public uint dwOSVersionInfoSize;
@@ -1141,6 +1158,7 @@ public class InteropValues
         public uint dwBuildNumber;
         public uint dwRevision;
         public uint dwPlatformId;
+
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
         public string szCSDVersion;
     }
@@ -1308,15 +1326,16 @@ public class InteropValues
         SHOWDEFAULT = 10,
         FORCEMINIMIZE = 11,
     }
+
     public struct COPYDATASTRUCT
     {
         public IntPtr dwData;
         public int cbData;
-        [MarshalAs(UnmanagedType.LPStr)]
-        public string lpData;
+        [MarshalAs(UnmanagedType.LPStr)] public string lpData;
     }
 
     #region Mica
+
     /// <summary>
     /// Collection of backdrop types.
     /// </summary>
@@ -1436,5 +1455,6 @@ public class InteropValues
         /// </summary>
         DWMWA_MICA_EFFECT = 1029
     }
+
     #endregion
 }

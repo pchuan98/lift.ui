@@ -8,6 +8,8 @@ public static class ObjectExtension
     {
         return typeof(T).IsValueType && value != null
             ? (T) Convert.ChangeType(value, typeof(T))
-            : value is T typeValue ? typeValue : default;
+            : value is T typeValue
+                ? typeValue
+                : default;
     }
 }

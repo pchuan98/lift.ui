@@ -10,47 +10,15 @@ namespace Lift.UI.Controls;
 public class LoadingIndicator : Control
 {
     public static readonly DependencyProperty SpeedRatioProperty =
-        DependencyProperty.Register("SpeedRatio", typeof(double), typeof(LoadingIndicator), new PropertyMetadata(1d, (o, e) => {
-            LoadingIndicator li = (LoadingIndicator)o;
-
-            if (li.PART_Border == null || li.IsActive == false)
+        DependencyProperty.Register("SpeedRatio", typeof(double), typeof(LoadingIndicator), new PropertyMetadata(1d,
+            (o, e) =>
             {
-                return;
-            }
+                LoadingIndicator li = (LoadingIndicator) o;
 
-            foreach (VisualStateGroup group in VisualStateManager.GetVisualStateGroups(li.PART_Border))
-            {
-                if (group.Name == "ActiveStates")
+                if (li.PART_Border == null || li.IsActive == false)
                 {
-                    foreach (VisualState state in group.States)
-                    {
-                        if (state.Name == "Active")
-                        {
-                            state.Storyboard.SetSpeedRatio(li.PART_Border, (double)e.NewValue);
-                        }
-                    }
+                    return;
                 }
-            }
-        }));
-
-    public static readonly DependencyProperty IsActiveProperty =
-        DependencyProperty.Register("IsActive", typeof(bool), typeof(LoadingIndicator), new PropertyMetadata(true, (o, e) => {
-            LoadingIndicator li = (LoadingIndicator)o;
-
-            if (li.PART_Border == null)
-            {
-                return;
-            }
-
-            if ((bool)e.NewValue == false)
-            {
-                VisualStateManager.GoToElementState(li.PART_Border, "Inactive", false);
-                li.PART_Border.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                VisualStateManager.GoToElementState(li.PART_Border, "Active", false);
-                li.PART_Border.Visibility = Visibility.Visible;
 
                 foreach (VisualStateGroup group in VisualStateManager.GetVisualStateGroups(li.PART_Border))
                 {
@@ -60,13 +28,49 @@ public class LoadingIndicator : Control
                         {
                             if (state.Name == "Active")
                             {
-                                state.Storyboard.SetSpeedRatio(li.PART_Border, li.SpeedRatio);
+                                state.Storyboard.SetSpeedRatio(li.PART_Border, (double) e.NewValue);
                             }
                         }
                     }
                 }
-            }
-        }));
+            }));
+
+    public static readonly DependencyProperty IsActiveProperty =
+        DependencyProperty.Register("IsActive", typeof(bool), typeof(LoadingIndicator), new PropertyMetadata(true,
+            (o, e) =>
+            {
+                LoadingIndicator li = (LoadingIndicator) o;
+
+                if (li.PART_Border == null)
+                {
+                    return;
+                }
+
+                if ((bool) e.NewValue == false)
+                {
+                    VisualStateManager.GoToElementState(li.PART_Border, "Inactive", false);
+                    li.PART_Border.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    VisualStateManager.GoToElementState(li.PART_Border, "Active", false);
+                    li.PART_Border.Visibility = Visibility.Visible;
+
+                    foreach (VisualStateGroup group in VisualStateManager.GetVisualStateGroups(li.PART_Border))
+                    {
+                        if (group.Name == "ActiveStates")
+                        {
+                            foreach (VisualState state in group.States)
+                            {
+                                if (state.Name == "Active")
+                                {
+                                    state.Storyboard.SetSpeedRatio(li.PART_Border, li.SpeedRatio);
+                                }
+                            }
+                        }
+                    }
+                }
+            }));
 
     // Variables
     protected Border PART_Border;
@@ -76,7 +80,7 @@ public class LoadingIndicator : Control
     /// </summary>
     public double SpeedRatio
     {
-        get { return (double)GetValue(SpeedRatioProperty); }
+        get { return (double) GetValue(SpeedRatioProperty); }
         set { SetValue(SpeedRatioProperty, value); }
     }
 
@@ -85,7 +89,7 @@ public class LoadingIndicator : Control
     /// </summary>
     public bool IsActive
     {
-        get { return (bool)GetValue(IsActiveProperty); }
+        get { return (bool) GetValue(IsActiveProperty); }
         set { SetValue(IsActiveProperty, value); }
     }
 
@@ -97,7 +101,7 @@ public class LoadingIndicator : Control
     {
         base.OnApplyTemplate();
 
-        PART_Border = (Border)GetTemplateChild("PART_Border");
+        PART_Border = (Border) GetTemplateChild("PART_Border");
 
         if (PART_Border != null)
         {

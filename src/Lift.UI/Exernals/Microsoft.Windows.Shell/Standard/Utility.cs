@@ -28,8 +28,10 @@ internal static class Utility
             {
                 return false;
             }
+
             num += 8;
         }
+
         while ((long) num < cb)
         {
             byte b = Marshal.ReadByte(left, num);
@@ -38,8 +40,10 @@ internal static class Utility
             {
                 return false;
             }
+
             num++;
         }
+
         return true;
     }
 
@@ -51,7 +55,8 @@ internal static class Utility
 
     public static Color ColorFromArgbDword(uint color)
     {
-        return Color.FromArgb((byte) ((color & 4278190080u) >> 24), (byte) ((color & 16711680u) >> 16), (byte) ((color & 65280u) >> 8), (byte) (color & 255u));
+        return Color.FromArgb((byte) ((color & 4278190080u) >> 24), (byte) ((color & 16711680u) >> 16),
+            (byte) ((color & 65280u) >> 8), (byte) (color & 255u));
     }
 
     [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
@@ -86,18 +91,22 @@ internal static class Utility
         {
             return right == null;
         }
+
         if (right == null)
         {
             return false;
         }
+
         if (!left.CanRead || !right.CanRead)
         {
             throw new NotSupportedException("The streams can't be read for comparison");
         }
+
         if (left.Length != right.Length)
         {
             return false;
         }
+
         int num = (int) left.Length;
         left.Position = 0L;
         right.Position = 0L;
@@ -120,13 +129,16 @@ internal static class Utility
                 {
                     return false;
                 }
+
                 if (!Utility._MemCmp(left2, right2, (long) num3))
                 {
                     return false;
                 }
+
                 i += num3;
                 num2 += num4;
             }
+
             result = true;
         }
         finally
@@ -134,6 +146,7 @@ internal static class Utility
             gchandle.Free();
             gchandle2.Free();
         }
+
         return result;
     }
 
@@ -152,6 +165,7 @@ internal static class Utility
         catch (OverflowException)
         {
         }
+
         guid = default(Guid);
         return false;
     }
@@ -214,10 +228,12 @@ internal static class Utility
         {
             return IntPtr.Zero;
         }
+
         BitmapFrame bitmapFrame = image as BitmapFrame;
         if (bitmapFrame != null)
         {
-            bitmapFrame = Utility.GetBestMatch(bitmapFrame.Decoder.Frames, (int) dimensions.Width, (int) dimensions.Height);
+            bitmapFrame = Utility.GetBestMatch(bitmapFrame.Decoder.Frames, (int) dimensions.Width,
+                (int) dimensions.Height);
         }
         else
         {
@@ -226,7 +242,8 @@ internal static class Utility
             double num2 = image.Width / image.Height;
             if (image.Width <= dimensions.Width && image.Height <= dimensions.Height)
             {
-                rectangle = new Rect((dimensions.Width - image.Width) / 2.0, (dimensions.Height - image.Height) / 2.0, image.Width, image.Height);
+                rectangle = new Rect((dimensions.Width - image.Width) / 2.0, (dimensions.Height - image.Height) / 2.0,
+                    image.Width, image.Height);
             }
             else if (num > num2)
             {
@@ -238,14 +255,17 @@ internal static class Utility
                 double num4 = image.Height / image.Width * dimensions.Height;
                 rectangle = new Rect(0.0, (dimensions.Height - num4) / 2.0, dimensions.Width, num4);
             }
+
             DrawingVisual drawingVisual = new DrawingVisual();
             DrawingContext drawingContext = drawingVisual.RenderOpen();
             drawingContext.DrawImage(image, rectangle);
             drawingContext.Close();
-            RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap((int) dimensions.Width, (int) dimensions.Height, 96.0, 96.0, PixelFormats.Pbgra32);
+            RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap((int) dimensions.Width,
+                (int) dimensions.Height, 96.0, 96.0, PixelFormats.Pbgra32);
             renderTargetBitmap.Render(drawingVisual);
             bitmapFrame = BitmapFrame.Create(renderTargetBitmap);
         }
+
         IntPtr result;
         using (MemoryStream memoryStream = new MemoryStream())
         {
@@ -286,6 +306,7 @@ internal static class Utility
                 }
             }
         }
+
         return result;
     }
 
@@ -296,7 +317,8 @@ internal static class Utility
 
     private static int _MatchImage(BitmapFrame frame, int bitDepth, int width, int height, int bpp)
     {
-        return 2 * Utility._WeightedAbs(bpp, bitDepth, false) + Utility._WeightedAbs(frame.PixelWidth, width, true) + Utility._WeightedAbs(frame.PixelHeight, height, true);
+        return 2 * Utility._WeightedAbs(bpp, bitDepth, false) + Utility._WeightedAbs(frame.PixelWidth, width, true) +
+               Utility._WeightedAbs(frame.PixelHeight, height, true);
     }
 
     private static int _WeightedAbs(int valueHave, int valueWant, bool fPunish)
@@ -306,6 +328,7 @@ internal static class Utility
         {
             num = (fPunish ? -2 : -1) * num;
         }
+
         return num;
     }
 
@@ -323,6 +346,7 @@ internal static class Utility
             {
                 num4 = 8;
             }
+
             int num5 = Utility._MatchImage(frames[num3], bitDepth, width, height, num4);
             if (num5 < num)
             {
@@ -335,8 +359,10 @@ internal static class Utility
                 index = num3;
                 num2 = num4;
             }
+
             num3++;
         }
+
         return frames[index];
     }
 
@@ -346,9 +372,11 @@ internal static class Utility
         {
             using (SafeDC desktop = SafeDC.GetDesktop())
             {
-                Utility.s_bitDepth = NativeMethods.GetDeviceCaps(desktop, DeviceCap.BITSPIXEL) * NativeMethods.GetDeviceCaps(desktop, DeviceCap.PLANES);
+                Utility.s_bitDepth = NativeMethods.GetDeviceCaps(desktop, DeviceCap.BITSPIXEL) *
+                                     NativeMethods.GetDeviceCaps(desktop, DeviceCap.PLANES);
             }
         }
+
         return Utility.s_bitDepth;
     }
 
@@ -459,6 +487,7 @@ internal static class Utility
         {
             source.Append(' ');
         }
+
         source.Append(propertyName);
         source.Append(": ");
         if (string.IsNullOrEmpty(value))
@@ -466,6 +495,7 @@ internal static class Utility
             source.Append("<null>");
             return;
         }
+
         source.Append('"');
         source.Append(value);
         source.Append('"');
@@ -482,10 +512,12 @@ internal static class Utility
             {
                 stringBuilder.Append(", ");
             }
+
             object value = propertyInfo.GetValue(@object, null);
             string format = (value == null) ? "{0}: <null>" : "{0}: \"{1}\"";
             stringBuilder.AppendFormat(format, propertyInfo.Name, value);
         }
+
         return stringBuilder.ToString();
     }
 
@@ -498,6 +530,7 @@ internal static class Utility
             source.Position = 0L;
             destination.SetLength(source.Length);
         }
+
         byte[] array = new byte[4096];
         int num;
         do
@@ -507,8 +540,8 @@ internal static class Utility
             {
                 destination.Write(array, 0, num);
             }
-        }
-        while (array.Length == num);
+        } while (array.Length == num);
+
         destination.Position = 0L;
     }
 
@@ -524,6 +557,7 @@ internal static class Utility
                 stringBuilder.Append(b.ToString("x2", CultureInfo.InvariantCulture));
             }
         }
+
         return stringBuilder.ToString();
     }
 
@@ -556,6 +590,7 @@ internal static class Utility
         {
             return null;
         }
+
         Utility._UrlDecoder urlDecoder = new Utility._UrlDecoder(url.Length, Encoding.UTF8);
         int length = url.Length;
         for (int i = 0; i < length; i++)
@@ -594,6 +629,7 @@ internal static class Utility
                         }
                     }
                 }
+
                 if ((c & 'ﾀ') == '\0')
                 {
                     urlDecoder.AddByte((byte) c);
@@ -603,8 +639,10 @@ internal static class Utility
                     urlDecoder.AddChar(c);
                 }
             }
-IL_12D:;
+
+            IL_12D: ;
         }
+
         return urlDecoder.GetString();
     }
 
@@ -615,6 +653,7 @@ IL_12D:;
         {
             return null;
         }
+
         byte[] array = Encoding.UTF8.GetBytes(url);
         bool flag = false;
         int num = 0;
@@ -630,6 +669,7 @@ IL_12D:;
                 flag = true;
             }
         }
+
         if (flag)
         {
             byte[] array3 = new byte[array.Length + num * 2];
@@ -651,8 +691,10 @@ IL_12D:;
                     array3[num2++] = Utility._IntToHex((int) (b2 & 15));
                 }
             }
+
             array = array3;
         }
+
         return Encoding.ASCII.GetString(array);
     }
 
@@ -663,6 +705,7 @@ IL_12D:;
         {
             return true;
         }
+
         if (b != 33)
         {
             switch (b)
@@ -682,10 +725,13 @@ IL_12D:;
                     {
                         return true;
                     }
+
                     break;
             }
+
             return false;
         }
+
         return true;
     }
 
@@ -702,6 +748,7 @@ IL_12D:;
         {
             return (byte) (n + 48);
         }
+
         return (byte) (n - 10 + 65);
     }
 
@@ -712,45 +759,60 @@ IL_12D:;
         {
             return (int) (h - '0');
         }
+
         if (h >= 'a' && h <= 'f')
         {
             return (int) (h - 'a' + '\n');
         }
+
         if (h >= 'A' && h <= 'F')
         {
             return (int) (h - 'A' + '\n');
         }
+
         return -1;
     }
 
-    public static void AddDependencyPropertyChangeListener(object component, DependencyProperty property, EventHandler listener)
+    public static void AddDependencyPropertyChangeListener(object component, DependencyProperty property,
+        EventHandler listener)
     {
         if (component == null)
         {
             return;
         }
-        DependencyPropertyDescriptor dependencyPropertyDescriptor = DependencyPropertyDescriptor.FromProperty(property, component.GetType());
+
+        DependencyPropertyDescriptor dependencyPropertyDescriptor =
+            DependencyPropertyDescriptor.FromProperty(property, component.GetType());
         dependencyPropertyDescriptor.AddValueChanged(component, listener);
     }
 
-    public static void RemoveDependencyPropertyChangeListener(object component, DependencyProperty property, EventHandler listener)
+    public static void RemoveDependencyPropertyChangeListener(object component, DependencyProperty property,
+        EventHandler listener)
     {
         if (component == null)
         {
             return;
         }
-        DependencyPropertyDescriptor dependencyPropertyDescriptor = DependencyPropertyDescriptor.FromProperty(property, component.GetType());
+
+        DependencyPropertyDescriptor dependencyPropertyDescriptor =
+            DependencyPropertyDescriptor.FromProperty(property, component.GetType());
         dependencyPropertyDescriptor.RemoveValueChanged(component, listener);
     }
 
     public static bool IsThicknessNonNegative(Thickness thickness)
     {
-        return Utility.IsDoubleFiniteAndNonNegative(thickness.Top) && Utility.IsDoubleFiniteAndNonNegative(thickness.Left) && Utility.IsDoubleFiniteAndNonNegative(thickness.Bottom) && Utility.IsDoubleFiniteAndNonNegative(thickness.Right);
+        return Utility.IsDoubleFiniteAndNonNegative(thickness.Top) &&
+               Utility.IsDoubleFiniteAndNonNegative(thickness.Left) &&
+               Utility.IsDoubleFiniteAndNonNegative(thickness.Bottom) &&
+               Utility.IsDoubleFiniteAndNonNegative(thickness.Right);
     }
 
     public static bool IsCornerRadiusValid(CornerRadius cornerRadius)
     {
-        return Utility.IsDoubleFiniteAndNonNegative(cornerRadius.TopLeft) && Utility.IsDoubleFiniteAndNonNegative(cornerRadius.TopRight) && Utility.IsDoubleFiniteAndNonNegative(cornerRadius.BottomLeft) && Utility.IsDoubleFiniteAndNonNegative(cornerRadius.BottomRight);
+        return Utility.IsDoubleFiniteAndNonNegative(cornerRadius.TopLeft) &&
+               Utility.IsDoubleFiniteAndNonNegative(cornerRadius.TopRight) &&
+               Utility.IsDoubleFiniteAndNonNegative(cornerRadius.BottomLeft) &&
+               Utility.IsDoubleFiniteAndNonNegative(cornerRadius.BottomRight);
     }
 
     public static bool IsDoubleFiniteAndNonNegative(double d)
@@ -760,7 +822,8 @@ IL_12D:;
 
     private static readonly Version _osVersion = Environment.OSVersion.Version;
 
-    private static readonly Version _presentationFrameworkVersion = Assembly.GetAssembly(typeof(Window)).GetName().Version;
+    private static readonly Version _presentationFrameworkVersion =
+        Assembly.GetAssembly(typeof(Window)).GetName().Version;
 
     private static int s_bitDepth;
 
@@ -792,7 +855,8 @@ IL_12D:;
         {
             if (this._byteCount > 0)
             {
-                this._charCount += this._encoding.GetChars(this._byteBuffer, 0, this._byteCount, this._charBuffer, this._charCount);
+                this._charCount += this._encoding.GetChars(this._byteBuffer, 0, this._byteCount, this._charBuffer,
+                    this._charCount);
                 this._byteCount = 0;
             }
         }
@@ -805,6 +869,7 @@ IL_12D:;
             {
                 return new string(this._charBuffer, 0, this._charCount);
             }
+
             return "";
         }
 

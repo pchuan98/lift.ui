@@ -22,7 +22,8 @@ namespace Microsoft.Windows.Controls.Primitives;
 [TemplateVisualState(Name = VisualStates.StateDisabled, GroupName = VisualStates.GroupCommon)]
 [TemplateVisualState(Name = VisualStates.StateUnselected, GroupName = VisualStates.GroupSelection)]
 [TemplateVisualState(Name = VisualStates.StateSelected, GroupName = VisualStates.GroupSelection)]
-[TemplateVisualState(Name = VisualStates.StateCalendarButtonUnfocused, GroupName = VisualStates.GroupCalendarButtonFocus)]
+[TemplateVisualState(Name = VisualStates.StateCalendarButtonUnfocused,
+    GroupName = VisualStates.GroupCalendarButtonFocus)]
 [TemplateVisualState(Name = VisualStates.StateCalendarButtonFocused, GroupName = VisualStates.GroupCalendarButtonFocus)]
 [TemplateVisualState(Name = VisualStates.StateInactive, GroupName = VisualStates.GroupActive)]
 [TemplateVisualState(Name = VisualStates.StateActive, GroupName = VisualStates.GroupActive)]
@@ -33,6 +34,7 @@ namespace Microsoft.Windows.Controls.Primitives;
 public sealed class CalendarDayButton : Button
 {
     #region Constants
+
     /// <summary>
     /// Default content for the CalendarDayButton
     /// </summary>
@@ -82,8 +84,10 @@ public sealed class CalendarDayButton : Button
     /// </summary>
     static CalendarDayButton()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(CalendarDayButton), new FrameworkPropertyMetadata(typeof(CalendarDayButton)));
-        ContentProperty.OverrideMetadata(typeof(CalendarDayButton), new FrameworkPropertyMetadata(null, OnCoerceContent));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(CalendarDayButton),
+            new FrameworkPropertyMetadata(typeof(CalendarDayButton)));
+        ContentProperty.OverrideMetadata(typeof(CalendarDayButton),
+            new FrameworkPropertyMetadata(null, OnCoerceContent));
     }
 
     /// <summary>
@@ -116,7 +120,7 @@ public sealed class CalendarDayButton : Button
     /// </summary>
     public bool IsToday
     {
-        get { return (bool)GetValue(IsTodayProperty); }
+        get { return (bool) GetValue(IsTodayProperty); }
     }
 
     #endregion IsToday
@@ -139,7 +143,7 @@ public sealed class CalendarDayButton : Button
     /// </summary>
     public bool IsSelected
     {
-        get { return (bool)GetValue(IsSelectedProperty); }
+        get { return (bool) GetValue(IsSelectedProperty); }
     }
 
     #endregion IsSelected
@@ -162,7 +166,7 @@ public sealed class CalendarDayButton : Button
     /// </summary>
     public bool IsInactive
     {
-        get { return (bool)GetValue(IsInactiveProperty); }
+        get { return (bool) GetValue(IsInactiveProperty); }
     }
 
     #endregion IsInactive
@@ -185,7 +189,7 @@ public sealed class CalendarDayButton : Button
     /// </summary>
     public bool IsBlackedOut
     {
-        get { return (bool)GetValue(IsBlackedOutProperty); }
+        get { return (bool) GetValue(IsBlackedOutProperty); }
     }
 
     #endregion IsBlackedOut
@@ -208,7 +212,7 @@ public sealed class CalendarDayButton : Button
     /// </summary>
     public bool IsHighlighted
     {
-        get { return (bool)GetValue(IsHighlightedProperty); }
+        get { return (bool) GetValue(IsHighlightedProperty); }
     }
 
     #endregion IsHighlighted
@@ -226,6 +230,7 @@ public sealed class CalendarDayButton : Button
     #endregion Internal Properties
 
     #region Public Methods
+
     /// <summary>
     /// Apply a template to the button.
     /// </summary>
@@ -327,7 +332,8 @@ public sealed class CalendarDayButton : Button
         // Update the FocusStates group
         if (IsKeyboardFocused)
         {
-            VisualStates.GoToState(this, useTransitions, VisualStates.StateCalendarButtonFocused, VisualStates.StateCalendarButtonUnfocused);
+            VisualStates.GoToState(this, useTransitions, VisualStates.StateCalendarButtonFocused,
+                VisualStates.StateCalendarButtonUnfocused);
         }
         else
         {
@@ -364,7 +370,7 @@ public sealed class CalendarDayButton : Button
 
     private static object OnCoerceContent(DependencyObject sender, object baseValue)
     {
-        CalendarDayButton button = (CalendarDayButton)sender;
+        CalendarDayButton button = (CalendarDayButton) sender;
         if (button._shouldCoerceContent)
         {
             button._shouldCoerceContent = false;

@@ -25,7 +25,8 @@ public class Empty : ContentControl
     }
 
     public static readonly DependencyProperty ShowEmptyProperty = DependencyProperty.RegisterAttached(
-        "ShowEmpty", typeof(bool), typeof(Empty), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
+        "ShowEmpty", typeof(bool), typeof(Empty),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetShowEmpty(DependencyObject element, bool value)
         => element.SetValue(ShowEmptyProperty, ValueBoxes.BooleanBox(value));

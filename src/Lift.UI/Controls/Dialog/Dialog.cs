@@ -33,7 +33,8 @@ public class Dialog : ContentControl
     }
 
     public static readonly DependencyProperty MaskCanCloseProperty = DependencyProperty.RegisterAttached(
-        "MaskCanClose", typeof(bool), typeof(Dialog), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
+        "MaskCanClose", typeof(bool), typeof(Dialog),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetMaskCanClose(DependencyObject element, bool value)
         => element.SetValue(MaskCanCloseProperty, ValueBoxes.BooleanBox(value));
@@ -141,9 +142,9 @@ public class Dialog : ContentControl
             Close(token);
             DialogDict[token] = dialog;
             ContainerDict.TryGetValue(token, out element);
-            decorator = element is System.Windows.Window ?
-                VisualHelper.GetChild<AdornerDecorator>(element) :
-                VisualHelper.GetChild<DialogContainer>(element);
+            decorator = element is System.Windows.Window
+                ? VisualHelper.GetChild<AdornerDecorator>(element)
+                : VisualHelper.GetChild<DialogContainer>(element);
         }
 
         if (decorator != null)
@@ -216,6 +217,7 @@ public class Dialog : ContentControl
                 {
                     decorator.Child.IsEnabled = true;
                 }
+
                 var layer = decorator.AdornerLayer;
                 layer?.Remove(_container);
                 IsClosed = true;

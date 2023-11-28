@@ -21,7 +21,6 @@ public class GeometryAnimation : GeometryAnimationBase
 
     public GeometryAnimation()
     {
-
     }
 
     public GeometryAnimation(string fromValue, string toValue) : this()
@@ -54,7 +53,8 @@ public class GeometryAnimation : GeometryAnimationBase
         Duration = duration;
     }
 
-    public GeometryAnimation(Geometry fromValue, Geometry toValue, Duration duration, FillBehavior fillBehavior) : this()
+    public GeometryAnimation(Geometry fromValue, Geometry toValue, Duration duration, FillBehavior fillBehavior) :
+        this()
     {
         From = fromValue;
         To = toValue;
@@ -66,7 +66,8 @@ public class GeometryAnimation : GeometryAnimationBase
 
     protected override Freezable CreateInstanceCore() => new GeometryAnimation();
 
-    protected override Geometry GetCurrentValueCore(Geometry defaultOriginValue, Geometry defaultDestinationValue, AnimationClock animationClock)
+    protected override Geometry GetCurrentValueCore(Geometry defaultOriginValue, Geometry defaultDestinationValue,
+        AnimationClock animationClock)
     {
         if (_numbersAccumulator == null)
         {
@@ -123,7 +124,8 @@ public class GeometryAnimation : GeometryAnimationBase
     }
 
     public static readonly DependencyProperty FromProperty = DependencyProperty.Register(
-        nameof(From), typeof(Geometry), typeof(GeometryAnimation), new PropertyMetadata(default(Geometry), OnFromChanged));
+        nameof(From), typeof(Geometry), typeof(GeometryAnimation),
+        new PropertyMetadata(default(Geometry), OnFromChanged));
 
     private static void OnFromChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -163,7 +165,8 @@ public class GeometryAnimation : GeometryAnimationBase
     }
 
     public static readonly DependencyProperty EasingFunctionProperty = DependencyProperty.Register(
-        nameof(EasingFunction), typeof(IEasingFunction), typeof(GeometryAnimation), new PropertyMetadata(default(IEasingFunction)));
+        nameof(EasingFunction), typeof(IEasingFunction), typeof(GeometryAnimation),
+        new PropertyMetadata(default(IEasingFunction)));
 
     public IEasingFunction EasingFunction
     {

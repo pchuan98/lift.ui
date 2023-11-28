@@ -73,8 +73,10 @@ public class TimePicker : Control
     static TimePicker()
     {
         EventManager.RegisterClassHandler(typeof(TimePicker), GotFocusEvent, new RoutedEventHandler(OnGotFocus));
-        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
-        KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
+        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(TimePicker),
+            new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
+        KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(TimePicker),
+            new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
     }
 
     public TimePicker()
@@ -115,7 +117,8 @@ public class TimePicker : Control
             nameof(DisplayTime),
             typeof(DateTime),
             typeof(TimePicker),
-            new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayTime));
+            new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null,
+                CoerceDisplayTime));
 
     private static object CoerceDisplayTime(DependencyObject d, object value)
     {
@@ -139,7 +142,8 @@ public class TimePicker : Control
             nameof(IsDropDownOpen),
             typeof(bool),
             typeof(TimePicker),
-            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
+            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
 
     private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue)
     {
@@ -183,7 +187,8 @@ public class TimePicker : Control
             nameof(SelectedTime),
             typeof(DateTime?),
             typeof(TimePicker),
-            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedTimeChanged, CoerceSelectedTime));
+            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnSelectedTimeChanged, CoerceSelectedTime));
 
     private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -301,7 +306,9 @@ public class TimePicker : Control
     }
 
     public static readonly DependencyProperty ClockProperty = DependencyProperty.Register(
-        nameof(Clock), typeof(ClockBase), typeof(TimePicker), new FrameworkPropertyMetadata(default(Clock), FrameworkPropertyMetadataOptions.NotDataBindable, OnClockChanged));
+        nameof(Clock), typeof(ClockBase), typeof(TimePicker),
+        new FrameworkPropertyMetadata(default(Clock), FrameworkPropertyMetadataOptions.NotDataBindable,
+            OnClockChanged));
 
     private static void OnClockChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -384,7 +391,8 @@ public class TimePicker : Control
 
             _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-            _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+            _textBox.SetBinding(SelectionTextBrushProperty,
+                new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
             _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
             _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
@@ -488,29 +496,29 @@ public class TimePicker : Control
         switch (e.Key)
         {
             case Key.System:
+            {
+                switch (e.SystemKey)
                 {
-                    switch (e.SystemKey)
+                    case Key.Down:
                     {
-                        case Key.Down:
-                            {
-                                if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-                                {
-                                    TogglePopup();
-                                    return true;
-                                }
+                        if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+                        {
+                            TogglePopup();
+                            return true;
+                        }
 
-                                break;
-                            }
+                        break;
                     }
-
-                    break;
                 }
+
+                break;
+            }
 
             case Key.Enter:
-                {
-                    SetSelectedTime();
-                    return true;
-                }
+            {
+                SetSelectedTime();
+                return true;
+            }
         }
 
         return false;
@@ -639,6 +647,7 @@ public class TimePicker : Control
             SafeSetText(newtext);
             return SelectedTime;
         }
+
         SafeSetText(DateTimeToString(DisplayTime));
         return DisplayTime;
     }

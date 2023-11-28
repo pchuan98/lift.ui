@@ -18,6 +18,7 @@ namespace Lift.UI.Controls;
 public class BusyIndicator : ContentControl
 {
     #region Constants
+
     /// <summary>
     /// Busyness group name.
     /// </summary>
@@ -47,6 +48,7 @@ public class BusyIndicator : ContentControl
     /// Hidden state name for BusyIndicator.
     /// </summary>
     public const string StateHidden = "Hidden";
+
     #endregion
 
     #region Private Members
@@ -62,7 +64,8 @@ public class BusyIndicator : ContentControl
 
     static BusyIndicator()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(BusyIndicator), new FrameworkPropertyMetadata(typeof(BusyIndicator)));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(BusyIndicator),
+            new FrameworkPropertyMetadata(typeof(BusyIndicator)));
     }
 
     public BusyIndicator()
@@ -82,7 +85,6 @@ public class BusyIndicator : ContentControl
         base.OnApplyTemplate();
         ChangeVisualState(false);
     }
-
 
     #endregion //Base Class Overrides
 
@@ -119,7 +121,7 @@ public class BusyIndicator : ContentControl
     {
         get
         {
-            return (bool)GetValue(IsBusyProperty);
+            return (bool) GetValue(IsBusyProperty);
         }
         set
         {
@@ -134,7 +136,7 @@ public class BusyIndicator : ContentControl
     /// <param name="e">Event arguments.</param>
     private static void OnIsBusyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        ((BusyIndicator)d).OnIsBusyChanged(e);
+        ((BusyIndicator) d).OnIsBusyChanged(e);
     }
 
     /// <summary>
@@ -166,9 +168,9 @@ public class BusyIndicator : ContentControl
             if (this.FocusAfterBusy != null)
             {
                 this.FocusAfterBusy.Dispatcher.BeginInvoke(DispatcherPriority.Input, new Action(() =>
-                {
-                    this.FocusAfterBusy.Focus();
-                }
+                    {
+                        this.FocusAfterBusy.Focus();
+                    }
                 ));
             }
         }
@@ -196,7 +198,7 @@ public class BusyIndicator : ContentControl
     {
         get
         {
-            return (object)GetValue(BusyContentProperty);
+            return (object) GetValue(BusyContentProperty);
         }
         set
         {
@@ -224,7 +226,7 @@ public class BusyIndicator : ContentControl
     {
         get
         {
-            return (DataTemplate)GetValue(BusyContentTemplateProperty);
+            return (DataTemplate) GetValue(BusyContentTemplateProperty);
         }
         set
         {
@@ -252,7 +254,7 @@ public class BusyIndicator : ContentControl
     {
         get
         {
-            return (TimeSpan)GetValue(DisplayAfterProperty);
+            return (TimeSpan) GetValue(DisplayAfterProperty);
         }
         set
         {
@@ -280,7 +282,7 @@ public class BusyIndicator : ContentControl
     {
         get
         {
-            return (Control)GetValue(FocusAfterBusyProperty);
+            return (Control) GetValue(FocusAfterBusyProperty);
         }
         set
         {
@@ -308,13 +310,14 @@ public class BusyIndicator : ContentControl
     {
         get
         {
-            return (Style)GetValue(OverlayStyleProperty);
+            return (Style) GetValue(OverlayStyleProperty);
         }
         set
         {
             SetValue(OverlayStyleProperty, value);
         }
     }
+
     #endregion //Overlay Style
 
     #region ProgressBar Style
@@ -335,7 +338,7 @@ public class BusyIndicator : ContentControl
     {
         get
         {
-            return (Style)GetValue(ProgressBarStyleProperty);
+            return (Style) GetValue(ProgressBarStyleProperty);
         }
         set
         {

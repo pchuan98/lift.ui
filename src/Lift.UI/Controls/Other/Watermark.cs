@@ -18,7 +18,8 @@ public class Watermark : Control
     private DrawingBrush _brush;
 
     public static readonly DependencyProperty AngleProperty = DependencyProperty.Register(
-        nameof(Angle), typeof(double), typeof(Watermark), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(Angle), typeof(double), typeof(Watermark),
+        new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public double Angle
     {
@@ -36,7 +37,8 @@ public class Watermark : Control
     }
 
     public static readonly DependencyProperty MarkProperty = DependencyProperty.Register(
-        nameof(Mark), typeof(object), typeof(Watermark), new FrameworkPropertyMetadata(default, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(Mark), typeof(object), typeof(Watermark),
+        new FrameworkPropertyMetadata(default, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public object Mark
     {
@@ -45,7 +47,8 @@ public class Watermark : Control
     }
 
     public static readonly DependencyProperty MarkWidthProperty = DependencyProperty.Register(
-        nameof(MarkWidth), typeof(double), typeof(Watermark), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(MarkWidth), typeof(double), typeof(Watermark),
+        new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public double MarkWidth
     {
@@ -54,7 +57,8 @@ public class Watermark : Control
     }
 
     public static readonly DependencyProperty MarkHeightProperty = DependencyProperty.Register(
-        nameof(MarkHeight), typeof(double), typeof(Watermark), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(MarkHeight), typeof(double), typeof(Watermark),
+        new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public double MarkHeight
     {
@@ -63,7 +67,8 @@ public class Watermark : Control
     }
 
     public static readonly DependencyProperty MarkBrushProperty = DependencyProperty.Register(
-        nameof(MarkBrush), typeof(Brush), typeof(Watermark), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(MarkBrush), typeof(Brush), typeof(Watermark),
+        new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public Brush MarkBrush
     {
@@ -72,7 +77,8 @@ public class Watermark : Control
     }
 
     public static readonly DependencyProperty AutoSizeEnabledProperty = DependencyProperty.Register(
-        nameof(AutoSizeEnabled), typeof(bool), typeof(Watermark), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(AutoSizeEnabled), typeof(bool), typeof(Watermark),
+        new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public bool AutoSizeEnabled
     {
@@ -81,7 +87,8 @@ public class Watermark : Control
     }
 
     public static readonly DependencyProperty MarkMarginProperty = DependencyProperty.Register(
-        nameof(MarkMargin), typeof(Thickness), typeof(Watermark), new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(MarkMargin), typeof(Thickness), typeof(Watermark),
+        new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public Thickness MarkMargin
     {

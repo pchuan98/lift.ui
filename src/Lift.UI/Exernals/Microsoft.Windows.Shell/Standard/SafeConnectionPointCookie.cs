@@ -26,6 +26,7 @@ internal sealed class SafeConnectionPointCookie : SafeHandleZeroOrMinusOneIsInva
             {
                 throw new InvalidOperationException("IConnectionPoint::Advise returned an invalid cookie.");
             }
+
             this.handle = new IntPtr(num);
             this._cp = connectionPoint;
             connectionPoint = null;
@@ -62,12 +63,14 @@ internal sealed class SafeConnectionPointCookie : SafeHandleZeroOrMinusOneIsInva
                     Utility.SafeRelease<IConnectionPoint>(ref this._cp);
                 }
             }
+
             result = true;
         }
         catch
         {
             result = false;
         }
+
         return result;
     }
 

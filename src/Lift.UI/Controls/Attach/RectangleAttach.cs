@@ -9,7 +9,8 @@ namespace Lift.UI.Controls;
 public class RectangleAttach
 {
     public static readonly DependencyProperty CircularProperty = DependencyProperty.RegisterAttached(
-        "Circular", typeof(bool), typeof(RectangleAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnCircularChanged));
+        "Circular", typeof(bool), typeof(RectangleAttach),
+        new PropertyMetadata(ValueBoxes.FalseBox, OnCircularChanged));
 
     private static void OnCircularChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

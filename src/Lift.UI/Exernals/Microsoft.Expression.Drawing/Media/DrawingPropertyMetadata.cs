@@ -15,7 +15,7 @@ internal class DrawingPropertyMetadata : FrameworkPropertyMetadata
 
     static DrawingPropertyMetadata()
     {
-        DrawingPropertyChanged += delegate (object sender, DrawingPropertyChangedEventArgs args)
+        DrawingPropertyChanged += delegate(object sender, DrawingPropertyChangedEventArgs args)
         {
             if ((sender is IShape shape) && args.Metadata.AffectsRender)
             {
@@ -24,6 +24,7 @@ internal class DrawingPropertyMetadata : FrameworkPropertyMetadata
                 {
                     reasons |= InvalidateGeometryReasons.IsAnimated;
                 }
+
                 shape.InvalidateGeometry(reasons);
             }
         };
@@ -33,23 +34,29 @@ internal class DrawingPropertyMetadata : FrameworkPropertyMetadata
     {
     }
 
-    public DrawingPropertyMetadata(PropertyChangedCallback propertyChangedCallback) : this(DependencyProperty.UnsetValue, DrawingPropertyMetadataOptions.None, propertyChangedCallback)
+    public DrawingPropertyMetadata(PropertyChangedCallback propertyChangedCallback) : this(
+        DependencyProperty.UnsetValue, DrawingPropertyMetadataOptions.None, propertyChangedCallback)
     {
     }
 
-    private DrawingPropertyMetadata(DrawingPropertyMetadataOptions options, object defaultValue) : base(defaultValue, (FrameworkPropertyMetadataOptions) options)
+    private DrawingPropertyMetadata(DrawingPropertyMetadataOptions options, object defaultValue) : base(defaultValue,
+        (FrameworkPropertyMetadataOptions) options)
     {
     }
 
-    public DrawingPropertyMetadata(object defaultValue, DrawingPropertyMetadataOptions options) : this(defaultValue, options, null)
+    public DrawingPropertyMetadata(object defaultValue, DrawingPropertyMetadataOptions options) : this(defaultValue,
+        options, null)
     {
     }
 
-    public DrawingPropertyMetadata(object defaultValue, DrawingPropertyMetadataOptions options, PropertyChangedCallback propertyChangedCallback) : base(defaultValue, (FrameworkPropertyMetadataOptions) options, AttachCallback(defaultValue, options, propertyChangedCallback))
+    public DrawingPropertyMetadata(object defaultValue, DrawingPropertyMetadataOptions options,
+        PropertyChangedCallback propertyChangedCallback) : base(defaultValue,
+        (FrameworkPropertyMetadataOptions) options, AttachCallback(defaultValue, options, propertyChangedCallback))
     {
     }
 
-    private static PropertyChangedCallback AttachCallback(object defaultValue, DrawingPropertyMetadataOptions options, PropertyChangedCallback propertyChangedCallback)
+    private static PropertyChangedCallback AttachCallback(object defaultValue, DrawingPropertyMetadataOptions options,
+        PropertyChangedCallback propertyChangedCallback)
     {
         DrawingPropertyMetadata metadata = new DrawingPropertyMetadata(options, defaultValue)
         {

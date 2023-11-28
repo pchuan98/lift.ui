@@ -9,9 +9,9 @@ using System.ComponentModel;
 namespace Lift.UI.Controls;
 
 /// <summary> 
-	/// Represents a dynamic data collection that provides notifications when items get added, removed, or when the whole list is refreshed. 
-	/// </summary> 
-	/// <typeparam name="T"></typeparam> 
+/// Represents a dynamic data collection that provides notifications when items get added, removed, or when the whole list is refreshed. 
+/// </summary> 
+/// <typeparam name="T"></typeparam> 
 public class OptimizedObservableCollection<T> : ObservableCollection<T>
 {
     /// <summary> 
@@ -35,9 +35,11 @@ public class OptimizedObservableCollection<T> : ObservableCollection<T>
     /// <summary> 
     /// Adds the elements of the specified collection to the end of the ObservableCollection(Of T). 
     /// </summary> 
-    public void AddRange(IEnumerable<T> collection, NotifyCollectionChangedAction notificationMode = NotifyCollectionChangedAction.Add)
+    public void AddRange(IEnumerable<T> collection,
+        NotifyCollectionChangedAction notificationMode = NotifyCollectionChangedAction.Add)
     {
-        if (notificationMode != NotifyCollectionChangedAction.Add && notificationMode != NotifyCollectionChangedAction.Reset)
+        if (notificationMode != NotifyCollectionChangedAction.Add &&
+            notificationMode != NotifyCollectionChangedAction.Reset)
             throw new ArgumentException("Mode must be either Add or Reset for AddRange.", nameof(notificationMode));
         if (collection == null)
             throw new ArgumentNullException(nameof(collection));
@@ -69,10 +71,13 @@ public class OptimizedObservableCollection<T> : ObservableCollection<T>
     /// <summary> 
     /// Removes the first occurence of each item in the specified collection from ObservableCollection(Of T). NOTE: with notificationMode = Remove, removed items starting index is not set because items are not guaranteed to be consecutive.
     /// </summary> 
-    public void RemoveRange(IEnumerable<T> collection, NotifyCollectionChangedAction notificationMode = NotifyCollectionChangedAction.Reset)
+    public void RemoveRange(IEnumerable<T> collection,
+        NotifyCollectionChangedAction notificationMode = NotifyCollectionChangedAction.Reset)
     {
-        if (notificationMode != NotifyCollectionChangedAction.Remove && notificationMode != NotifyCollectionChangedAction.Reset)
-            throw new ArgumentException("Mode must be either Remove or Reset for RemoveRange.", nameof(notificationMode));
+        if (notificationMode != NotifyCollectionChangedAction.Remove &&
+            notificationMode != NotifyCollectionChangedAction.Reset)
+            throw new ArgumentException("Mode must be either Remove or Reset for RemoveRange.",
+                nameof(notificationMode));
         if (collection == null)
             throw new ArgumentNullException(nameof(collection));
 
@@ -98,7 +103,8 @@ public class OptimizedObservableCollection<T> : ObservableCollection<T>
         {
             if (!Items.Remove(changedItems[i]))
             {
-                changedItems.RemoveAt(i); //Can't use a foreach because changedItems is intended to be (carefully) modified
+                changedItems
+                    .RemoveAt(i); //Can't use a foreach because changedItems is intended to be (carefully) modified
                 i--;
             }
         }
@@ -148,10 +154,12 @@ public class OptimizedObservableCollection<T> : ObservableCollection<T>
             Items.Add(item);
             itemAdded = true;
         }
+
         return itemAdded;
     }
 
-    private void RaiseChangeNotificationEvents(NotifyCollectionChangedAction action, List<T>? changedItems = null, int startingIndex = -1)
+    private void RaiseChangeNotificationEvents(NotifyCollectionChangedAction action, List<T>? changedItems = null,
+        int startingIndex = -1)
     {
         OnPropertyChanged(new PropertyChangedEventArgs(nameof(Count)));
         OnPropertyChanged(new PropertyChangedEventArgs("Item[]"));
@@ -159,6 +167,7 @@ public class OptimizedObservableCollection<T> : ObservableCollection<T>
         if (changedItems is null)
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(action));
         else
-            OnCollectionChanged(new NotifyCollectionChangedEventArgs(action, changedItems: changedItems, startingIndex: startingIndex));
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(action, changedItems: changedItems,
+                startingIndex: startingIndex));
     }
 }

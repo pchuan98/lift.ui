@@ -59,7 +59,8 @@ namespace Lift.UI.Controls
             => (Ribbon) element.GetValue(RibbonProperty);
 
         public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-            nameof(IsDropDownOpen), typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.TrueBox, OnIsDropDownOpenChanged));
+            nameof(IsDropDownOpen), typeof(bool), typeof(Ribbon),
+            new PropertyMetadata(ValueBoxes.TrueBox, OnIsDropDownOpenChanged));
 
         private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -279,11 +280,13 @@ namespace Lift.UI.Controls
             }
         }
 
-        private void Window_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) => OnPreviewMouseButton(e);
+        private void Window_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) =>
+            OnPreviewMouseButton(e);
 
         private void Window_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e) => OnPreviewMouseButton(e);
 
-        private void Window_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e) => OnPreviewMouseButton(e);
+        private void Window_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e) =>
+            OnPreviewMouseButton(e);
 
         private void Window_PreviewMouseRightButtonUp(object sender, MouseButtonEventArgs e) => OnPreviewMouseButton(e);
 

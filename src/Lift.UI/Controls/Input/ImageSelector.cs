@@ -48,10 +48,12 @@ public class ImageSelector : Control
             if (dialog.ShowDialog() == true)
             {
                 SetValue(UriPropertyKey, new Uri(dialog.FileName, UriKind.RelativeOrAbsolute));
-                SetValue(PreviewBrushPropertyKey, new ImageBrush(BitmapFrame.Create(Uri, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.None))
-                {
-                    Stretch = Stretch
-                });
+                SetValue(PreviewBrushPropertyKey,
+                    new ImageBrush(
+                        BitmapFrame.Create(Uri, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.None))
+                    {
+                        Stretch = Stretch
+                    });
                 SetValue(HasValuePropertyKey, ValueBoxes.TrueBox);
                 SetCurrentValue(ToolTipProperty, dialog.FileName);
                 RaiseEvent(new RoutedEventArgs(ImageSelectedEvent, this));
@@ -99,7 +101,8 @@ public class ImageSelector : Control
     }
 
     public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register(
-        nameof(StrokeThickness), typeof(double), typeof(ImageSelector), new FrameworkPropertyMetadata(ValueBoxes.Double1Box, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(StrokeThickness), typeof(double), typeof(ImageSelector),
+        new FrameworkPropertyMetadata(ValueBoxes.Double1Box, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public double StrokeThickness
     {
@@ -108,7 +111,8 @@ public class ImageSelector : Control
     }
 
     public static readonly DependencyProperty StrokeDashArrayProperty = DependencyProperty.Register(
-        nameof(StrokeDashArray), typeof(DoubleCollection), typeof(ImageSelector), new FrameworkPropertyMetadata(default(DoubleCollection), FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(StrokeDashArray), typeof(DoubleCollection), typeof(ImageSelector),
+        new FrameworkPropertyMetadata(default(DoubleCollection), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public DoubleCollection StrokeDashArray
     {

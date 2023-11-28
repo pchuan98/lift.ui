@@ -43,6 +43,7 @@ internal class RingBuffer<TElement> : IEnumerable<TElement>
         {
             BottomIndex = TopIndex;
         }
+
         elements[BottomIndex.Value] = element;
     }
 
@@ -72,11 +73,12 @@ internal class RingBuffer<TElement> : IEnumerable<TElement>
     }
 
     #region IEnumerable<T> implementation
+
     public IEnumerator<TElement> GetEnumerator()
     {
         if (HasData)
         {
-            for (var index = TopIndex; ;)
+            for (var index = TopIndex;;)
             {
                 yield return this[index];
                 index++;
@@ -87,5 +89,6 @@ internal class RingBuffer<TElement> : IEnumerable<TElement>
     }
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
     #endregion
 }

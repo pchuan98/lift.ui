@@ -21,6 +21,7 @@ public class CheckTreeView : TreeView, INotifyPropertyChanged
     }
 
     private ICommand _ClickCommand;
+
     public ICommand ClickCommand
     {
         get
@@ -32,6 +33,7 @@ public class CheckTreeView : TreeView, INotifyPropertyChanged
             _ClickCommand = value;
         }
     }
+
     private string _CTag = "";
     private bool? _IsChecked = false;
     private string _Text = "";
@@ -41,34 +43,55 @@ public class CheckTreeView : TreeView, INotifyPropertyChanged
     public bool? IsChecked
     {
         get => _IsChecked;
-        set { _IsChecked = value; OnPropertyChanged("IsChecked"); }
+        set
+        {
+            _IsChecked = value;
+            OnPropertyChanged("IsChecked");
+        }
     }
 
     public string Text
     {
         get => _Text;
-        set { _Text = value; OnPropertyChanged("Text"); }
+        set
+        {
+            _Text = value;
+            OnPropertyChanged("Text");
+        }
     }
 
     public string CTag
     {
         get => _CTag;
-        set { _CTag = value; OnPropertyChanged("CTag"); }
+        set
+        {
+            _CTag = value;
+            OnPropertyChanged("CTag");
+        }
     }
 
     public CheckTreeView Parent
     {
         get => _Parent;
-        set { _Parent = value; OnPropertyChanged("Parent"); }
+        set
+        {
+            _Parent = value;
+            OnPropertyChanged("Parent");
+        }
     }
 
     public ObservableCollection<CheckTreeView> Children
     {
         get => _Children;
-        set { _Children = value; OnPropertyChanged("Childen"); }
+        set
+        {
+            _Children = value;
+            OnPropertyChanged("Childen");
+        }
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
+
     private void OnPropertyChanged(string name)
     {
         if (null == PropertyChanged)
@@ -117,6 +140,7 @@ public class CheckTreeView : TreeView, INotifyPropertyChanged
                     }
                 }
             }
+
             if ((0 < isCheckedNull) || (0 < isCheckedOn) || (0 < isCheckedOff))
             {
                 if (0 < isCheckedNull)
@@ -136,6 +160,7 @@ public class CheckTreeView : TreeView, INotifyPropertyChanged
                     Parent.IsChecked = false;
                 }
             }
+
             Parent.UpdateParentStatus();
         }
     }

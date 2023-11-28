@@ -50,6 +50,7 @@ public class LocalizationExtension : MarkupExtension
         get { return _arguments ?? (_arguments = new Collection<BindingBase>()); }
         set { _arguments = value; }
     }
+
     public override object ProvideValue(IServiceProvider serviceProvider)
     {
         if (Key != null && KeyBinding != null)
@@ -57,9 +58,10 @@ public class LocalizationExtension : MarkupExtension
         if (Key == null && KeyBinding == null)
             throw new ArgumentException($"Must set {nameof(Key)} or {nameof(KeyBinding)}");
         if (Arguments != null && ArgumentBindings.Any())
-            throw new ArgumentException($"Cannot be set at the same time {nameof(Arguments)} и {nameof(ArgumentBindings)}");
+            throw new ArgumentException(
+                $"Cannot be set at the same time {nameof(Arguments)} и {nameof(ArgumentBindings)}");
 
-        var target = (IProvideValueTarget)serviceProvider.GetService(typeof(IProvideValueTarget));
+        var target = (IProvideValueTarget) serviceProvider.GetService(typeof(IProvideValueTarget));
         if (target.TargetObject.GetType().FullName == "System.Windows.SharedDp")
             return this;
 

@@ -75,7 +75,7 @@ public abstract class TriggerAction : Animatable, IAttachedObject
                 throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture,
                     ExceptionStringTable.TypeConstraintViolatedExceptionMessage,
                     new object[]
-                        {GetType().Name, dependencyObject.GetType().Name, AssociatedObjectTypeConstraint.Name}));
+                        { GetType().Name, dependencyObject.GetType().Name, AssociatedObjectTypeConstraint.Name }));
             WritePreamble();
             _associatedObject = dependencyObject;
             WritePostscript();

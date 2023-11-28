@@ -31,6 +31,7 @@ internal sealed class SafeGdiplusStartupToken : SafeHandleZeroOrMinusOneIsInvali
             safeGdiplusStartupToken.handle = handle;
             return safeGdiplusStartupToken;
         }
+
         safeGdiplusStartupToken.Dispose();
         throw new Exception("Unable to initialize GDI+");
     }

@@ -42,4 +42,3 @@ internal class CalendarSelectionChangedEventArgs : SelectionChangedEventArgs
         }
     }
 }
-

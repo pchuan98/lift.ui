@@ -8,15 +8,20 @@ namespace Microsoft.Windows.Shell;
 
 public static class SystemCommands
 {
-    public static RoutedCommand CloseWindowCommand { get; private set; } = new RoutedCommand("CloseWindow", typeof(SystemCommands));
+    public static RoutedCommand CloseWindowCommand { get; private set; } =
+        new RoutedCommand("CloseWindow", typeof(SystemCommands));
 
-    public static RoutedCommand MaximizeWindowCommand { get; private set; } = new RoutedCommand("MaximizeWindow", typeof(SystemCommands));
+    public static RoutedCommand MaximizeWindowCommand { get; private set; } =
+        new RoutedCommand("MaximizeWindow", typeof(SystemCommands));
 
-    public static RoutedCommand MinimizeWindowCommand { get; private set; } = new RoutedCommand("MinimizeWindow", typeof(SystemCommands));
+    public static RoutedCommand MinimizeWindowCommand { get; private set; } =
+        new RoutedCommand("MinimizeWindow", typeof(SystemCommands));
 
-    public static RoutedCommand RestoreWindowCommand { get; private set; } = new RoutedCommand("RestoreWindow", typeof(SystemCommands));
+    public static RoutedCommand RestoreWindowCommand { get; private set; } =
+        new RoutedCommand("RestoreWindow", typeof(SystemCommands));
 
-    public static RoutedCommand ShowSystemMenuCommand { get; private set; } = new RoutedCommand("ShowSystemMenu", typeof(SystemCommands));
+    public static RoutedCommand ShowSystemMenuCommand { get; private set; } =
+        new RoutedCommand("ShowSystemMenu", typeof(SystemCommands));
 
     private static void _PostSystemCommand(Window window, SC command)
     {
@@ -25,6 +30,7 @@ public static class SystemCommands
         {
             return;
         }
+
         NativeMethods.PostMessage(handle, WM.SYSCOMMAND, new IntPtr((int) command), IntPtr.Zero);
     }
 
@@ -66,8 +72,10 @@ public static class SystemCommands
         {
             return;
         }
+
         IntPtr systemMenu = NativeMethods.GetSystemMenu(handle, false);
-        uint num = NativeMethods.TrackPopupMenuEx(systemMenu, 256u, (int) physicalScreenLocation.X, (int) physicalScreenLocation.Y, handle, IntPtr.Zero);
+        uint num = NativeMethods.TrackPopupMenuEx(systemMenu, 256u, (int) physicalScreenLocation.X,
+            (int) physicalScreenLocation.Y, handle, IntPtr.Zero);
         if (num != 0u)
         {
             NativeMethods.PostMessage(handle, WM.SYSCOMMAND, new IntPtr((long) ((ulong) num)), IntPtr.Zero);

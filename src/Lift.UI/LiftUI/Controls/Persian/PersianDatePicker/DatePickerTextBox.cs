@@ -26,6 +26,7 @@ namespace Microsoft.Windows.Controls.Primitives;
 public sealed partial class DatePickerTextBox : TextBox
 {
     #region Constants
+
     private const string ElementContentName = "Watermark";
 
     #endregion
@@ -44,7 +45,8 @@ public sealed partial class DatePickerTextBox : TextBox
     /// </summary>
     static DatePickerTextBox()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(DatePickerTextBox), new FrameworkPropertyMetadata(typeof(DatePickerTextBox)));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(DatePickerTextBox),
+            new FrameworkPropertyMetadata(typeof(DatePickerTextBox)));
     }
 
     /// <summary>
@@ -56,11 +58,13 @@ public sealed partial class DatePickerTextBox : TextBox
         this.Loaded += OnLoaded;
         this.IsEnabledChanged += new DependencyPropertyChangedEventHandler(OnDatePickerTextBoxIsEnabledChanged);
     }
+
     #endregion
 
     #region Public Properties
 
     #region Watermark
+
     /// <summary>
     /// Watermark dependency property
     /// </summary>
@@ -73,7 +77,7 @@ public sealed partial class DatePickerTextBox : TextBox
     /// <value>The watermark.</value>
     internal object Watermark
     {
-        get { return (object)GetValue(WatermarkProperty); }
+        get { return (object) GetValue(WatermarkProperty); }
         set { SetValue(WatermarkProperty, value); }
     }
 
@@ -194,7 +198,8 @@ public sealed partial class DatePickerTextBox : TextBox
         // Update the WatermarkStates group
         if (this.Watermark != null && string.IsNullOrEmpty(this.Text))
         {
-            VisualStates.GoToState(this, useTransitions, VisualStates.StateWatermarked, VisualStates.StateUnwatermarked);
+            VisualStates.GoToState(this, useTransitions, VisualStates.StateWatermarked,
+                VisualStates.StateUnwatermarked);
         }
         else
         {
@@ -212,7 +217,8 @@ public sealed partial class DatePickerTextBox : TextBox
     {
         Debug.Assert(
             obj == null || typeof(T).IsInstanceOfType(obj),
-            string.Format(CultureInfo.InvariantCulture, "The template part {0} is not an instance of {1}.", partName, typeof(T).Name));
+            string.Format(CultureInfo.InvariantCulture, "The template part {0} is not an instance of {1}.", partName,
+                typeof(T).Name));
         return obj as T;
     }
 
@@ -224,7 +230,7 @@ public sealed partial class DatePickerTextBox : TextBox
     private void OnDatePickerTextBoxIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         Debug.Assert(e.NewValue is bool);
-        bool isEnabled = (bool)e.NewValue;
+        bool isEnabled = (bool) e.NewValue;
 
         IsReadOnly = !isEnabled;
 
@@ -259,4 +265,3 @@ public sealed partial class DatePickerTextBox : TextBox
 
     #endregion Private
 }
-

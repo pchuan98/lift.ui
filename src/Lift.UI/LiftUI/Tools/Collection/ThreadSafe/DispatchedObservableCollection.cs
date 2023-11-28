@@ -1,4 +1,5 @@
 ﻿// https://github.com/meziantou/Meziantou.Framework
+
 #if NETCOREAPP
 using System;
 using System.Collections;
@@ -11,7 +12,8 @@ using Lift.UI.Controls;
 
 namespace Lift.UI.Tools;
 
-internal sealed class DispatchedObservableCollection<T> : ObservableCollectionBase<T>, IReadOnlyObservableCollection<T>, IList<T>, IList
+internal sealed class DispatchedObservableCollection<T> : ObservableCollectionBase<T>, IReadOnlyObservableCollection<T>,
+    IList<T>, IList
 {
     private readonly ConcurrentQueue<PendingEvent<T>> _pendingEvents = new();
     private readonly ThreadSafeObservableCollection<T> _collection;
@@ -31,7 +33,9 @@ internal sealed class DispatchedObservableCollection<T> : ObservableCollectionBa
         if (!IsOnDispatcherThread())
         {
             var currentThreadId = Environment.CurrentManagedThreadId;
-            throw new InvalidOperationException("The collection must be accessed from the dispatcher thread only. Current thread ID: " + currentThreadId.ToString(CultureInfo.InvariantCulture));
+            throw new InvalidOperationException(
+                "The collection must be accessed from the dispatcher thread only. Current thread ID: " +
+                currentThreadId.ToString(CultureInfo.InvariantCulture));
         }
     }
 

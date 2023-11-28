@@ -7,7 +7,8 @@ namespace Lift.UI.Tools.Extension;
 /// </summary>
 internal class FixedNumberOfCharactersTruncator : ITruncator
 {
-    public string Truncate(string value, int length, string truncationString, TruncateFrom truncateFrom = TruncateFrom.Right)
+    public string Truncate(string value, int length, string truncationString,
+        TruncateFrom truncateFrom = TruncateFrom.Right)
     {
         if (value == null)
         {
@@ -26,7 +27,9 @@ internal class FixedNumberOfCharactersTruncator : ITruncator
 
         if (truncationString.Length > length)
         {
-            return truncateFrom == TruncateFrom.Right ? value.Substring(0, length) : value.Substring(value.Length - length);
+            return truncateFrom == TruncateFrom.Right
+                ? value.Substring(0, length)
+                : value.Substring(value.Length - length);
         }
 
         var alphaNumericalCharactersProcessed = 0;

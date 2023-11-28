@@ -82,7 +82,10 @@ public class Transfer : ListBox
 
         foreach (var item in SelectedItems)
         {
-            if (ItemContainerGenerator.ContainerFromItem(item) is not TransferItem { IsTransferred: false } selectedItem)
+            if (ItemContainerGenerator.ContainerFromItem(item) is not TransferItem
+                {
+                    IsTransferred: false
+                } selectedItem)
             {
                 continue;
             }
@@ -96,7 +99,8 @@ public class Transfer : ListBox
 
             if (ItemsSource != null)
             {
-                transferItem.SetBinding(ContentControl.ContentProperty, new Binding(DisplayMemberPath) { Source = item });
+                transferItem.SetBinding(ContentControl.ContentProperty,
+                    new Binding(DisplayMemberPath) { Source = item });
             }
             else
             {
@@ -107,10 +111,11 @@ public class Transfer : ListBox
         }
 
         SetTransferredItems(_selectedListBox.Items.OfType<TransferItem>().Select(item => item.Tag));
-        OnTransferredItemsChanged(new SelectionChangedEventArgs(TransferredItemsChangedEvent, new List<object>(), SelectedItems)
-        {
-            Source = this
-        });
+        OnTransferredItemsChanged(
+            new SelectionChangedEventArgs(TransferredItemsChangedEvent, new List<object>(), SelectedItems)
+            {
+                Source = this
+            });
         UnselectAll();
     }
 
@@ -141,10 +146,11 @@ public class Transfer : ListBox
         }
 
         SetTransferredItems(_selectedListBox.Items.OfType<TransferItem>().Select(item => item.Tag));
-        OnTransferredItemsChanged(new SelectionChangedEventArgs(TransferredItemsChangedEvent, deselectItems, new List<object>())
-        {
-            Source = this
-        });
+        OnTransferredItemsChanged(
+            new SelectionChangedEventArgs(TransferredItemsChangedEvent, deselectItems, new List<object>())
+            {
+                Source = this
+            });
     }
 
     private void SetTransferredItems(IEnumerable selectedItems)
@@ -168,8 +174,6 @@ public class Transfer : ListBox
         oldSelectedItems.CanNotify = true;
     }
 }
-
-
 
 [Serializable]
 public class ManualObservableCollection<T> : ObservableCollection<T>
@@ -198,7 +202,6 @@ public class ManualObservableCollection<T> : ObservableCollection<T>
 
                 OnPropertyChanged(new PropertyChangedEventArgs(IndexerName));
                 OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
-
             }
             else
             {
@@ -209,10 +212,10 @@ public class ManualObservableCollection<T> : ObservableCollection<T>
 
     public ManualObservableCollection()
     {
-
     }
 
-    public ManualObservableCollection(List<T> list) : base(list != null ? new List<T>(list.Count) : list) => CopyFrom(list);
+    public ManualObservableCollection(List<T> list) : base(list != null ? new List<T>(list.Count) : list) =>
+        CopyFrom(list);
 
     public ManualObservableCollection(IEnumerable<T> collection)
     {

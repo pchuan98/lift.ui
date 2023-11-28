@@ -110,7 +110,8 @@ public class TimeBar : Control
     /// 选中时间
     /// </summary>
     public static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
-        nameof(SelectedTime), typeof(DateTime), typeof(TimeBar), new PropertyMetadata(default(DateTime), OnSelectedTimeChanged));
+        nameof(SelectedTime), typeof(DateTime), typeof(TimeBar),
+        new PropertyMetadata(default(DateTime), OnSelectedTimeChanged));
 
     private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -136,6 +137,7 @@ public class TimeBar : Control
         {
             _totalOffsetX = (_starTime - SelectedTime).TotalMilliseconds / _timeSpeList[SpeIndex] * _itemWidth;
         }
+
         UpdateSpeBlock();
         UpdateMouseFollowBlockPos();
     }
@@ -295,12 +297,14 @@ public class TimeBar : Control
         {
             Update();
         }
+
         _textBlockSelected.Text = SelectedTime.ToString(TimeFormat);
     }
 
     private void CheckNull()
     {
-        if (_borderTop == null || _textBlockMove == null || _textBlockSelected == null || _canvasSpe == null) throw new Exception();
+        if (_borderTop == null || _textBlockMove == null || _textBlockSelected == null || _canvasSpe == null)
+            throw new Exception();
     }
 
     /// <summary>
@@ -319,12 +323,14 @@ public class TimeBar : Control
                 _speIndex = 0;
                 return;
             }
+
             if (value > 6)
             {
                 SpeStr = Properties.Langs.Lang.Interval30s;
                 _speIndex = 6;
                 return;
             }
+
             SetSpeTimeFormat("HH:mm");
             switch (value)
             {
@@ -351,6 +357,7 @@ public class TimeBar : Control
                     SpeStr = Properties.Langs.Lang.Interval30s;
                     break;
             }
+
             _speIndex = value;
         }
     }
@@ -385,6 +392,7 @@ public class TimeBar : Control
             var item = _speBlockList[i];
             item.MoveX(rest + (_itemWidth - item.Width) / 2);
         }
+
         var sub = rest <= 0 ? _speCount / 2 : _speCount / 2 - 1;
 
         for (var i = 0; i < _speCount; i++)
@@ -542,7 +550,8 @@ public class TimeBar : Control
         }
     }
 
-    private void BorderTop_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e) => _borderTopIsMouseLeftButtonDown = true;
+    private void BorderTop_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e) =>
+        _borderTopIsMouseLeftButtonDown = true;
 
     private void BorderTop_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
     {

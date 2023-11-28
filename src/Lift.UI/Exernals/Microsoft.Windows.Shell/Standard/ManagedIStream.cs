@@ -22,7 +22,8 @@ internal sealed class ManagedIStream : IStream, IDisposable
         }
     }
 
-    [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "Standard.HRESULT.ThrowIfFailed(System.String)")]
+    [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters",
+        MessageId = "Standard.HRESULT.ThrowIfFailed(System.String)")]
     [Obsolete("The method is not implemented", true)]
     public void Clone(out IStream ppstm)
     {
@@ -52,19 +53,23 @@ internal sealed class ManagedIStream : IStream, IDisposable
             {
                 break;
             }
+
             pstm.Write(array, num2, IntPtr.Zero);
         }
+
         if (IntPtr.Zero != pcbRead)
         {
             Marshal.WriteInt64(pcbRead, num);
         }
+
         if (IntPtr.Zero != pcbWritten)
         {
             Marshal.WriteInt64(pcbWritten, num);
         }
     }
 
-    [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "Standard.HRESULT.ThrowIfFailed(System.String)")]
+    [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters",
+        MessageId = "Standard.HRESULT.ThrowIfFailed(System.String)")]
     [Obsolete("The method is not implemented", true)]
     public void LockRegion(long libOffset, long cb, int dwLockType)
     {
@@ -82,7 +87,8 @@ internal sealed class ManagedIStream : IStream, IDisposable
         }
     }
 
-    [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "Standard.HRESULT.ThrowIfFailed(System.String)")]
+    [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters",
+        MessageId = "Standard.HRESULT.ThrowIfFailed(System.String)")]
     [Obsolete("The method is not implemented", true)]
     public void Revert()
     {
@@ -117,7 +123,8 @@ internal sealed class ManagedIStream : IStream, IDisposable
     }
 
     [Obsolete("The method is not implemented", true)]
-    [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "Standard.HRESULT.ThrowIfFailed(System.String)")]
+    [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters",
+        MessageId = "Standard.HRESULT.ThrowIfFailed(System.String)")]
     public void UnlockRegion(long libOffset, long cb, int dwLockType)
     {
         HRESULT.STG_E_INVALIDFUNCTION.ThrowIfFailed("The method is not implemented.");

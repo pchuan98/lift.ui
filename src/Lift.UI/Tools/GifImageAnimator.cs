@@ -18,8 +18,7 @@ internal class ImageAnimator
 
     private static bool AnyFrameDirty;
 
-    [ThreadStatic]
-    private static int ThreadWriterLockWaitCount;
+    [ThreadStatic] private static int ThreadWriterLockWaitCount;
 
     public static bool CanAnimate(GifImage image)
     {
@@ -165,10 +164,12 @@ internal class ImageAnimator
 
                 if (Equals(image, imageInfo.Image))
                 {
-                    if (onFrameChangedHandler == imageInfo.FrameChangedHandler || onFrameChangedHandler != null && onFrameChangedHandler.Equals(imageInfo.FrameChangedHandler))
+                    if (onFrameChangedHandler == imageInfo.FrameChangedHandler || onFrameChangedHandler != null &&
+                        onFrameChangedHandler.Equals(imageInfo.FrameChangedHandler))
                     {
                         ImageInfoList.Remove(imageInfo);
                     }
+
                     break;
                 }
             }
@@ -198,6 +199,7 @@ internal class ImageAnimator
         {
             return;
         }
+
         if (ThreadWriterLockWaitCount > 0)
         {
             // Cannot acquire reader lock at this time, frames update will be missed.
@@ -216,6 +218,7 @@ internal class ImageAnimator
                     imageInfo.UpdateFrame();
                 }
             }
+
             AnyFrameDirty = false;
         }
         finally

@@ -18,7 +18,8 @@ public class ResourceDictionaryEx : ResourceDictionary
     /// A dictionary of ResourceDictionary theme dictionaries. Each must be keyed with
     /// **x:Key**.
     /// </returns>
-    public Dictionary<object, ResourceDictionary> ThemeDictionaries { get; } = new Dictionary<object, ResourceDictionary>();
+    public Dictionary<object, ResourceDictionary> ThemeDictionaries { get; } =
+        new Dictionary<object, ResourceDictionary>();
 
     public ResourceDictionary MergedAppThemeDictionary { get; set; }
 

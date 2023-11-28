@@ -66,7 +66,9 @@ public class PersianDatePicker : Control
 
     #region Public Events
 
-    public static readonly RoutedEvent SelectedDateChangedEvent = EventManager.RegisterRoutedEvent("SelectedDateChanged", RoutingStrategy.Direct, typeof(EventHandler<SelectionChangedEventArgs>), typeof(PersianDatePicker));
+    public static readonly RoutedEvent SelectedDateChangedEvent =
+        EventManager.RegisterRoutedEvent("SelectedDateChanged", RoutingStrategy.Direct,
+            typeof(EventHandler<SelectionChangedEventArgs>), typeof(PersianDatePicker));
 
     /// <summary>
     /// Occurs when the drop-down PersianCalendar is closed.
@@ -93,16 +95,22 @@ public class PersianDatePicker : Control
     }
 
     #endregion Public Events
+
     /// <summary>
     /// Static constructor
     /// </summary>
     static PersianDatePicker()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(PersianDatePicker), new FrameworkPropertyMetadata(typeof(PersianDatePicker)));
-        EventManager.RegisterClassHandler(typeof(PersianDatePicker), UIElement.GotFocusEvent, new RoutedEventHandler(OnGotFocus));
-        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(PersianDatePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
-        KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(PersianDatePicker), new FrameworkPropertyMetadata(false));
-        IsEnabledProperty.OverrideMetadata(typeof(PersianDatePicker), new UIPropertyMetadata(new PropertyChangedCallback(OnIsEnabledChanged)));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(PersianDatePicker),
+            new FrameworkPropertyMetadata(typeof(PersianDatePicker)));
+        EventManager.RegisterClassHandler(typeof(PersianDatePicker), UIElement.GotFocusEvent,
+            new RoutedEventHandler(OnGotFocus));
+        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(PersianDatePicker),
+            new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
+        KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(PersianDatePicker),
+            new FrameworkPropertyMetadata(false));
+        IsEnabledProperty.OverrideMetadata(typeof(PersianDatePicker),
+            new UIPropertyMetadata(new PropertyChangedCallback(OnIsEnabledChanged)));
     }
 
     /// <summary>
@@ -139,7 +147,7 @@ public class PersianDatePicker : Control
     /// </summary>
     public Style CalendarStyle
     {
-        get { return (Style)GetValue(CalendarStyleProperty); }
+        get { return (Style) GetValue(CalendarStyleProperty); }
         set { SetValue(CalendarStyleProperty, value); }
     }
 
@@ -148,9 +156,9 @@ public class PersianDatePicker : Control
     /// </summary>
     public static readonly DependencyProperty CalendarStyleProperty =
         DependencyProperty.Register(
-        "CalendarStyle",
-        typeof(Style),
-        typeof(PersianDatePicker));
+            "CalendarStyle",
+            typeof(Style),
+            typeof(PersianDatePicker));
 
     #endregion CalendarStyle
 
@@ -162,7 +170,7 @@ public class PersianDatePicker : Control
     /// 
     public DateTime DisplayDate
     {
-        get { return (DateTime)GetValue(DisplayDateProperty); }
+        get { return (DateTime) GetValue(DisplayDateProperty); }
         set { SetValue(DisplayDateProperty, value); }
     }
 
@@ -171,17 +179,18 @@ public class PersianDatePicker : Control
     /// </summary>
     public static readonly DependencyProperty DisplayDateProperty =
         DependencyProperty.Register(
-        "DisplayDate",
-        typeof(DateTime),
-        typeof(PersianDatePicker),
-        new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayDate));
+            "DisplayDate",
+            typeof(DateTime),
+            typeof(PersianDatePicker),
+            new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null,
+                CoerceDisplayDate));
 
     private static object CoerceDisplayDate(DependencyObject d, object value)
     {
         PersianDatePicker dp = d as PersianDatePicker;
 
         // We set _persianCalendar.DisplayDate in order to get _persianCalendar to compute the coerced value
-        dp._persianCalendar.DisplayDate = (DateTime)value;
+        dp._persianCalendar.DisplayDate = (DateTime) value;
         return dp._persianCalendar.DisplayDate;
     }
 
@@ -195,7 +204,7 @@ public class PersianDatePicker : Control
     /// 
     public DateTime? DisplayDateEnd
     {
-        get { return (DateTime?)GetValue(DisplayDateEndProperty); }
+        get { return (DateTime?) GetValue(DisplayDateEndProperty); }
         set { SetValue(DisplayDateEndProperty, value); }
     }
 
@@ -204,10 +213,11 @@ public class PersianDatePicker : Control
     /// </summary>
     public static readonly DependencyProperty DisplayDateEndProperty =
         DependencyProperty.Register(
-        "DisplayDateEnd",
-        typeof(DateTime?),
-        typeof(PersianDatePicker),
-        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayDateEndChanged, CoerceDisplayDateEnd));
+            "DisplayDateEnd",
+            typeof(DateTime?),
+            typeof(PersianDatePicker),
+            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnDisplayDateEndChanged, CoerceDisplayDateEnd));
 
     /// <summary>
     /// DisplayDateEndProperty property changed handler.
@@ -227,7 +237,7 @@ public class PersianDatePicker : Control
         PersianDatePicker dp = d as PersianDatePicker;
 
         // We set _persianCalendar.DisplayDateEnd in order to get _persianCalendar to compute the coerced value
-        dp._persianCalendar.DisplayDateEnd = (DateTime?)value;
+        dp._persianCalendar.DisplayDateEnd = (DateTime?) value;
         return dp._persianCalendar.DisplayDateEnd;
     }
 
@@ -241,7 +251,7 @@ public class PersianDatePicker : Control
     /// 
     public DateTime? DisplayDateStart
     {
-        get { return (DateTime?)GetValue(DisplayDateStartProperty); }
+        get { return (DateTime?) GetValue(DisplayDateStartProperty); }
         set { SetValue(DisplayDateStartProperty, value); }
     }
 
@@ -250,10 +260,11 @@ public class PersianDatePicker : Control
     /// </summary>
     public static readonly DependencyProperty DisplayDateStartProperty =
         DependencyProperty.Register(
-        "DisplayDateStart",
-        typeof(DateTime?),
-        typeof(PersianDatePicker),
-        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayDateStartChanged, CoerceDisplayDateStart));
+            "DisplayDateStart",
+            typeof(DateTime?),
+            typeof(PersianDatePicker),
+            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnDisplayDateStartChanged, CoerceDisplayDateStart));
 
     /// <summary>
     /// DisplayDateStartProperty property changed handler.
@@ -274,7 +285,7 @@ public class PersianDatePicker : Control
         PersianDatePicker dp = d as PersianDatePicker;
 
         // We set _persianCalendar.DisplayDateStart in order to get _persianCalendar to compute the coerced value
-        dp._persianCalendar.DisplayDateStart = (DateTime?)value;
+        dp._persianCalendar.DisplayDateStart = (DateTime?) value;
         return dp._persianCalendar.DisplayDateStart;
     }
 
@@ -287,7 +298,7 @@ public class PersianDatePicker : Control
     /// </summary>
     public DayOfWeek FirstDayOfWeek
     {
-        get { return (DayOfWeek)GetValue(FirstDayOfWeekProperty); }
+        get { return (DayOfWeek) GetValue(FirstDayOfWeekProperty); }
         set { SetValue(FirstDayOfWeekProperty, value); }
     }
 
@@ -296,11 +307,11 @@ public class PersianDatePicker : Control
     /// </summary>
     public static readonly DependencyProperty FirstDayOfWeekProperty =
         DependencyProperty.Register(
-        "FirstDayOfWeek",
-        typeof(DayOfWeek),
-        typeof(PersianDatePicker),
-        null,
-        PersianCalendar.IsValidFirstDayOfWeek);
+            "FirstDayOfWeek",
+            typeof(DayOfWeek),
+            typeof(PersianDatePicker),
+            null,
+            PersianCalendar.IsValidFirstDayOfWeek);
 
     #endregion FirstDayOfWeek
 
@@ -311,7 +322,7 @@ public class PersianDatePicker : Control
     /// </summary>
     public bool IsDropDownOpen
     {
-        get { return (bool)GetValue(IsDropDownOpenProperty); }
+        get { return (bool) GetValue(IsDropDownOpenProperty); }
         set { SetValue(IsDropDownOpenProperty, value); }
     }
 
@@ -320,10 +331,11 @@ public class PersianDatePicker : Control
     /// </summary>
     public static readonly DependencyProperty IsDropDownOpenProperty =
         DependencyProperty.Register(
-        "IsDropDownOpen",
-        typeof(bool),
-        typeof(PersianDatePicker),
-        new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
+            "IsDropDownOpen",
+            typeof(bool),
+            typeof(PersianDatePicker),
+            new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
 
     private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue)
     {
@@ -348,7 +360,7 @@ public class PersianDatePicker : Control
         PersianDatePicker dp = d as PersianDatePicker;
         Debug.Assert(dp != null);
 
-        bool newValue = (bool)e.NewValue;
+        bool newValue = (bool) e.NewValue;
         if (dp._popUp != null && dp._popUp.IsOpen != newValue)
         {
             dp._popUp.IsOpen = newValue;
@@ -360,13 +372,11 @@ public class PersianDatePicker : Control
                 // have been set even before the template for the PersianDatePicker is 
                 // applied. And this would mean that the visuals wouldn't be available yet.
 
-                dp.Dispatcher.BeginInvoke(DispatcherPriority.Input, (Action)delegate()
+                dp.Dispatcher.BeginInvoke(DispatcherPriority.Input, (Action) delegate()
                 {
-                    
                     // setting the focus to the calendar will focus the correct date.
                     dp._persianCalendar.Focus();
                 });
-
             }
         }
     }
@@ -410,7 +420,6 @@ public class PersianDatePicker : Control
         VisualStateManager.GoToState(dp, dp.IsEnabled ? VisualStates.StateNormal : VisualStates.StateDisabled, true);
     }
 
-
     #endregion IsEnabled
 
     #region IsTodayHighlighted
@@ -420,7 +429,7 @@ public class PersianDatePicker : Control
     /// </summary>
     public bool IsTodayHighlighted
     {
-        get { return (bool)GetValue(IsTodayHighlightedProperty); }
+        get { return (bool) GetValue(IsTodayHighlightedProperty); }
         set { SetValue(IsTodayHighlightedProperty, value); }
     }
 
@@ -429,9 +438,9 @@ public class PersianDatePicker : Control
     /// </summary>
     public static readonly DependencyProperty IsTodayHighlightedProperty =
         DependencyProperty.Register(
-        "IsTodayHighlighted",
-        typeof(bool),
-        typeof(PersianDatePicker));
+            "IsTodayHighlighted",
+            typeof(bool),
+            typeof(PersianDatePicker));
 
     #endregion IsTodayHighlighted
 
@@ -443,7 +452,7 @@ public class PersianDatePicker : Control
     /// 
     public DateTime? SelectedDate
     {
-        get { return (DateTime?)GetValue(SelectedDateProperty); }
+        get { return (DateTime?) GetValue(SelectedDateProperty); }
         set { SetValue(SelectedDateProperty, value); }
     }
 
@@ -452,10 +461,11 @@ public class PersianDatePicker : Control
     /// </summary>
     public static readonly DependencyProperty SelectedDateProperty =
         DependencyProperty.Register(
-        "SelectedDate",
-        typeof(DateTime?),
-        typeof(PersianDatePicker),
-        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault , OnSelectedDateChanged, CoerceSelectedDate));
+            "SelectedDate",
+            typeof(DateTime?),
+            typeof(PersianDatePicker),
+            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnSelectedDateChanged, CoerceSelectedDate));
 
     /// <summary>
     /// SelectedDateProperty property changed handler.
@@ -476,8 +486,8 @@ public class PersianDatePicker : Control
         dp.CoerceValue(DisplayDateEndProperty);
         dp.CoerceValue(DisplayDateProperty);
 
-        addedDate = (DateTime?)e.NewValue;
-        removedDate = (DateTime?)e.OldValue;
+        addedDate = (DateTime?) e.NewValue;
+        removedDate = (DateTime?) e.OldValue;
 
         if (dp.SelectedDate.HasValue)
         {
@@ -486,7 +496,8 @@ public class PersianDatePicker : Control
 
             // When DatePickerDisplayDateFlag is TRUE, the SelectedDate change is coming from the PersianCalendar UI itself,
             // so, we shouldn't change the DisplayDate since it will automatically be changed by the PersianCalendar
-            if ((day.Month != dp.DisplayDate.Month || day.Year != dp.DisplayDate.Year) && !dp._persianCalendar.DatePickerDisplayDateFlag)
+            if ((day.Month != dp.DisplayDate.Month || day.Year != dp.DisplayDate.Year) &&
+                !dp._persianCalendar.DatePickerDisplayDateFlag)
             {
                 dp.DisplayDate = day;
             }
@@ -508,7 +519,8 @@ public class PersianDatePicker : Control
             removedItems.Add(removedDate.Value);
         }
 
-        dp.OnSelectedDateChanged(new CalendarSelectionChangedEventArgs(PersianDatePicker.SelectedDateChangedEvent, removedItems, addedItems));
+        dp.OnSelectedDateChanged(new CalendarSelectionChangedEventArgs(PersianDatePicker.SelectedDateChangedEvent,
+            removedItems, addedItems));
 
         DatePickerAutomationPeer peer = UIElementAutomationPeer.FromElement(dp) as DatePickerAutomationPeer;
         // Raise the propetyChangeEvent for Value if Automation Peer exist
@@ -525,7 +537,7 @@ public class PersianDatePicker : Control
         PersianDatePicker dp = d as PersianDatePicker;
 
         // We set _persianCalendar.SelectedDate in order to get _persianCalendar to compute the coerced value
-        dp._persianCalendar.SelectedDate = (DateTime?)value;
+        dp._persianCalendar.SelectedDate = (DateTime?) value;
         return dp._persianCalendar.SelectedDate;
     }
 
@@ -538,7 +550,7 @@ public class PersianDatePicker : Control
     /// </summary>
     public DatePickerFormat SelectedDateFormat
     {
-        get { return (DatePickerFormat)GetValue(SelectedDateFormatProperty); }
+        get { return (DatePickerFormat) GetValue(SelectedDateFormatProperty); }
         set { SetValue(SelectedDateFormatProperty, value); }
     }
 
@@ -547,11 +559,11 @@ public class PersianDatePicker : Control
     /// </summary>
     public static readonly DependencyProperty SelectedDateFormatProperty =
         DependencyProperty.Register(
-        "SelectedDateFormat",
-        typeof(DatePickerFormat),
-        typeof(PersianDatePicker),
-        new FrameworkPropertyMetadata(DatePickerFormat.Long, OnSelectedDateFormatChanged),
-        IsValidSelectedDateFormat);
+            "SelectedDateFormat",
+            typeof(DatePickerFormat),
+            typeof(PersianDatePicker),
+            new FrameworkPropertyMetadata(DatePickerFormat.Long, OnSelectedDateFormatChanged),
+            IsValidSelectedDateFormat);
 
     /// <summary>
     /// SelectedDateFormatProperty property changed handler.
@@ -576,7 +588,7 @@ public class PersianDatePicker : Control
 
                 if (date != null)
                 {
-                    dp.SetTextInternal(dp.DateTimeToString((DateTime)date));
+                    dp.SetTextInternal(dp.DateTimeToString((DateTime) date));
                 }
             }
         }
@@ -591,7 +603,7 @@ public class PersianDatePicker : Control
     /// </summary>
     public string Text
     {
-        get { return (string)GetValue(TextProperty); }
+        get { return (string) GetValue(TextProperty); }
         set { SetValue(TextProperty, value); }
     }
 
@@ -600,10 +612,10 @@ public class PersianDatePicker : Control
     /// </summary>
     public static readonly DependencyProperty TextProperty =
         DependencyProperty.Register(
-        "Text",
-        typeof(string),
-        typeof(PersianDatePicker),
-        new FrameworkPropertyMetadata(string.Empty, OnTextChanged, OnCoerceText));
+            "Text",
+            typeof(string),
+            typeof(PersianDatePicker),
+            new FrameworkPropertyMetadata(string.Empty, OnTextChanged, OnCoerceText));
 
     /// <summary>
     /// TextProperty property changed handler.
@@ -641,7 +653,7 @@ public class PersianDatePicker : Control
 
     private static object OnCoerceText(DependencyObject dObject, object baseValue)
     {
-        PersianDatePicker dp = (PersianDatePicker)dObject;
+        PersianDatePicker dp = (PersianDatePicker) dObject;
         if (dp._shouldCoerceText)
         {
             dp._shouldCoerceText = false;
@@ -682,6 +694,7 @@ public class PersianDatePicker : Control
     #endregion Internal Properties
 
     #region Private Properties
+
     #endregion Private Properties
 
     #region Public Methods
@@ -693,7 +706,8 @@ public class PersianDatePicker : Control
     {
         if (_popUp != null)
         {
-            _popUp.RemoveHandler(PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(PopUp_PreviewMouseLeftButtonDown));
+            _popUp.RemoveHandler(PreviewMouseLeftButtonDownEvent,
+                new MouseButtonEventHandler(PopUp_PreviewMouseLeftButtonDown));
             _popUp.Opened -= PopUp_Opened;
             _popUp.Closed -= PopUp_Closed;
             _popUp.Child = null;
@@ -718,7 +732,8 @@ public class PersianDatePicker : Control
 
         if (_popUp != null)
         {
-            _popUp.AddHandler(PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(PopUp_PreviewMouseLeftButtonDown));
+            _popUp.AddHandler(PreviewMouseLeftButtonDownEvent,
+                new MouseButtonEventHandler(PopUp_PreviewMouseLeftButtonDown));
             _popUp.Opened += PopUp_Opened;
             _popUp.Closed += PopUp_Closed;
             _popUp.Child = this._persianCalendar;
@@ -767,7 +782,7 @@ public class PersianDatePicker : Control
             }
             else
             {
-                _textBox.Text = this.DateTimeToString((DateTime)this.SelectedDate);
+                _textBox.Text = this.DateTimeToString((DateTime) this.SelectedDate);
             }
         }
     }
@@ -847,7 +862,7 @@ public class PersianDatePicker : Control
     private static void OnGotFocus(object sender, RoutedEventArgs e)
     {
         // When Datepicker gets focus move it to the TextBox
-        PersianDatePicker picker = (PersianDatePicker)sender;
+        PersianDatePicker picker = (PersianDatePicker) sender;
         if ((!e.Handled) && (picker._textBox != null))
         {
             if (e.OriginalSource == picker)
@@ -959,19 +974,20 @@ public class PersianDatePicker : Control
     {
         if (e.AddedDate != this.DisplayDate)
         {
-            SetValue(DisplayDateProperty, (DateTime)e.AddedDate);
+            SetValue(DisplayDateProperty, (DateTime) e.AddedDate);
         }
     }
 
     private void CalendarDayOrMonthButton_PreviewKeyDown(object sender, RoutedEventArgs e)
     {
         PersianCalendar c = sender as PersianCalendar;
-        KeyEventArgs args = (KeyEventArgs)e;
+        KeyEventArgs args = (KeyEventArgs) e;
 
         Debug.Assert(c != null);
         Debug.Assert(args != null);
 
-        if (args.Key == Key.Escape || ((args.Key == Key.Enter || args.Key == Key.Space) && c.DisplayMode == CalendarMode.Month))
+        if (args.Key == Key.Escape ||
+            ((args.Key == Key.Enter || args.Key == Key.Space) && c.DisplayMode == CalendarMode.Month))
         {
             this.IsDropDownOpen = false;
             if (args.Key == Key.Escape)
@@ -985,9 +1001,10 @@ public class PersianDatePicker : Control
     {
         Debug.Assert(e.AddedItems.Count < 2);
 
-        if (e.AddedItems.Count > 0 && this.SelectedDate.HasValue && DateTime.Compare((DateTime)e.AddedItems[0], this.SelectedDate.Value) != 0)
+        if (e.AddedItems.Count > 0 && this.SelectedDate.HasValue &&
+            DateTime.Compare((DateTime) e.AddedItems[0], this.SelectedDate.Value) != 0)
         {
-            this.SelectedDate = (DateTime?)e.AddedItems[0];
+            this.SelectedDate = (DateTime?) e.AddedItems[0];
         }
         else
         {
@@ -1001,7 +1018,7 @@ public class PersianDatePicker : Control
             {
                 if (e.AddedItems.Count > 0)
                 {
-                    this.SelectedDate = (DateTime?)e.AddedItems[0];
+                    this.SelectedDate = (DateTime?) e.AddedItems[0];
                 }
             }
         }
@@ -1016,14 +1033,14 @@ public class PersianDatePicker : Control
         switch (this.SelectedDateFormat)
         {
             case DatePickerFormat.Short:
-                {
-                    return string.Format("{0:00}/{1:00}/{2:00}", pc.GetYear(d) % 100, pc.GetMonth(d), pc.GetDayOfMonth(d));
-                }
+            {
+                return string.Format("{0:00}/{1:00}/{2:00}", pc.GetYear(d) % 100, pc.GetMonth(d), pc.GetDayOfMonth(d));
+            }
             case DatePickerFormat.Long:
-                {
-                    return string.Format("{0:0000}/{1:00}/{2:00}", pc.GetYear(d), pc.GetMonth(d), pc.GetDayOfMonth(d));
-                }
-        }      
+            {
+                return string.Format("{0:0000}/{1:00}/{2:00}", pc.GetYear(d), pc.GetMonth(d), pc.GetDayOfMonth(d));
+            }
+        }
 
         return null;
     }
@@ -1044,7 +1061,7 @@ public class PersianDatePicker : Control
         }
         else
         {
-            DateTime discarded = (DateTime)d;
+            DateTime discarded = (DateTime) d;
             int year = discarded.Year;
             int month = discarded.Month;
             int day = discarded.Day;
@@ -1087,17 +1104,23 @@ public class PersianDatePicker : Control
     {
         _persianCalendar = new PersianCalendar();
         _persianCalendar.DayButtonMouseUp += new MouseButtonEventHandler(Calendar_DayButtonMouseUp);
-        _persianCalendar.DisplayDateChanged += new EventHandler<CalendarDateChangedEventArgs>(Calendar_DisplayDateChanged);
-        _persianCalendar.SelectedDatesChanged += new EventHandler<SelectionChangedEventArgs>(Calendar_SelectedDatesChanged);
+        _persianCalendar.DisplayDateChanged +=
+            new EventHandler<CalendarDateChangedEventArgs>(Calendar_DisplayDateChanged);
+        _persianCalendar.SelectedDatesChanged +=
+            new EventHandler<SelectionChangedEventArgs>(Calendar_SelectedDatesChanged);
         _persianCalendar.DayOrMonthPreviewKeyDown += new RoutedEventHandler(CalendarDayOrMonthButton_PreviewKeyDown);
         _persianCalendar.HorizontalAlignment = HorizontalAlignment.Left;
         _persianCalendar.VerticalAlignment = VerticalAlignment.Top;
 
         _persianCalendar.SelectionMode = CalendarSelectionMode.SingleDate;
-        _persianCalendar.SetBinding(PersianCalendar.ForegroundProperty, GetDatePickerBinding(PersianDatePicker.ForegroundProperty));            
-        _persianCalendar.SetBinding(PersianCalendar.StyleProperty, GetDatePickerBinding(PersianDatePicker.CalendarStyleProperty));
-        _persianCalendar.SetBinding(PersianCalendar.IsTodayHighlightedProperty, GetDatePickerBinding(PersianDatePicker.IsTodayHighlightedProperty));
-        _persianCalendar.SetBinding(PersianCalendar.FirstDayOfWeekProperty, GetDatePickerBinding(PersianDatePicker.FirstDayOfWeekProperty));
+        _persianCalendar.SetBinding(PersianCalendar.ForegroundProperty,
+            GetDatePickerBinding(PersianDatePicker.ForegroundProperty));
+        _persianCalendar.SetBinding(PersianCalendar.StyleProperty,
+            GetDatePickerBinding(PersianDatePicker.CalendarStyleProperty));
+        _persianCalendar.SetBinding(PersianCalendar.IsTodayHighlightedProperty,
+            GetDatePickerBinding(PersianDatePicker.IsTodayHighlightedProperty));
+        _persianCalendar.SetBinding(PersianCalendar.FirstDayOfWeekProperty,
+            GetDatePickerBinding(PersianDatePicker.FirstDayOfWeekProperty));
     }
 
     private BindingBase GetDatePickerBinding(DependencyProperty property)
@@ -1109,10 +1132,10 @@ public class PersianDatePicker : Control
 
     private static bool IsValidSelectedDateFormat(object value)
     {
-        DatePickerFormat format = (DatePickerFormat)value;
+        DatePickerFormat format = (DatePickerFormat) value;
 
         return format == DatePickerFormat.Long
-            || format == DatePickerFormat.Short;
+               || format == DatePickerFormat.Short;
     }
 
     // iT SHOULD RETURN NULL IF THE STRING IS NOT VALID, RETURN THE DATETIME VALUE IF IT IS VALID
@@ -1136,7 +1159,9 @@ public class PersianDatePicker : Control
             }
             else
             {
-                DatePickerDateValidationErrorEventArgs dateValidationError = new DatePickerDateValidationErrorEventArgs(new ArgumentOutOfRangeException("text", "SelectedDate value is not valid."), text);
+                DatePickerDateValidationErrorEventArgs dateValidationError =
+                    new DatePickerDateValidationErrorEventArgs(
+                        new ArgumentOutOfRangeException("text", "SelectedDate value is not valid."), text);
                 OnDateValidationError(dateValidationError);
 
                 if (dateValidationError.ThrowException)
@@ -1147,7 +1172,8 @@ public class PersianDatePicker : Control
         }
         catch (FormatException ex)
         {
-            DatePickerDateValidationErrorEventArgs textParseError = new DatePickerDateValidationErrorEventArgs(ex, text);
+            DatePickerDateValidationErrorEventArgs
+                textParseError = new DatePickerDateValidationErrorEventArgs(ex, text);
             OnDateValidationError(textParseError);
 
             if (textParseError.ThrowException && textParseError.Exception != null)
@@ -1173,17 +1199,20 @@ public class PersianDatePicker : Control
 
         if ((year >= 100 && year <= 999) || year > 9999 || year < 0)
         {
-            throw new FormatException("Could not parse the given string as a Persian date. Year part of the date string is incorrect format.");
+            throw new FormatException(
+                "Could not parse the given string as a Persian date. Year part of the date string is incorrect format.");
         }
 
-        if (month < 1 || month > 12 )
+        if (month < 1 || month > 12)
         {
-            throw new FormatException("Could not parse the given string as a Persian date. Month part of the date string is incorrect format.");
+            throw new FormatException(
+                "Could not parse the given string as a Persian date. Month part of the date string is incorrect format.");
         }
 
         if (day < 1 || day > 31)
         {
-            throw new FormatException("Could not parse the given string as a Persian date. Day part of the date string is incorrect format.");
+            throw new FormatException(
+                "Could not parse the given string as a Persian date. Day part of the date string is incorrect format.");
         }
 
         if (year < 1000)
@@ -1199,11 +1228,13 @@ public class PersianDatePicker : Control
 
         return new System.Globalization.PersianCalendar().ToDateTime(year, month, day, 0, 0, 0, 0);
     }
+
     private int GetDaysInMonth(int year, int month)
     {
         System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
         return pc.GetDaysInMonth(year, month);
     }
+
     private bool ProcessDatePickerKey(KeyEventArgs e)
     {
         switch (e.Key)
@@ -1297,7 +1328,7 @@ public class PersianDatePicker : Control
 
             if (d != null)
             {
-                SetValue(TextProperty, this.DateTimeToString((DateTime)d));
+                SetValue(TextProperty, this.DateTimeToString((DateTime) d));
                 return d;
             }
             else
@@ -1306,7 +1337,7 @@ public class PersianDatePicker : Control
                 // TextBox should have the latest valid selecteddate value:
                 if (this.SelectedDate != null)
                 {
-                    string newtext = this.DateTimeToString((DateTime)this.SelectedDate);
+                    string newtext = this.DateTimeToString((DateTime) this.SelectedDate);
                     SetValue(TextProperty, newtext);
                     return this.SelectedDate;
                 }
@@ -1330,16 +1361,18 @@ public class PersianDatePicker : Control
             switch (this.SelectedDateFormat)
             {
                 case DatePickerFormat.Long:
-                    {
-                        this._textBox.Watermark = string.Format(CultureInfo.CurrentCulture, "Select a date", dtfi.LongDatePattern.ToString());
-                        break;
-                    }
+                {
+                    this._textBox.Watermark = string.Format(CultureInfo.CurrentCulture, "Select a date",
+                        dtfi.LongDatePattern.ToString());
+                    break;
+                }
 
                 case DatePickerFormat.Short:
-                    {
-                        this._textBox.Watermark = string.Format(CultureInfo.CurrentCulture, "Select a date", dtfi.ShortDatePattern.ToString());
-                        break;
-                    }
+                {
+                    this._textBox.Watermark = string.Format(CultureInfo.CurrentCulture, "Select a date",
+                        dtfi.ShortDatePattern.ToString());
+                    break;
+                }
             }
         }
     }
@@ -1351,7 +1384,7 @@ public class PersianDatePicker : Control
 
     private void TextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.Handled = ProcessDatePickerKey(e) || e.Handled;            
+        e.Handled = ProcessDatePickerKey(e) || e.Handled;
     }
 
     private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

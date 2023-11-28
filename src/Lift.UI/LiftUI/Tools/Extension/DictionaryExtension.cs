@@ -163,7 +163,8 @@ public static class DictionaryExtension
     /// <param name="pair">The key value pair.</param>
     /// <param name="value">The value.</param>
     // ReSharper disable once UseDeconstructionOnParameter
-    private static void AddToKeysList<TKey, TValue>(ICollection<TKey> keys, KeyValuePair<TKey, TValue> pair, TValue value)
+    private static void AddToKeysList<TKey, TValue>(ICollection<TKey> keys, KeyValuePair<TKey, TValue> pair,
+        TValue value)
     {
         if (pair.Value.Equals(value))
         {

@@ -7,7 +7,9 @@ namespace Lift.UI.Controls;
 public class ImageAttach
 {
     public static readonly DependencyProperty SourceFailedProperty = DependencyProperty.RegisterAttached(
-        "SourceFailed", typeof(ImageSource), typeof(ImageAttach), new FrameworkPropertyMetadata(default(ImageSource), FrameworkPropertyMetadataOptions.Inherits, OnSourceFailedChanged));
+        "SourceFailed", typeof(ImageSource), typeof(ImageAttach),
+        new FrameworkPropertyMetadata(default(ImageSource), FrameworkPropertyMetadataOptions.Inherits,
+            OnSourceFailedChanged));
 
     private static void OnSourceFailedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

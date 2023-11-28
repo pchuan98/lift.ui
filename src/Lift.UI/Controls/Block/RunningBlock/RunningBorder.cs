@@ -40,8 +40,10 @@ public class RunningBorder : Border
         if (child != null)
         {
             var combined = new Size(borderSize.Width + paddingSize.Width, borderSize.Height + paddingSize.Height);
-            var borderConstraint = new Size(Math.Max(0.0, constraint.Width - combined.Width), Math.Max(0.0, constraint.Height - combined.Height));
-            var childConstraint = new Size(Math.Max(0.0, double.PositiveInfinity - combined.Width), Math.Max(0.0, double.PositiveInfinity - combined.Height));
+            var borderConstraint = new Size(Math.Max(0.0, constraint.Width - combined.Width),
+                Math.Max(0.0, constraint.Height - combined.Height));
+            var childConstraint = new Size(Math.Max(0.0, double.PositiveInfinity - combined.Width),
+                Math.Max(0.0, double.PositiveInfinity - combined.Height));
 
 
             child.Measure(borderConstraint);

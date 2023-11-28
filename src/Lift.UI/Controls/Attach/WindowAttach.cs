@@ -11,7 +11,8 @@ namespace Lift.UI.Controls;
 public static partial class WindowAttach
 {
     public static readonly DependencyProperty IsDragElementProperty = DependencyProperty.RegisterAttached(
-        "IsDragElement", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDragElementChanged));
+        "IsDragElement", typeof(bool), typeof(WindowAttach),
+        new PropertyMetadata(ValueBoxes.FalseBox, OnIsDragElementChanged));
 
     public static void SetIsDragElement(DependencyObject element, bool value)
         => element.SetValue(IsDragElementProperty, ValueBoxes.BooleanBox(value));
@@ -43,7 +44,8 @@ public static partial class WindowAttach
     }
 
     public static readonly DependencyProperty IgnoreAltF4Property = DependencyProperty.RegisterAttached(
-        "IgnoreAltF4", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnIgnoreAltF4Changed));
+        "IgnoreAltF4", typeof(bool), typeof(WindowAttach),
+        new PropertyMetadata(ValueBoxes.FalseBox, OnIgnoreAltF4Changed));
 
     private static void OnIgnoreAltF4Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -75,7 +77,8 @@ public static partial class WindowAttach
         => (bool) element.GetValue(IgnoreAltF4Property);
 
     public static readonly DependencyProperty ShowInTaskManagerProperty = DependencyProperty.RegisterAttached(
-        "ShowInTaskManager", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.TrueBox, OnShowInTaskManagerChanged));
+        "ShowInTaskManager", typeof(bool), typeof(WindowAttach),
+        new PropertyMetadata(ValueBoxes.TrueBox, OnShowInTaskManagerChanged));
 
     private static void OnShowInTaskManagerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -113,7 +116,8 @@ public static partial class WindowAttach
         => (bool) element.GetValue(ShowInTaskManagerProperty);
 
     public static readonly DependencyProperty HideWhenClosingProperty = DependencyProperty.RegisterAttached(
-        "HideWhenClosing", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnHideWhenClosingChanged));
+        "HideWhenClosing", typeof(bool), typeof(WindowAttach),
+        new PropertyMetadata(ValueBoxes.FalseBox, OnHideWhenClosingChanged));
 
     private static void OnHideWhenClosingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -146,8 +150,10 @@ public static partial class WindowAttach
     public static bool GetHideWhenClosing(DependencyObject element)
         => (bool) element.GetValue(HideWhenClosingProperty);
 
-    public static readonly DependencyProperty ExtendContentToNonClientAreaProperty = DependencyProperty.RegisterAttached(
-        "ExtendContentToNonClientArea", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox));
+    public static readonly DependencyProperty ExtendContentToNonClientAreaProperty =
+        DependencyProperty.RegisterAttached(
+            "ExtendContentToNonClientArea", typeof(bool), typeof(WindowAttach),
+            new PropertyMetadata(ValueBoxes.FalseBox));
 
     public static void SetExtendContentToNonClientArea(DependencyObject element, bool value)
         => element.SetValue(ExtendContentToNonClientAreaProperty, ValueBoxes.BooleanBox(value));

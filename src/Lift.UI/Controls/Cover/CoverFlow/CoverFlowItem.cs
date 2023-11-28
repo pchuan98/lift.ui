@@ -36,7 +36,8 @@ public class CoverFlowItem : ModelVisual3D
         transformGroup.Children.Add(_transform3D);
 
         _model3DGroup = new Model3DGroup();
-        _model3DGroup.Children.Add(new GeometryModel3D(CreateItemGeometry(), new DiffuseMaterial(new VisualBrush(element))));
+        _model3DGroup.Children.Add(new GeometryModel3D(CreateItemGeometry(),
+            new DiffuseMaterial(new VisualBrush(element))));
         _model3DGroup.Transform = transformGroup;
 
         Content = _model3DGroup;
@@ -104,8 +105,12 @@ public class CoverFlowItem : ModelVisual3D
     /// <returns></returns>
     private Geometry3D CreateItemGeometry()
     {
-        var sx = _uiElement.DesiredSize.Width > _uiElement.DesiredSize.Height ? 0 : 1 - _uiElement.DesiredSize.Width / _uiElement.DesiredSize.Height;
-        var sy = _uiElement.DesiredSize.Width < _uiElement.DesiredSize.Height ? 0 : 1 - _uiElement.DesiredSize.Height / _uiElement.DesiredSize.Width;
+        var sx = _uiElement.DesiredSize.Width > _uiElement.DesiredSize.Height
+            ? 0
+            : 1 - _uiElement.DesiredSize.Width / _uiElement.DesiredSize.Height;
+        var sy = _uiElement.DesiredSize.Width < _uiElement.DesiredSize.Height
+            ? 0
+            : 1 - _uiElement.DesiredSize.Height / _uiElement.DesiredSize.Width;
 
         var p0 = new Point3D(-1 + sx, -1 + sy, 0);
         var p1 = new Point3D(1 - sx, -1 + sy, 0);
@@ -151,6 +156,7 @@ public class CoverFlowItem : ModelVisual3D
                 }
             }
         }
+
         return false;
     }
 }

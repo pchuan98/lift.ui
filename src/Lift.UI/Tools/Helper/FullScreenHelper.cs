@@ -61,11 +61,13 @@ public static class FullScreenHelper
             //去掉WS_THICKFRAME，在有该样式的情况下不能全屏
             //去掉WS_MAXIMIZEBOX，禁用最大化，如果最大化会退出全屏
             //去掉WS_MAXIMIZE，使窗口变成还原状态，不使用ShowWindow(hwnd, ShowWindowCommands.SW_RESTORE)，避免看到窗口变成还原状态这一过程（也避免影响窗口的Visible状态）
-            style &= ~(InteropValues.WindowStyles.WS_THICKFRAME | InteropValues.WindowStyles.WS_MAXIMIZEBOX | InteropValues.WindowStyles.WS_MAXIMIZE);
+            style &= ~(InteropValues.WindowStyles.WS_THICKFRAME | InteropValues.WindowStyles.WS_MAXIMIZEBOX |
+                       InteropValues.WindowStyles.WS_MAXIMIZE);
             InteropMethods.SetWindowLong(hwnd, InteropValues.GWL_STYLE, (IntPtr) style);
 
             //禁用 DWM 过渡动画 忽略返回值，若DWM关闭不做处理
-            InteropMethods.DwmSetWindowAttribute(hwnd, InteropValues.DwmWindowAttribute.DWMWA_TRANSITIONS_FORCEDISABLED, 1,
+            InteropMethods.DwmSetWindowAttribute(hwnd, InteropValues.DwmWindowAttribute.DWMWA_TRANSITIONS_FORCEDISABLED,
+                1,
                 sizeof(int));
 
             //添加Hook，在窗口尺寸位置等要发生变化时，确保全屏
@@ -158,7 +160,8 @@ public static class FullScreenHelper
             }
 
             //重新启用 DWM 过渡动画 忽略返回值，若DWM关闭不做处理
-            InteropMethods.DwmSetWindowAttribute(hwnd, InteropValues.DwmWindowAttribute.DWMWA_TRANSITIONS_FORCEDISABLED, 0,
+            InteropMethods.DwmSetWindowAttribute(hwnd, InteropValues.DwmWindowAttribute.DWMWA_TRANSITIONS_FORCEDISABLED,
+                0,
                 sizeof(int));
 
             //删除保存的状态
@@ -181,7 +184,8 @@ public static class FullScreenHelper
             try
             {
                 //得到WINDOWPOS结构体
-                var pos = (InteropValues.WindowPosition) Marshal.PtrToStructure(lParam, typeof(InteropValues.WindowPosition));
+                var pos = (InteropValues.WindowPosition) Marshal.PtrToStructure(lParam,
+                    typeof(InteropValues.WindowPosition));
 
                 if ((pos.Flags & InteropValues.WindowPositionFlags.SWP_NOMOVE) != 0 &&
                     (pos.Flags & InteropValues.WindowPositionFlags.SWP_NOSIZE) != 0)
@@ -223,7 +227,8 @@ public static class FullScreenHelper
                     }
 
                     //使用目标矩形获取显示器信息
-                    var monitor = InteropMethods.MonitorFromRect(ref targetRect, InteropValues.MONITOR_DEFAULTTOPRIMARY);
+                    var monitor =
+                        InteropMethods.MonitorFromRect(ref targetRect, InteropValues.MONITOR_DEFAULTTOPRIMARY);
                     var info = new InteropValues.MONITORINFO();
                     info.cbSize = (uint) Marshal.SizeOf(info);
                     if (InteropMethods.GetMonitorInfo(monitor, ref info))
@@ -233,7 +238,8 @@ public static class FullScreenHelper
                         pos.Y = info.rcMonitor.Top;
                         pos.Width = info.rcMonitor.Right - info.rcMonitor.Left;
                         pos.Height = info.rcMonitor.Bottom - info.rcMonitor.Top;
-                        pos.Flags &= ~(InteropValues.WindowPositionFlags.SWP_NOSIZE | InteropValues.WindowPositionFlags.SWP_NOMOVE |
+                        pos.Flags &= ~(InteropValues.WindowPositionFlags.SWP_NOSIZE |
+                                       InteropValues.WindowPositionFlags.SWP_NOMOVE |
                                        InteropValues.WindowPositionFlags.SWP_NOREDRAW);
                         pos.Flags |= InteropValues.WindowPositionFlags.SWP_NOCOPYBITS;
 

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Lift.UI.Tools;
+
 namespace Lift.UI.Controls
 {
     public static partial class WindowAttach

@@ -83,8 +83,8 @@ public class EnumBindingSourceExtension : MarkupExtension
                 else
                 {
                     dic.Add(item, item.ToString());
-
                 }
+
                 index += 1;
             }
 

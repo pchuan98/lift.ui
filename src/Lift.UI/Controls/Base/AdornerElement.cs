@@ -11,7 +11,8 @@ public abstract class AdornerElement : Control, IDisposable
     protected FrameworkElement ElementTarget { get; set; }
 
     public static readonly DependencyProperty TargetProperty = DependencyProperty.Register(
-        nameof(Target), typeof(FrameworkElement), typeof(AdornerElement), new PropertyMetadata(default(FrameworkElement), OnTargetChanged));
+        nameof(Target), typeof(FrameworkElement), typeof(AdornerElement),
+        new PropertyMetadata(default(FrameworkElement), OnTargetChanged));
 
     private static void OnTargetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -29,7 +30,8 @@ public abstract class AdornerElement : Control, IDisposable
     }
 
     public static readonly DependencyProperty InstanceProperty = DependencyProperty.RegisterAttached(
-        "Instance", typeof(AdornerElement), typeof(AdornerElement), new PropertyMetadata(default(AdornerElement), OnInstanceChanged));
+        "Instance", typeof(AdornerElement), typeof(AdornerElement),
+        new PropertyMetadata(default(AdornerElement), OnInstanceChanged));
 
     private static void OnInstanceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

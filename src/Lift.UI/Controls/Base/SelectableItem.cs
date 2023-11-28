@@ -55,6 +55,7 @@ public class SelectableItem : ContentControl, ISelectable
                     OnSelected(new RoutedEventArgs(SelectedEvent, this));
                 }
             }
+
             _isMouseLeftButtonDown = false;
         }
     }

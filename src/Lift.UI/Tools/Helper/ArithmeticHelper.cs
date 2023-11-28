@@ -26,17 +26,20 @@ internal class ArithmeticHelper
         {
             arr[i] = div;
         }
+
         for (var i = 0; i < rest; i++)
         {
             arr[i] += 1;
         }
+
         return arr;
     }
 
     /// <summary>
     /// 计算控件在窗口中的可见坐标
     /// </summary>
-    public static Point CalSafePoint(FrameworkElement element, FrameworkElement showElement, Thickness thickness = default)
+    public static Point CalSafePoint(FrameworkElement element, FrameworkElement showElement,
+        Thickness thickness = default)
     {
         if (element == null || showElement == null) return default;
         var point = element.PointToScreen(new Point(0, 0));
@@ -73,6 +76,7 @@ internal class ArithmeticHelper
                 num1 = element.RenderSize.Width;
                 num2 = element.RenderSize.Height;
             }
+
         var width = element.Visibility == Visibility.Collapsed ? 0.0 : num1;
         var height = element.Visibility == Visibility.Collapsed ? 0.0 : num2;
         var margin = element.Margin;

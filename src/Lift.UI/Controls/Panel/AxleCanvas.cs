@@ -58,6 +58,7 @@ public class AxleCanvas : Canvas
 
             internalChild.Arrange(new Rect(new Point(x, y), internalChild.DesiredSize));
         }
+
         return arrangeSize;
     }
 }

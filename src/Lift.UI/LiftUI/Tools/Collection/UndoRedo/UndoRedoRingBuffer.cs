@@ -8,8 +8,10 @@ internal class UndoRedoRingBuffer<TElement> : RingBuffer<TElement>
 {
     /// <summary>Index of current element.</summary>
     public ModuloArithmetic CurrentIndex { get; private set; }
+
     /// <summary>Current element.</summary>
     public TElement Current => this[CurrentIndex];
+
     public bool CanGoBackward => CurrentIndex.IsValid;
     public bool CanGoForward => CurrentIndex != BottomIndex;
 

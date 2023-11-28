@@ -88,6 +88,7 @@ internal static class Assert
         {
             Assert._Break();
         }
+
         if (value.Trim().Length == 0)
         {
             Assert._Break();

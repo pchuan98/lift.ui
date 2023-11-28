@@ -11,6 +11,7 @@ public enum TaskbarStates
     Error = 0x4,
     Paused = 0x8
 }
+
 public static class TaskbarHelper
 {
     [ComImport()]
@@ -21,12 +22,16 @@ public static class TaskbarHelper
         // ITaskbarList
         [PreserveSig]
         void HrInit();
+
         [PreserveSig]
         void AddTab(IntPtr hwnd);
+
         [PreserveSig]
         void DeleteTab(IntPtr hwnd);
+
         [PreserveSig]
         void ActivateTab(IntPtr hwnd);
+
         [PreserveSig]
         void SetActiveAlt(IntPtr hwnd);
 
@@ -37,6 +42,7 @@ public static class TaskbarHelper
         // ITaskbarList3
         [PreserveSig]
         void SetProgressValue(IntPtr hwnd, UInt64 ullCompleted, UInt64 ullTotal);
+
         [PreserveSig]
         void SetProgressState(IntPtr hwnd, TaskbarStates state);
     }
@@ -58,6 +64,7 @@ public static class TaskbarHelper
 
     public static void SetProgressValue(IntPtr windowHandle, double progressValue, double progressMax)
     {
-        if (taskbarSupported) taskbarInstance.SetProgressValue(windowHandle, (ulong) progressValue, (ulong) progressMax);
+        if (taskbarSupported)
+            taskbarInstance.SetProgressValue(windowHandle, (ulong) progressValue, (ulong) progressMax);
     }
 }

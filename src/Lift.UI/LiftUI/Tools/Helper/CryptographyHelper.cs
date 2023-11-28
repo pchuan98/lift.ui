@@ -8,11 +8,16 @@ namespace Lift.UI.Tools;
 public static class CryptographyHelper
 {
     private static readonly SHA256 Sha256 = SHA256.Create();
+
     // Rfc2898DeriveBytes constants:
-    internal static readonly byte[] salt = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }; // Must be at least eight bytes.  MAKE THIS SALTIER!
+    internal static readonly byte[]
+        salt = new byte[]
+            { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }; // Must be at least eight bytes.  MAKE THIS SALTIER!
+
     internal static readonly int iterations = 1042; // Recommendation is >= 1000.
 
     #region Hash
+
     public static bool VerifyMD5(string hash, string input)
     {
         if (string.IsNullOrEmpty(hash))
@@ -24,6 +29,7 @@ public static class CryptographyHelper
         input = GenerateMD5(input);
         return hash.Equals(input);
     }
+
     public static bool VerifySHA256(string hash, string input)
     {
         if (string.IsNullOrEmpty(hash))
@@ -35,6 +41,7 @@ public static class CryptographyHelper
         input = GenerateSHA256(input);
         return hash.Equals(input);
     }
+
     public static string GenerateMD5(string input)
     {
         if (string.IsNullOrEmpty(input))
@@ -49,6 +56,7 @@ public static class CryptographyHelper
         {
             sb.Append(t.ToString("X2"));
         }
+
         return sb.ToString();
     }
 
@@ -69,6 +77,7 @@ public static class CryptographyHelper
         {
             hash.Append(theByte.ToString("x2"));
         }
+
         return hash.ToString();
     }
 
@@ -101,9 +110,11 @@ public static class CryptographyHelper
 
         return result;
     }
+
     #endregion
 
     #region String Encryption
+
     /// <summary>
     /// Encrypt string with AES
     /// </summary>
@@ -126,12 +137,14 @@ public static class CryptographyHelper
         //set the symmetric key that is used for encryption & decryption.
         byte[] passBytes = Encoding.UTF8.GetBytes(password);
         //set the initialization vector (IV) for the symmetric algorithm
-        byte[] EncryptionkeyBytes = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+        byte[] EncryptionkeyBytes = new byte[]
+            { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
         int len = passBytes.Length;
         if (len > EncryptionkeyBytes.Length)
         {
             len = EncryptionkeyBytes.Length;
         }
+
         Array.Copy(passBytes, EncryptionkeyBytes, len);
         objrij.Key = EncryptionkeyBytes;
         objrij.IV = EncryptionkeyBytes;
@@ -168,11 +181,12 @@ public static class CryptographyHelper
         {
             len = EncryptionkeyBytes.Length;
         }
+
         Array.Copy(passBytes, EncryptionkeyBytes, len);
         objrij.Key = EncryptionkeyBytes;
         objrij.IV = EncryptionkeyBytes;
         byte[] TextByte = objrij.CreateDecryptor().TransformFinalBlock(encryptedTextByte, 0, encryptedTextByte.Length);
-        return Encoding.UTF8.GetString(TextByte);  //it will return readable string
+        return Encoding.UTF8.GetString(TextByte); //it will return readable string
     }
 
     /// <summary>
@@ -218,11 +232,13 @@ public static class CryptographyHelper
     {
         return Encoding.UTF8.GetString(DecryptDataRSA(Convert.FromBase64String(encryptedString), privateKey));
     }
+
     #endregion
 
     #region File Encryption
 
     #region AES
+
     internal static CryptoStream DecryptAES(string sourceFilename, string destinationFilename, string password)
     {
         if (string.IsNullOrEmpty(sourceFilename))
@@ -244,7 +260,8 @@ public static class CryptographyHelper
         aes.Mode = CipherMode.CBC;
         ICryptoTransform transform = aes.CreateDecryptor(aes.Key, aes.IV);
 
-        using FileStream destination = new FileStream(destinationFilename, FileMode.CreateNew, FileAccess.Write, FileShare.None);
+        using FileStream destination =
+            new FileStream(destinationFilename, FileMode.CreateNew, FileAccess.Write, FileShare.None);
         using CryptoStream cryptoStream = new CryptoStream(destination, transform, CryptoStreamMode.Write);
         return cryptoStream;
     }
@@ -265,7 +282,8 @@ public static class CryptographyHelper
         catch (CryptographicException exception)
         {
             if (exception.Message == "Padding is invalid and cannot be removed.")
-                throw new ApplicationException("Universal Microsoft Cryptographic Exception (Not to be believed!)", exception);
+                throw new ApplicationException("Universal Microsoft Cryptographic Exception (Not to be believed!)",
+                    exception);
             else
                 throw;
         }
@@ -286,7 +304,8 @@ public static class CryptographyHelper
         catch (CryptographicException exception)
         {
             if (exception.Message == "Padding is invalid and cannot be removed.")
-                throw new ApplicationException("Universal Microsoft Cryptographic Exception (Not to be believed!)", exception);
+                throw new ApplicationException("Universal Microsoft Cryptographic Exception (Not to be believed!)",
+                    exception);
             else
                 throw;
         }
@@ -313,7 +332,8 @@ public static class CryptographyHelper
         aes.Mode = CipherMode.CBC;
         ICryptoTransform transform = aes.CreateEncryptor(aes.Key, aes.IV);
 
-        using FileStream destination = new FileStream(destinationFilename, FileMode.CreateNew, FileAccess.Write, FileShare.None);
+        using FileStream destination =
+            new FileStream(destinationFilename, FileMode.CreateNew, FileAccess.Write, FileShare.None);
         using CryptoStream cryptoStream = new CryptoStream(destination, transform, CryptoStreamMode.Write);
         return cryptoStream;
     }
@@ -341,9 +361,11 @@ public static class CryptographyHelper
         using FileStream source = new FileStream(sourceFilename, FileMode.Open, FileAccess.Read, FileShare.Read);
         source.CopyTo(cryptoStream);
     }
+
     #endregion
 
     #region RSA
+
     /// <summary>
     /// Encrypt a file Asymmetric
     /// </summary>
@@ -371,7 +393,8 @@ public static class CryptographyHelper
         {
             asymmetricProvider.FromXmlString(privateKey);
             if (asymmetricProvider.PublicOnly)
-                throw new Exception("The key provided is a public key and does not contain the private key elements required for decryption");
+                throw new Exception(
+                    "The key provided is a public key and does not contain the private key elements required for decryption");
             return asymmetricProvider.Decrypt(data, true);
         }
     }
@@ -530,6 +553,7 @@ public static class CryptographyHelper
             }
         }
     }
+
     #endregion
 
     #endregion
@@ -582,7 +606,8 @@ public static class CryptographyHelper
     /// <param name="privateKey"></param>
     /// <param name="password"></param>
     /// <param name="symmetricSalt"></param>
-    public static void ExportPrivateKeyToFile(string path, string privateKey, string password, string symmetricSalt = null)
+    public static void ExportPrivateKeyToFile(string path, string privateKey, string password,
+        string symmetricSalt = null)
     {
         if (string.IsNullOrEmpty(symmetricSalt))
         {
@@ -638,14 +663,16 @@ public static class CryptographyHelper
             }
         }
     }
-    
-    public static void ExportPublicAndPrivateKeyToFile(string publicKeyPath, string privateKeyPath, RSAKey rsaKey, string password, string symmetricSalt = null)
+
+    public static void ExportPublicAndPrivateKeyToFile(string publicKeyPath, string privateKeyPath, RSAKey rsaKey,
+        string password, string symmetricSalt = null)
     {
         ExportPublicKeyToFile(publicKeyPath, rsaKey.PublicKey);
         ExportPrivateKeyToFile(privateKeyPath, rsaKey.PrivateKey, password, symmetricSalt);
     }
 
-    public static RSAKey ReadPublicAndPrivateKey(string publicKeyPath, string privateKeyPath, string password, string symmetricSalt = null)
+    public static RSAKey ReadPublicAndPrivateKey(string publicKeyPath, string privateKeyPath, string password,
+        string symmetricSalt = null)
     {
         var pub = ReadPublicKey(publicKeyPath);
         var priv = ReadPrivateKey(privateKeyPath, password, symmetricSalt);

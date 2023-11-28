@@ -19,7 +19,8 @@ public abstract class BindablePropertyBase : INotifyPropertyChanged
         return true;
     }
 
-    protected virtual bool Set<T>(ref T storage, T value, Action onChanged, [CallerMemberName] string propertyName = null)
+    protected virtual bool Set<T>(ref T storage, T value, Action onChanged,
+        [CallerMemberName] string propertyName = null)
     {
         if (EqualityComparer<T>.Default.Equals(storage, value)) return false;
 

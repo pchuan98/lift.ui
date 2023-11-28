@@ -31,7 +31,8 @@ public class GlowWindow : Window
     private Rect _logicalSizeForRestore = Rect.Empty;
 
     public static readonly DependencyProperty ActiveGlowColorProperty = DependencyProperty.Register(
-        nameof(ActiveGlowColor), typeof(Color), typeof(GlowWindow), new PropertyMetadata(default(Color), OnGlowColorChanged));
+        nameof(ActiveGlowColor), typeof(Color), typeof(GlowWindow),
+        new PropertyMetadata(default(Color), OnGlowColorChanged));
 
     public Color ActiveGlowColor
     {
@@ -40,7 +41,8 @@ public class GlowWindow : Window
     }
 
     public static readonly DependencyProperty InactiveGlowColorProperty = DependencyProperty.Register(
-        nameof(InactiveGlowColor), typeof(Color), typeof(GlowWindow), new PropertyMetadata(default(Color), OnGlowColorChanged));
+        nameof(InactiveGlowColor), typeof(Color), typeof(GlowWindow),
+        new PropertyMetadata(default(Color), OnGlowColorChanged));
 
     public Color InactiveGlowColor
     {
@@ -209,7 +211,8 @@ public class GlowWindow : Window
         customChromeWindow.UpdateGlowVisibility(false);
     }
 
-    private static void OnGlowColorChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args) => ((GlowWindow) obj).UpdateGlowColors();
+    private static void OnGlowColorChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args) =>
+        ((GlowWindow) obj).UpdateGlowColors();
 
     private void UpdateGlowColors()
     {
@@ -326,7 +329,7 @@ public class GlowWindow : Window
     private void UpdateZOrderOfOwner(IntPtr hwndOwner)
     {
         var lastOwnedWindow = IntPtr.Zero;
-        InteropMethods.EnumThreadWindows(InteropMethods.GetCurrentThreadId(), delegate (IntPtr hwnd, IntPtr lParam)
+        InteropMethods.EnumThreadWindows(InteropMethods.GetCurrentThreadId(), delegate(IntPtr hwnd, IntPtr lParam)
         {
             if (InteropMethods.GetWindow(hwnd, 4) == hwndOwner) lastOwnedWindow = hwnd;
             return true;
@@ -404,14 +407,16 @@ public class GlowWindow : Window
         return result;
     }
 
-    private IntPtr WmNcActivate(IntPtr hWnd, IntPtr wParam) => InteropMethods.DefWindowProc(hWnd, InteropValues.WM_NCACTIVATE, wParam, InteropMethods.HRGN_NONE);
+    private IntPtr WmNcActivate(IntPtr hWnd, IntPtr wParam) =>
+        InteropMethods.DefWindowProc(hWnd, InteropValues.WM_NCACTIVATE, wParam, InteropMethods.HRGN_NONE);
 
     private bool IsAeroSnappedToMonitor(IntPtr hWnd)
     {
         var monitorinfo = MonitorInfoFromWindow(hWnd);
         var logicalRect = new Rect(Left, Top, Width, Height);
         logicalRect = logicalRect.LogicalToDeviceUnits();
-        return MathHelper.AreClose(monitorinfo.rcWork.Height, logicalRect.Height) && MathHelper.AreClose(monitorinfo.rcWork.Top, logicalRect.Top);
+        return MathHelper.AreClose(monitorinfo.rcWork.Height, logicalRect.Height) &&
+               MathHelper.AreClose(monitorinfo.rcWork.Top, logicalRect.Top);
     }
 
     private void WmSysCommand(IntPtr hWnd, IntPtr wParam)
@@ -431,7 +436,8 @@ public class GlowWindow : Window
             _logicalSizeForRestore = new Rect(Left, Top, Width, Height);
         }
 
-        if (num == InteropValues.SC_MOVE && WindowState == WindowState.Maximized && _logicalSizeForRestore == Rect.Empty)
+        if (num == InteropValues.SC_MOVE && WindowState == WindowState.Maximized &&
+            _logicalSizeForRestore == Rect.Empty)
         {
             _logicalSizeForRestore = new Rect(Left, Top, Width, Height);
         }
@@ -461,5 +467,4 @@ public class GlowWindow : Window
     }
 
     #endregion
-
 }

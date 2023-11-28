@@ -32,7 +32,8 @@ public class WaterfallPanel : Panel
     }
 
     public static readonly DependencyProperty DesiredLengthProperty = DependencyProperty.Register(
-        nameof(DesiredLength), typeof(double), typeof(WaterfallPanel), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
+        nameof(DesiredLength), typeof(double), typeof(WaterfallPanel), new FrameworkPropertyMetadata(
+            ValueBoxes.Double0Box,
             FrameworkPropertyMetadataOptions.AffectsMeasure), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     public double DesiredLength

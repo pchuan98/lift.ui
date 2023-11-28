@@ -39,10 +39,12 @@ internal interface ITaskbarList4 : ITaskbarList3, ITaskbarList2, ITaskbarList
     HRESULT SetTabActive(IntPtr hwndTab, IntPtr hwndMDI, uint dwReserved);
 
     [PreserveSig]
-    HRESULT ThumbBarAddButtons(IntPtr hwnd, uint cButtons, [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] THUMBBUTTON[] pButtons);
+    HRESULT ThumbBarAddButtons(IntPtr hwnd, uint cButtons,
+        [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] THUMBBUTTON[] pButtons);
 
     [PreserveSig]
-    HRESULT ThumbBarUpdateButtons(IntPtr hwnd, uint cButtons, [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] THUMBBUTTON[] pButtons);
+    HRESULT ThumbBarUpdateButtons(IntPtr hwnd, uint cButtons,
+        [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] THUMBBUTTON[] pButtons);
 
     [PreserveSig]
     HRESULT ThumbBarSetImageList(IntPtr hwnd, [MarshalAs(UnmanagedType.IUnknown)] object himl);

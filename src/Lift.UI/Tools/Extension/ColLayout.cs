@@ -39,7 +39,6 @@ public class ColLayout : MarkupExtension
 
     public ColLayout()
     {
-
     }
 
     public ColLayout(int uniformWidth)
@@ -85,18 +84,23 @@ public class ColLayout : MarkupExtension
                 {
                     return ColLayoutStatus.Xs;
                 }
+
                 return ColLayoutStatus.Sm;
             }
+
             return ColLayoutStatus.Md;
         }
+
         if (width < XlMaxWidth)
         {
             if (width < LgMaxWidth)
             {
                 return ColLayoutStatus.Lg;
             }
+
             return ColLayoutStatus.Xl;
         }
+
         return ColLayoutStatus.Xxl;
     }
 

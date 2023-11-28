@@ -129,6 +129,7 @@ internal class TokenizerHelper
                 {
                     FoundSeparator = true;
                 }
+
                 break;
             }
 
@@ -222,7 +223,8 @@ internal class TokenizerHelper
 
         // Is the decimal separator is the same as the list separator?
         // If so, we use the ";".
-        if (numberFormat.NumberDecimalSeparator.Length > 0 && numericSeparator == numberFormat.NumberDecimalSeparator[0])
+        if (numberFormat.NumberDecimalSeparator.Length > 0 &&
+            numericSeparator == numberFormat.NumberDecimalSeparator[0])
         {
             numericSeparator = ';';
         }

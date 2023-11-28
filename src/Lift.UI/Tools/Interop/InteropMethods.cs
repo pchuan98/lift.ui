@@ -27,7 +27,8 @@ public class InteropMethods
     public static extern int RegisterWindowMessage(string msg);
 
     [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true, CharSet = CharSet.Auto)]
-    public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, out InteropValues.TBBUTTON lpBuffer,
+    public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress,
+        out InteropValues.TBBUTTON lpBuffer,
         int dwSize, out int lpNumberOfBytesRead);
 
     [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true)]
@@ -35,7 +36,8 @@ public class InteropMethods
         int dwSize, out int lpNumberOfBytesRead);
 
     [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true)]
-    public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, out InteropValues.TRAYDATA lpBuffer,
+    public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress,
+        out InteropValues.TRAYDATA lpBuffer,
         int dwSize, out int lpNumberOfBytesRead);
 
     [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
@@ -66,7 +68,8 @@ public class InteropMethods
     public static extern int CloseHandle(IntPtr hObject);
 
     [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true, CharSet = CharSet.Auto)]
-    public static extern bool VirtualFreeEx(IntPtr hProcess, IntPtr lpAddress, int dwSize, InteropValues.FreeType dwFreeType);
+    public static extern bool VirtualFreeEx(IntPtr hProcess, IntPtr lpAddress, int dwSize,
+        InteropValues.FreeType dwFreeType);
 
     [DllImport(InteropValues.ExternDll.User32, SetLastError = true)]
     public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
@@ -101,7 +104,8 @@ public class InteropMethods
     [DllImport(InteropValues.ExternDll.User32)]
     public static extern bool InsertMenu(IntPtr hMenu, int wPosition, int wFlags, int wIDNewItem, string lpNewItem);
 
-    [DllImport(InteropValues.ExternDll.User32, ExactSpelling = true, EntryPoint = "DestroyMenu", CharSet = CharSet.Auto)]
+    [DllImport(InteropValues.ExternDll.User32, ExactSpelling = true, EntryPoint = "DestroyMenu",
+        CharSet = CharSet.Auto)]
     [ResourceExposure(ResourceScope.None)]
     public static extern bool IntDestroyMenu(HandleRef hMenu);
 
@@ -122,7 +126,8 @@ public class InteropMethods
 
     [SecurityCritical]
     [SuppressUnmanagedCodeSecurity]
-    [DllImport(InteropValues.ExternDll.User32, ExactSpelling = true, EntryPoint = nameof(ReleaseDC), CharSet = CharSet.Auto)]
+    [DllImport(InteropValues.ExternDll.User32, ExactSpelling = true, EntryPoint = nameof(ReleaseDC),
+        CharSet = CharSet.Auto)]
     public static extern int IntReleaseDC(HandleRef hWnd, HandleRef hDC);
 
     [SecurityCritical]
@@ -144,7 +149,8 @@ public class InteropMethods
 
     [SecurityCritical]
     [SuppressUnmanagedCodeSecurity]
-    [DllImport(InteropValues.ExternDll.User32, EntryPoint = nameof(DestroyIcon), CharSet = CharSet.Auto, SetLastError = true)]
+    [DllImport(InteropValues.ExternDll.User32, EntryPoint = nameof(DestroyIcon), CharSet = CharSet.Auto,
+        SetLastError = true)]
     public static extern bool IntDestroyIcon(IntPtr hIcon);
 
     [SecurityCritical]
@@ -156,7 +162,8 @@ public class InteropMethods
 
     [SecurityCritical]
     [SuppressUnmanagedCodeSecurity]
-    [DllImport(InteropValues.ExternDll.Gdi32, EntryPoint = nameof(DeleteObject), CharSet = CharSet.Auto, SetLastError = true)]
+    [DllImport(InteropValues.ExternDll.Gdi32, EntryPoint = nameof(DeleteObject), CharSet = CharSet.Auto,
+        SetLastError = true)]
     public static extern bool IntDeleteObject(IntPtr hObject);
 
     [SecurityCritical]
@@ -176,26 +183,28 @@ public class InteropMethods
         return hBitmap;
     }
 
-    [DllImport(InteropValues.ExternDll.Kernel32, EntryPoint = "CloseHandle", CharSet = CharSet.Auto, SetLastError = true)]
+    [DllImport(InteropValues.ExternDll.Kernel32, EntryPoint = "CloseHandle", CharSet = CharSet.Auto,
+        SetLastError = true)]
     public static extern bool IntCloseHandle(HandleRef handle);
 
     [SecurityCritical]
     [SuppressUnmanagedCodeSecurity]
     [DllImport(InteropValues.ExternDll.Gdi32, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Auto,
         EntryPoint = nameof(CreateDIBSection))]
-    public static extern BitmapHandle PrivateCreateDIBSection(HandleRef hdc, ref InteropValues.BITMAPINFO bitmapInfo, int iUsage,
+    public static extern BitmapHandle PrivateCreateDIBSection(HandleRef hdc, ref InteropValues.BITMAPINFO bitmapInfo,
+        int iUsage,
         ref IntPtr ppvBits, SafeFileMappingHandle hSection, int dwOffset);
 
     [SecurityCritical]
     [SuppressUnmanagedCodeSecurity]
     [DllImport(InteropValues.ExternDll.User32, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Auto,
         EntryPoint = nameof(CreateIconIndirect))]
-    public static extern IconHandle PrivateCreateIconIndirect([In] [MarshalAs(UnmanagedType.LPStruct)]
-        InteropValues.ICONINFO iconInfo);
+    public static extern IconHandle PrivateCreateIconIndirect(
+        [In] [MarshalAs(UnmanagedType.LPStruct)] InteropValues.ICONINFO iconInfo);
 
     [SecurityCritical]
-    public static IconHandle CreateIconIndirect([In] [MarshalAs(UnmanagedType.LPStruct)]
-        InteropValues.ICONINFO iconInfo)
+    public static IconHandle CreateIconIndirect(
+        [In] [MarshalAs(UnmanagedType.LPStruct)] InteropValues.ICONINFO iconInfo)
     {
         var hIcon = PrivateCreateIconIndirect(iconInfo);
         return hIcon;
@@ -242,7 +251,8 @@ public class InteropMethods
 
     [SecurityCritical]
     [SuppressUnmanagedCodeSecurity]
-    [DllImport(InteropValues.ExternDll.Shell32, CharSet = CharSet.Auto, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+    [DllImport(InteropValues.ExternDll.Shell32, CharSet = CharSet.Auto, BestFitMapping = false,
+        ThrowOnUnmappableChar = true)]
     public static extern int ExtractIconEx(string szExeFileName, int nIconIndex, out IconHandle phiconLarge,
         out IconHandle phiconSmall, int nIcons);
 
@@ -251,7 +261,8 @@ public class InteropMethods
 
     [SecurityCritical]
     [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-    [DllImport(InteropValues.ExternDll.User32, SetLastError = true, CharSet = CharSet.Unicode, EntryPoint = "CreateWindowExW")]
+    [DllImport(InteropValues.ExternDll.User32, SetLastError = true, CharSet = CharSet.Unicode,
+        EntryPoint = "CreateWindowExW")]
     public static extern IntPtr CreateWindowEx(
         int dwExStyle,
         [MarshalAs(UnmanagedType.LPWStr)] string lpClassName,
@@ -315,6 +326,7 @@ public class InteropMethods
         {
             return wINDOWPLACEMENT;
         }
+
         throw new Win32Exception(Marshal.GetLastWin32Error());
     }
 
@@ -369,7 +381,8 @@ public class InteropMethods
 
     [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, ExactSpelling = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, int flags);
+    public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy,
+        int flags);
 
     public static System.Windows.Point GetCursorPos()
     {
@@ -379,6 +392,7 @@ public class InteropMethods
             result.X = point.X;
             result.Y = point.Y;
         }
+
         return result;
     }
 
@@ -409,10 +423,12 @@ public class InteropMethods
         {
             return SetWindowLongPtr(hWnd, (int) nIndex, dwNewLong);
         }
+
         return new IntPtr(SetWindowLong(hWnd, (int) nIndex, dwNewLong.ToInt32()));
     }
 
-    public static int SetWindowLong(IntPtr hWnd, InteropValues.GWL nIndex, int dwNewLong) => SetWindowLong(hWnd, (int) nIndex, dwNewLong);
+    public static int SetWindowLong(IntPtr hWnd, InteropValues.GWL nIndex, int dwNewLong) =>
+        SetWindowLong(hWnd, (int) nIndex, dwNewLong);
 
     [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Unicode)]
     public static extern ushort RegisterClass(ref InteropValues.WNDCLASS lpWndClass);
@@ -421,7 +437,8 @@ public class InteropMethods
     public static extern uint GetCurrentThreadId();
 
     [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true)]
-    public static extern IntPtr CreateWindowEx(int dwExStyle, IntPtr classAtom, string lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
+    public static extern IntPtr CreateWindowEx(int dwExStyle, IntPtr classAtom, string lpWindowName, int dwStyle, int x,
+        int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
 
     [DllImport(InteropValues.ExternDll.User32)]
     [return: MarshalAs(UnmanagedType.Bool)]
@@ -433,18 +450,23 @@ public class InteropMethods
 
     [DllImport(InteropValues.ExternDll.User32)]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static extern bool UpdateLayeredWindow(IntPtr hwnd, IntPtr hdcDest, ref InteropValues.POINT pptDest, ref InteropValues.SIZE psize, IntPtr hdcSrc, ref InteropValues.POINT pptSrc, uint crKey, [In] ref InteropValues.BLENDFUNCTION pblend, uint dwFlags);
+    public static extern bool UpdateLayeredWindow(IntPtr hwnd, IntPtr hdcDest, ref InteropValues.POINT pptDest,
+        ref InteropValues.SIZE psize, IntPtr hdcSrc, ref InteropValues.POINT pptSrc, uint crKey,
+        [In] ref InteropValues.BLENDFUNCTION pblend, uint dwFlags);
 
     [DllImport(InteropValues.ExternDll.User32)]
-    public static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, InteropValues.RedrawWindowFlags flags);
+    public static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate,
+        InteropValues.RedrawWindowFlags flags);
 
     [DllImport(InteropValues.ExternDll.User32)]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static extern bool EnumDisplayMonitors(IntPtr hdc, IntPtr lprcClip, InteropValues.EnumMonitorsDelegate lpfnEnum, IntPtr dwData);
+    public static extern bool EnumDisplayMonitors(IntPtr hdc, IntPtr lprcClip,
+        InteropValues.EnumMonitorsDelegate lpfnEnum, IntPtr dwData);
 
     [DllImport(InteropValues.ExternDll.User32)]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static extern bool IntersectRect(out InteropValues.RECT lprcDst, [In] ref InteropValues.RECT lprcSrc1, [In] ref InteropValues.RECT lprcSrc2);
+    public static extern bool IntersectRect(out InteropValues.RECT lprcDst, [In] ref InteropValues.RECT lprcSrc1,
+        [In] ref InteropValues.RECT lprcSrc2);
 
     [DllImport(InteropValues.ExternDll.User32)]
     [return: MarshalAs(UnmanagedType.Bool)]
@@ -455,11 +477,13 @@ public class InteropMethods
     public static extern IntPtr MonitorFromRect(ref InteropValues.RECT rect, int flags);
 
     [DllImport(InteropValues.ExternDll.Gdi32, SetLastError = true)]
-    public static extern IntPtr CreateDIBSection(IntPtr hdc, ref InteropValues.BITMAPINFO pbmi, uint iUsage, out IntPtr ppvBits, IntPtr hSection, uint dwOffset);
+    public static extern IntPtr CreateDIBSection(IntPtr hdc, ref InteropValues.BITMAPINFO pbmi, uint iUsage,
+        out IntPtr ppvBits, IntPtr hSection, uint dwOffset);
 
     [DllImport(InteropValues.ExternDll.MsImg)]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static extern bool AlphaBlend(IntPtr hdcDest, int xoriginDest, int yoriginDest, int wDest, int hDest, IntPtr hdcSrc, int xoriginSrc, int yoriginSrc, int wSrc, int hSrc, InteropValues.BLENDFUNCTION pfn);
+    public static extern bool AlphaBlend(IntPtr hdcDest, int xoriginDest, int yoriginDest, int wDest, int hDest,
+        IntPtr hdcSrc, int xoriginSrc, int yoriginSrc, int wSrc, int hSrc, InteropValues.BLENDFUNCTION pfn);
 
     public static int GET_SC_WPARAM(IntPtr wParam) => (int) wParam & 65520;
 
@@ -470,7 +494,8 @@ public class InteropMethods
     public static extern IntPtr CreateCompatibleBitmap(IntPtr hDC, int width, int height);
 
     [DllImport(InteropValues.ExternDll.Gdi32)]
-    public static extern bool BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, int dwRop);
+    public static extern bool BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc,
+        int ySrc, int dwRop);
 
     [DllImport(InteropValues.ExternDll.User32)]
     [ResourceExposure(ResourceScope.None)]
@@ -479,7 +504,8 @@ public class InteropMethods
     [DllImport(InteropValues.ExternDll.User32)]
     public static extern bool ShowWindow(IntPtr hwnd, InteropValues.SW nCmdShow);
 
-    [ReflectionPermission(SecurityAction.Assert, Unrestricted = true), SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.UnmanagedCode)]
+    [ReflectionPermission(SecurityAction.Assert, Unrestricted = true),
+     SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.UnmanagedCode)]
     public static object PtrToStructure(IntPtr lparam, Type cls) => Marshal.PtrToStructure(lparam, cls);
 
     [ReflectionPermission(SecurityAction.Assert, Unrestricted = true),
@@ -497,35 +523,43 @@ public class InteropMethods
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool SetWindowPlacement(IntPtr hWnd, [In] ref InteropValues.WINDOWPLACEMENT2 lpwndpl);
 
-    [DllImport(InteropValues.ExternDll.User32, EntryPoint = "GetWindowText", ExactSpelling = false, CharSet = CharSet.Auto, SetLastError = true)]
+    [DllImport(InteropValues.ExternDll.User32, EntryPoint = "GetWindowText", ExactSpelling = false,
+        CharSet = CharSet.Auto, SetLastError = true)]
     public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpWindowText, int nMaxCount);
 
-    [DllImport(InteropValues.ExternDll.User32, EntryPoint = "EnumDesktopWindows", ExactSpelling = false, CharSet = CharSet.Auto, SetLastError = true)]
+    [DllImport(InteropValues.ExternDll.User32, EntryPoint = "EnumDesktopWindows", ExactSpelling = false,
+        CharSet = CharSet.Auto, SetLastError = true)]
     public static extern bool EnumDesktopWindows(IntPtr hDesktop, EnumDelegate lpEnumCallbackFunction, IntPtr lParam);
 
     [DllImport(InteropValues.ExternDll.User32, EntryPoint = "FindWindow", SetLastError = true)]
     public static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
 
-    [DllImport(Interop.InteropValues.ExternDll.User32, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, EntryPoint = "mouse_event")]
+    [DllImport(Interop.InteropValues.ExternDll.User32, CharSet = CharSet.Auto,
+        CallingConvention = CallingConvention.StdCall, EntryPoint = "mouse_event")]
     public static extern void MouseEvent(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
 
     [DllImport(InteropValues.ExternDll.NTdll)]
     public static extern int RtlGetVersion(out InteropValues.RTL_OSVERSIONINFOEX lpVersionInformation);
 
-    [DllImport(InteropValues.ExternDll.UxTheme, EntryPoint = "#98", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Auto)]
+    [DllImport(InteropValues.ExternDll.UxTheme, EntryPoint = "#98", CallingConvention = CallingConvention.StdCall,
+        CharSet = CharSet.Auto)]
     public static extern UInt32 GetImmersiveUserColorSetPreference(Boolean forceCheckRegistry, Boolean skipCheckOnFail);
 
-    [DllImport(InteropValues.ExternDll.UxTheme, EntryPoint = "#94", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Auto)]
+    [DllImport(InteropValues.ExternDll.UxTheme, EntryPoint = "#94", CallingConvention = CallingConvention.StdCall,
+        CharSet = CharSet.Auto)]
     public static extern UInt32 GetImmersiveColorSetCount();
 
-    [DllImport(InteropValues.ExternDll.UxTheme, EntryPoint = "#95", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Auto)]
+    [DllImport(InteropValues.ExternDll.UxTheme, EntryPoint = "#95", CallingConvention = CallingConvention.StdCall,
+        CharSet = CharSet.Auto)]
     public static extern UInt32 GetImmersiveColorFromColorSetEx(UInt32 immersiveColorSet, UInt32 immersiveColorType,
         Boolean ignoreHighContrast, UInt32 highContrastCacheMode);
 
-    [DllImport(InteropValues.ExternDll.UxTheme, EntryPoint = "#96", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Auto)]
+    [DllImport(InteropValues.ExternDll.UxTheme, EntryPoint = "#96", CallingConvention = CallingConvention.StdCall,
+        CharSet = CharSet.Auto)]
     public static extern UInt32 GetImmersiveColorTypeFromName(IntPtr name);
 
-    [DllImport(InteropValues.ExternDll.UxTheme, EntryPoint = "#100", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Auto)]
+    [DllImport(InteropValues.ExternDll.UxTheme, EntryPoint = "#100", CallingConvention = CallingConvention.StdCall,
+        CharSet = CharSet.Auto)]
     public static extern IntPtr GetImmersiveColorNamedTypeByIndex(UInt32 index);
 
     [DllImport(InteropValues.ExternDll.WinInet)]
@@ -538,14 +572,16 @@ public class InteropMethods
     public static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
 
     [DllImport(InteropValues.ExternDll.Kernel32, CharSet = CharSet.Unicode)]
-    public static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
+    public static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal,
+        int Size, string FilePath);
 
     [SecurityCritical]
     [DllImport(InteropValues.ExternDll.DwmApi, EntryPoint = "DwmGetColorizationColor", PreserveSig = true)]
     public static extern int DwmGetColorizationColor(out uint pcrColorization, out bool pfOpaqueBlend);
 
     [DllImport(InteropValues.ExternDll.DwmApi)]
-    public static extern int DwmSetWindowAttribute(IntPtr hwnd, InteropValues.DWMWINDOWATTRIBUTE attr, ref int attrValue, int attrSize);
+    public static extern int DwmSetWindowAttribute(IntPtr hwnd, InteropValues.DWMWINDOWATTRIBUTE attr,
+        ref int attrValue, int attrSize);
 
     [DllImport(InteropValues.ExternDll.DwmApi, ExactSpelling = true, SetLastError = true)]
     public static extern int DwmSetWindowAttribute(IntPtr hwnd, InteropValues.DwmWindowAttribute dwAttribute,
@@ -570,12 +606,14 @@ public class InteropMethods
     [DllImport(InteropValues.ExternDll.User32)]
     public static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref InteropValues.WINCOMPATTRDATA data);
 
-    public static bool SetWindowAttributeValue(IntPtr hWnd, InteropValues.DWMWINDOWATTRIBUTE attribute, int attributeValue)
+    public static bool SetWindowAttributeValue(IntPtr hWnd, InteropValues.DWMWINDOWATTRIBUTE attribute,
+        int attributeValue)
     {
         return SetWindowAttribute(hWnd, attribute, ref attributeValue);
     }
 
-    public static bool SetWindowAttribute(IntPtr hWnd, InteropValues.DWMWINDOWATTRIBUTE attribute, ref int attributeValue)
+    public static bool SetWindowAttribute(IntPtr hWnd, InteropValues.DWMWINDOWATTRIBUTE attribute,
+        ref int attributeValue)
     {
         var result = DwmSetWindowAttribute(hWnd, attribute, ref attributeValue, sizeof(int));
         return result == 0;
@@ -587,6 +625,7 @@ public class InteropMethods
         var result = DwmExtendFrameIntoClientArea(hWnd, ref margins);
         return result == 0;
     }
+
     #endregion
 
     // Define the callback delegate's type.
@@ -595,7 +634,9 @@ public class InteropMethods
     // The target window's pattern to match and the found handle and title.
     private static string MatchPattern;
     private static IntPtr MatchedHandle;
+
     private static string MatchedTitle;
+
     // Return a list of the desktop windows' handles and titles.
     public static void FindWindowTitleMatch(string pattern, out IntPtr handle, out string title)
     {
@@ -650,7 +691,7 @@ public class InteropMethods
         placement.ShowCmd = show_command;
         SetWindowPlacement(handle, ref placement);
     }
-  
+
     public class Gdip
     {
         public const string ThreadDataSlotName = "system.drawing.threaddata";
@@ -772,7 +813,8 @@ public class InteropMethods
             Thread.SetData(slot, null);
         }
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipImageGetFrameDimensionsCount(HandleRef image, out int count);
 
@@ -804,39 +846,49 @@ public class InteropMethods
             };
         }
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipImageGetFrameDimensionsList(HandleRef image, IntPtr buffer, int count);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipImageGetFrameCount(HandleRef image, ref Guid dimensionId, int[] count);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipGetPropertyItemSize(HandleRef image, int propid, out int size);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipGetPropertyItem(HandleRef image, int propid, int size, IntPtr buffer);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.Machine)]
-        public static extern int GdipCreateHBITMAPFromBitmap(HandleRef nativeBitmap, out IntPtr hbitmap, int argbBackground);
+        public static extern int GdipCreateHBITMAPFromBitmap(HandleRef nativeBitmap, out IntPtr hbitmap,
+            int argbBackground);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipImageSelectActiveFrame(HandleRef image, ref Guid dimensionId, int frameIndex);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.Machine)]
         public static extern int GdipCreateBitmapFromFile(string filename, out IntPtr bitmap);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipImageForceValidation(HandleRef image);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, EntryPoint = "GdipDisposeImage", CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            EntryPoint = "GdipDisposeImage", CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         private static extern int IntGdipDisposeImage(HandleRef image);
 
@@ -847,41 +899,50 @@ public class InteropMethods
             return result;
         }
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.Process)]
         private static extern int GdiplusStartup(out IntPtr token, ref StartupInput input, out StartupOutput output);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipGetImageRawFormat(HandleRef image, ref Guid format);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.Machine)]
         public static extern int GdipCreateBitmapFromStream(InteropValues.IStream stream, out IntPtr bitmap);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.Machine)]
         public static extern int GdipCreateBitmapFromHBITMAP(HandleRef hbitmap, HandleRef hpalette, out IntPtr bitmap);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipGetImageEncodersSize(out int numEncoders, out int size);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipGetImageDecodersSize(out int numDecoders, out int size);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipGetImageDecoders(int numDecoders, int size, IntPtr decoders);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
         public static extern int GdipGetImageEncoders(int numEncoders, int size, IntPtr encoders);
 
-        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true,
+            CharSet = CharSet.Unicode)]
         [ResourceExposure(ResourceScope.None)]
-        public static extern int GdipSaveImageToStream(HandleRef image, InteropValues.IStream stream, ref Guid classId, HandleRef encoderParams);
-
+        public static extern int GdipSaveImageToStream(HandleRef image, InteropValues.IStream stream, ref Guid classId,
+            HandleRef encoderParams);
     }
 }

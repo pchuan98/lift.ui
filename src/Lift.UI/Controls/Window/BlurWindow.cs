@@ -19,6 +19,7 @@ public class BlurWindow : Window
         {
             this.GetHwndSource()?.AddHook(HwndSourceHook);
         }
+
         ThemeManager.Current.ActualApplicationThemeChanged += OnThemeChanged;
     }
 

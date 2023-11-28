@@ -37,7 +37,8 @@ public class AnimationPath : Shape
     protected override Geometry DefiningGeometry => Data ?? Geometry.Empty;
 
     public static readonly DependencyProperty PathLengthProperty = DependencyProperty.Register(
-        nameof(PathLength), typeof(double), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnPropertiesChanged));
+        nameof(PathLength), typeof(double), typeof(AnimationPath),
+        new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnPropertiesChanged));
 
     public double PathLength
     {
@@ -46,7 +47,8 @@ public class AnimationPath : Shape
     }
 
     public static readonly DependencyProperty DurationProperty = DependencyProperty.Register(
-        nameof(Duration), typeof(Duration), typeof(AnimationPath), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(2)),
+        nameof(Duration), typeof(Duration), typeof(AnimationPath), new FrameworkPropertyMetadata(
+            new Duration(TimeSpan.FromSeconds(2)),
             OnPropertiesChanged));
 
     public Duration Duration
@@ -56,19 +58,20 @@ public class AnimationPath : Shape
     }
 
     public static readonly DependencyProperty IsPlayingProperty = DependencyProperty.Register(
-        nameof(IsPlaying), typeof(bool), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
-        {
-            var ctl = (AnimationPath) o;
-            var v = (bool) args.NewValue;
-            if (v)
+        nameof(IsPlaying), typeof(bool), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.TrueBox,
+            (o, args) =>
             {
-                ctl.UpdatePath();
-            }
-            else
-            {
-                ctl._storyboard?.Pause();
-            }
-        }));
+                var ctl = (AnimationPath) o;
+                var v = (bool) args.NewValue;
+                if (v)
+                {
+                    ctl.UpdatePath();
+                }
+                else
+                {
+                    ctl._storyboard?.Pause();
+                }
+            }));
 
     public bool IsPlaying
     {
@@ -120,7 +123,9 @@ public class AnimationPath : Shape
     {
         if (!Duration.HasTimeSpan || !IsPlaying) return;
 
-        _pathLength = PathLength > 0 ? PathLength : Data.GetTotalLength(new Size(ActualWidth, ActualHeight), StrokeThickness);
+        _pathLength = PathLength > 0
+            ? PathLength
+            : Data.GetTotalLength(new Size(ActualWidth, ActualHeight), StrokeThickness);
 
         if (MathHelper.IsVerySmall(_pathLength)) return;
 
@@ -136,6 +141,7 @@ public class AnimationPath : Shape
             _storyboard.Stop();
             _storyboard.Completed -= Storyboard_Completed;
         }
+
         _storyboard = new Storyboard
         {
             RepeatBehavior = RepeatBehavior,

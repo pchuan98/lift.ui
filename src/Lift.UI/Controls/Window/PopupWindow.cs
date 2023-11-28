@@ -214,6 +214,7 @@ public class PopupWindow : System.Windows.Window
         {
             DialogResult = true;
         }
+
         Close();
     }
 
@@ -223,6 +224,7 @@ public class PopupWindow : System.Windows.Window
         {
             DialogResult = false;
         }
+
         Close();
     }
 

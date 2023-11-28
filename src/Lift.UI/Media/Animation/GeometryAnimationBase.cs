@@ -15,16 +15,19 @@ public abstract class GeometryAnimationBase : AnimationTimeline
 
     public new GeometryAnimationBase Clone() => (GeometryAnimationBase) base.Clone();
 
-    public sealed override object GetCurrentValue(object defaultOriginValue, object defaultDestinationValue, AnimationClock animationClock)
+    public sealed override object GetCurrentValue(object defaultOriginValue, object defaultDestinationValue,
+        AnimationClock animationClock)
     {
         if (defaultOriginValue == null)
         {
             throw new ArgumentNullException(nameof(defaultOriginValue));
         }
+
         if (defaultDestinationValue == null)
         {
             throw new ArgumentNullException(nameof(defaultDestinationValue));
         }
+
         return GetCurrentValue((Geometry) defaultOriginValue, (Geometry) defaultDestinationValue, animationClock);
     }
 
@@ -38,7 +41,8 @@ public abstract class GeometryAnimationBase : AnimationTimeline
         }
     }
 
-    public Geometry GetCurrentValue(Geometry defaultOriginValue, Geometry defaultDestinationValue, AnimationClock animationClock)
+    public Geometry GetCurrentValue(Geometry defaultOriginValue, Geometry defaultDestinationValue,
+        AnimationClock animationClock)
     {
         ReadPreamble();
 
@@ -55,5 +59,6 @@ public abstract class GeometryAnimationBase : AnimationTimeline
         return GetCurrentValueCore(defaultOriginValue, defaultDestinationValue, animationClock);
     }
 
-    protected abstract Geometry GetCurrentValueCore(Geometry defaultOriginValue, Geometry defaultDestinationValue, AnimationClock animationClock);
+    protected abstract Geometry GetCurrentValueCore(Geometry defaultOriginValue, Geometry defaultDestinationValue,
+        AnimationClock animationClock);
 }

@@ -20,6 +20,7 @@ public class ThumbButtonInfoCollection : FreezableCollection<ThumbButtonInfo>
                 thumbButtonInfoCollection.Freeze();
                 ThumbButtonInfoCollection.s_empty = thumbButtonInfoCollection;
             }
+
             return ThumbButtonInfoCollection.s_empty;
         }
     }

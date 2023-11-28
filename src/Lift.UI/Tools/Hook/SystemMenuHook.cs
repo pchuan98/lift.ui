@@ -31,7 +31,8 @@ public class SystemMenuHook
         if (source != null)
         {
             DataDic[id] = source;
-            InteropMethods.InsertMenu(InteropMethods.GetSystemMenu(hookId, false), index, InteropValues.MF_BYPOSITION, id, text);
+            InteropMethods.InsertMenu(InteropMethods.GetSystemMenu(hookId, false), index, InteropValues.MF_BYPOSITION,
+                id, text);
             source.AddHook(WinProc);
         }
     }
@@ -59,6 +60,7 @@ public class SystemMenuHook
                 Click?.Invoke(id);
             }
         }
+
         return IntPtr.Zero;
     }
 
@@ -69,6 +71,7 @@ public class SystemMenuHook
             context.IsOpen = true;
             handled = true;
         }
+
         return IntPtr.Zero;
     }
 }

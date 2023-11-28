@@ -80,7 +80,9 @@ internal class GlowBitmap : DisposableObject
     {
         if (_transparencyMasks[(int) bitmapPart] == null)
         {
-            var bitmapImage = new BitmapImage(new Uri($"pack://application:,,,/Lift.UI;Component/Resources/Images/GlowWindow/{bitmapPart}.png"));
+            var bitmapImage =
+                new BitmapImage(new Uri(
+                    $"pack://application:,,,/Lift.UI;Component/Resources/Images/GlowWindow/{bitmapPart}.png"));
 
             var array = new byte[BytesPerPixelBgra32 * bitmapImage.PixelWidth * bitmapImage.PixelHeight];
             var stride = BytesPerPixelBgra32 * bitmapImage.PixelWidth;

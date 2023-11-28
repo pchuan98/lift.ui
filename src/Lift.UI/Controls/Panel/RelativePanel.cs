@@ -21,7 +21,8 @@ public class RelativePanel : Panel
     #region Panel alignment
 
     public static readonly DependencyProperty AlignLeftWithPanelProperty = DependencyProperty.RegisterAttached(
-        "AlignLeftWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        "AlignLeftWithPanel", typeof(bool), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignLeftWithPanel(DependencyObject element, bool value)
         => element.SetValue(AlignLeftWithPanelProperty, ValueBoxes.BooleanBox(value));
@@ -30,7 +31,8 @@ public class RelativePanel : Panel
         => (bool) element.GetValue(AlignLeftWithPanelProperty);
 
     public static readonly DependencyProperty AlignTopWithPanelProperty = DependencyProperty.RegisterAttached(
-        "AlignTopWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        "AlignTopWithPanel", typeof(bool), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignTopWithPanel(DependencyObject element, bool value)
         => element.SetValue(AlignTopWithPanelProperty, ValueBoxes.BooleanBox(value));
@@ -39,7 +41,8 @@ public class RelativePanel : Panel
         => (bool) element.GetValue(AlignTopWithPanelProperty);
 
     public static readonly DependencyProperty AlignRightWithPanelProperty = DependencyProperty.RegisterAttached(
-        "AlignRightWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        "AlignRightWithPanel", typeof(bool), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignRightWithPanel(DependencyObject element, bool value)
         => element.SetValue(AlignRightWithPanelProperty, ValueBoxes.BooleanBox(value));
@@ -48,7 +51,8 @@ public class RelativePanel : Panel
         => (bool) element.GetValue(AlignRightWithPanelProperty);
 
     public static readonly DependencyProperty AlignBottomWithPanelProperty = DependencyProperty.RegisterAttached(
-        "AlignBottomWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        "AlignBottomWithPanel", typeof(bool), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignBottomWithPanel(DependencyObject element, bool value)
         => element.SetValue(AlignBottomWithPanelProperty, ValueBoxes.BooleanBox(value));
@@ -61,7 +65,8 @@ public class RelativePanel : Panel
     #region Sibling alignment
 
     public static readonly DependencyProperty AlignLeftWithProperty = DependencyProperty.RegisterAttached(
-        "AlignLeftWith", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
+        "AlignLeftWith", typeof(UIElement), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignLeftWith(DependencyObject element, UIElement value)
         => element.SetValue(AlignLeftWithProperty, value);
@@ -71,7 +76,8 @@ public class RelativePanel : Panel
         => (UIElement) element.GetValue(AlignLeftWithProperty);
 
     public static readonly DependencyProperty AlignTopWithProperty = DependencyProperty.RegisterAttached(
-        "AlignTopWith", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
+        "AlignTopWith", typeof(UIElement), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignTopWith(DependencyObject element, UIElement value)
         => element.SetValue(AlignTopWithProperty, value);
@@ -81,7 +87,8 @@ public class RelativePanel : Panel
         => (UIElement) element.GetValue(AlignTopWithProperty);
 
     public static readonly DependencyProperty AlignRightWithProperty = DependencyProperty.RegisterAttached(
-        "AlignRightWith", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
+        "AlignRightWith", typeof(UIElement), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignRightWith(DependencyObject element, UIElement value)
         => element.SetValue(AlignRightWithProperty, value);
@@ -91,7 +98,8 @@ public class RelativePanel : Panel
         => (UIElement) element.GetValue(AlignRightWithProperty);
 
     public static readonly DependencyProperty AlignBottomWithProperty = DependencyProperty.RegisterAttached(
-        "AlignBottomWith", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
+        "AlignBottomWith", typeof(UIElement), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignBottomWith(DependencyObject element, UIElement value)
         => element.SetValue(AlignBottomWithProperty, value);
@@ -105,7 +113,8 @@ public class RelativePanel : Panel
     #region Sibling positional
 
     public static readonly DependencyProperty LeftOfProperty = DependencyProperty.RegisterAttached(
-        "LeftOf", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
+        "LeftOf", typeof(UIElement), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetLeftOf(DependencyObject element, UIElement value)
         => element.SetValue(LeftOfProperty, value);
@@ -115,7 +124,8 @@ public class RelativePanel : Panel
         => (UIElement) element.GetValue(LeftOfProperty);
 
     public static readonly DependencyProperty AboveProperty = DependencyProperty.RegisterAttached(
-        "Above", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
+        "Above", typeof(UIElement), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAbove(DependencyObject element, UIElement value)
         => element.SetValue(AboveProperty, value);
@@ -125,7 +135,8 @@ public class RelativePanel : Panel
         => (UIElement) element.GetValue(AboveProperty);
 
     public static readonly DependencyProperty RightOfProperty = DependencyProperty.RegisterAttached(
-        "RightOf", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
+        "RightOf", typeof(UIElement), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetRightOf(DependencyObject element, UIElement value)
         => element.SetValue(RightOfProperty, value);
@@ -135,7 +146,8 @@ public class RelativePanel : Panel
         => (UIElement) element.GetValue(RightOfProperty);
 
     public static readonly DependencyProperty BelowProperty = DependencyProperty.RegisterAttached(
-        "Below", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
+        "Below", typeof(UIElement), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetBelow(DependencyObject element, UIElement value)
         => element.SetValue(BelowProperty, value);
@@ -148,8 +160,10 @@ public class RelativePanel : Panel
 
     #region Center alignment
 
-    public static readonly DependencyProperty AlignHorizontalCenterWithPanelProperty = DependencyProperty.RegisterAttached(
-        "AlignHorizontalCenterWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+    public static readonly DependencyProperty AlignHorizontalCenterWithPanelProperty =
+        DependencyProperty.RegisterAttached(
+            "AlignHorizontalCenterWithPanel", typeof(bool), typeof(RelativePanel),
+            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignHorizontalCenterWithPanel(DependencyObject element, bool value)
         => element.SetValue(AlignHorizontalCenterWithPanelProperty, ValueBoxes.BooleanBox(value));
@@ -157,8 +171,10 @@ public class RelativePanel : Panel
     public static bool GetAlignHorizontalCenterWithPanel(DependencyObject element)
         => (bool) element.GetValue(AlignHorizontalCenterWithPanelProperty);
 
-    public static readonly DependencyProperty AlignVerticalCenterWithPanelProperty = DependencyProperty.RegisterAttached(
-        "AlignVerticalCenterWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+    public static readonly DependencyProperty AlignVerticalCenterWithPanelProperty =
+        DependencyProperty.RegisterAttached(
+            "AlignVerticalCenterWithPanel", typeof(bool), typeof(RelativePanel),
+            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignVerticalCenterWithPanel(DependencyObject element, bool value)
         => element.SetValue(AlignVerticalCenterWithPanelProperty, ValueBoxes.BooleanBox(value));
@@ -167,7 +183,8 @@ public class RelativePanel : Panel
         => (bool) element.GetValue(AlignVerticalCenterWithPanelProperty);
 
     public static readonly DependencyProperty AlignHorizontalCenterWithProperty = DependencyProperty.RegisterAttached(
-        "AlignHorizontalCenterWith", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
+        "AlignHorizontalCenterWith", typeof(UIElement), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignHorizontalCenterWith(DependencyObject element, UIElement value)
         => element.SetValue(AlignHorizontalCenterWithProperty, value);
@@ -177,7 +194,8 @@ public class RelativePanel : Panel
         => (UIElement) element.GetValue(AlignHorizontalCenterWithProperty);
 
     public static readonly DependencyProperty AlignVerticalCenterWithProperty = DependencyProperty.RegisterAttached(
-        "AlignVerticalCenterWith", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
+        "AlignVerticalCenterWith", typeof(UIElement), typeof(RelativePanel),
+        new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static void SetAlignVerticalCenterWith(DependencyObject element, UIElement value)
         => element.SetValue(AlignVerticalCenterWithProperty, value);
@@ -211,6 +229,7 @@ public class RelativePanel : Panel
             node.AlignHorizontalCenterWith = _childGraph.AddLink(node, GetAlignHorizontalCenterWith(child));
             node.AlignVerticalCenterWith = _childGraph.AddLink(node, GetAlignVerticalCenterWith(child));
         }
+
         _childGraph.Measure(availableSize);
 
         #endregion
@@ -287,7 +306,8 @@ public class RelativePanel : Panel
             Element = element;
         }
 
-        public void Arrange(Size arrangeSize) => Element.Arrange(new Rect(Left, Top, Math.Max(arrangeSize.Width - Left - Right, 0), Math.Max(arrangeSize.Height - Top - Bottom, 0)));
+        public void Arrange(Size arrangeSize) => Element.Arrange(new Rect(Left, Top,
+            Math.Max(arrangeSize.Width - Left - Right, 0), Math.Max(arrangeSize.Height - Top - Bottom, 0)));
 
         public void Reset(bool clearPos)
         {
@@ -298,6 +318,7 @@ public class RelativePanel : Panel
                 Right = double.NaN;
                 Bottom = double.NaN;
             }
+
             Measured = false;
         }
 
@@ -335,6 +356,7 @@ public class RelativePanel : Panel
                             prevSize.Width += prevNode.OriginDesiredSize.Width;
                             prevNode.HorizontalOffsetFlag = true;
                         }
+
                         if (node.VerticalOffsetFlag)
                         {
                             prevNode.VerticalOffsetFlag = true;
@@ -350,6 +372,7 @@ public class RelativePanel : Panel
                             prevSize.Height += prevNode.OriginDesiredSize.Height;
                             prevNode.VerticalOffsetFlag = true;
                         }
+
                         if (node.HorizontalOffsetFlag)
                         {
                             prevNode.HorizontalOffsetFlag = true;
@@ -453,7 +476,9 @@ public class RelativePanel : Panel
                 }
 
                 //  判断是否有循环
-                if (!set.Add(node.Element)) throw new Exception("RelativePanel error: Circular dependency detected. Layout could not complete.");
+                if (!set.Add(node.Element))
+                    throw new Exception(
+                        "RelativePanel error: Circular dependency detected. Layout could not complete.");
 
                 //  没有循环，且有依赖，则继续往下
                 Measure(node.OutgoingNodes, set);
@@ -594,8 +619,10 @@ public class RelativePanel : Panel
 
             if (node.AlignHorizontalCenterWith != null)
             {
-                var halfWidthLeft = (AvailableSize.Width + node.AlignHorizontalCenterWith.Left - node.AlignHorizontalCenterWith.Right - childSize.Width) * 0.5;
-                var halfWidthRight = (AvailableSize.Width - node.AlignHorizontalCenterWith.Left + node.AlignHorizontalCenterWith.Right - childSize.Width) * 0.5;
+                var halfWidthLeft = (AvailableSize.Width + node.AlignHorizontalCenterWith.Left -
+                                     node.AlignHorizontalCenterWith.Right - childSize.Width) * 0.5;
+                var halfWidthRight = (AvailableSize.Width - node.AlignHorizontalCenterWith.Left +
+                    node.AlignHorizontalCenterWith.Right - childSize.Width) * 0.5;
 
                 if (node.Left.IsNaN()) node.Left = halfWidthLeft;
                 else node.Left = (node.Left + halfWidthLeft) * 0.5;
@@ -606,8 +633,10 @@ public class RelativePanel : Panel
 
             if (node.AlignVerticalCenterWith != null)
             {
-                var halfHeightTop = (AvailableSize.Height + node.AlignVerticalCenterWith.Top - node.AlignVerticalCenterWith.Bottom - childSize.Height) * 0.5;
-                var halfHeightBottom = (AvailableSize.Height - node.AlignVerticalCenterWith.Top + node.AlignVerticalCenterWith.Bottom - childSize.Height) * 0.5;
+                var halfHeightTop = (AvailableSize.Height + node.AlignVerticalCenterWith.Top -
+                                     node.AlignVerticalCenterWith.Bottom - childSize.Height) * 0.5;
+                var halfHeightBottom = (AvailableSize.Height - node.AlignVerticalCenterWith.Top +
+                    node.AlignVerticalCenterWith.Bottom - childSize.Height) * 0.5;
 
                 if (node.Top.IsNaN()) node.Top = halfHeightTop;
                 else node.Top = (node.Top + halfHeightTop) * 0.5;

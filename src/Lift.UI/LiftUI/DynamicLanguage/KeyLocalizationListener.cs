@@ -7,7 +7,7 @@ namespace Lift.UI.Tools;
 /// </summary>
 public class KeyLocalizationListener : BaseLocalizationListener, INotifyPropertyChanged
 {
-    public KeyLocalizationListener(ILocalizationProvider provider,string key, object[] args)
+    public KeyLocalizationListener(ILocalizationProvider provider, string key, object[] args)
     {
         Key = key;
         Args = args;
@@ -25,7 +25,7 @@ public class KeyLocalizationListener : BaseLocalizationListener, INotifyProperty
         {
             var value = LocalizationManager.Localize(Provider, Key);
             if (value is string && Args != null)
-                value = string.Format((string)value, Args);
+                value = string.Format((string) value, Args);
             return value;
         }
     }

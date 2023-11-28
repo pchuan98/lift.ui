@@ -21,7 +21,8 @@ public static class IconHelper
     private static int SystemBitDepth;
 
     [SecurityCritical, SecuritySafeCritical]
-    public static void GetIconHandlesFromImageSource(ImageSource image, out IconHandle largeIconHandle, out IconHandle smallIconHandle)
+    public static void GetIconHandlesFromImageSource(ImageSource image, out IconHandle largeIconHandle,
+        out IconHandle smallIconHandle)
     {
         EnsureSystemMetrics();
         largeIconHandle = CreateIconHandleFromImageSource(image, IconSize);
@@ -40,7 +41,8 @@ public static class IconHelper
         {
             bf = GetBestMatch(bf.Decoder.Frames, size);
 
-            asGoodAsItGets = bf.Decoder is IconBitmapDecoder || bf.PixelWidth == (int) size.Width && bf.PixelHeight == (int) size.Height;
+            asGoodAsItGets = bf.Decoder is IconBitmapDecoder ||
+                             bf.PixelWidth == (int) size.Width && bf.PixelHeight == (int) size.Height;
 
             image = bf;
         }
@@ -75,7 +77,8 @@ public static class IconHelper
     }
 
     [SecurityCritical]
-    internal static IconHandle CreateIconCursor(byte[] colorArray, int width, int height, int xHotspot, int yHotspot, bool isIcon)
+    internal static IconHandle CreateIconCursor(byte[] colorArray, int width, int height, int xHotspot, int yHotspot,
+        bool isIcon)
     {
         BitmapHandle colorBitmap = null;
         BitmapHandle maskBitmap = null;
@@ -88,7 +91,8 @@ public static class IconHelper
             };
 
             var bits = IntPtr.Zero;
-            colorBitmap = InteropMethods.CreateDIBSection(new HandleRef(null, IntPtr.Zero), ref bi, InteropValues.DIB_RGB_COLORS, ref bits, null, 0);
+            colorBitmap = InteropMethods.CreateDIBSection(new HandleRef(null, IntPtr.Zero), ref bi,
+                InteropValues.DIB_RGB_COLORS, ref bits, null, 0);
 
             if (colorBitmap.IsInvalid || bits == IntPtr.Zero)
             {
@@ -168,17 +172,20 @@ public static class IconHelper
 
         if (img.Width <= renderSize.Width && img.Height <= renderSize.Height)
         {
-            drawingDimensions = new Rect((renderSize.Width - img.Width) / 2, (renderSize.Height - img.Height) / 2, img.Width, img.Height);
+            drawingDimensions = new Rect((renderSize.Width - img.Width) / 2, (renderSize.Height - img.Height) / 2,
+                img.Width, img.Height);
         }
         else if (renderRatio > aspectRatio)
         {
             var scaledRenderWidth = (img.Width / img.Height) * renderSize.Width;
-            drawingDimensions = new Rect((renderSize.Width - scaledRenderWidth) / 2, 0, scaledRenderWidth, renderSize.Height);
+            drawingDimensions = new Rect((renderSize.Width - scaledRenderWidth) / 2, 0, scaledRenderWidth,
+                renderSize.Height);
         }
         else if (renderRatio < aspectRatio)
         {
             var scaledRenderHeight = img.Height / img.Width * renderSize.Height;
-            drawingDimensions = new Rect(0, (renderSize.Height - scaledRenderHeight) / 2, renderSize.Width, scaledRenderHeight);
+            drawingDimensions = new Rect(0, (renderSize.Height - scaledRenderHeight) / 2, renderSize.Width,
+                scaledRenderHeight);
         }
 
         var dv = new DrawingVisual();
@@ -202,7 +209,9 @@ public static class IconHelper
 
         for (var i = 0; i < frames.Count && bestScore != 0; ++i)
         {
-            var currentIconBitDepth = isBitmapIconDecoder ? frames[i].Thumbnail.Format.BitsPerPixel : frames[i].Format.BitsPerPixel;
+            var currentIconBitDepth = isBitmapIconDecoder
+                ? frames[i].Thumbnail.Format.BitsPerPixel
+                : frames[i].Format.BitsPerPixel;
 
             if (currentIconBitDepth == 0)
             {

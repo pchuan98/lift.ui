@@ -104,6 +104,7 @@ public class SideMenu : HeaderedSimpleItemsControl
 
                         _selectedHeader.SelectDefaultItem();
                     }
+
                     _isItemSelected = false;
                 }
 
@@ -138,19 +139,23 @@ public class SideMenu : HeaderedSimpleItemsControl
 
     public Brush SubSideBrush
     {
-        get => (Brush)GetValue(SubSideBrushProperty);
+        get => (Brush) GetValue(SubSideBrushProperty);
         set => SetValue(SubSideBrushProperty, value);
     }
+
     public static readonly DependencyProperty SubSideBrushProperty =
-        DependencyProperty.RegisterAttached("SubSideBrush", typeof(Brush), typeof(SideMenu), new FrameworkPropertyMetadata(default(Brushes), FrameworkPropertyMetadataOptions.Inherits));
+        DependencyProperty.RegisterAttached("SubSideBrush", typeof(Brush), typeof(SideMenu),
+            new FrameworkPropertyMetadata(default(Brushes), FrameworkPropertyMetadataOptions.Inherits));
 
     public Brush SideBrush
     {
-        get => (Brush)GetValue(SideBrushProperty);
+        get => (Brush) GetValue(SideBrushProperty);
         set => SetValue(SideBrushProperty, value);
     }
+
     public static readonly DependencyProperty SideBrushProperty =
-        DependencyProperty.RegisterAttached("SideBrush", typeof(Brush), typeof(SideMenu), new FrameworkPropertyMetadata(default(Brushes), FrameworkPropertyMetadataOptions.Inherits));
+        DependencyProperty.RegisterAttached("SideBrush", typeof(Brush), typeof(SideMenu),
+            new FrameworkPropertyMetadata(default(Brushes), FrameworkPropertyMetadataOptions.Inherits));
 
 
     public static readonly DependencyProperty AutoSelectProperty = DependencyProperty.Register(
@@ -163,7 +168,8 @@ public class SideMenu : HeaderedSimpleItemsControl
     }
 
     public static readonly DependencyProperty ExpandModeProperty = DependencyProperty.Register(
-        nameof(ExpandMode), typeof(ExpandMode), typeof(SideMenu), new PropertyMetadata(default(ExpandMode), OnExpandModeChanged));
+        nameof(ExpandMode), typeof(ExpandMode), typeof(SideMenu),
+        new PropertyMetadata(default(ExpandMode), OnExpandModeChanged));
 
     private static void OnExpandModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

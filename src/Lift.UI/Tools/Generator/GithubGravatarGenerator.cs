@@ -47,6 +47,7 @@ public class GithubGravatarGenerator : IGravatarGenerator
             {
                 AddRec(i, j, renderData[index] == 0);
             }
+
             index -= 10;
         }
 
@@ -73,6 +74,7 @@ public class GithubGravatarGenerator : IGravatarGenerator
         {
             stringBuilder.Append(item.ToString("X2"));
         }
+
         return stringBuilder.ToString();
     }
 

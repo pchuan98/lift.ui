@@ -17,10 +17,13 @@ public class Boolean2StringConverter : IValueConverter
                 {
                     return boolValue ? arr[1] : arr[0];
                 }
+
                 return "";
             }
+
             return "";
         }
+
         return "";
     }
 

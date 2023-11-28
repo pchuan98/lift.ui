@@ -4,7 +4,6 @@ namespace Lift.UI.Tools.Extension;
 
 public static class FrameworkElementExtension
 {
-
     public static double GetValidWidth(this FrameworkElement element)
     {
         if (!double.IsNaN(element.Width))

@@ -80,6 +80,7 @@ internal sealed class NameResolver
             oldNameScopeReference.Loaded -= OnNameScopeReferenceLoaded;
             PendingReferenceElementLoad = false;
         }
+
         HasAttempedResolve = false;
         UpdateObjectFromName(Object);
     }
@@ -108,6 +109,7 @@ internal sealed class NameResolver
                 PendingReferenceElementLoad = true;
                 return;
             }
+
             if (!string.IsNullOrEmpty(Name))
             {
                 var actualNameScopeReferenceElement = ActualNameScopeReferenceElement;
@@ -115,6 +117,7 @@ internal sealed class NameResolver
                     obj2 = actualNameScopeReferenceElement.FindName(Name) as DependencyObject;
             }
         }
+
         HasAttempedResolve = true;
         ResolvedObject = obj2;
         if (!Equals(oldObject, Object))

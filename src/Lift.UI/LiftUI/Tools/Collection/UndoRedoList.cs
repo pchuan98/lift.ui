@@ -24,8 +24,11 @@ public class UndoRedoList<TElement, TList> : IList<TElement> where TList : IList
         bool IsValidIndex => 0 <= Index && Index < Container.Count;
 
         public Action()
-        { }
-        public Action(IList<TElement> container, TElement element, int index) => (Container, Element, Index) = (container, element, index);
+        {
+        }
+
+        public Action(IList<TElement> container, TElement element, int index) =>
+            (Container, Element, Index) = (container, element, index);
 
         public abstract void Undo();
         public abstract void Redo();
@@ -65,7 +68,8 @@ public class UndoRedoList<TElement, TList> : IList<TElement> where TList : IList
     class AddAction : Action
     {
         public AddAction(IList<TElement> container, TElement element, int index) : base(container, element, index)
-        { }
+        {
+        }
 
         public override void Undo() => Remove();
         public override void Redo() => Add();
@@ -74,7 +78,8 @@ public class UndoRedoList<TElement, TList> : IList<TElement> where TList : IList
     class RemoveAction : Action
     {
         public RemoveAction(IList<TElement> container, TElement element, int index) : base(container, element, index)
-        { }
+        {
+        }
 
         public override void Undo() => Add();
         public override void Redo() => Remove();
@@ -82,7 +87,8 @@ public class UndoRedoList<TElement, TList> : IList<TElement> where TList : IList
 
     class ExchangeAction : Action
     {
-        public ExchangeAction(IList<TElement> container, TElement oldElement, TElement newElement, int index) : base(container, newElement, index) => OldElement = oldElement;
+        public ExchangeAction(IList<TElement> container, TElement oldElement, TElement newElement, int index) :
+            base(container, newElement, index) => OldElement = oldElement;
 
         public TElement OldElement { get; set; }
 
@@ -142,6 +148,7 @@ public class UndoRedoList<TElement, TList> : IList<TElement> where TList : IList
 
     public bool CanUndo => undoBuffer.CanGoBackward;
     public bool CanRedo => undoBuffer.CanGoForward;
+
     /// <summary>You can't undo actions while UndoEnabled is false.</summary>
     public bool UndoEnabled { get; set; } = true;
 
@@ -158,6 +165,7 @@ public class UndoRedoList<TElement, TList> : IList<TElement> where TList : IList
             undoBuffer.GoBackward();
             return true;
         }
+
         return false;
     }
 
@@ -170,6 +178,7 @@ public class UndoRedoList<TElement, TList> : IList<TElement> where TList : IList
             action.Redo();
             return true;
         }
+
         return false;
     }
 
@@ -206,6 +215,7 @@ public class UndoRedoList<TElement, TList> : IList<TElement> where TList : IList
     public TList List { get; } = new TList();
 
     #region IList<T> implementation
+
     public int Count => List.Count;
 
     public bool IsReadOnly => List.IsReadOnly;
@@ -265,6 +275,7 @@ public class UndoRedoList<TElement, TList> : IList<TElement> where TList : IList
     public IEnumerator<TElement> GetEnumerator() => List.GetEnumerator();
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
     #endregion
 
     void Add(Action action)
@@ -285,6 +296,7 @@ public class UndoRedoList<TElement> : UndoRedoList<TElement, List<TElement>>
 {
     /// <exception cref="System.ArgumentOutOfRangeException">Thrown when maximumUndoTimes is 1 or less.</exception>
     public UndoRedoList(int maximumUndoTimes = ModuloArithmetic.DefaultDivisor) : base(maximumUndoTimes)
-    { }
+    {
+    }
 }
 #endif

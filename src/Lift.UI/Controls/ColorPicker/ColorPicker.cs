@@ -27,6 +27,7 @@ namespace Lift.UI.Controls;
 public class ColorPicker : Control, ISingleOpen
 {
     internal static ColorPicker cPicker;
+
     #region Constants
 
     private const string ElementBorderColor = "PART_BorderColor";
@@ -262,7 +263,8 @@ public class ColorPicker : Control, ISingleOpen
     }
 
     public static readonly DependencyProperty SelectedBrushProperty = DependencyProperty.Register(
-        nameof(SelectedBrush), typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.White, OnSelectedBrushChanged, CoerceSelectedBrush));
+        nameof(SelectedBrush), typeof(SolidColorBrush), typeof(ColorPicker),
+        new PropertyMetadata(Brushes.White, OnSelectedBrushChanged, CoerceSelectedBrush));
 
     private static object CoerceSelectedBrush(DependencyObject d, object basevalue)
     {
@@ -283,6 +285,7 @@ public class ColorPicker : Control, ISingleOpen
             ctl.ChannelA = v.Color.A;
             ctl.IsNeedUpdateInfo = true;
         }
+
         ctl.UpdateStatus(v.Color);
         ctl.SelectedBrushWithoutOpacity = new SolidColorBrush(Color.FromRgb(v.Color.R, v.Color.G, v.Color.B));
         ctl.RaiseEvent(new FunctionEventArgs<Color>(SelectedColorChangedEvent, ctl)
@@ -301,7 +304,8 @@ public class ColorPicker : Control, ISingleOpen
     }
 
     internal static readonly DependencyProperty SelectedBrushWithoutOpacityProperty = DependencyProperty.Register(
-        nameof(SelectedBrushWithoutOpacity), typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.White));
+        nameof(SelectedBrushWithoutOpacity), typeof(SolidColorBrush), typeof(ColorPicker),
+        new PropertyMetadata(Brushes.White));
 
     internal SolidColorBrush SelectedBrushWithoutOpacity
     {
@@ -358,6 +362,7 @@ public class ColorPicker : Control, ISingleOpen
             {
                 list.Add(false);
             }
+
             list[_colorType] = true;
             ShowList = list;
         }
@@ -406,7 +411,8 @@ public class ColorPicker : Control, ISingleOpen
 
         _panelColor?.Children.Clear();
 
-        _panelRgb?.RemoveHandler(NumericUpDown.ValueChangedEvent, new EventHandler<FunctionEventArgs<double>>(NumericUpDownRgb_OnValueChanged));
+        _panelRgb?.RemoveHandler(NumericUpDown.ValueChangedEvent,
+            new EventHandler<FunctionEventArgs<double>>(NumericUpDownRgb_OnValueChanged));
 
         base.OnApplyTemplate();
 
@@ -449,7 +455,9 @@ public class ColorPicker : Control, ISingleOpen
         {
             Init();
         }
-        _panelRgb?.AddHandler(NumericUpDown.ValueChangedEvent, new EventHandler<FunctionEventArgs<double>>(NumericUpDownRgb_OnValueChanged));
+
+        _panelRgb?.AddHandler(NumericUpDown.ValueChangedEvent,
+            new EventHandler<FunctionEventArgs<double>>(NumericUpDownRgb_OnValueChanged));
     }
 
     /// <summary>
@@ -527,6 +535,7 @@ public class ColorPicker : Control, ISingleOpen
                 {
                     _sliderColor.Value = 0;
                 }
+
                 IsNeedUpdateInfo = true;
             }
         }
@@ -543,6 +552,7 @@ public class ColorPicker : Control, ISingleOpen
                 {
                     _sliderColor.Value = 0;
                 }
+
                 IsNeedUpdateInfo = true;
             }
             else
@@ -586,6 +596,7 @@ public class ColorPicker : Control, ISingleOpen
                 {
                     sub = 255 - common;
                 }
+
                 var scale = sub / 255.0;
                 var scaleTotal = cIndex - direc + scale;
                 IsNeedUpdateInfo = false;
@@ -593,6 +604,7 @@ public class ColorPicker : Control, ISingleOpen
                 {
                     _sliderColor.Value = scaleTotal;
                 }
+
                 IsNeedUpdateInfo = true;
             }
         }
@@ -663,14 +675,16 @@ public class ColorPicker : Control, ISingleOpen
 
         if (_isNeedUpdatePicker)
         {
-            _borderPicker.RenderTransform = new MatrixTransform(matrix.M11, matrix.M12, matrix.M21, matrix.M22, p.X, p.Y);
+            _borderPicker.RenderTransform =
+                new MatrixTransform(matrix.M11, matrix.M12, matrix.M21, matrix.M22, p.X, p.Y);
         }
 
         var scaleX = p.X / ColorPanelWidth;
         var scaleY = 1 - p.Y / ColorPanelHeight;
 
         var colorYLeft = Color.FromRgb((byte) (255 * scaleY), (byte) (255 * scaleY), (byte) (255 * scaleY));
-        var colorYRight = Color.FromRgb((byte) (BackColor.Color.R * scaleY), (byte) (BackColor.Color.G * scaleY), (byte) (BackColor.Color.B * scaleY));
+        var colorYRight = Color.FromRgb((byte) (BackColor.Color.R * scaleY), (byte) (BackColor.Color.G * scaleY),
+            (byte) (BackColor.Color.B * scaleY));
 
         var subR = colorYLeft.R - colorYRight.R;
         var subG = colorYLeft.G - colorYRight.G;
@@ -681,7 +695,8 @@ public class ColorPicker : Control, ISingleOpen
         SelectedBrush = new SolidColorBrush(color);
     }
 
-    private void MouseDragElementBehavior_OnDragFinished(object sender, MouseEventArgs e) => _borderDrag.RenderTransform = new MatrixTransform();
+    private void MouseDragElementBehavior_OnDragFinished(object sender, MouseEventArgs e) =>
+        _borderDrag.RenderTransform = new MatrixTransform();
 
     private void ButtonSwitch_OnClick(object sender, RoutedEventArgs e) => ColorType++;
 
@@ -714,7 +729,8 @@ public class ColorPicker : Control, ISingleOpen
         });
     }
 
-    private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => RaiseEvent(new RoutedEventArgs(CanceledEvent));
+    private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) =>
+        RaiseEvent(new RoutedEventArgs(CanceledEvent));
 
     private void ToggleButtonDropper_Click(object sender, RoutedEventArgs e)
     {

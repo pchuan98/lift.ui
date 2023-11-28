@@ -26,7 +26,8 @@ public class Card : ContentControl
     }
 
     public static readonly DependencyProperty HeaderTemplateSelectorProperty = DependencyProperty.Register(
-        nameof(HeaderTemplateSelector), typeof(DataTemplateSelector), typeof(Card), new PropertyMetadata(default(DataTemplateSelector)));
+        nameof(HeaderTemplateSelector), typeof(DataTemplateSelector), typeof(Card),
+        new PropertyMetadata(default(DataTemplateSelector)));
 
     [Bindable(true), Category("Content")]
     public DataTemplateSelector HeaderTemplateSelector
@@ -65,7 +66,8 @@ public class Card : ContentControl
     }
 
     public static readonly DependencyProperty FooterTemplateSelectorProperty = DependencyProperty.Register(
-        nameof(FooterTemplateSelector), typeof(DataTemplateSelector), typeof(Card), new PropertyMetadata(default(DataTemplateSelector)));
+        nameof(FooterTemplateSelector), typeof(DataTemplateSelector), typeof(Card),
+        new PropertyMetadata(default(DataTemplateSelector)));
 
     [Bindable(true), Category("Content")]
     public DataTemplateSelector FooterTemplateSelector

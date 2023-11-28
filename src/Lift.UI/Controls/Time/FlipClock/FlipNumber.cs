@@ -155,7 +155,8 @@ public class FlipNumber : Viewport3D
         Children.Add(_content);
     }
 
-    private bool CheckNull() => _page1TextDown != null && _page2TextUp != null && _page2TextDown != null && _page3TextUp != null;
+    private bool CheckNull() =>
+        _page1TextDown != null && _page2TextUp != null && _page2TextDown != null && _page3TextUp != null;
 
     private void OnNumberChanged()
     {
@@ -207,6 +208,7 @@ public class FlipNumber : Viewport3D
         {
             flag = 1;
         }
+
         var halfWidth = ActualWidth / 2;
         var quarterWidth = ActualWidth / 4;
         var quarterHeight = ActualHeight / 4;

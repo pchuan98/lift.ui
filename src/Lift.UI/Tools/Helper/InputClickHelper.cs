@@ -12,7 +12,8 @@ public static class InputClickHelper
     private static readonly DependencyProperty InputInfoProperty = DependencyProperty.RegisterAttached(
         "InputInfo", typeof(InputInfo), typeof(InputClickHelper), new PropertyMetadata(default(InputInfo)));
 
-    private static void SetInputInfo(DependencyObject element, InputInfo value) => element.SetValue(InputInfoProperty, value);
+    private static void SetInputInfo(DependencyObject element, InputInfo value) =>
+        element.SetValue(InputInfoProperty, value);
 
     private static InputInfo GetInputInfo(DependencyObject element) => (InputInfo) element.GetValue(InputInfoProperty);
 

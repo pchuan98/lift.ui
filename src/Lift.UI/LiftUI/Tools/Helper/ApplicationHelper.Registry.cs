@@ -45,7 +45,8 @@ public static partial class ApplicationHelper
     /// <param name="Command"></param>
     /// <param name="IconPath">Icon Should be in *.ico format</param>
     /// <param name="CascadeIconPath">Icon Should be in *.ico format</param>
-    public static void RegisterCascadeContextMenuToDirectory(string ContextMenuName, string CascadeContextMenuName, string Command, string IconPath = null, string CascadeIconPath = null)
+    public static void RegisterCascadeContextMenuToDirectory(string ContextMenuName, string CascadeContextMenuName,
+        string Command, string IconPath = null, string CascadeIconPath = null)
     {
         string Folder = $@"Directory\Shell\{ContextMenuName}";
         RegisterCascade(Folder, ContextMenuName, CascadeContextMenuName, Command, IconPath, CascadeIconPath);
@@ -59,7 +60,8 @@ public static partial class ApplicationHelper
     /// <param name="ContextMenuName"></param>
     /// <param name="CascadeContextMenuName"></param>
     /// <returns></returns>
-    public static bool UnRegisterCascadeContextMenuFromDirectory(string ContextMenuName, string CascadeContextMenuName = null)
+    public static bool UnRegisterCascadeContextMenuFromDirectory(string ContextMenuName,
+        string CascadeContextMenuName = null)
     {
         var _RemovePath = $@"Directory\Shell";
         return UnRegisterCascade(_RemovePath, ContextMenuName, CascadeContextMenuName);
@@ -68,6 +70,7 @@ public static partial class ApplicationHelper
     #endregion
 
     #region File
+
     /// <summary>
     /// Register Context Menu in File
     /// Use this method when you want to add a ContextMenu when you right-click on files
@@ -108,7 +111,8 @@ public static partial class ApplicationHelper
     /// <param name="Command"></param>
     /// <param name="IconPath">Icon Should be in *.ico format</param>
     /// <param name="CascadeIconPath">Icon Should be in *.ico format</param>
-    public static void RegisterCascadeContextMenuToFile(string ContextMenuName, string CascadeContextMenuName, string Command, string IconPath = null, string CascadeIconPath = null)
+    public static void RegisterCascadeContextMenuToFile(string ContextMenuName, string CascadeContextMenuName,
+        string Command, string IconPath = null, string CascadeIconPath = null)
     {
         string Folder = $@"*\Shell\{ContextMenuName}";
         RegisterCascade(Folder, ContextMenuName, CascadeContextMenuName, Command, IconPath, CascadeIconPath);
@@ -122,14 +126,17 @@ public static partial class ApplicationHelper
     /// <param name="ContextMenuName"></param>
     /// <param name="CascadeContextMenuName"></param>
     /// <returns></returns>
-    public static bool UnRegisterCascadeContextMenuFromFile(string ContextMenuName, string CascadeContextMenuName = null)
+    public static bool UnRegisterCascadeContextMenuFromFile(string ContextMenuName,
+        string CascadeContextMenuName = null)
     {
         var _RemovePath = $@"*\Shell";
         return UnRegisterCascade(_RemovePath, ContextMenuName, CascadeContextMenuName);
     }
+
     #endregion
 
     #region Background
+
     /// <summary>
     /// Register Context Menu in Background
     /// Use this method when you want to add a ContextMenu when you right-click on desktop or Explorer background
@@ -170,7 +177,8 @@ public static partial class ApplicationHelper
     /// <param name="Command"></param>
     /// <param name="IconPath">Icon Should be in *.ico format</param>
     /// <param name="CascadeIconPath">Icon Should be in *.ico format</param>
-    public static void RegisterCascadeContextMenuToBackground(string ContextMenuName, string CascadeContextMenuName, string Command, string IconPath = null, string CascadeIconPath = null)
+    public static void RegisterCascadeContextMenuToBackground(string ContextMenuName, string CascadeContextMenuName,
+        string Command, string IconPath = null, string CascadeIconPath = null)
     {
         string Folder = $@"Directory\Background\Shell\{ContextMenuName}";
         RegisterCascade(Folder, ContextMenuName, CascadeContextMenuName, Command, IconPath, CascadeIconPath);
@@ -184,7 +192,8 @@ public static partial class ApplicationHelper
     /// <param name="ContextMenuName"></param>
     /// <param name="CascadeContextMenuName"></param>
     /// <returns></returns>
-    public static bool UnRegisterCascadeContextMenuFromBackground(string ContextMenuName, string CascadeContextMenuName = null)
+    public static bool UnRegisterCascadeContextMenuFromBackground(string ContextMenuName,
+        string CascadeContextMenuName = null)
     {
         var _RemovePath = $@"Directory\Background\Shell";
         return UnRegisterCascade(_RemovePath, ContextMenuName, CascadeContextMenuName);
@@ -236,7 +245,8 @@ public static partial class ApplicationHelper
     /// <param name="Command"></param>
     /// <param name="IconPath">Icon Should be in *.ico format</param>
     /// <param name="CascadeIconPath">Icon Should be in *.ico format</param>
-    public static void RegisterCascadeContextMenuToDrive(string ContextMenuName, string CascadeContextMenuName, string Command, string IconPath = null, string CascadeIconPath = null)
+    public static void RegisterCascadeContextMenuToDrive(string ContextMenuName, string CascadeContextMenuName,
+        string Command, string IconPath = null, string CascadeIconPath = null)
     {
         string Folder = $@"Drive\Shell\{ContextMenuName}";
         RegisterCascade(Folder, ContextMenuName, CascadeContextMenuName, Command, IconPath, CascadeIconPath);
@@ -250,7 +260,8 @@ public static partial class ApplicationHelper
     /// <param name="ContextMenuName"></param>
     /// <param name="CascadeContextMenuName"></param>
     /// <returns></returns>
-    public static bool UnRegisterCascadeContextMenuFromDrive(string ContextMenuName, string CascadeContextMenuName = null)
+    public static bool UnRegisterCascadeContextMenuFromDrive(string ContextMenuName,
+        string CascadeContextMenuName = null)
     {
         var _RemovePath = $@"Drive\Shell";
         return UnRegisterCascade(_RemovePath, ContextMenuName, CascadeContextMenuName);
@@ -258,14 +269,17 @@ public static partial class ApplicationHelper
 
     #endregion
 
-    private static void RegisterCascade(string Folder, string ContextMenuName, string CascadeContextMenuName, string Command, string IconPath = null, string CascadeIconPath = null)
+    private static void RegisterCascade(string Folder, string ContextMenuName, string CascadeContextMenuName,
+        string Command, string IconPath = null, string CascadeIconPath = null)
     {
         RegistryHelper.AddOrUpdateKey(string.Empty, Folder, string.Empty, Registry.ClassesRoot);
         RegistryHelper.AddOrUpdateKey("MUIVerb", Folder, ContextMenuName, Registry.ClassesRoot);
         RegistryHelper.AddOrUpdateKey("subcommands", Folder, string.Empty, Registry.ClassesRoot);
         RegistryHelper.AddOrUpdateKey(string.Empty, $@"{Folder}\shell", string.Empty, Registry.ClassesRoot);
-        RegistryHelper.AddOrUpdateKey(string.Empty, $@"{Folder}\shell\{CascadeContextMenuName}", string.Empty, Registry.ClassesRoot);
-        RegistryHelper.AddOrUpdateKey(string.Empty, $@"{Folder}\shell\{CascadeContextMenuName}\command", Command, Registry.ClassesRoot);
+        RegistryHelper.AddOrUpdateKey(string.Empty, $@"{Folder}\shell\{CascadeContextMenuName}", string.Empty,
+            Registry.ClassesRoot);
+        RegistryHelper.AddOrUpdateKey(string.Empty, $@"{Folder}\shell\{CascadeContextMenuName}\command", Command,
+            Registry.ClassesRoot);
 
         if (!string.IsNullOrEmpty(IconPath))
         {
@@ -274,7 +288,8 @@ public static partial class ApplicationHelper
 
         if (!string.IsNullOrEmpty(CascadeIconPath))
         {
-            RegistryHelper.AddOrUpdateKey("Icon", $@"{Folder}\shell\{CascadeContextMenuName}", CascadeIconPath, Registry.ClassesRoot);
+            RegistryHelper.AddOrUpdateKey("Icon", $@"{Folder}\shell\{CascadeContextMenuName}", CascadeIconPath,
+                Registry.ClassesRoot);
         }
     }
 

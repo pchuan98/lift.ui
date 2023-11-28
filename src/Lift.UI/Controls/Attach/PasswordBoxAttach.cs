@@ -11,7 +11,8 @@ public class PasswordBoxAttach
     public static readonly DependencyProperty PasswordLengthProperty = DependencyProperty.RegisterAttached(
         "PasswordLength", typeof(int), typeof(PasswordBoxAttach), new PropertyMetadata(ValueBoxes.Int0Box));
 
-    public static void SetPasswordLength(DependencyObject element, int value) => element.SetValue(PasswordLengthProperty, value);
+    public static void SetPasswordLength(DependencyObject element, int value) =>
+        element.SetValue(PasswordLengthProperty, value);
 
     public static int GetPasswordLength(DependencyObject element) => (int) element.GetValue(PasswordLengthProperty);
 
@@ -19,7 +20,9 @@ public class PasswordBoxAttach
     /// IsMonitoring
     /// </summary>
     public static readonly DependencyProperty IsMonitoringProperty = DependencyProperty.RegisterAttached(
-        "IsMonitoring", typeof(bool), typeof(PasswordBoxAttach), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits, OnIsMonitoringChanged));
+        "IsMonitoring", typeof(bool), typeof(PasswordBoxAttach),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits,
+            OnIsMonitoringChanged));
 
     private static void OnIsMonitoringChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -39,7 +42,8 @@ public class PasswordBoxAttach
         }
     }
 
-    public static void SetIsMonitoring(DependencyObject element, bool value) => element.SetValue(IsMonitoringProperty, ValueBoxes.BooleanBox(value));
+    public static void SetIsMonitoring(DependencyObject element, bool value) =>
+        element.SetValue(IsMonitoringProperty, ValueBoxes.BooleanBox(value));
 
     public static bool GetIsMonitoring(DependencyObject element) => (bool) element.GetValue(IsMonitoringProperty);
 

@@ -32,7 +32,8 @@ public class FloatingBlock : Control
         => (double) element.GetValue(ToYProperty);
 
     public static readonly DependencyProperty DurationProperty = DependencyProperty.RegisterAttached(
-        "Duration", typeof(Duration), typeof(FloatingBlock), new PropertyMetadata(new Duration(TimeSpan.FromSeconds(2))));
+        "Duration", typeof(Duration), typeof(FloatingBlock),
+        new PropertyMetadata(new Duration(TimeSpan.FromSeconds(2))));
 
     public static void SetDuration(DependencyObject element, Duration value)
         => element.SetValue(DurationProperty, value);
@@ -59,7 +60,8 @@ public class FloatingBlock : Control
         => (double) element.GetValue(VerticalOffsetProperty);
 
     public static readonly DependencyProperty ContentTemplateProperty = DependencyProperty.RegisterAttached(
-        "ContentTemplate", typeof(DataTemplate), typeof(FloatingBlock), new PropertyMetadata(default(DataTemplate), OnDataChanged));
+        "ContentTemplate", typeof(DataTemplate), typeof(FloatingBlock),
+        new PropertyMetadata(default(DataTemplate), OnDataChanged));
 
     public static void SetContentTemplate(DependencyObject element, DataTemplate value)
         => element.SetValue(ContentTemplateProperty, value);
@@ -111,7 +113,8 @@ public class FloatingBlock : Control
         }
     }
 
-    private static void Target_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) => SetReadyToFloat(sender as DependencyObject, true);
+    private static void Target_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) =>
+        SetReadyToFloat(sender as DependencyObject, true);
 
     private static void Target_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
     {
@@ -129,6 +132,7 @@ public class FloatingBlock : Control
 
                 layer.Add(adorner);
             }
+
             SetReadyToFloat(element, false);
         }
     }
@@ -158,11 +162,13 @@ public class FloatingBlock : Control
         var milliseconds = GetDuration(element).TimeSpan.TotalMilliseconds;
 
         var animationX = AnimationHelper.CreateAnimation(GetToX(element) + transform.X, milliseconds);
-        Storyboard.SetTargetProperty(animationX, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"));
+        Storyboard.SetTargetProperty(animationX,
+            new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"));
         Storyboard.SetTarget(animationX, block);
 
         var animationY = AnimationHelper.CreateAnimation(GetToY(element) + transform.Y, milliseconds);
-        Storyboard.SetTargetProperty(animationY, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)"));
+        Storyboard.SetTargetProperty(animationY,
+            new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)"));
         Storyboard.SetTarget(animationY, block);
 
         var animationOpacity = AnimationHelper.CreateAnimation(0, milliseconds);

@@ -154,7 +154,8 @@ public class TabItem : System.Windows.Controls.TabItem
     /// 是否显示上下文菜单
     /// </summary>
     public static readonly DependencyProperty ShowContextMenuProperty =
-        TabControl.ShowContextMenuProperty.AddOwner(typeof(TabItem), new FrameworkPropertyMetadata(OnShowContextMenuChanged));
+        TabControl.ShowContextMenuProperty.AddOwner(typeof(TabItem),
+            new FrameworkPropertyMetadata(OnShowContextMenuChanged));
 
     private static void OnShowContextMenuChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -208,7 +209,8 @@ public class TabItem : System.Windows.Controls.TabItem
             menu.SetBinding(VisibilityProperty, new Binding(ShowContextMenuProperty.Name)
             {
                 Source = this,
-                Converter = ResourceHelper.GetResourceInternal<IValueConverter>(ResourceToken.Boolean2VisibilityConverter)
+                Converter = ResourceHelper.GetResourceInternal<IValueConverter>(ResourceToken
+                    .Boolean2VisibilityConverter)
             });
         }
     }
@@ -474,7 +476,8 @@ public class TabItem : System.Windows.Controls.TabItem
         return result > maxIndex ? maxIndex : result;
     }
 
-    public static readonly RoutedEvent ClosingEvent = EventManager.RegisterRoutedEvent("Closing", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TabItem));
+    public static readonly RoutedEvent ClosingEvent =
+        EventManager.RegisterRoutedEvent("Closing", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TabItem));
 
     public event EventHandler Closing
     {
@@ -482,7 +485,8 @@ public class TabItem : System.Windows.Controls.TabItem
         remove => RemoveHandler(ClosingEvent, value);
     }
 
-    public static readonly RoutedEvent ClosedEvent = EventManager.RegisterRoutedEvent("Closed", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TabItem));
+    public static readonly RoutedEvent ClosedEvent =
+        EventManager.RegisterRoutedEvent("Closed", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TabItem));
 
     public event EventHandler Closed
     {

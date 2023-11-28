@@ -80,7 +80,8 @@ public class SearchBar : TextBox, ICommandSource
     }
 
     public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
-        nameof(Command), typeof(ICommand), typeof(SearchBar), new PropertyMetadata(default(ICommand), OnCommandChanged));
+        nameof(Command), typeof(ICommand), typeof(SearchBar),
+        new PropertyMetadata(default(ICommand), OnCommandChanged));
 
     private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -89,6 +90,7 @@ public class SearchBar : TextBox, ICommandSource
         {
             oldCommand.CanExecuteChanged -= ctl.CanExecuteChanged;
         }
+
         if (e.NewValue is ICommand newCommand)
         {
             newCommand.CanExecuteChanged += ctl.CanExecuteChanged;

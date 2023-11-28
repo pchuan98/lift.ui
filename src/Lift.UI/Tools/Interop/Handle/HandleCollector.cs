@@ -41,6 +41,7 @@ public static class HandleCollector
                 {
                     Array.Copy(HandleTypes, 0, newTypes, 0, HandleTypeCount);
                 }
+
                 HandleTypes = newTypes;
             }
 
@@ -102,7 +103,6 @@ public static class HandleCollector
 
         public bool NeedCollection()
         {
-
             if (_handleCount > _threshHold)
             {
                 _threshHold = _handleCount + _handleCount * _deltaPercent / 100;

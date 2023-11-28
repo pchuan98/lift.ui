@@ -6,7 +6,8 @@ namespace Lift.UI.Media.Effects;
 
 public abstract class EffectBase : ShaderEffect
 {
-    public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(EffectBase), 0);
+    public static readonly DependencyProperty InputProperty =
+        RegisterPixelShaderSamplerProperty("Input", typeof(EffectBase), 0);
 
     public Brush Input
     {

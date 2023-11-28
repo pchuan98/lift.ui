@@ -43,6 +43,7 @@ public abstract class AttachableCollection<T> : FreezableCollection<T>, IAttache
             _associatedObject = dependencyObject;
             WritePostscript();
         }
+
         OnAttached();
     }
 
@@ -95,6 +96,7 @@ public abstract class AttachableCollection<T> : FreezableCollection<T>, IAttache
                             _snapshot.Insert(IndexOf(current), current);
                         }
                     }
+
                     break;
                 }
                 finally
@@ -112,6 +114,7 @@ public abstract class AttachableCollection<T> : FreezableCollection<T>, IAttache
                         ItemRemoved(current);
                         _snapshot.Remove(current);
                     }
+
                     break;
                 }
                 finally
@@ -125,6 +128,7 @@ public abstract class AttachableCollection<T> : FreezableCollection<T>, IAttache
                     ItemRemoved(oldItem);
                     _snapshot.Remove(oldItem);
                 }
+
                 var enumerator3 = e.NewItems.GetEnumerator();
                 try
                 {
@@ -141,6 +145,7 @@ public abstract class AttachableCollection<T> : FreezableCollection<T>, IAttache
                             _snapshot.Insert(IndexOf(current), current);
                         }
                     }
+
                     break;
                 }
                 finally
@@ -160,6 +165,7 @@ public abstract class AttachableCollection<T> : FreezableCollection<T>, IAttache
                         VerifyAdd(current);
                         ItemAdded(current);
                     }
+
                     break;
                 }
         }

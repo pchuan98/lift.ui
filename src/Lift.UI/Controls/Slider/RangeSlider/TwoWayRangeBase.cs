@@ -46,6 +46,7 @@ public class TwoWayRangeBase : Control
         {
             return min;
         }
+
         return basevalue;
     }
 

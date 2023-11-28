@@ -23,6 +23,7 @@ public class CornerRadiusSplitConverter : IValueConverter
                     arr[3].Equals("1") ? cornerRadius.BottomLeft : 0);
             }
         }
+
         return value;
     }
 

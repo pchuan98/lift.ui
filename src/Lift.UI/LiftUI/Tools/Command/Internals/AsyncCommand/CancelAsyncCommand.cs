@@ -11,11 +11,16 @@ internal sealed class CancelAsyncCommand : ICommand
     private CancellationTokenSource _cts = new CancellationTokenSource();
     private bool _commandExecuting;
     private Action onCancel;
+
     public event Action OnCancel
     {
-        add { if (onCancel is null) onCancel += value; }
+        add
+        {
+            if (onCancel is null) onCancel += value;
+        }
         remove { onCancel -= value; }
     }
+
     //public event Action OnCancel;
     public CancellationToken Token => _cts.Token;
 
@@ -41,7 +46,6 @@ internal sealed class CancelAsyncCommand : ICommand
 
     public void Execute(object parameter)
     {
-
         onCancel?.Invoke();
         _cts.Cancel();
         RaiseCanExecuteChanged();

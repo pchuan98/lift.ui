@@ -12,7 +12,7 @@ internal interface IPropertyStore
 
     PKEY GetAt(uint iProp);
 
-    void GetValue([In] ref PKEY pkey, [In][Out] PROPVARIANT pv);
+    void GetValue([In] ref PKEY pkey, [In] [Out] PROPVARIANT pv);
 
     void SetValue([In] ref PKEY pkey, PROPVARIANT pv);
 

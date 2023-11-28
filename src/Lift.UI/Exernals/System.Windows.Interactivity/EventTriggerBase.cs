@@ -27,7 +27,8 @@ public abstract class EventTriggerBase : TriggerBase
     {
         get
         {
-            if (TypeDescriptor.GetAttributes(GetType())[typeof(TypeConstraintAttribute)] is TypeConstraintAttribute attribute)
+            if (TypeDescriptor.GetAttributes(GetType())[typeof(TypeConstraintAttribute)] is TypeConstraintAttribute
+                attribute)
                 return attribute.Constraint;
             return typeof(DependencyObject);
         }
@@ -62,6 +63,7 @@ public abstract class EventTriggerBase : TriggerBase
                         ExceptionStringTable.RetargetedTypeConstraintViolatedExceptionMessage, GetType().Name,
                         associatedObject.GetType(), SourceTypeConstraint, "Source"));
             }
+
             return associatedObject;
         }
     }
@@ -92,7 +94,9 @@ public abstract class EventTriggerBase : TriggerBase
         if (!typeof(Delegate).IsAssignableFrom(eventInfo.EventHandlerType))
             return false;
         var parameters = eventHandlerType.GetMethod("Invoke")?.GetParameters();
-        return parameters != null && parameters.Length == 2 && typeof(object).IsAssignableFrom(parameters[0].ParameterType) && typeof(EventArgs).IsAssignableFrom(parameters[1].ParameterType);
+        return parameters != null && parameters.Length == 2 &&
+               typeof(object).IsAssignableFrom(parameters[0].ParameterType) &&
+               typeof(EventArgs).IsAssignableFrom(parameters[1].ParameterType);
     }
 
     protected override void OnAttached()
@@ -120,6 +124,7 @@ public abstract class EventTriggerBase : TriggerBase
         {
             SourceNameResolver.NameScopeReferenceElement = element;
         }
+
         if (string.Compare(GetEventName(), "Loaded", StringComparison.Ordinal) == 0 && element != null &&
             !Interaction.IsElementLoaded(element))
             RegisterLoaded(element);
@@ -143,6 +148,7 @@ public abstract class EventTriggerBase : TriggerBase
         catch (InvalidOperationException)
         {
         }
+
         UnregisterSourceChanged();
         if (associatedObject != null)
             associatedObject.AssociatedObjectChanged -= OnBehaviorHostChanged;
@@ -245,7 +251,8 @@ public abstract class EventTriggerBase : TriggerBase
             _eventHandlerMethodInfo =
                 typeof(EventTriggerBase).GetMethod("OnEventImpl", BindingFlags.NonPublic | BindingFlags.Instance);
             eventInfo.AddEventHandler(obj,
-                Delegate.CreateDelegate(eventInfo.EventHandlerType, this, _eventHandlerMethodInfo ?? throw new InvalidOperationException()));
+                Delegate.CreateDelegate(eventInfo.EventHandlerType, this,
+                    _eventHandlerMethodInfo ?? throw new InvalidOperationException()));
         }
     }
 

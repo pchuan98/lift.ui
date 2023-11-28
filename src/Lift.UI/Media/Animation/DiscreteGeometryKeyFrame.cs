@@ -20,5 +20,6 @@ public class DiscreteGeometryKeyFrame : GeometryKeyFrame
 
     protected override Freezable CreateInstanceCore() => new DiscreteGeometryKeyFrame();
 
-    protected override double[] InterpolateValueCore(double[] baseValue, double keyFrameProgress) => keyFrameProgress < 1.0 ? baseValue : Numbers;
+    protected override double[] InterpolateValueCore(double[] baseValue, double keyFrameProgress) =>
+        keyFrameProgress < 1.0 ? baseValue : Numbers;
 }

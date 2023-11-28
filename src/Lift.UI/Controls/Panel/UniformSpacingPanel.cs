@@ -18,7 +18,8 @@ public class UniformSpacingPanel : Panel
 
     public static readonly DependencyProperty OrientationProperty =
         StackPanel.OrientationProperty.AddOwner(typeof(UniformSpacingPanel),
-            new FrameworkPropertyMetadata(Orientation.Horizontal, FrameworkPropertyMetadataOptions.AffectsMeasure, OnOrientationChanged));
+            new FrameworkPropertyMetadata(Orientation.Horizontal, FrameworkPropertyMetadataOptions.AffectsMeasure,
+                OnOrientationChanged));
 
     private static void OnOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -132,7 +133,8 @@ public class UniformSpacingPanel : Panel
         return false;
     }
 
-    private void ArrangeWrapLine(double v, double lineV, int start, int end, bool useItemU, double itemU, double spacing)
+    private void ArrangeWrapLine(double v, double lineV, int start, int end, bool useItemU, double itemU,
+        double spacing)
     {
         double u = 0;
         var isHorizontal = _orientation == Orientation.Horizontal;
@@ -369,7 +371,8 @@ public class UniformSpacingPanel : Panel
 
             if (firstInLine < children.Count)
             {
-                ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, children.Count, useItemU, itemU, spacingSize.U);
+                ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, children.Count, useItemU, itemU,
+                    spacingSize.U);
             }
         }
         else

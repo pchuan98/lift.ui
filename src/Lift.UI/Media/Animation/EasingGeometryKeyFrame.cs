@@ -10,20 +10,18 @@ public class EasingGeometryKeyFrame : GeometryKeyFrame
 {
     public EasingGeometryKeyFrame()
     {
-
     }
 
     public EasingGeometryKeyFrame(Geometry value) : base(value)
     {
-
     }
 
     public EasingGeometryKeyFrame(Geometry value, KeyTime keyTime) : base(value, keyTime)
     {
-
     }
 
-    public EasingGeometryKeyFrame(Geometry value, KeyTime keyTime, IEasingFunction easingFunction) : base(value, keyTime)
+    public EasingGeometryKeyFrame(Geometry value, KeyTime keyTime, IEasingFunction easingFunction) : base(value,
+        keyTime)
     {
         EasingFunction = easingFunction;
     }
@@ -52,7 +50,8 @@ public class EasingGeometryKeyFrame : GeometryKeyFrame
     }
 
     public static readonly DependencyProperty EasingFunctionProperty = DependencyProperty.Register(
-        nameof(EasingFunction), typeof(IEasingFunction), typeof(EasingGeometryKeyFrame), new PropertyMetadata(default(IEasingFunction)));
+        nameof(EasingFunction), typeof(IEasingFunction), typeof(EasingGeometryKeyFrame),
+        new PropertyMetadata(default(IEasingFunction)));
 
     public IEasingFunction EasingFunction
     {

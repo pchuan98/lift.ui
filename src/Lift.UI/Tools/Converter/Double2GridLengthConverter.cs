@@ -15,6 +15,7 @@ public class Double2GridLengthConverter : IValueConverter
             {
                 return new GridLength(1.0, GridUnitType.Star);
             }
+
             return new GridLength(doubleValue);
         }
 

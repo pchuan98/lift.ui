@@ -24,6 +24,7 @@ public class AdornerContainer : Adorner
                 _child = value;
                 return;
             }
+
             AddVisualChild(value);
             _child = value;
         }

@@ -14,6 +14,7 @@ public sealed class NotifyTaskCompletion<TResult> : INotifyPropertyChanged
         Task = task;
         TaskCompletion = WatchTaskAsync(task);
     }
+
     private async Task WatchTaskAsync(Task task)
     {
         try
@@ -23,6 +24,7 @@ public sealed class NotifyTaskCompletion<TResult> : INotifyPropertyChanged
         catch
         {
         }
+
         var propertyChanged = PropertyChanged;
         if (propertyChanged == null)
             return;
@@ -46,6 +48,7 @@ public sealed class NotifyTaskCompletion<TResult> : INotifyPropertyChanged
             propertyChanged(this, new PropertyChangedEventArgs("Result"));
         }
     }
+
     public Task<TResult> Task { get; private set; }
     public Task TaskCompletion { get; private set; }
     public TResult Result => (Task.Status == TaskStatus.RanToCompletion) ? Task.Result : default;

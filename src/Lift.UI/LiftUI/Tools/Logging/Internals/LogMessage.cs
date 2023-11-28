@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Lift.UI.Tools;
 
 public class LogMessage
@@ -12,7 +13,8 @@ public class LogMessage
 
     public LogMessage() { }
 
-    public LogMessage(Logger.Level level, string text, DateTime dateTime, string callingClass, string callingMethod, int lineNumber)
+    public LogMessage(Logger.Level level, string text, DateTime dateTime, string callingClass, string callingMethod,
+        int lineNumber)
     {
         Level = level;
         Text = text;

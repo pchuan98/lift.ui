@@ -16,6 +16,7 @@ namespace Microsoft.Windows.Controls;
 internal static class VisualStates
 {
     #region GroupCalendarButtonFocus
+
     /// <summary>
     /// Unfocused state for PersianCalendar Buttons
     /// </summary>
@@ -34,6 +35,7 @@ internal static class VisualStates
     #endregion GroupCalendarButtonFocus
 
     #region GroupCommon
+
     /// <summary>
     /// Normal state
     /// </summary>
@@ -58,9 +60,11 @@ internal static class VisualStates
     /// Common state group
     /// </summary>
     public const string GroupCommon = "CommonStates";
+
     #endregion GroupCommon
 
     #region GroupFocus
+
     /// <summary>
     /// Unfocused state
     /// </summary>
@@ -75,9 +79,11 @@ internal static class VisualStates
     /// Focus state group
     /// </summary>
     public const string GroupFocus = "FocusStates";
+
     #endregion GroupFocus
 
     #region GroupSelection
+
     /// <summary>
     /// Selected state
     /// </summary>
@@ -92,9 +98,11 @@ internal static class VisualStates
     /// Selection state group
     /// </summary>
     public const string GroupSelection = "SelectionStates";
+
     #endregion GroupSelection
 
     #region GroupActive
+
     /// <summary>
     /// Active state
     /// </summary>
@@ -109,9 +117,11 @@ internal static class VisualStates
     /// Active state group
     /// </summary>
     public const string GroupActive = "ActiveStates";
+
     #endregion GroupActive
 
     #region GroupValidation
+
     /// <summary>
     /// Valid state
     /// </summary>
@@ -131,9 +141,11 @@ internal static class VisualStates
     /// Validation state group
     /// </summary>
     public const string GroupValidation = "ValidationStates";
+
     #endregion GroupValidation
 
     #region GroupWatermark
+
     /// <summary>
     /// Unwatermarked state
     /// </summary>
@@ -148,6 +160,7 @@ internal static class VisualStates
     /// Watermark state group
     /// </summary>
     public const string GroupWatermark = "WatermarkStates";
+
     #endregion GroupWatermark
 
     /// <summary>

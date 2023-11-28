@@ -13,11 +13,26 @@ namespace Lift.UI.Controls;
 /// </summary>
 public class ToggleBlock : Control
 {
-    public static readonly DependencyProperty IsCheckedProperty = DependencyProperty.Register(nameof(IsChecked), typeof(bool?), typeof(ToggleBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal));
-    public static readonly DependencyProperty CheckedContentProperty = DependencyProperty.Register(nameof(CheckedContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
-    public static readonly DependencyProperty UnCheckedContentProperty = DependencyProperty.Register(nameof(UnCheckedContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
-    public static readonly DependencyProperty IndeterminateContentProperty = DependencyProperty.Register(nameof(IndeterminateContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
-    public static readonly DependencyProperty ToggleGestureProperty = DependencyProperty.Register(nameof(ToggleGesture), typeof(MouseGesture), typeof(ToggleBlock), new UIPropertyMetadata(new MouseGesture(MouseAction.None), OnToggleGestureChanged));
+    public static readonly DependencyProperty IsCheckedProperty = DependencyProperty.Register(nameof(IsChecked),
+        typeof(bool?), typeof(ToggleBlock),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox,
+            FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal));
+
+    public static readonly DependencyProperty CheckedContentProperty =
+        DependencyProperty.Register(nameof(CheckedContent), typeof(object), typeof(ToggleBlock),
+            new PropertyMetadata(default(object)));
+
+    public static readonly DependencyProperty UnCheckedContentProperty =
+        DependencyProperty.Register(nameof(UnCheckedContent), typeof(object), typeof(ToggleBlock),
+            new PropertyMetadata(default(object)));
+
+    public static readonly DependencyProperty IndeterminateContentProperty =
+        DependencyProperty.Register(nameof(IndeterminateContent), typeof(object), typeof(ToggleBlock),
+            new PropertyMetadata(default(object)));
+
+    public static readonly DependencyProperty ToggleGestureProperty = DependencyProperty.Register(nameof(ToggleGesture),
+        typeof(MouseGesture), typeof(ToggleBlock),
+        new UIPropertyMetadata(new MouseGesture(MouseAction.None), OnToggleGestureChanged));
 
     private MouseBinding _toggleBinding;
 

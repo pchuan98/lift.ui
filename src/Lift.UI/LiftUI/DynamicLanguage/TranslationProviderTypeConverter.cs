@@ -56,7 +56,8 @@ internal class TranslationProviderTypeConverter : TypeConverter
             }
             else
             {
-                throw new FormatException("translation provider is not a valid path. The path needs to have the following format: 'Assembly;FullClassName'.");
+                throw new FormatException(
+                    "translation provider is not a valid path. The path needs to have the following format: 'Assembly;FullClassName'.");
             }
         }
 

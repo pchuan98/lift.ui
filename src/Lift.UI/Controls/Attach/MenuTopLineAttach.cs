@@ -74,8 +74,11 @@ public class MenuTopLineAttach
                 {
                     topLine.Width -= overflowWidth + panel.Margin.Right;
                 }
+
                 topLine.HorizontalAlignment = HorizontalAlignment.Left;
-                topLine.Margin = new Thickness(positionLeftTop.X + panel.ActualWidth - workAreaRect.Right + panel.Margin.Right, 0, 0, 0);
+                topLine.Margin =
+                    new Thickness(positionLeftTop.X + panel.ActualWidth - workAreaRect.Right + panel.Margin.Right, 0, 0,
+                        0);
             }
 
             if (positionRightBottom.Y > workAreaRect.Bottom)
@@ -94,7 +97,8 @@ public class MenuTopLineAttach
         => (Popup) element.GetValue(PopupProperty);
 
     internal static readonly DependencyProperty TopLineProperty = DependencyProperty.RegisterAttached(
-        "TopLine", typeof(FrameworkElement), typeof(MenuTopLineAttach), new PropertyMetadata(default(FrameworkElement)));
+        "TopLine", typeof(FrameworkElement), typeof(MenuTopLineAttach),
+        new PropertyMetadata(default(FrameworkElement)));
 
     internal static void SetTopLine(DependencyObject element, FrameworkElement value)
         => element.SetValue(TopLineProperty, value);

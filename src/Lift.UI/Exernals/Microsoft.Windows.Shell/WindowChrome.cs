@@ -24,6 +24,7 @@ public class WindowChrome : Freezable
         {
             return;
         }
+
         Window window = (Window) d;
         WindowChrome windowChrome = (WindowChrome) e.NewValue;
         WindowChromeWorker windowChromeWorker = WindowChromeWorker.GetWindowChromeWorker(window);
@@ -32,6 +33,7 @@ public class WindowChrome : Freezable
             windowChromeWorker = new WindowChromeWorker();
             WindowChromeWorker.SetWindowChromeWorker(window, windowChromeWorker);
         }
+
         windowChromeWorker.SetWindowChrome(windowChrome);
     }
 
@@ -61,6 +63,7 @@ public class WindowChrome : Freezable
         {
             throw new ArgumentException("The element must be a DependencyObject", "inputElement");
         }
+
         return (bool) dependencyObject.GetValue(WindowChrome.IsHitTestVisibleInChromeProperty);
     }
 
@@ -74,6 +77,7 @@ public class WindowChrome : Freezable
         {
             throw new ArgumentException("The element must be a DependencyObject", "inputElement");
         }
+
         dependencyObject.SetValue(WindowChrome.IsHitTestVisibleInChromeProperty, hitTestVisible);
     }
 
@@ -107,6 +111,7 @@ public class WindowChrome : Freezable
         {
             return WindowChrome.GlassFrameCompleteThickness;
         }
+
         return thickness;
     }
 
@@ -141,7 +146,8 @@ public class WindowChrome : Freezable
 
     public WindowChrome()
     {
-        foreach (WindowChrome._SystemParameterBoundProperty systemParameterBoundProperty in WindowChrome._BoundProperties)
+        foreach (WindowChrome._SystemParameterBoundProperty systemParameterBoundProperty in WindowChrome
+                     ._BoundProperties)
         {
             BindingOperations.SetBinding(this, systemParameterBoundProperty.DependencyProperty, new Binding
             {
@@ -164,50 +170,64 @@ public class WindowChrome : Freezable
 
     internal event EventHandler PropertyChangedThatRequiresRepaint;
 
-    public static readonly DependencyProperty WindowChromeProperty = DependencyProperty.RegisterAttached("WindowChrome", typeof(WindowChrome), typeof(WindowChrome), new PropertyMetadata(null, new PropertyChangedCallback(WindowChrome._OnChromeChanged)));
+    public static readonly DependencyProperty WindowChromeProperty = DependencyProperty.RegisterAttached("WindowChrome",
+        typeof(WindowChrome), typeof(WindowChrome),
+        new PropertyMetadata(null, new PropertyChangedCallback(WindowChrome._OnChromeChanged)));
 
-    public static readonly DependencyProperty IsHitTestVisibleInChromeProperty = DependencyProperty.RegisterAttached("IsHitTestVisibleInChrome", typeof(bool), typeof(WindowChrome), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
+    public static readonly DependencyProperty IsHitTestVisibleInChromeProperty =
+        DependencyProperty.RegisterAttached("IsHitTestVisibleInChrome", typeof(bool), typeof(WindowChrome),
+            new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
 
-    public static readonly DependencyProperty CaptionHeightProperty = DependencyProperty.Register("CaptionHeight", typeof(double), typeof(WindowChrome), new PropertyMetadata(0.0, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
-    }), (object value) => (double) value >= 0.0);
+    public static readonly DependencyProperty CaptionHeightProperty = DependencyProperty.Register("CaptionHeight",
+        typeof(double), typeof(WindowChrome), new PropertyMetadata(0.0,
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
+            }), (object value) => (double) value >= 0.0);
 
-    public static readonly DependencyProperty ResizeBorderThicknessProperty = DependencyProperty.Register("ResizeBorderThickness", typeof(Thickness), typeof(WindowChrome), new PropertyMetadata(default(Thickness)), (object value) => Utility.IsThicknessNonNegative((Thickness) value));
+    public static readonly DependencyProperty ResizeBorderThicknessProperty =
+        DependencyProperty.Register("ResizeBorderThickness", typeof(Thickness), typeof(WindowChrome),
+            new PropertyMetadata(default(Thickness)),
+            (object value) => Utility.IsThicknessNonNegative((Thickness) value));
 
-    public static readonly DependencyProperty GlassFrameThicknessProperty = DependencyProperty.Register("GlassFrameThickness", typeof(Thickness), typeof(WindowChrome), new PropertyMetadata(default(Thickness), delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
-    }, (DependencyObject d, object o) => WindowChrome._CoerceGlassFrameThickness((Thickness) o)));
+    public static readonly DependencyProperty GlassFrameThicknessProperty = DependencyProperty.Register(
+        "GlassFrameThickness", typeof(Thickness), typeof(WindowChrome), new PropertyMetadata(default(Thickness),
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
+            }, (DependencyObject d, object o) => WindowChrome._CoerceGlassFrameThickness((Thickness) o)));
 
-    public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(WindowChrome), new PropertyMetadata(default(CornerRadius), delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
-    }), (object value) => Utility.IsCornerRadiusValid((CornerRadius) value));
+    public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register("CornerRadius",
+        typeof(CornerRadius), typeof(WindowChrome), new PropertyMetadata(default(CornerRadius),
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
+            }), (object value) => Utility.IsCornerRadiusValid((CornerRadius) value));
 
-    private static readonly List<WindowChrome._SystemParameterBoundProperty> _BoundProperties = new List<WindowChrome._SystemParameterBoundProperty>
-    {
-        new WindowChrome._SystemParameterBoundProperty
+    private static readonly List<WindowChrome._SystemParameterBoundProperty> _BoundProperties =
+        new List<WindowChrome._SystemParameterBoundProperty>
         {
-            DependencyProperty = WindowChrome.CornerRadiusProperty,
-            SystemParameterPropertyName = "WindowCornerRadius"
-        },
-        new WindowChrome._SystemParameterBoundProperty
-        {
-            DependencyProperty = WindowChrome.CaptionHeightProperty,
-            SystemParameterPropertyName = "WindowCaptionHeight"
-        },
-        new WindowChrome._SystemParameterBoundProperty
-        {
-            DependencyProperty = WindowChrome.ResizeBorderThicknessProperty,
-            SystemParameterPropertyName = "WindowResizeBorderThickness"
-        },
-        new WindowChrome._SystemParameterBoundProperty
-        {
-            DependencyProperty = WindowChrome.GlassFrameThicknessProperty,
-            SystemParameterPropertyName = "WindowNonClientFrameThickness"
-        }
-    };
+            new WindowChrome._SystemParameterBoundProperty
+            {
+                DependencyProperty = WindowChrome.CornerRadiusProperty,
+                SystemParameterPropertyName = "WindowCornerRadius"
+            },
+            new WindowChrome._SystemParameterBoundProperty
+            {
+                DependencyProperty = WindowChrome.CaptionHeightProperty,
+                SystemParameterPropertyName = "WindowCaptionHeight"
+            },
+            new WindowChrome._SystemParameterBoundProperty
+            {
+                DependencyProperty = WindowChrome.ResizeBorderThicknessProperty,
+                SystemParameterPropertyName = "WindowResizeBorderThickness"
+            },
+            new WindowChrome._SystemParameterBoundProperty
+            {
+                DependencyProperty = WindowChrome.GlassFrameThicknessProperty,
+                SystemParameterPropertyName = "WindowNonClientFrameThickness"
+            }
+        };
 
     private struct _SystemParameterBoundProperty
     {

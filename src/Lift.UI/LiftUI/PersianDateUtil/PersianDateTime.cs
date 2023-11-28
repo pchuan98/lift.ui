@@ -17,6 +17,7 @@ public partial class PersianDateTime : IConvertible
         get => dateTime;
         set => Initial(value);
     }
+
     public int Millisecond { get; }
     public int Second { get; private set; }
     public int Minute { get; private set; }
@@ -146,10 +147,10 @@ public partial class PersianDateTime : IConvertible
     #region Fields
 
     private static readonly string[] dayOfWeek =
-        {"یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه", "شنبه"};
+        { "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه", "شنبه" };
 
     private static readonly string[] months =
-        {"", "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"};
+        { "", "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند" };
 
     private const string TimePattern =
         @"^((([0-1]?[0-9])|(2[0-3]):[0-5]?[0-9])|(([0-1]?[0-9])|(2[0-3]):[0-5]?[0-9]:[0-5]?[0-9]))$";

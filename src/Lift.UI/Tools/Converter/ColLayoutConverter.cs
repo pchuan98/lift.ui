@@ -33,7 +33,8 @@ public class ColLayoutConverter : TypeConverter
     public override bool CanConvertTo(ITypeDescriptorContext typeDescriptorContext, Type destinationType) =>
         destinationType == typeof(InstanceDescriptor) || destinationType == typeof(string);
 
-    public override object ConvertFrom(ITypeDescriptorContext typeDescriptorContext, CultureInfo cultureInfo, object source)
+    public override object ConvertFrom(ITypeDescriptorContext typeDescriptorContext, CultureInfo cultureInfo,
+        object source)
     {
         if (source == null) throw GetConvertFromException(null);
 
@@ -46,7 +47,8 @@ public class ColLayoutConverter : TypeConverter
     }
 
     [SecurityCritical]
-    public override object ConvertTo(ITypeDescriptorContext typeDescriptorContext, CultureInfo cultureInfo, object value, Type destinationType)
+    public override object ConvertTo(ITypeDescriptorContext typeDescriptorContext, CultureInfo cultureInfo,
+        object value, Type destinationType)
     {
         if (value == null) throw new ArgumentNullException(nameof(value));
 
@@ -57,7 +59,8 @@ public class ColLayoutConverter : TypeConverter
         if (destinationType == typeof(string)) return ToString(th, cultureInfo);
         if (destinationType == typeof(InstanceDescriptor))
         {
-            var ci = typeof(ColLayout).GetConstructor(new[] { typeof(int), typeof(int), typeof(int), typeof(int), typeof(int), typeof(int) });
+            var ci = typeof(ColLayout).GetConstructor(new[]
+                { typeof(int), typeof(int), typeof(int), typeof(int), typeof(int), typeof(int) });
             return new InstanceDescriptor(ci, new object[] { th.Xs, th.Sm, th.Md, th.Lg, th.Xl, th.Xxl });
         }
 
@@ -97,7 +100,7 @@ public class ColLayoutConverter : TypeConverter
         {
             if (i >= 6)
             {
-                i = 7;    // Set i to a bad value. 
+                i = 7; // Set i to a bad value. 
                 break;
             }
 

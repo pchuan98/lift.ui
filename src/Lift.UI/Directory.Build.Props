@@ -145,7 +145,6 @@
     </Compile>-->
 
 
-
     <!--<Compile Include="..\Lift.UI.Shared\Properties\Langs\LangProvider.cs">
       <Link>Properties\Langs\LangProvider.cs</Link>
       <AutoGen>True</AutoGen>
@@ -186,7 +185,6 @@
     <EmbeddedResource Include="Properties\Langs\Lang.ru.resx">
       <Link>Properties\Langs\Lang.ru.resx</Link>
     </EmbeddedResource>-->
-
 
 
     <!--<EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.resx">

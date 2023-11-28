@@ -18,7 +18,6 @@ public class RangeThumb : Thumb
 
     protected override void OnMouseMove(MouseEventArgs e)
     {
-
     }
 
     public void StartDrag()

@@ -10,7 +10,9 @@ public sealed class TaskbarRebuildBehavior : Behavior<System.Windows.Window>
 {
     private int taskbarCreated;
 
-    public static readonly DependencyProperty ElementProperty = DependencyProperty.Register("Element", typeof(UIElement), typeof(TaskbarRebuildBehavior));
+    public static readonly DependencyProperty ElementProperty =
+        DependencyProperty.Register("Element", typeof(UIElement), typeof(TaskbarRebuildBehavior));
+
     public UIElement Element
     {
         get => (UIElement) this.GetValue(ElementProperty);
@@ -36,6 +38,7 @@ public sealed class TaskbarRebuildBehavior : Behavior<System.Windows.Window>
             this.Element.Visibility = Visibility.Collapsed;
             this.Element.Visibility = Visibility.Visible;
         }
+
         return IntPtr.Zero;
     }
 }

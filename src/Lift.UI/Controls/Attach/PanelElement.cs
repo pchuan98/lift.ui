@@ -7,7 +7,8 @@ namespace Lift.UI.Controls;
 public class PanelElement
 {
     public static readonly DependencyProperty FluidMoveBehaviorProperty = DependencyProperty.RegisterAttached(
-        "FluidMoveBehavior", typeof(FluidMoveBehavior), typeof(PanelElement), new PropertyMetadata(default(FluidMoveBehavior), OnFluidMoveBehaviorChanged));
+        "FluidMoveBehavior", typeof(FluidMoveBehavior), typeof(PanelElement),
+        new PropertyMetadata(default(FluidMoveBehavior), OnFluidMoveBehaviorChanged));
 
     private static void OnFluidMoveBehaviorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -33,7 +34,8 @@ public class PanelElement
         => (FluidMoveBehavior) element.GetValue(FluidMoveBehaviorProperty);
 
     private static readonly DependencyProperty TempFluidMoveBehaviorProperty = DependencyProperty.RegisterAttached(
-        "TempFluidMoveBehavior", typeof(FluidMoveBehavior), typeof(PanelElement), new PropertyMetadata(default(FluidMoveBehavior)));
+        "TempFluidMoveBehavior", typeof(FluidMoveBehavior), typeof(PanelElement),
+        new PropertyMetadata(default(FluidMoveBehavior)));
 
     private static void SetTempFluidMoveBehavior(DependencyObject element, FluidMoveBehavior value)
         => element.SetValue(TempFluidMoveBehaviorProperty, value);

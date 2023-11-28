@@ -1,5 +1,4 @@
-﻿
-namespace Lift.UI.Data;
+﻿namespace Lift.UI.Data;
 
 public enum PlacementType
 {
@@ -7,12 +6,12 @@ public enum PlacementType
     /// 左上
     /// </summary>
     LeftTop,
-    
+
     /// <summary>
     /// 左
     /// </summary>
     Left,
-    
+
     /// <summary>
     /// 左下
     /// </summary>
@@ -37,27 +36,27 @@ public enum PlacementType
     /// 右上
     /// </summary>
     RightTop,
-    
+
     /// <summary>
     /// 右
     /// </summary>
     Right,
-    
+
     /// <summary>
     /// 右下
     /// </summary>
     RightBottom,
-           
+
     /// <summary>
     /// 下左
     /// </summary>
     BottomLeft,
-    
+
     /// <summary>
     /// 下
     /// </summary>
     Bottom,
-    
+
     /// <summary>
     /// 下右
     /// </summary>

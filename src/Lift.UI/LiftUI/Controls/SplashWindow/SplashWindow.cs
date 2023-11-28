@@ -28,7 +28,8 @@ public class SplashWindow : Lift.UI.Controls.Window, ISplashWindow, INotifyPrope
     {
         ResetSplashCreated = new ManualResetEvent(false);
 
-        SplashThread = new Thread(() => {
+        SplashThread = new Thread(() =>
+        {
             var splash = SplashWindow();
             Instance = splash;
             splash.Show();
@@ -45,6 +46,7 @@ public class SplashWindow : Lift.UI.Controls.Window, ISplashWindow, INotifyPrope
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
+
     private void OnPropertyRaised(string propertyname)
     {
         if (PropertyChanged != null)
@@ -54,6 +56,7 @@ public class SplashWindow : Lift.UI.Controls.Window, ISplashWindow, INotifyPrope
     }
 
     private string _Message;
+
     public string Message
     {
         get { return _Message; }
@@ -70,7 +73,7 @@ public class SplashWindow : Lift.UI.Controls.Window, ISplashWindow, INotifyPrope
     /// <param name="message"></param>
     public void AddMessage(string message)
     {
-        Dispatcher.Invoke((Action)delegate ()
+        Dispatcher.Invoke((Action) delegate()
         {
             Message = message;
         });

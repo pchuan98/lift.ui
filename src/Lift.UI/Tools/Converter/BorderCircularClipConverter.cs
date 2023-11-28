@@ -12,7 +12,8 @@ public class BorderCircularClipConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
-        if (values.Length == 3 && values[0] is double width && values[1] is double height && values[2] is CornerRadius radius)
+        if (values.Length == 3 && values[0] is double width && values[1] is double height &&
+            values[2] is CornerRadius radius)
         {
             if (width < double.Epsilon || height < double.Epsilon)
             {

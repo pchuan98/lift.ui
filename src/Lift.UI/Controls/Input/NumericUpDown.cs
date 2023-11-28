@@ -60,7 +60,8 @@ public class NumericUpDown : Control
         {
             _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if NET48_OR_GREATER
-            _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+            _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source =
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             this });
 #endif
             _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
             _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
@@ -188,11 +189,13 @@ public class NumericUpDown : Control
             ctl.Value = minimum;
             return minimum;
         }
+
         var maximum = ctl.Maximum;
         if (num > maximum)
         {
             ctl.Value = maximum;
         }
+
         ctl.SetText();
         return num > maximum ? maximum : num;
     }
@@ -210,7 +213,8 @@ public class NumericUpDown : Control
     /// 最大值
     /// </summary>
     public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
-        nameof(Maximum), typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MaxValue, OnMaximumChanged, CoerceMaximum), ValidateHelper.IsInRangeOfDouble);
+        nameof(Maximum), typeof(double), typeof(NumericUpDown),
+        new PropertyMetadata(double.MaxValue, OnMaximumChanged, CoerceMaximum), ValidateHelper.IsInRangeOfDouble);
 
     private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -238,7 +242,8 @@ public class NumericUpDown : Control
     /// 最小值
     /// </summary>
     public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
-        nameof(Minimum), typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MinValue, OnMinimumChanged, CoerceMinimum), ValidateHelper.IsInRangeOfDouble);
+        nameof(Minimum), typeof(double), typeof(NumericUpDown),
+        new PropertyMetadata(double.MinValue, OnMinimumChanged, CoerceMinimum), ValidateHelper.IsInRangeOfDouble);
 
     private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -347,7 +352,6 @@ public class NumericUpDown : Control
     }
 
 #if NET48_OR_GREATER
-
     public static readonly DependencyProperty SelectionTextBrushProperty =
         TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(NumericUpDown));
 

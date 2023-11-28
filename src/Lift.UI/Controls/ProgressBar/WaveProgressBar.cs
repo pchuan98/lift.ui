@@ -28,7 +28,8 @@ public class WaveProgressBar : RangeBase
     static WaveProgressBar()
     {
         FocusableProperty.OverrideMetadata(typeof(WaveProgressBar), new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
-        MaximumProperty.OverrideMetadata(typeof(WaveProgressBar), new FrameworkPropertyMetadata(ValueBoxes.Double100Box));
+        MaximumProperty.OverrideMetadata(typeof(WaveProgressBar),
+            new FrameworkPropertyMetadata(ValueBoxes.Double100Box));
     }
 
     protected override void OnMinimumChanged(double oldMinimum, double newMinimum) => UpdateWave(Value);

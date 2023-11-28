@@ -75,8 +75,10 @@ public class DateTimePicker : Control
     static DateTimePicker()
     {
         EventManager.RegisterClassHandler(typeof(DateTimePicker), GotFocusEvent, new RoutedEventHandler(OnGotFocus));
-        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(DateTimePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
-        KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(DateTimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
+        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(DateTimePicker),
+            new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
+        KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(DateTimePicker),
+            new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
     }
 
     public DateTimePicker()
@@ -111,7 +113,9 @@ public class DateTimePicker : Control
     }
 
     public static readonly DependencyProperty DisplayDateTimeProperty = DependencyProperty.Register(
-        nameof(DisplayDateTime), typeof(DateTime), typeof(DateTimePicker), new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayDateTime));
+        nameof(DisplayDateTime), typeof(DateTime), typeof(DateTimePicker),
+        new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null,
+            CoerceDisplayDateTime));
 
     private static object CoerceDisplayDateTime(DependencyObject d, object value)
     {
@@ -128,7 +132,9 @@ public class DateTimePicker : Control
     }
 
     public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-        nameof(IsDropDownOpen), typeof(bool), typeof(DateTimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
+        nameof(IsDropDownOpen), typeof(bool), typeof(DateTimePicker),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+            OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
 
     private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) =>
         d is DateTimePicker
@@ -165,7 +171,9 @@ public class DateTimePicker : Control
     }
 
     public static readonly DependencyProperty SelectedDateTimeProperty = DependencyProperty.Register(
-        nameof(SelectedDateTime), typeof(DateTime?), typeof(DateTimePicker), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedDateTimeChanged, CoerceSelectedDateTime));
+        nameof(SelectedDateTime), typeof(DateTime?), typeof(DateTimePicker),
+        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+            OnSelectedDateTimeChanged, CoerceSelectedDateTime));
 
     private static object CoerceSelectedDateTime(DependencyObject d, object value)
     {
@@ -197,7 +205,8 @@ public class DateTimePicker : Control
     }
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-        nameof(Text), typeof(string), typeof(DateTimePicker), new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
+        nameof(Text), typeof(string), typeof(DateTimePicker),
+        new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
 
     private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -333,7 +342,8 @@ public class DateTimePicker : Control
 
             _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-            _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+            _textBox.SetBinding(SelectionTextBrushProperty,
+                new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
             _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
             _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
@@ -407,7 +417,8 @@ public class DateTimePicker : Control
 
     private void CalendarWithClock_Confirmed() => TogglePopup();
 
-    private void CalendarWithClock_SelectedDateTimeChanged(object sender, FunctionEventArgs<DateTime?> e) => SelectedDateTime = e.Info;
+    private void CalendarWithClock_SelectedDateTimeChanged(object sender, FunctionEventArgs<DateTime?> e) =>
+        SelectedDateTime = e.Info;
 
     private void TextBox_LostFocus(object sender, RoutedEventArgs e)
     {
@@ -450,29 +461,29 @@ public class DateTimePicker : Control
         switch (e.Key)
         {
             case Key.System:
+            {
+                switch (e.SystemKey)
                 {
-                    switch (e.SystemKey)
+                    case Key.Down:
                     {
-                        case Key.Down:
-                            {
-                                if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-                                {
-                                    TogglePopup();
-                                    return true;
-                                }
+                        if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+                        {
+                            TogglePopup();
+                            return true;
+                        }
 
-                                break;
-                            }
+                        break;
                     }
-
-                    break;
                 }
+
+                break;
+            }
 
             case Key.Enter:
-                {
-                    SetSelectedDateTime();
-                    return true;
-                }
+            {
+                SetSelectedDateTime();
+                return true;
+            }
         }
 
         return false;
@@ -597,6 +608,7 @@ public class DateTimePicker : Control
             SafeSetText(newtext);
             return SelectedDateTime;
         }
+
         SafeSetText(DateTimeToString(DisplayDateTime));
         return DisplayDateTime;
     }

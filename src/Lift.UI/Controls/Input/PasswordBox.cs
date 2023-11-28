@@ -58,7 +58,8 @@ public class PasswordBox : Control
     }
 
     public static readonly DependencyProperty IsSafeEnabledProperty = DependencyProperty.Register(
-        nameof(IsSafeEnabled), typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.TrueBox, OnIsSafeEnabledChanged));
+        nameof(IsSafeEnabled), typeof(bool), typeof(PasswordBox),
+        new PropertyMetadata(ValueBoxes.TrueBox, OnIsSafeEnabledChanged));
 
     private static void OnIsSafeEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -145,7 +146,8 @@ public class PasswordBox : Control
     public static readonly DependencyProperty IsSelectionActiveProperty =
         TextBoxBase.IsSelectionActiveProperty.AddOwner(typeof(PasswordBox));
 
-    public bool IsSelectionActive => ActualPasswordBox != null && (bool) ActualPasswordBox.GetValue(IsSelectionActiveProperty);
+    public bool IsSelectionActive =>
+        ActualPasswordBox != null && (bool) ActualPasswordBox.GetValue(IsSelectionActiveProperty);
 
 #endif
 
@@ -163,6 +165,7 @@ public class PasswordBox : Control
             {
                 return _textBox.Text;
             }
+
             return ActualPasswordBox?.Password;
         }
         set
@@ -216,13 +219,18 @@ public class PasswordBox : Control
         if (ActualPasswordBox != null)
         {
             ActualPasswordBox.PasswordChanged += PasswordBox_PasswordChanged;
-            ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.MaxLengthProperty, new Binding(MaxLengthProperty.Name) { Source = this });
-            ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
+            ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.MaxLengthProperty,
+                new Binding(MaxLengthProperty.Name) { Source = this });
+            ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionBrushProperty,
+                new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-            ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+            ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionTextBrushProperty,
+                new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
-            ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
-            ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+            ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionOpacityProperty,
+                new Binding(SelectionOpacityProperty.Name) { Source = this });
+            ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.CaretBrushProperty,
+                new Binding(CaretBrushProperty.Name) { Source = this });
 
             if (_password is { Length: > 0 })
             {
@@ -230,7 +238,8 @@ public class PasswordBox : Control
                 try
                 {
                     valuePtr = Marshal.SecureStringToGlobalAllocUnicode(_password);
-                    ActualPasswordBox.Password = Marshal.PtrToStringUni(valuePtr) ?? throw new InvalidOperationException();
+                    ActualPasswordBox.Password =
+                        Marshal.PtrToStringUni(valuePtr) ?? throw new InvalidOperationException();
                 }
                 finally
                 {

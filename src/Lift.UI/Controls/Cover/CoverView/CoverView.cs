@@ -25,7 +25,8 @@ public partial class CoverView : RegularItemsControl
         _viewContent = new CoverViewContent();
 
         AddHandler(SelectableItem.SelectedEvent, new RoutedEventHandler(CoverViewItem_OnSelected));
-        _viewContent.SetBinding(CoverViewContent.ContentHeightProperty, new Binding(ItemContentHeightProperty.Name) { Source = this });
+        _viewContent.SetBinding(CoverViewContent.ContentHeightProperty,
+            new Binding(ItemContentHeightProperty.Name) { Source = this });
         _viewContent.SetBinding(WidthProperty, new Binding(ActualWidthProperty.Name) { Source = this });
     }
 
@@ -69,6 +70,7 @@ public partial class CoverView : RegularItemsControl
                     _viewContent.ContentTemplate = null;
                     UpdateCoverViewContent(false);
                 }
+
                 _selectedItem.SetCurrentValue(SelectableItem.IsSelectedProperty, ValueBoxes.FalseBox);
                 _selectedItem = null;
             }
@@ -94,7 +96,8 @@ public partial class CoverView : RegularItemsControl
         item.SetBinding(MarginProperty, new Binding(ItemMarginProperty.Name) { Source = this });
         item.SetBinding(WidthProperty, new Binding(ItemWidthProperty.Name) { Source = this });
         item.SetBinding(HeightProperty, new Binding(ItemHeightProperty.Name) { Source = this });
-        item.SetBinding(HeaderedSelectableItem.HeaderTemplateProperty, new Binding(ItemHeaderTemplateProperty.Name) { Source = this });
+        item.SetBinding(HeaderedSelectableItem.HeaderTemplateProperty,
+            new Binding(ItemHeaderTemplateProperty.Name) { Source = this });
     }
 
     protected override bool IsItemItsOwnContainerOverride(object item) => item is CoverViewItem;
@@ -152,7 +155,8 @@ public partial class CoverView : RegularItemsControl
     }
 
     public static readonly DependencyProperty ItemHeaderTemplateProperty = DependencyProperty.Register(
-        nameof(ItemHeaderTemplate), typeof(DataTemplate), typeof(CoverView), new PropertyMetadata(default(DataTemplate)));
+        nameof(ItemHeaderTemplate), typeof(DataTemplate), typeof(CoverView),
+        new PropertyMetadata(default(DataTemplate)));
 
     public DataTemplate ItemHeaderTemplate
     {
@@ -260,6 +264,7 @@ public partial class CoverView : RegularItemsControl
             Items.Clear();
             ClearItems();
         }
+
         _itemsSourceInternal = newValue;
         if (_itemsSourceInternal != null)
         {
@@ -267,6 +272,7 @@ public partial class CoverView : RegularItemsControl
             {
                 s.CollectionChanged += InternalCollectionChanged;
             }
+
             foreach (var item in _itemsSourceInternal)
             {
                 AddItem(item);
@@ -384,6 +390,7 @@ public partial class CoverView : RegularItemsControl
                 RemoveItem(item);
             }
         }
+
         if (e.NewItems != null)
         {
             if (_viewContent.IsOpen)
@@ -415,11 +422,9 @@ public partial class CoverView : RegularItemsControl
 
     protected override void OnItemTemplateChanged(DependencyPropertyChangedEventArgs e)
     {
-
     }
 
     protected override void OnItemContainerStyleChanged(DependencyPropertyChangedEventArgs e)
     {
-
     }
 }

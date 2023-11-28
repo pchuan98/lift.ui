@@ -26,6 +26,7 @@ public static partial class ApplicationHelper
         {
             AssemblyName = Path.GetFileNameWithoutExtension(GetExecutablePathNative());
         }
+
         mutex = new Mutex(true, AssemblyName);
         if (mutex.WaitOne(TimeSpan.Zero, true))
         {
@@ -96,10 +97,12 @@ public static partial class ApplicationHelper
         {
             CachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
         }
+
         if (!Directory.Exists(CachePath))
         {
             Directory.CreateDirectory(CachePath);
         }
+
         ProfileOptimization.SetProfileRoot(CachePath);
         ProfileOptimization.StartProfile("Profile");
     }
@@ -137,6 +140,7 @@ public static partial class ApplicationHelper
         {
             path = path.Replace(".dll", ".exe");
         }
+
         return path;
 #endif
     }
@@ -152,4 +156,3 @@ public static partial class ApplicationHelper
         return sb.ToString();
     }
 }
-

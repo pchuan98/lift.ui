@@ -50,9 +50,11 @@ public static class VisualHelper
             _ => GetParent<T>(VisualTreeHelper.GetParent(d))
         };
 
-    public static IntPtr GetHandle(this Visual visual) => (PresentationSource.FromVisual(visual) as HwndSource)?.Handle ?? IntPtr.Zero;
+    public static IntPtr GetHandle(this Visual visual) =>
+        (PresentationSource.FromVisual(visual) as HwndSource)?.Handle ?? IntPtr.Zero;
 
-    internal static void HitTestVisibleElements(Visual visual, HitTestResultCallback resultCallback, HitTestParameters parameters) =>
+    internal static void HitTestVisibleElements(Visual visual, HitTestResultCallback resultCallback,
+        HitTestParameters parameters) =>
         VisualTreeHelper.HitTest(visual, ExcludeNonVisualElements, resultCallback, parameters);
 
     private static HitTestFilterBehavior ExcludeNonVisualElements(DependencyObject potentialHitTestTarget)

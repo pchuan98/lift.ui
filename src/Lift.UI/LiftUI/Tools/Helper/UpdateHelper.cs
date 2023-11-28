@@ -20,6 +20,7 @@ namespace Lift.UI.Tools;
 public static class UpdateHelper
 {
     private const string GITHUB_API = "https://api.github.com/repos/{0}/{1}/releases/latest";
+
     private static SystemVersionInfo GetAsVersionInfo(string version)
     {
         var nums = GetVersionNumbers(version).Split('.').Select(int.Parse).ToList();
@@ -70,6 +71,7 @@ public static class UpdateHelper
                 {
                     currentVersion = Assembly.GetEntryAssembly().GetName().Version;
                 }
+
                 var newVersionInfo = GetAsVersionInfo(result.TagName);
                 int major = currentVersion.Major == -1 ? 0 : currentVersion.Major;
                 int minor = currentVersion.Minor == -1 ? 0 : currentVersion.Minor;
@@ -96,7 +98,8 @@ public static class UpdateHelper
         return new ReleaseInfo();
     }
 
-    public static async Task<ReleaseInfo> CheckUpdateAsync(string username, string repository, Version currentVersion = null)
+    public static async Task<ReleaseInfo> CheckUpdateAsync(string username, string repository,
+        Version currentVersion = null)
     {
         if (string.IsNullOrEmpty(username))
             throw new ArgumentNullException(nameof(username));

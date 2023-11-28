@@ -22,7 +22,6 @@ namespace Lift.UI.Controls;
 [SuppressMessage("ReSharper", "RedundantDelegateCreation")]
 [TemplatePart(Name = ElementPanel, Type = typeof(Panel))]
 [TemplatePart(Name = ElementButtonClose, Type = typeof(Button))]
-
 public sealed class MessageBox : Window
 {
     private const string ElementPanel = "PART_Panel";
@@ -52,44 +51,47 @@ public sealed class MessageBox : Window
     private bool _showNo;
 
     private IntPtr _lastActiveWindowIntPtr;
-    
+
     #region Button Text
+
     public static readonly DependencyProperty CancelContentProperty = DependencyProperty.Register(
-       "CancelContent", typeof(string), typeof(MessageBox), new PropertyMetadata(Properties.Langs.Lang.Cancel));
+        "CancelContent", typeof(string), typeof(MessageBox), new PropertyMetadata(Properties.Langs.Lang.Cancel));
 
     public string CancelContent
     {
-        get => (string)GetValue(CancelContentProperty);
+        get => (string) GetValue(CancelContentProperty);
         set => SetValue(CancelContentProperty, value);
     }
 
     public static readonly DependencyProperty ConfirmContentProperty = DependencyProperty.Register(
-       "ConfirmContent", typeof(string), typeof(MessageBox), new PropertyMetadata(Properties.Langs.Lang.Confirm));
+        "ConfirmContent", typeof(string), typeof(MessageBox), new PropertyMetadata(Properties.Langs.Lang.Confirm));
 
     public string ConfirmContent
     {
-        get => (string)GetValue(ConfirmContentProperty);
+        get => (string) GetValue(ConfirmContentProperty);
         set => SetValue(ConfirmContentProperty, value);
     }
 
     public static readonly DependencyProperty YesContentProperty = DependencyProperty.Register(
-       "YesContent", typeof(string), typeof(MessageBox), new PropertyMetadata(Properties.Langs.Lang.Yes));
+        "YesContent", typeof(string), typeof(MessageBox), new PropertyMetadata(Properties.Langs.Lang.Yes));
 
     public string YesContent
     {
-        get => (string)GetValue(YesContentProperty);
+        get => (string) GetValue(YesContentProperty);
         set => SetValue(YesContentProperty, value);
     }
 
     public static readonly DependencyProperty NoContentProperty = DependencyProperty.Register(
-       "NoContent", typeof(string), typeof(MessageBox), new PropertyMetadata(Properties.Langs.Lang.No));
+        "NoContent", typeof(string), typeof(MessageBox), new PropertyMetadata(Properties.Langs.Lang.No));
 
     public string NoContent
     {
-        get => (string)GetValue(NoContentProperty);
+        get => (string) GetValue(NoContentProperty);
         set => SetValue(NoContentProperty, value);
     }
+
     #endregion
+
     public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
         nameof(Message), typeof(string), typeof(MessageBox), new PropertyMetadata(default(string)));
 
@@ -157,7 +159,8 @@ public sealed class MessageBox : Window
             var hMenu = InteropMethods.GetSystemMenu(this.GetHandle(), false);
             if (hMenu != IntPtr.Zero)
             {
-                InteropMethods.EnableMenuItem(hMenu, InteropValues.SC_CLOSE, InteropValues.MF_BYCOMMAND | InteropValues.MF_GRAYED);
+                InteropMethods.EnableMenuItem(hMenu, InteropValues.SC_CLOSE,
+                    InteropValues.MF_BYCOMMAND | InteropValues.MF_GRAYED);
             }
 
             if (_buttonClose != null)
@@ -243,21 +246,25 @@ public sealed class MessageBox : Window
                 builder.Append(Lang.Confirm);
                 builder.Append("   ");
             }
+
             if (_showYes)
             {
                 builder.Append(Lang.Yes);
                 builder.Append("   ");
             }
+
             if (_showNo)
             {
                 builder.Append(Lang.No);
                 builder.Append("   ");
             }
+
             if (_showCancel)
             {
                 builder.Append(Lang.Cancel);
                 builder.Append("   ");
             }
+
             builder.Append(Environment.NewLine);
             builder.Append(line);
             builder.Append(Environment.NewLine);
@@ -283,7 +290,8 @@ public sealed class MessageBox : Window
         MessageBox messageBox = null;
         Application.Current.Dispatcher.Invoke(new Action(() =>
         {
-            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
+            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None,
+                MessageBoxResult.OK);
             SetButtonStatus(messageBox, MessageBoxButton.OK, MessageBoxResult.OK);
             messageBox.ShowImage = true;
             messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.SuccessGeometry);
@@ -305,7 +313,8 @@ public sealed class MessageBox : Window
         MessageBox messageBox = null;
         Application.Current.Dispatcher.Invoke(new Action(() =>
         {
-            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK,
+                MessageBoxImage.Information, MessageBoxResult.OK);
             SetButtonStatus(messageBox, MessageBoxButton.OK, MessageBoxResult.OK);
             SetImage(messageBox, MessageBoxImage.Information);
             SystemSounds.Asterisk.Play();
@@ -325,7 +334,8 @@ public sealed class MessageBox : Window
         MessageBox messageBox = null;
         Application.Current.Dispatcher.Invoke(new Action(() =>
         {
-            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK);
+            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Warning,
+                MessageBoxResult.OK);
             SetButtonStatus(messageBox, MessageBoxButton.OK, MessageBoxResult.OK);
             SetImage(messageBox, MessageBoxImage.Warning);
             SystemSounds.Asterisk.Play();
@@ -345,7 +355,8 @@ public sealed class MessageBox : Window
         MessageBox messageBox = null;
         Application.Current.Dispatcher.Invoke(new Action(() =>
         {
-            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Error,
+                MessageBoxResult.OK);
             SetButtonStatus(messageBox, MessageBoxButton.OK, MessageBoxResult.OK);
             SetImage(messageBox, MessageBoxImage.Error);
             SystemSounds.Asterisk.Play();
@@ -365,7 +376,8 @@ public sealed class MessageBox : Window
         MessageBox messageBox = null;
         Application.Current.Dispatcher.Invoke(new Action(() =>
         {
-            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
+            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None,
+                MessageBoxResult.OK);
             SetButtonStatus(messageBox, MessageBoxButton.OK, MessageBoxResult.OK);
             messageBox.ShowImage = true;
             messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.FatalGeometry);
@@ -387,7 +399,8 @@ public sealed class MessageBox : Window
         MessageBox messageBox = null;
         Application.Current.Dispatcher.Invoke(new Action(() =>
         {
-            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.Cancel);
+            messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OKCancel,
+                MessageBoxImage.Question, MessageBoxResult.Cancel);
             SetButtonStatus(messageBox, MessageBoxButton.OKCancel, MessageBoxResult.Cancel);
             SetImage(messageBox, MessageBoxImage.Question);
             SystemSounds.Asterisk.Play();
@@ -407,7 +420,8 @@ public sealed class MessageBox : Window
         MessageBox messageBox = null;
         Application.Current.Dispatcher.Invoke(new Action(() =>
         {
-            messageBox = CreateMessageBox(null, info.Message, info.Caption, info.Button, MessageBoxImage.None, info.DefaultResult, info.CancelContent, info.ConfirmContent, info.YesContent, info.NoContent);
+            messageBox = CreateMessageBox(null, info.Message, info.Caption, info.Button, MessageBoxImage.None,
+                info.DefaultResult, info.CancelContent, info.ConfirmContent, info.YesContent, info.NoContent);
             SetButtonStatus(messageBox, info.Button, info.DefaultResult);
 
             if (!string.IsNullOrEmpty(info.IconKey))
@@ -421,6 +435,7 @@ public sealed class MessageBox : Window
             {
                 messageBox.Style = ResourceHelper.GetResource<Style>(info.StyleKey) ?? info.Style;
             }
+
             SystemSounds.Asterisk.Play();
             messageBox.ShowDialog();
         }));
@@ -452,7 +467,9 @@ public sealed class MessageBox : Window
     /// <param name="icon"></param>
     /// <param name="defaultResult"></param>
     /// <returns></returns>
-    public static MessageBoxResult Show(System.Windows.Window owner, string messageBoxText, string caption = null, MessageBoxButton button = MessageBoxButton.OK, MessageBoxImage icon = MessageBoxImage.None, MessageBoxResult defaultResult = MessageBoxResult.None)
+    public static MessageBoxResult Show(System.Windows.Window owner, string messageBoxText, string caption = null,
+        MessageBoxButton button = MessageBoxButton.OK, MessageBoxImage icon = MessageBoxImage.None,
+        MessageBoxResult defaultResult = MessageBoxResult.None)
     {
         MessageBox messageBox = null;
         Application.Current.Dispatcher.Invoke(new Action(() =>
@@ -483,13 +500,16 @@ public sealed class MessageBox : Window
         {
             throw new InvalidEnumArgumentException(nameof(button), (int) button, typeof(MessageBoxButton));
         }
+
         if (!IsValidMessageBoxImage(icon))
         {
             throw new InvalidEnumArgumentException(nameof(icon), (int) icon, typeof(MessageBoxImage));
         }
+
         if (!IsValidMessageBoxResult(defaultResult))
         {
-            throw new InvalidEnumArgumentException(nameof(defaultResult), (int) defaultResult, typeof(MessageBoxResult));
+            throw new InvalidEnumArgumentException(nameof(defaultResult), (int) defaultResult,
+                typeof(MessageBoxResult));
         }
 
         var ownerWindow = owner ?? WindowHelper.GetActiveWindow();
@@ -499,7 +519,8 @@ public sealed class MessageBox : Window
         {
             Message = messageBoxText,
             Owner = ownerWindow,
-            WindowStartupLocation = ownerIsNull ? WindowStartupLocation.CenterScreen : WindowStartupLocation.CenterOwner,
+            WindowStartupLocation =
+                ownerIsNull ? WindowStartupLocation.CenterScreen : WindowStartupLocation.CenterOwner,
             ShowTitle = true,
             Title = caption ?? string.Empty,
             CancelContent = cancelContent ?? Properties.Langs.Lang.Cancel,
@@ -511,7 +532,8 @@ public sealed class MessageBox : Window
         };
     }
 
-    private static void SetButtonStatus(MessageBox messageBox, MessageBoxButton messageBoxButton, MessageBoxResult defaultResult)
+    private static void SetButtonStatus(MessageBox messageBox, MessageBoxButton messageBoxButton,
+        MessageBoxResult defaultResult)
     {
         switch (messageBoxButton)
         {

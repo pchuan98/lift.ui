@@ -30,6 +30,7 @@ public class GotoTop : Button
         {
             _scrollViewer.ScrollChanged -= ScrollViewer_ScrollChanged;
         }
+
         _scrollViewer = VisualHelper.GetChild<System.Windows.Controls.ScrollViewer>(obj);
         if (_scrollViewer != null)
         {

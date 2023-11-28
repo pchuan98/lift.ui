@@ -25,7 +25,9 @@ public class GlobalShortcut
         if (IsModifierKey(key)) return;
 
         var modifierKeys = Keyboard.Modifiers;
-        var keyStr = modifierKeys != ModifierKeys.None ? $"{modifierKeys.ToString()}, {key.ToString()}" : key.ToString();
+        var keyStr = modifierKeys != ModifierKeys.None
+            ? $"{modifierKeys.ToString()}, {key.ToString()}"
+            : key.ToString();
         ExecuteCommand(keyStr);
     }
 
@@ -90,6 +92,7 @@ public class GlobalShortcut
         {
             KeyBindingCollection.CollectionChanged -= KeyBindingCollection_CollectionChanged;
         }
+
         KeyBindingCollection = GetKeyBindings(d);
         if (KeyBindingCollection != null)
         {
@@ -110,7 +113,8 @@ public class GlobalShortcut
         => (bool) element.GetValue(HostProperty);
 
     public static readonly DependencyProperty KeyBindingsProperty = DependencyProperty.RegisterAttached(
-        "KeyBindings", typeof(ObservableCollection<KeyBinding>), typeof(GlobalShortcut), new PropertyMetadata(new ObservableCollection<KeyBinding>()));
+        "KeyBindings", typeof(ObservableCollection<KeyBinding>), typeof(GlobalShortcut),
+        new PropertyMetadata(new ObservableCollection<KeyBinding>()));
 
     public static void SetKeyBindings(DependencyObject element, ObservableCollection<KeyBinding> value)
         => element.SetValue(KeyBindingsProperty, value);

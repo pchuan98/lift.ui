@@ -11,10 +11,12 @@ internal static class PersianCalendarHelper
     }
 
     // TODO: Need more work to accept (") and (') and (%) and (\) characters.
-    public static string ToCurrentCultureString(DateTime dt, string format, System.Globalization.DateTimeFormatInfo formatProvider)
+    public static string ToCurrentCultureString(DateTime dt, string format,
+        System.Globalization.DateTimeFormatInfo formatProvider)
     {
         // Some formats do not need to custom implementation like these
-        string[] autoReplaces = new string[] {
+        string[] autoReplaces = new string[]
+        {
             "fffffff", "ffffff", "fffff", "ffff", "fff", "ff", "f",
             "FFFFFFF", "FFFFFF", "FFFFF", "FFFF", "FFF", "FF", "F",
             "gg", "g",
@@ -35,7 +37,7 @@ internal static class PersianCalendarHelper
 
         format = format.Replace("dddd", formatProvider.GetDayName(dayOfWeek));
         format = format.Replace("ddd", formatProvider.GetAbbreviatedDayName(dayOfWeek));
-        format = format.Replace("dd", ((int)dayOfWeek).ToString("00"));
+        format = format.Replace("dd", ((int) dayOfWeek).ToString("00"));
         format = format.Replace("dd", dayOfWeek.ToString());
         format = format.Replace("MMMM", formatProvider.GetMonthName(month));
         format = format.Replace("MMM", formatProvider.GetAbbreviatedMonthName(month));
@@ -72,50 +74,66 @@ internal static class PersianCalendarHelper
 
         if (info.Name == "fa-AF" || info.Name == "ps-AF" || info.Name == "prs-AF")
         {
-            dtFormat.AbbreviatedMonthGenitiveNames = new string[] {
-                    "حمل", "ثور", "جوزا",
-                    "سرطان", "اسد", "سنبله",
-                    "میزان", "عقرب", "قوس",
-                    "جدی", "دلو", "حوت", "" };
-            dtFormat.AbbreviatedMonthNames = new string[] {
-                    "حمل", "ثور", "جوزا",
-                    "سرطان", "اسد", "سنبله",
-                    "میزان", "عقرب", "قوس",
-                    "جدی", "دلو", "حوت", "" }; 
-            dtFormat.MonthGenitiveNames = new string[] {
-                    "حمل", "ثور", "جوزا",
-                    "سرطان", "اسد", "سنبله",
-                    "میزان", "عقرب", "قوس",
-                    "جدی", "دلو", "حوت", "" };
-            dtFormat.MonthNames = new string[] {
-                    "حمل", "ثور", "جوزا",
-                    "سرطان", "اسد", "سنبله",
-                    "میزان", "عقرب", "قوس",
-                    "جدی", "دلو", "حوت", "" };
+            dtFormat.AbbreviatedMonthGenitiveNames = new string[]
+            {
+                "حمل", "ثور", "جوزا",
+                "سرطان", "اسد", "سنبله",
+                "میزان", "عقرب", "قوس",
+                "جدی", "دلو", "حوت", ""
+            };
+            dtFormat.AbbreviatedMonthNames = new string[]
+            {
+                "حمل", "ثور", "جوزا",
+                "سرطان", "اسد", "سنبله",
+                "میزان", "عقرب", "قوس",
+                "جدی", "دلو", "حوت", ""
+            };
+            dtFormat.MonthGenitiveNames = new string[]
+            {
+                "حمل", "ثور", "جوزا",
+                "سرطان", "اسد", "سنبله",
+                "میزان", "عقرب", "قوس",
+                "جدی", "دلو", "حوت", ""
+            };
+            dtFormat.MonthNames = new string[]
+            {
+                "حمل", "ثور", "جوزا",
+                "سرطان", "اسد", "سنبله",
+                "میزان", "عقرب", "قوس",
+                "جدی", "دلو", "حوت", ""
+            };
             return dtFormat;
         }
         else
         {
-            dtFormat.AbbreviatedMonthGenitiveNames = new string[] {
-                    "فروردین", "اردیبهشت", "خرداد",
-                    "تیر", "مرداد", "شهریور",
-                    "مهر", "آبان", "آذر",
-                    "دی", "بهمن", "اسفند", "" };
-            dtFormat.AbbreviatedMonthNames = new string[] {
-                    "فروردین", "اردیبهشت", "خرداد",
-                    "تیر", "مرداد", "شهریور",
-                    "مهر", "آبان", "آذر",
-                    "دی", "بهمن", "اسفند", "" };
-            dtFormat.MonthGenitiveNames = new string[] {
-                    "فروردین", "اردیبهشت", "خرداد",
-                    "تیر", "مرداد", "شهریور",
-                    "مهر", "آبان", "آذر",
-                    "دی", "بهمن", "اسفند", "" };
-            dtFormat.MonthNames = new string[] {
-                    "فروردین", "اردیبهشت", "خرداد",
-                    "تیر", "مرداد", "شهریور",
-                    "مهر", "آبان", "آذر",
-                    "دی", "بهمن", "اسفند", "" };
+            dtFormat.AbbreviatedMonthGenitiveNames = new string[]
+            {
+                "فروردین", "اردیبهشت", "خرداد",
+                "تیر", "مرداد", "شهریور",
+                "مهر", "آبان", "آذر",
+                "دی", "بهمن", "اسفند", ""
+            };
+            dtFormat.AbbreviatedMonthNames = new string[]
+            {
+                "فروردین", "اردیبهشت", "خرداد",
+                "تیر", "مرداد", "شهریور",
+                "مهر", "آبان", "آذر",
+                "دی", "بهمن", "اسفند", ""
+            };
+            dtFormat.MonthGenitiveNames = new string[]
+            {
+                "فروردین", "اردیبهشت", "خرداد",
+                "تیر", "مرداد", "شهریور",
+                "مهر", "آبان", "آذر",
+                "دی", "بهمن", "اسفند", ""
+            };
+            dtFormat.MonthNames = new string[]
+            {
+                "فروردین", "اردیبهشت", "خرداد",
+                "تیر", "مرداد", "شهریور",
+                "مهر", "آبان", "آذر",
+                "دی", "بهمن", "اسفند", ""
+            };
             return dtFormat;
         }
     }

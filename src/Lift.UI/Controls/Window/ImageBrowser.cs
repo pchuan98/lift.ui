@@ -79,7 +79,6 @@ public class ImageBrowser : Window
     /// <param name="path"></param>
     public ImageBrowser(string path) : this(new Uri(path))
     {
-
     }
 
     public override void OnApplyTemplate()
@@ -122,7 +121,8 @@ public class ImageBrowser : Window
 
     private void ImageViewer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-        if (e.LeftButton == MouseButtonState.Pressed && !(_imageViewer.ImageWidth > ActualWidth || _imageViewer.ImageHeight > ActualHeight))
+        if (e.LeftButton == MouseButtonState.Pressed &&
+            !(_imageViewer.ImageWidth > ActualWidth || _imageViewer.ImageHeight > ActualHeight))
         {
             DragMove();
         }

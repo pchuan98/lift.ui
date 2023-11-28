@@ -10,12 +10,13 @@ public class CultureChangedEventManager : WeakEventManager
         get
         {
             var managerType = typeof(CultureChangedEventManager);
-            var manager = (CultureChangedEventManager)GetCurrentManager(managerType);
+            var manager = (CultureChangedEventManager) GetCurrentManager(managerType);
             if (manager == null)
             {
                 manager = new CultureChangedEventManager();
                 SetCurrentManager(managerType, manager);
             }
+
             return manager;
         }
     }
@@ -37,13 +38,13 @@ public class CultureChangedEventManager : WeakEventManager
 
     protected override void StartListening(object source)
     {
-        var manager = (LocalizationManager)source;
+        var manager = (LocalizationManager) source;
         manager.CultureChanged += OnCultureChanged;
     }
 
     protected override void StopListening(object source)
     {
-        var manager = (LocalizationManager)source;
+        var manager = (LocalizationManager) source;
         manager.CultureChanged -= OnCultureChanged;
     }
 }

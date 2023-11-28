@@ -24,8 +24,10 @@ public class Theme : ResourceDictionary
         {
             if (_controlsResources == null)
             {
-                _controlsResources = new ResourceDictionary { Source = ApplicationHelper.GetAbsoluteUri("Themes/Theme.xaml") };
+                _controlsResources = new ResourceDictionary
+                    { Source = ApplicationHelper.GetAbsoluteUri("Themes/Theme.xaml") };
             }
+
             return _controlsResources;
         }
     }

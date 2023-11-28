@@ -126,20 +126,24 @@ internal class GlowEdge : HwndWrapper
     internal Color ActiveGlowColor
     {
         get => _activeGlowColor;
-        set => UpdateProperty(ref _activeGlowColor, value, FieldInvalidationTypes.ActiveColor | FieldInvalidationTypes.Render);
+        set => UpdateProperty(ref _activeGlowColor, value,
+            FieldInvalidationTypes.ActiveColor | FieldInvalidationTypes.Render);
     }
 
     internal Color InactiveGlowColor
     {
         get => _inactiveGlowColor;
-        set => UpdateProperty(ref _inactiveGlowColor, value, FieldInvalidationTypes.InactiveColor | FieldInvalidationTypes.Render);
+        set => UpdateProperty(ref _inactiveGlowColor, value,
+            FieldInvalidationTypes.InactiveColor | FieldInvalidationTypes.Render);
     }
 
     private IntPtr TargetWindowHandle => new WindowInteropHelper(_targetWindow).Handle;
 
     protected override bool IsWindowSubclassed => true;
 
-    private bool IsPositionValid => (_invalidatedValues & (FieldInvalidationTypes.Location | FieldInvalidationTypes.Size | FieldInvalidationTypes.Visibility)) == FieldInvalidationTypes.None;
+    private bool IsPositionValid =>
+        (_invalidatedValues & (FieldInvalidationTypes.Location | FieldInvalidationTypes.Size |
+                               FieldInvalidationTypes.Visibility)) == FieldInvalidationTypes.None;
 
     private void UpdateProperty<T>(ref T field, T value, FieldInvalidationTypes invalidatedValues) where T : struct
     {
@@ -174,7 +178,8 @@ internal class GlowEdge : HwndWrapper
             IntPtr.Zero);
     }
 
-    internal void ChangeOwner(IntPtr newOwner) => InteropMethods.SetWindowLongPtr(Handle, InteropValues.GWLP.HWNDPARENT, newOwner);
+    internal void ChangeOwner(IntPtr newOwner) =>
+        InteropMethods.SetWindowLongPtr(Handle, InteropValues.GWLP.HWNDPARENT, newOwner);
 
     protected override IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam)
     {
@@ -183,7 +188,8 @@ internal class GlowEdge : HwndWrapper
             if (msg == 6) return IntPtr.Zero;
             if (msg == 70)
             {
-                var windowpos = (InteropValues.WINDOWPOS) Marshal.PtrToStructure(lParam, typeof(InteropValues.WINDOWPOS));
+                var windowpos =
+                    (InteropValues.WINDOWPOS) Marshal.PtrToStructure(lParam, typeof(InteropValues.WINDOWPOS));
                 windowpos.flags |= 16u;
                 Marshal.StructureToPtr(windowpos, lParam, true);
             }
@@ -203,12 +209,12 @@ internal class GlowEdge : HwndWrapper
                     case 169:
                     case 171:
                     case 173:
-                        {
-                            var targetWindowHandle = TargetWindowHandle;
-                            InteropMethods.SendMessage(targetWindowHandle, 6, new IntPtr(2), IntPtr.Zero);
-                            InteropMethods.SendMessage(targetWindowHandle, msg, wParam, IntPtr.Zero);
-                            return IntPtr.Zero;
-                        }
+                    {
+                        var targetWindowHandle = TargetWindowHandle;
+                        InteropMethods.SendMessage(targetWindowHandle, 6, new IntPtr(2), IntPtr.Zero);
+                        InteropMethods.SendMessage(targetWindowHandle, msg, wParam, IntPtr.Zero);
+                        return IntPtr.Zero;
+                    }
                 }
             }
             else
@@ -385,7 +391,8 @@ internal class GlowEdge : HwndWrapper
             color = InactiveGlowColor;
         }
 
-        return array[(int) bitmapPart] ?? (array[(int) bitmapPart] = GlowBitmap.Create(drawingContext, bitmapPart, color));
+        return array[(int) bitmapPart] ??
+               (array[(int) bitmapPart] = GlowBitmap.Create(drawingContext, bitmapPart, color));
     }
 
     private void ClearCache(GlowBitmap[] cache)

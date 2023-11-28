@@ -10,7 +10,8 @@ namespace Lift.UI.Controls;
 public class TextBlockAttach
 {
     public static readonly DependencyProperty AutoTooltipProperty = DependencyProperty.RegisterAttached(
-        "AutoTooltip", typeof(bool), typeof(TextBlockAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnAutoTooltipChanged));
+        "AutoTooltip", typeof(bool), typeof(TextBlockAttach),
+        new PropertyMetadata(ValueBoxes.FalseBox, OnAutoTooltipChanged));
 
     private static void OnAutoTooltipChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -49,7 +50,8 @@ public class TextBlockAttach
 
         // the code Math.Abs(CalcTextWidth(textBlock) - width) > 1 is not elegant end even bugly,
         // while it does solve the problem of Tooltip failure in some cases
-        if (textBlock.RenderSize.Width > width || textBlock.ActualWidth < width || Math.Abs(CalcTextWidth(textBlock) - width) > 1)
+        if (textBlock.RenderSize.Width > width || textBlock.ActualWidth < width ||
+            Math.Abs(CalcTextWidth(textBlock) - width) > 1)
         {
             ToolTipService.SetToolTip(textBlock, textBlock.Text);
         }

@@ -10,17 +10,14 @@ public class LinearGeometryKeyFrame : GeometryKeyFrame
 {
     public LinearGeometryKeyFrame()
     {
-
     }
 
     public LinearGeometryKeyFrame(Geometry value) : base(value)
     {
-
     }
 
     public LinearGeometryKeyFrame(Geometry value, KeyTime keyTime) : base(value, keyTime)
     {
-
     }
 
     protected override Freezable CreateInstanceCore() => new LinearGeometryKeyFrame();

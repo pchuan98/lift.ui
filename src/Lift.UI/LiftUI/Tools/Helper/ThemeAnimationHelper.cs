@@ -4,13 +4,15 @@ using System.Windows;
 using System.Windows.Media.Animation;
 
 namespace Lift.UI.Tools;
+
 public static class ThemeAnimationHelper
 {
     public
 #if !NET40
         async
 #endif
-        static void AnimateTheme(UIElement element, SlideDirection slideDirection, double durationSeconds, double fromOpacity, double toOpacity)
+        static void AnimateTheme(UIElement element, SlideDirection slideDirection, double durationSeconds,
+            double fromOpacity, double toOpacity)
     {
         if (element != null)
         {
@@ -31,7 +33,7 @@ public static class ThemeAnimationHelper
             Storyboard.SetTargetProperty(opacityAnimation, new PropertyPath(UIElement.OpacityProperty));
             Storyboard.SetTarget(slideAnimation, element);
             Storyboard.SetTargetProperty(slideAnimation, new PropertyPath(FrameworkElement.MarginProperty));
-        
+
             storyboard.Begin();
 #if NET40
             System.Threading.Thread.Sleep(TimeSpan.FromSeconds(durationSeconds));
@@ -68,5 +70,4 @@ public static class ThemeAnimationHelper
                 return new Thickness();
         }
     }
-
 }

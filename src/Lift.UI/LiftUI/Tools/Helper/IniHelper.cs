@@ -23,7 +23,8 @@ public static class InIHelper
     public static string ReadValue(string Key, string Section = null, string Path = null)
     {
         var RetVal = new StringBuilder(255);
-        InteropMethods.GetPrivateProfileString(Section ?? GetAssemblyName(), Key, "", RetVal, 255, Path ?? InIHelper.Path);
+        InteropMethods.GetPrivateProfileString(Section ?? GetAssemblyName(), Key, "", RetVal, 255,
+            Path ?? InIHelper.Path);
         return RetVal.ToString();
     }
 

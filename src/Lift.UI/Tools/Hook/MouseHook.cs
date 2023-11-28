@@ -49,13 +49,15 @@ public class MouseHook
             return InteropMethods.SetWindowsHookEx((int) InteropValues.HookType.WH_MOUSE_LL, proc,
                 InteropMethods.GetModuleHandle(curModule.ModuleName), 0);
         }
+
         return IntPtr.Zero;
     }
 
     private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
     {
         if (nCode < 0) return InteropMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
-        var hookStruct = (InteropValues.MOUSEHOOKSTRUCT) Marshal.PtrToStructure(lParam, typeof(InteropValues.MOUSEHOOKSTRUCT));
+        var hookStruct =
+            (InteropValues.MOUSEHOOKSTRUCT) Marshal.PtrToStructure(lParam, typeof(InteropValues.MOUSEHOOKSTRUCT));
         StatusChanged?.Invoke(null, new MouseHookEventArgs
         {
             MessageType = (MouseHookMessageType) wParam,

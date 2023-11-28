@@ -58,7 +58,7 @@ public abstract class TriggerBase : Animatable, IAttachedObject
                 throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture,
                     ExceptionStringTable.TypeConstraintViolatedExceptionMessage,
                     new object[]
-                        {GetType().Name, dependencyObject.GetType().Name, AssociatedObjectTypeConstraint.Name}));
+                        { GetType().Name, dependencyObject.GetType().Name, AssociatedObjectTypeConstraint.Name }));
             WritePreamble();
             _associatedObject = dependencyObject;
             WritePostscript();
@@ -95,6 +95,7 @@ public abstract class TriggerBase : Animatable, IAttachedObject
             if (e.Cancelling)
                 return;
         }
+
         foreach (var action in Actions)
             action.CallInvoke(parameter);
     }

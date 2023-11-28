@@ -1,5 +1,4 @@
 ﻿#if !(NETCOREAPP || NET40)
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +47,8 @@ namespace Lift.UI.Tools
                         .Where((member) => Attribute.IsDefined(member, typeof(DataMemberAttribute)));
                     foreach (MemberInfo member in members)
                     {
-                        DataMemberAttribute attribute = (DataMemberAttribute) Attribute.GetCustomAttribute(member, typeof(DataMemberAttribute));
+                        DataMemberAttribute attribute =
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       (DataMemberAttribute) Attribute.GetCustomAttribute(member, typeof(DataMemberAttribute));
                         object value;
                         if (dictionary.TryGetValue(attribute.Name, out value) == false)
                         {

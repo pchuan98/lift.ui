@@ -38,18 +38,26 @@ public class RangeSlider : TwoWayRangeBase
     {
         InitializeCommands();
 
-        MinimumProperty.OverrideMetadata(typeof(RangeSlider), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
-        MaximumProperty.OverrideMetadata(typeof(RangeSlider), new FrameworkPropertyMetadata(ValueBoxes.Double10Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
-        ValueStartProperty.OverrideMetadata(typeof(RangeSlider), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
-        ValueEndProperty.OverrideMetadata(typeof(RangeSlider), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        MinimumProperty.OverrideMetadata(typeof(RangeSlider),
+            new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        MaximumProperty.OverrideMetadata(typeof(RangeSlider),
+            new FrameworkPropertyMetadata(ValueBoxes.Double10Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        ValueStartProperty.OverrideMetadata(typeof(RangeSlider),
+            new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        ValueEndProperty.OverrideMetadata(typeof(RangeSlider),
+            new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         // Register Event Handler for the Thumb
-        EventManager.RegisterClassHandler(typeof(RangeSlider), Thumb.DragStartedEvent, new DragStartedEventHandler(OnThumbDragStarted));
-        EventManager.RegisterClassHandler(typeof(RangeSlider), Thumb.DragDeltaEvent, new DragDeltaEventHandler(OnThumbDragDelta));
-        EventManager.RegisterClassHandler(typeof(RangeSlider), Thumb.DragCompletedEvent, new DragCompletedEventHandler(OnThumbDragCompleted));
+        EventManager.RegisterClassHandler(typeof(RangeSlider), Thumb.DragStartedEvent,
+            new DragStartedEventHandler(OnThumbDragStarted));
+        EventManager.RegisterClassHandler(typeof(RangeSlider), Thumb.DragDeltaEvent,
+            new DragDeltaEventHandler(OnThumbDragDelta));
+        EventManager.RegisterClassHandler(typeof(RangeSlider), Thumb.DragCompletedEvent,
+            new DragCompletedEventHandler(OnThumbDragCompleted));
 
         // Listen to MouseLeftButtonDown event to determine if slide should move focus to itself
-        EventManager.RegisterClassHandler(typeof(RangeSlider), Mouse.MouseDownEvent, new MouseButtonEventHandler(OnMouseLeftButtonDown), true);
+        EventManager.RegisterClassHandler(typeof(RangeSlider), Mouse.MouseDownEvent,
+            new MouseButtonEventHandler(OnMouseLeftButtonDown), true);
     }
 
     public RangeSlider()
@@ -64,17 +72,23 @@ public class RangeSlider : TwoWayRangeBase
         CommandBindings.Add(new CommandBinding(CenterSmall, OnCenterSmall));
     }
 
-    private void OnIncreaseLarge(object sender, ExecutedRoutedEventArgs e) => (sender as RangeSlider)?.OnIncreaseLarge();
+    private void OnIncreaseLarge(object sender, ExecutedRoutedEventArgs e) =>
+        (sender as RangeSlider)?.OnIncreaseLarge();
 
-    private void OnIncreaseSmall(object sender, ExecutedRoutedEventArgs e) => (sender as RangeSlider)?.OnIncreaseSmall();
+    private void OnIncreaseSmall(object sender, ExecutedRoutedEventArgs e) =>
+        (sender as RangeSlider)?.OnIncreaseSmall();
 
-    private void OnDecreaseLarge(object sender, ExecutedRoutedEventArgs e) => (sender as RangeSlider)?.OnDecreaseLarge();
+    private void OnDecreaseLarge(object sender, ExecutedRoutedEventArgs e) =>
+        (sender as RangeSlider)?.OnDecreaseLarge();
 
-    private void OnDecreaseSmall(object sender, ExecutedRoutedEventArgs e) => (sender as RangeSlider)?.OnDecreaseSmall();
+    private void OnDecreaseSmall(object sender, ExecutedRoutedEventArgs e) =>
+        (sender as RangeSlider)?.OnDecreaseSmall();
 
-    private void OnCenterLarge(object sender, ExecutedRoutedEventArgs e) => (sender as RangeSlider)?.OnCenterLarge(e.Parameter);
+    private void OnCenterLarge(object sender, ExecutedRoutedEventArgs e) =>
+        (sender as RangeSlider)?.OnCenterLarge(e.Parameter);
 
-    private void OnCenterSmall(object sender, ExecutedRoutedEventArgs e) => (sender as RangeSlider)?.OnCenterSmall(e.Parameter);
+    private void OnCenterSmall(object sender, ExecutedRoutedEventArgs e) =>
+        (sender as RangeSlider)?.OnCenterSmall(e.Parameter);
 
     protected virtual void OnIncreaseLarge() => MoveToNextTick(LargeChange, false);
 
@@ -149,7 +163,8 @@ public class RangeSlider : TwoWayRangeBase
         set => SetValue(IsDirectionReversedProperty, ValueBoxes.BooleanBox(value));
     }
 
-    public static readonly DependencyProperty DelayProperty = RepeatButton.DelayProperty.AddOwner(typeof(RangeSlider), new FrameworkPropertyMetadata(GetKeyboardDelay()));
+    public static readonly DependencyProperty DelayProperty =
+        RepeatButton.DelayProperty.AddOwner(typeof(RangeSlider), new FrameworkPropertyMetadata(GetKeyboardDelay()));
 
     public int Delay
     {
@@ -165,7 +180,8 @@ public class RangeSlider : TwoWayRangeBase
         return (delay + 1) * 250;
     }
 
-    public static readonly DependencyProperty IntervalProperty = RepeatButton.IntervalProperty.AddOwner(typeof(RangeSlider), new FrameworkPropertyMetadata(GetKeyboardSpeed()));
+    public static readonly DependencyProperty IntervalProperty =
+        RepeatButton.IntervalProperty.AddOwner(typeof(RangeSlider), new FrameworkPropertyMetadata(GetKeyboardSpeed()));
 
     public int Interval
     {
@@ -182,7 +198,8 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty AutoToolTipPlacementProperty = DependencyProperty.Register(
-        nameof(AutoToolTipPlacement), typeof(AutoToolTipPlacement), typeof(RangeSlider), new PropertyMetadata(default(AutoToolTipPlacement)));
+        nameof(AutoToolTipPlacement), typeof(AutoToolTipPlacement), typeof(RangeSlider),
+        new PropertyMetadata(default(AutoToolTipPlacement)));
 
     public AutoToolTipPlacement AutoToolTipPlacement
     {
@@ -210,7 +227,8 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty TickPlacementProperty = DependencyProperty.Register(
-        nameof(TickPlacement), typeof(TickPlacement), typeof(RangeSlider), new PropertyMetadata(default(TickPlacement)));
+        nameof(TickPlacement), typeof(TickPlacement), typeof(RangeSlider),
+        new PropertyMetadata(default(TickPlacement)));
 
     public TickPlacement TickPlacement
     {
@@ -248,7 +266,8 @@ public class RangeSlider : TwoWayRangeBase
 
     protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
     {
-        if (IsMoveToPointEnabled && _track.ThumbStart is { IsMouseOver: false } && _track.ThumbEnd is { IsMouseOver: false })
+        if (IsMoveToPointEnabled && _track.ThumbStart is { IsMouseOver: false } &&
+            _track.ThumbEnd is { IsMouseOver: false })
         {
             // Here we need to determine whether it's closer to the starting point or the end point. 
             var pt = e.MouseDevice.GetPosition(_track);
@@ -301,8 +320,10 @@ public class RangeSlider : TwoWayRangeBase
                 foreach (var tick in Ticks)
                 {
                     // Find the smallest tick greater than value or the largest tick less than value
-                    if (greaterThan && MathHelper.GreaterThan(tick, value) && (MathHelper.LessThan(tick, next) || MathHelper.AreClose(next, value))
-                        || !greaterThan && MathHelper.LessThan(tick, value) && (MathHelper.GreaterThan(tick, next) || MathHelper.AreClose(next, value)))
+                    if (greaterThan && MathHelper.GreaterThan(tick, value) &&
+                        (MathHelper.LessThan(tick, next) || MathHelper.AreClose(next, value))
+                        || !greaterThan && MathHelper.LessThan(tick, value) &&
+                        (MathHelper.GreaterThan(tick, next) || MathHelper.AreClose(next, value)))
                     {
                         next = tick;
                     }
@@ -418,7 +439,8 @@ public class RangeSlider : TwoWayRangeBase
         }
     }
 
-    private static void OnThumbDragStarted(object sender, DragStartedEventArgs e) => (sender as RangeSlider)?.OnThumbDragStarted(e);
+    private static void OnThumbDragStarted(object sender, DragStartedEventArgs e) =>
+        (sender as RangeSlider)?.OnThumbDragStarted(e);
 
     protected virtual void OnThumbDragStarted(DragStartedEventArgs e)
     {
@@ -462,6 +484,7 @@ public class RangeSlider : TwoWayRangeBase
         {
             _track.ThumbEnd.ToolTip = toolTip;
         }
+
         toolTip.Content = GetAutoToolTipNumber(isStart);
         toolTip.IsOpen = true;
     }
@@ -474,15 +497,18 @@ public class RangeSlider : TwoWayRangeBase
                 if (Orientation == Orientation.Horizontal)
                 {
                     // Place popup at top of thumb
-                    return new[]{new CustomPopupPlacement(
-                        new Point((targetSize.Width - popupSize.Width) * 0.5, -popupSize.Height),
-                        PopupPrimaryAxis.Horizontal)
+                    return new[]
+                    {
+                        new CustomPopupPlacement(
+                            new Point((targetSize.Width - popupSize.Width) * 0.5, -popupSize.Height),
+                            PopupPrimaryAxis.Horizontal)
                     };
                 }
                 else
                 {
                     // Place popup at left of thumb
-                    return new[] {
+                    return new[]
+                    {
                         new CustomPopupPlacement(
                             new Point(-popupSize.Width, (targetSize.Height - popupSize.Height) * 0.5),
                             PopupPrimaryAxis.Vertical)
@@ -493,17 +519,18 @@ public class RangeSlider : TwoWayRangeBase
                 if (Orientation == Orientation.Horizontal)
                 {
                     // Place popup at bottom of thumb
-                    return new[] {
+                    return new[]
+                    {
                         new CustomPopupPlacement(
-                            new Point((targetSize.Width - popupSize.Width) * 0.5, targetSize.Height) ,
+                            new Point((targetSize.Width - popupSize.Width) * 0.5, targetSize.Height),
                             PopupPrimaryAxis.Horizontal)
                     };
-
                 }
                 else
                 {
                     // Place popup at right of thumb
-                    return new[] {
+                    return new[]
+                    {
                         new CustomPopupPlacement(
                             new Point(targetSize.Width, (targetSize.Height - popupSize.Height) * 0.5),
                             PopupPrimaryAxis.Vertical)
@@ -522,7 +549,8 @@ public class RangeSlider : TwoWayRangeBase
         return isStart ? ValueStart.ToString("N", format) : ValueEnd.ToString("N", format);
     }
 
-    private static void OnThumbDragDelta(object sender, DragDeltaEventArgs e) => (sender as RangeSlider)?.OnThumbDragDelta(e);
+    private static void OnThumbDragDelta(object sender, DragDeltaEventArgs e) =>
+        (sender as RangeSlider)?.OnThumbDragDelta(e);
 
     protected virtual void OnThumbDragDelta(DragDeltaEventArgs e)
     {
@@ -541,7 +569,8 @@ public class RangeSlider : TwoWayRangeBase
     {
         if (track == null || track.ThumbStart == null | _track.ThumbEnd == null) return;
 
-        var newValue = (isStart ? ValueStart : ValueEnd) + track.ValueFromDistance(e.HorizontalChange, e.VerticalChange);
+        var newValue = (isStart ? ValueStart : ValueEnd) +
+                       track.ValueFromDistance(e.HorizontalChange, e.VerticalChange);
         if (ValidateHelper.IsInRangeOfDouble(newValue))
         {
             UpdateValue(newValue, isStart);
@@ -568,7 +597,8 @@ public class RangeSlider : TwoWayRangeBase
         }
     }
 
-    private static void OnThumbDragCompleted(object sender, DragCompletedEventArgs e) => (sender as RangeSlider)?.OnThumbDragCompleted(e);
+    private static void OnThumbDragCompleted(object sender, DragCompletedEventArgs e) =>
+        (sender as RangeSlider)?.OnThumbDragCompleted(e);
 
     protected virtual void OnThumbDragCompleted(DragCompletedEventArgs e)
     {

@@ -45,6 +45,7 @@ public class ThicknessSplitConverter : IValueConverter
                 return result;
             }
         }
+
         return value;
     }
 

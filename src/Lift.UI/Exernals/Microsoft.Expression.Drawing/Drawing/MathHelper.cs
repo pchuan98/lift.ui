@@ -28,6 +28,7 @@ internal static class MathHelper
         {
             return AreClose(value1, value2);
         }
+
         return true;
     }
 
@@ -41,6 +42,7 @@ internal static class MathHelper
         {
             return AreClose(value1, value2);
         }
+
         return true;
     }
 
@@ -50,10 +52,12 @@ internal static class MathHelper
         {
             return min.Value;
         }
+
         if (max.HasValue && value > max.Value)
         {
             return max.Value;
         }
+
         return value;
     }
 
@@ -63,6 +67,7 @@ internal static class MathHelper
         {
             return lhs / rhs;
         }
+
         return fallback;
     }
 }

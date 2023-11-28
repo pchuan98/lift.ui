@@ -19,7 +19,8 @@ public class SplitButton : ButtonBase
     }
 
     public static readonly DependencyProperty MaxDropDownHeightProperty = DependencyProperty.Register(
-        nameof(MaxDropDownHeight), typeof(double), typeof(SplitButton), new PropertyMetadata(SystemParameters.PrimaryScreenHeight / 3.0));
+        nameof(MaxDropDownHeight), typeof(double), typeof(SplitButton),
+        new PropertyMetadata(SystemParameters.PrimaryScreenHeight / 3.0));
 
     public double MaxDropDownHeight
     {

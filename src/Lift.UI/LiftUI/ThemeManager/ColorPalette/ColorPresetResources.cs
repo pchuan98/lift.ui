@@ -12,7 +12,6 @@ public class ColorPresetResources : ResourceDictionary
 
     public ColorPresetResources()
     {
-
 #if !NET40
         WeakEventManager<PresetManager, EventArgs>.AddHandler(
             PresetManager.Current,
@@ -39,6 +38,7 @@ public class ColorPresetResources : ResourceDictionary
     {
         ApplyCurrentPreset();
     }
+
     private void ApplyCurrentPreset()
     {
         if (MergedDictionaries.Count > 0)
@@ -47,9 +47,10 @@ public class ColorPresetResources : ResourceDictionary
         }
 
         var currentPreset = PresetManager.Current.ColorPreset;
-        if (currentPreset !=null)
+        if (currentPreset != null)
         {
-            var source = ApplicationHelper.GetAbsoluteUri(currentPreset.AssemblyName, $"{currentPreset.ColorPreset}/{TargetTheme}.xaml");
+            var source = ApplicationHelper.GetAbsoluteUri(currentPreset.AssemblyName,
+                $"{currentPreset.ColorPreset}/{TargetTheme}.xaml");
             var rd = new ResourceDictionary { Source = source };
             MergedDictionaries.Add(rd);
         }

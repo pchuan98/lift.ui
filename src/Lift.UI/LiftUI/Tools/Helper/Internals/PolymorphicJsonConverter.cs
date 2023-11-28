@@ -36,6 +36,7 @@ internal class PolymorphicJsonConverter<T> : JsonConverter<T>
             writer.WritePropertyName(property.Name);
             JsonSerializer.Serialize(writer, propertyValue, options);
         }
+
         writer.WriteEndObject();
     }
 }

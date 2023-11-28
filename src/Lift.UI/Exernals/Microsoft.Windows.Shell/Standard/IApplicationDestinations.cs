@@ -8,7 +8,7 @@ namespace Standard;
 [ComImport]
 internal interface IApplicationDestinations
 {
-    void SetAppID([MarshalAs(UnmanagedType.LPWStr)][In] string pszAppID);
+    void SetAppID([MarshalAs(UnmanagedType.LPWStr)] [In] string pszAppID);
 
     void RemoveDestination([MarshalAs(UnmanagedType.IUnknown)] object punk);
 

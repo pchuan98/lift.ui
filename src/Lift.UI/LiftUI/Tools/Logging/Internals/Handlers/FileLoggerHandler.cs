@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+
 namespace Lift.UI.Tools;
 
 public class FileLoggerHandler : ILoggerHandler
@@ -14,11 +15,17 @@ public class FileLoggerHandler : ILoggerHandler
 
     public FileLoggerHandler(string fileName) : this(fileName, string.Empty) { }
 
-    public FileLoggerHandler(string fileName, string directory) : this(new DefaultLoggerFormatter(), fileName, directory) { }
+    public FileLoggerHandler(string fileName, string directory) : this(new DefaultLoggerFormatter(), fileName,
+        directory)
+    {
+    }
 
     public FileLoggerHandler(ILoggerFormatter loggerFormatter) : this(loggerFormatter, CreateFileName()) { }
 
-    public FileLoggerHandler(ILoggerFormatter loggerFormatter, string fileName) : this(loggerFormatter, fileName, string.Empty) { }
+    public FileLoggerHandler(ILoggerFormatter loggerFormatter, string fileName) : this(loggerFormatter, fileName,
+        string.Empty)
+    {
+    }
 
     public FileLoggerHandler(ILoggerFormatter loggerFormatter, string fileName, string directory)
     {

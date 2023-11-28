@@ -17,6 +17,7 @@ internal static class PathGeometryHelper
         {
             return PathGeometry.CreateFromGeometry(original);
         }
+
         return geometry;
     }
 

@@ -26,10 +26,10 @@ public class MessageBoxInfo
     public string StyleKey { get; set; }
 
     public string CancelContent { get; set; }
-    
+
     public string ConfirmContent { get; set; }
-    
+
     public string YesContent { get; set; }
-    
+
     public string NoContent { get; set; }
 }

@@ -32,7 +32,9 @@ internal sealed class MessageWindow : DispatcherObject, IDisposable
         {
             value = GCHandle.Alloc(this);
             IntPtr lpParam = (IntPtr) value;
-            this.Handle = NativeMethods.CreateWindowEx(exStyle, this._className, name, style, (int) location.X, (int) location.Y, (int) location.Width, (int) location.Height, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, lpParam);
+            this.Handle = NativeMethods.CreateWindowEx(exStyle, this._className, name, style, (int) location.X,
+                (int) location.Y, (int) location.Width, (int) location.Height, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero,
+                lpParam);
         }
         finally
         {
@@ -58,12 +60,14 @@ internal sealed class MessageWindow : DispatcherObject, IDisposable
         {
             return;
         }
+
         this._isDisposed = true;
         IntPtr hwnd = this.Handle;
         string className = this._className;
         if (isHwndBeingDestroyed)
         {
-            base.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new DispatcherOperationCallback((object arg) => MessageWindow._DestroyWindow(IntPtr.Zero, className)));
+            base.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                new DispatcherOperationCallback((object arg) => MessageWindow._DestroyWindow(IntPtr.Zero, className)));
         }
         else if (this.Handle != IntPtr.Zero)
         {
@@ -73,9 +77,11 @@ internal sealed class MessageWindow : DispatcherObject, IDisposable
             }
             else
             {
-                base.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new DispatcherOperationCallback((object arg) => MessageWindow._DestroyWindow(hwnd, className)));
+                base.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                    new DispatcherOperationCallback((object arg) => MessageWindow._DestroyWindow(hwnd, className)));
             }
         }
+
         MessageWindow.s_windowLookup.Remove(hwnd);
         this._className = null;
         this.Handle = IntPtr.Zero;
@@ -88,13 +94,16 @@ internal sealed class MessageWindow : DispatcherObject, IDisposable
         MessageWindow messageWindow = null;
         if (msg == WM.CREATE)
         {
-            messageWindow = (MessageWindow) GCHandle.FromIntPtr(((CREATESTRUCT) Marshal.PtrToStructure(lParam, typeof(CREATESTRUCT))).lpCreateParams).Target;
+            messageWindow = (MessageWindow) GCHandle
+                .FromIntPtr(((CREATESTRUCT) Marshal.PtrToStructure(lParam, typeof(CREATESTRUCT))).lpCreateParams)
+                .Target;
             MessageWindow.s_windowLookup.Add(hwnd, messageWindow);
         }
         else if (!MessageWindow.s_windowLookup.TryGetValue(hwnd, out messageWindow))
         {
             return NativeMethods.DefWindowProc(hwnd, msg, wParam, lParam);
         }
+
         WndProc wndProcCallback = messageWindow._wndProcCallback;
         if (wndProcCallback != null)
         {
@@ -104,11 +113,13 @@ internal sealed class MessageWindow : DispatcherObject, IDisposable
         {
             result = NativeMethods.DefWindowProc(hwnd, msg, wParam, lParam);
         }
+
         if (msg == WM.NCDESTROY)
         {
             messageWindow._Dispose(true, true);
             GC.SuppressFinalize(messageWindow);
         }
+
         return result;
     }
 

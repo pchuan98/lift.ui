@@ -9,5 +9,6 @@ public class DatePropertyEditor : PropertyEditorBase
         IsEnabled = !propertyItem.IsReadOnly
     };
 
-    public override DependencyProperty GetDependencyProperty() => System.Windows.Controls.DatePicker.SelectedDateProperty;
+    public override DependencyProperty GetDependencyProperty() =>
+        System.Windows.Controls.DatePicker.SelectedDateProperty;
 }

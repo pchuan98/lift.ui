@@ -14,22 +14,25 @@ namespace Lift.UI.Tools;
 /// </summary>
 public class LocalizationManager
 {
-    public static Dictionary<string, ResxLocalizationProvider> AvailableResxProvider = new Dictionary<string, ResxLocalizationProvider>();
-    
-    public static Dictionary<string, ResourceManager> AvailableResourceManager = new Dictionary<string, ResourceManager>();
-    
+    public static Dictionary<string, ResxLocalizationProvider> AvailableResxProvider =
+        new Dictionary<string, ResxLocalizationProvider>();
+
+    public static Dictionary<string, ResourceManager> AvailableResourceManager =
+        new Dictionary<string, ResourceManager>();
+
     private static LocalizationManager _localizationManager;
 
-    public static LocalizationManager Instance => _localizationManager ?? (_localizationManager = new LocalizationManager());
+    public static LocalizationManager Instance =>
+        _localizationManager ?? (_localizationManager = new LocalizationManager());
 
     public event EventHandler<FunctionEventArgs<CultureInfo>> CultureChanged;
 
     public ILocalizationProvider LocalizationProvider { get; set; }
     private LocalizationManager() { }
 
-    [DesignOnly(true)]
-    public static readonly DependencyProperty DesignCultureProperty =
-        DependencyProperty.RegisterAttached("DesignCulture", typeof(CultureInfo), typeof(LocalizationManager), new PropertyMetadata(OnDesignCultureChanged));
+    [DesignOnly(true)] public static readonly DependencyProperty DesignCultureProperty =
+        DependencyProperty.RegisterAttached("DesignCulture", typeof(CultureInfo), typeof(LocalizationManager),
+            new PropertyMetadata(OnDesignCultureChanged));
 
     [DesignOnly(true)]
     private static void OnDesignCultureChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
@@ -37,7 +40,7 @@ public class LocalizationManager
         if (!DesignerProperties.GetIsInDesignMode(obj))
             return;
 
-        ConfigHelper.Instance.SetLang(((CultureInfo)args.NewValue).Name);
+        ConfigHelper.Instance.SetLang(((CultureInfo) args.NewValue).Name);
     }
 
     [DesignOnly(true)]
@@ -56,8 +59,9 @@ public class LocalizationManager
             obj.SetValue(DesignCultureProperty, value);
     }
 
-    public static readonly DependencyProperty ProviderProperty = DependencyProperty.RegisterAttached("Provider", typeof(ILocalizationProvider),
-            typeof(LocalizationManager), new PropertyMetadata(OnProviderChanged));
+    public static readonly DependencyProperty ProviderProperty = DependencyProperty.RegisterAttached("Provider",
+        typeof(ILocalizationProvider),
+        typeof(LocalizationManager), new PropertyMetadata(OnProviderChanged));
 
     private static void OnProviderChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -121,7 +125,8 @@ public class LocalizationManager
     public static Dictionary<string, IEnumerable<CultureInfo>> GetAvailableCultures()
     {
         List<CultureInfo> result = new List<CultureInfo>();
-        Dictionary<string, IEnumerable<CultureInfo>> availableCultures = new Dictionary<string, IEnumerable<CultureInfo>>();
+        Dictionary<string, IEnumerable<CultureInfo>> availableCultures =
+            new Dictionary<string, IEnumerable<CultureInfo>>();
 
         foreach (var item in AvailableResourceManager)
         {
@@ -142,8 +147,10 @@ public class LocalizationManager
                     //NOP
                 }
             }
+
             availableCultures.AddIfNotExists(item.Key, result);
         }
+
         return availableCultures;
     }
 }

@@ -15,12 +15,14 @@ using Lift.UI.Controls;
 using Microsoft.Windows.Controls.Primitives;
 using CalendarMode = Microsoft.Windows.Controls.CalendarMode;
 using CalendarSelectionMode = Microsoft.Windows.Controls.CalendarSelectionMode;
+
 namespace Microsoft.Windows.Automation.Peers;
 
 /// <summary>
 /// AutomationPeer for PersianCalendar Control
 /// </summary>
-public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGridProvider, IMultipleViewProvider, ISelectionProvider, ITableProvider
+public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGridProvider, IMultipleViewProvider,
+    ISelectionProvider, ITableProvider
 {
     /// <summary>
     /// Initializes a new instance of the CalendarAutomationPeer class.
@@ -78,14 +80,14 @@ public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGr
             case PatternInterface.Table:
             case PatternInterface.MultipleView:
             case PatternInterface.Selection:
+            {
+                if (this.OwningGrid != null)
                 {
-                    if (this.OwningGrid != null)
-                    {
-                        return this;
-                    }
-
-                    break;
+                    return this;
                 }
+
+                break;
+            }
 
             default: break;
         }
@@ -125,9 +127,11 @@ public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGr
         int numSelected = this.OwningPersianCalendar.SelectedDates.Count;
         int numAdded = e.AddedItems.Count;
 
-        if (AutomationPeer.ListenerExists(AutomationEvents.SelectionItemPatternOnElementSelected) && numSelected == 1 && numAdded == 1)
+        if (AutomationPeer.ListenerExists(AutomationEvents.SelectionItemPatternOnElementSelected) && numSelected == 1 &&
+            numAdded == 1)
         {
-            CalendarDayButton selectedButton = this.OwningPersianCalendar.FindDayButtonFromDay((DateTime)e.AddedItems[0]);
+            CalendarDayButton selectedButton =
+                this.OwningPersianCalendar.FindDayButtonFromDay((DateTime) e.AddedItems[0]);
 
             if (selectedButton != null)
             {
@@ -171,7 +175,8 @@ public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGr
 
                         if (peer != null)
                         {
-                            peer.RaiseAutomationEvent(AutomationEvents.SelectionItemPatternOnElementRemovedFromSelection);
+                            peer.RaiseAutomationEvent(
+                                AutomationEvents.SelectionItemPatternOnElementRemovedFromSelection);
                         }
                     }
                 }
@@ -225,12 +230,13 @@ public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGr
             row++;
         }
 
-        if (this.OwningGrid != null && row >= 0 && row < this.OwningGrid.RowDefinitions.Count && column >= 0 && column < this.OwningGrid.ColumnDefinitions.Count)
+        if (this.OwningGrid != null && row >= 0 && row < this.OwningGrid.RowDefinitions.Count && column >= 0 &&
+            column < this.OwningGrid.ColumnDefinitions.Count)
         {
             foreach (UIElement child in this.OwningGrid.Children)
             {
-                int childRow = (int)child.GetValue(Grid.RowProperty);
-                int childColumn = (int)child.GetValue(Grid.ColumnProperty);
+                int childRow = (int) child.GetValue(Grid.RowProperty);
+                int childColumn = (int) child.GetValue(Grid.ColumnProperty);
                 if (childRow == row && childColumn == column)
                 {
                     AutomationPeer peer = CreatePeerForElement(child);
@@ -249,21 +255,21 @@ public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGr
 
     #region IMultipleViewProvider
 
-    int IMultipleViewProvider.CurrentView 
-    { 
-        get 
-        { 
-            return (int)this.OwningPersianCalendar.DisplayMode; 
-        } 
+    int IMultipleViewProvider.CurrentView
+    {
+        get
+        {
+            return (int) this.OwningPersianCalendar.DisplayMode;
+        }
     }
 
     int[] IMultipleViewProvider.GetSupportedViews()
     {
         int[] supportedViews = new int[3];
 
-        supportedViews[0] = (int)CalendarMode.Month;
-        supportedViews[1] = (int)CalendarMode.Year;
-        supportedViews[2] = (int)CalendarMode.Decade;
+        supportedViews[0] = (int) CalendarMode.Month;
+        supportedViews[1] = (int) CalendarMode.Year;
+        supportedViews[2] = (int) CalendarMode.Decade;
 
         return supportedViews;
     }
@@ -273,19 +279,19 @@ public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGr
         switch (viewId)
         {
             case 0:
-                {
-                    return "Month";
-                }
+            {
+                return "Month";
+            }
 
             case 1:
-                {
-                    return "Year";
-                }
+            {
+                return "Year";
+            }
 
             case 2:
-                {
-                    return "Decade";
-                }
+            {
+                return "Decade";
+            }
         }
 
         // TODO: update when Jolt 23302 is fixed
@@ -295,7 +301,7 @@ public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGr
 
     void IMultipleViewProvider.SetCurrentView(int viewId)
     {
-        this.OwningPersianCalendar.DisplayMode = (CalendarMode)viewId;
+        this.OwningPersianCalendar.DisplayMode = (CalendarMode) viewId;
     }
 
     #endregion IMultipleViewProvider
@@ -306,16 +312,17 @@ public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGr
     {
         get
         {
-            return this.OwningPersianCalendar.SelectionMode == CalendarSelectionMode.SingleRange || this.OwningPersianCalendar.SelectionMode == CalendarSelectionMode.MultipleRange;
+            return this.OwningPersianCalendar.SelectionMode == CalendarSelectionMode.SingleRange ||
+                   this.OwningPersianCalendar.SelectionMode == CalendarSelectionMode.MultipleRange;
         }
     }
 
-    bool ISelectionProvider.IsSelectionRequired 
-    { 
-        get 
-        { 
-            return false; 
-        } 
+    bool ISelectionProvider.IsSelectionRequired
+    {
+        get
+        {
+            return false;
+        }
     }
 
     IRawElementProviderSimple[] ISelectionProvider.GetSelection()
@@ -324,14 +331,15 @@ public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGr
 
         if (this.OwningGrid != null)
         {
-            if (this.OwningPersianCalendar.DisplayMode == CalendarMode.Month && this.OwningPersianCalendar.SelectedDates != null && this.OwningPersianCalendar.SelectedDates.Count != 0)
+            if (this.OwningPersianCalendar.DisplayMode == CalendarMode.Month &&
+                this.OwningPersianCalendar.SelectedDates != null && this.OwningPersianCalendar.SelectedDates.Count != 0)
             {
                 // return selected DayButtons
                 CalendarDayButton dayButton;
 
                 foreach (UIElement child in this.OwningGrid.Children)
                 {
-                    int childRow = (int)child.GetValue(Grid.RowProperty);
+                    int childRow = (int) child.GetValue(Grid.RowProperty);
 
                     if (childRow != 0)
                     {
@@ -401,7 +409,7 @@ public sealed class CalendarAutomationPeer : FrameworkElementAutomationPeer, IGr
 
             foreach (UIElement child in this.OwningGrid.Children)
             {
-                int childRow = (int)child.GetValue(Grid.RowProperty);
+                int childRow = (int) child.GetValue(Grid.RowProperty);
 
                 if (childRow == 0)
                 {

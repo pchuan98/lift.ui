@@ -14,8 +14,10 @@ public class SimpleText : FrameworkElement
 
     static SimpleText()
     {
-        SnapsToDevicePixelsProperty.OverrideMetadata(typeof(SimpleText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
-        UseLayoutRoundingProperty.OverrideMetadata(typeof(SimpleText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
+        SnapsToDevicePixelsProperty.OverrideMetadata(typeof(SimpleText),
+            new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
+        UseLayoutRoundingProperty.OverrideMetadata(typeof(SimpleText),
+            new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
     }
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
@@ -61,7 +63,8 @@ public class SimpleText : FrameworkElement
     }
 
     public static readonly DependencyProperty ForegroundProperty = DependencyProperty.Register(
-        nameof(Foreground), typeof(Brush), typeof(SimpleText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
+        nameof(Foreground), typeof(Brush), typeof(SimpleText),
+        new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
 
     public Brush Foreground
     {
@@ -120,7 +123,8 @@ public class SimpleText : FrameworkElement
         set => SetValue(FontWeightProperty, value);
     }
 
-    protected override void OnRender(DrawingContext drawingContext) => drawingContext.DrawText(_formattedText, new Point());
+    protected override void OnRender(DrawingContext drawingContext) =>
+        drawingContext.DrawText(_formattedText, new Point());
 
     private void EnsureFormattedText()
     {

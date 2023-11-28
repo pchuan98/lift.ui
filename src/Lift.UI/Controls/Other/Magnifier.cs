@@ -43,9 +43,11 @@ public class Magnifier : AdornerElement
     public static Magnifier Default => new();
 
     public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(
-        nameof(Scale), typeof(double), typeof(Magnifier), new PropertyMetadata(5.0, OnScaleChanged), ValidateHelper.IsInRangeOfPosDouble);
+        nameof(Scale), typeof(double), typeof(Magnifier), new PropertyMetadata(5.0, OnScaleChanged),
+        ValidateHelper.IsInRangeOfPosDouble);
 
-    private static void OnScaleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((Magnifier) d).UpdateViewboxSize();
+    private static void OnScaleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
+        ((Magnifier) d).UpdateViewboxSize();
 
     public double Scale
     {
@@ -154,6 +156,7 @@ public class Magnifier : AdornerElement
             };
             layer.Add(_adornerContainer);
         }
+
         this.Show();
     }
 }

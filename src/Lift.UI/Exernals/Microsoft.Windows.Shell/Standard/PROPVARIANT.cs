@@ -24,6 +24,7 @@ internal class PROPVARIANT : IDisposable
         {
             return Marshal.PtrToStringUni(this.pointerVal);
         }
+
         return null;
     }
 
@@ -64,8 +65,7 @@ internal class PROPVARIANT : IDisposable
         this.Clear();
     }
 
-    [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-    [FieldOffset(0)]
+    [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] [FieldOffset(0)]
     private ushort vt;
 
     [SuppressMessage("Microsoft.Reliability", "CA2006:UseSafeHandleToEncapsulateNativeResources")]
@@ -73,16 +73,13 @@ internal class PROPVARIANT : IDisposable
     [FieldOffset(8)]
     private IntPtr pointerVal;
 
-    [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-    [FieldOffset(8)]
+    [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] [FieldOffset(8)]
     private byte byteVal;
 
-    [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-    [FieldOffset(8)]
+    [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] [FieldOffset(8)]
     private long longVal;
 
-    [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-    [FieldOffset(8)]
+    [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] [FieldOffset(8)]
     private short boolVal;
 
     private static class NativeMethods

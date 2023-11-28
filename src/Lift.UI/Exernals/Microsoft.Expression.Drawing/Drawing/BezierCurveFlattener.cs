@@ -8,7 +8,8 @@ internal static class BezierCurveFlattener
 {
     public const double StandardFlatteningTolerance = 0.25;
 
-    private static void DoCubicForwardDifferencing(Point[] controlPoints, double leftParameter, double rightParameter, double inverseErrorTolerance, ICollection<Point> resultPolyline, ICollection<double> resultParameters)
+    private static void DoCubicForwardDifferencing(Point[] controlPoints, double leftParameter, double rightParameter,
+        double inverseErrorTolerance, ICollection<Point> resultPolyline, ICollection<double> resultParameters)
     {
         double num14;
         var num = controlPoints[1].X - controlPoints[0].X;
@@ -75,7 +76,9 @@ internal static class BezierCurveFlattener
         }
     }
 
-    private static void DoCubicMidpointSubdivision(Point[] controlPoints, uint depth, double leftParameter, double rightParameter, double inverseErrorTolerance, ICollection<Point> resultPolyline, ICollection<double> resultParameters)
+    private static void DoCubicMidpointSubdivision(Point[] controlPoints, uint depth, double leftParameter,
+        double rightParameter, double inverseErrorTolerance, ICollection<Point> resultPolyline,
+        ICollection<double> resultParameters)
     {
         Point[] pointArray = { controlPoints[0], controlPoints[1], controlPoints[2], controlPoints[3] };
         var pointArray2 = new Point[4];
@@ -119,7 +122,8 @@ internal static class BezierCurveFlattener
         }
     }
 
-    public static void FlattenCubic(Point[] controlPoints, double errorTolerance, ICollection<Point> resultPolyline, bool skipFirstPoint, ICollection<double> resultParameters = null)
+    public static void FlattenCubic(Point[] controlPoints, double errorTolerance, ICollection<Point> resultPolyline,
+        bool skipFirstPoint, ICollection<double> resultParameters = null)
     {
         if (resultPolyline == null) throw new ArgumentNullException(nameof(resultPolyline));
         if (controlPoints == null) throw new ArgumentNullException(nameof(controlPoints));
@@ -162,22 +166,30 @@ internal static class BezierCurveFlattener
         resultParameters?.Add(1.0);
     }
 
-    public static void FlattenQuadratic(Point[] controlPoints, double errorTolerance, ICollection<Point> resultPolyline, bool skipFirstPoint, ICollection<double> resultParameters = null)
+    public static void FlattenQuadratic(Point[] controlPoints, double errorTolerance, ICollection<Point> resultPolyline,
+        bool skipFirstPoint, ICollection<double> resultParameters = null)
     {
         if (resultPolyline == null)
         {
             throw new ArgumentNullException(nameof(resultPolyline));
         }
+
         if (controlPoints == null)
         {
             throw new ArgumentNullException(nameof(controlPoints));
         }
+
         if (controlPoints.Length != 3)
         {
             throw new ArgumentOutOfRangeException(nameof(controlPoints));
         }
+
         EnsureErrorTolerance(ref errorTolerance);
-        Point[] pointArray = { controlPoints[0], GeometryHelper.Lerp(controlPoints[0], controlPoints[1], 0.66666666666666663), GeometryHelper.Lerp(controlPoints[1], controlPoints[2], 0.33333333333333331), controlPoints[2] };
+        Point[] pointArray =
+        {
+            controlPoints[0], GeometryHelper.Lerp(controlPoints[0], controlPoints[1], 0.66666666666666663),
+            GeometryHelper.Lerp(controlPoints[1], controlPoints[2], 0.33333333333333331), controlPoints[2]
+        };
         FlattenCubic(pointArray, errorTolerance, resultPolyline, skipFirstPoint, resultParameters);
     }
 
@@ -188,6 +200,7 @@ internal static class BezierCurveFlattener
         {
             return false;
         }
+
         Vector lhs = controlPoints[3].Subtract(controlPoints[0]);
         Vector rhs = controlPoints[1].Subtract(controlPoints[0]);
         double num2 = GeometryHelper.Dot(lhs, rhs);
@@ -195,16 +208,19 @@ internal static class BezierCurveFlattener
         {
             return false;
         }
+
         Vector vector3 = controlPoints[2].Subtract(controlPoints[0]);
         double num3 = GeometryHelper.Dot(lhs, vector3);
         if ((num3 < 0.0) || (num3 > num))
         {
             return false;
         }
+
         if (num2 > num3)
         {
             return false;
         }
+
         return true;
     }
 
@@ -216,6 +232,7 @@ internal static class BezierCurveFlattener
             d *= 0.25;
             num++;
         }
+
         return num;
     }
 
@@ -227,6 +244,7 @@ internal static class BezierCurveFlattener
             i = i >> 2;
             num++;
         }
+
         return num;
     }
 
@@ -238,6 +256,7 @@ internal static class BezierCurveFlattener
             i = i >> 3;
             num++;
         }
+
         return num;
     }
 

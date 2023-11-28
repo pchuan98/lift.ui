@@ -20,6 +20,7 @@ public abstract class BaseLocalizationListener : IWeakEventListener, IDisposable
             OnCultureChanged();
             return true;
         }
+
         return false;
     }
 

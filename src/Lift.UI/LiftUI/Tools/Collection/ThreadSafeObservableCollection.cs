@@ -56,19 +56,19 @@ public sealed class ThreadSafeObservableCollection<T> : IList<T>, IReadOnlyList<
         }
     }
 
-    bool ICollection<T>.IsReadOnly => ((ICollection<T>)_items).IsReadOnly;
+    bool ICollection<T>.IsReadOnly => ((ICollection<T>) _items).IsReadOnly;
 
     public int Count => _items.Count;
 
-    bool IList.IsReadOnly => ((IList)_items).IsReadOnly;
+    bool IList.IsReadOnly => ((IList) _items).IsReadOnly;
 
-    bool IList.IsFixedSize => ((IList)_items).IsFixedSize;
+    bool IList.IsFixedSize => ((IList) _items).IsFixedSize;
 
     int ICollection.Count => Count;
 
-    object ICollection.SyncRoot => ((ICollection)_items).SyncRoot;
+    object ICollection.SyncRoot => ((ICollection) _items).SyncRoot;
 
-    bool ICollection.IsSynchronized => ((ICollection)_items).IsSynchronized;
+    bool ICollection.IsSynchronized => ((ICollection) _items).IsSynchronized;
 
     object? IList.this[int index]
     {
@@ -76,7 +76,7 @@ public sealed class ThreadSafeObservableCollection<T> : IList<T>, IReadOnlyList<
         set
         {
             AssertType(value, nameof(value));
-            this[index] = (T)value!;
+            this[index] = (T) value!;
         }
     }
 
@@ -176,7 +176,7 @@ public sealed class ThreadSafeObservableCollection<T> : IList<T>, IReadOnlyList<
     int IList.Add(object? value)
     {
         AssertType(value, nameof(value));
-        var item = (T)value!;
+        var item = (T) value!;
         lock (_lock)
         {
             var index = _items.Count;
@@ -189,7 +189,7 @@ public sealed class ThreadSafeObservableCollection<T> : IList<T>, IReadOnlyList<
     bool IList.Contains(object? value)
     {
         AssertType(value, nameof(value));
-        return Contains((T)value!);
+        return Contains((T) value!);
     }
 
     void IList.Clear()
@@ -200,19 +200,19 @@ public sealed class ThreadSafeObservableCollection<T> : IList<T>, IReadOnlyList<
     int IList.IndexOf(object? value)
     {
         AssertType(value, nameof(value));
-        return IndexOf((T)value!);
+        return IndexOf((T) value!);
     }
 
     void IList.Insert(int index, object? value)
     {
         AssertType(value, nameof(value));
-        Insert(index, (T)value!);
+        Insert(index, (T) value!);
     }
 
     void IList.Remove(object? value)
     {
         AssertType(value, nameof(value));
-        Remove((T)value!);
+        Remove((T) value!);
     }
 
     void IList.RemoveAt(int index)
@@ -222,7 +222,7 @@ public sealed class ThreadSafeObservableCollection<T> : IList<T>, IReadOnlyList<
 
     void ICollection.CopyTo(Array array, int index)
     {
-        ((ICollection)_items).CopyTo(array, index);
+        ((ICollection) _items).CopyTo(array, index);
     }
 
     private static void AssertType(object? value, string argumentName)

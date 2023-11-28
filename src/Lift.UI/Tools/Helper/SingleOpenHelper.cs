@@ -29,6 +29,7 @@ public class SingleOpenHelper
             OpenDic.Add(typeStr, temp);
             return temp;
         }
+
         var currentCtl = OpenDic[typeStr];
         if (currentCtl.CanDispose)
         {
@@ -36,6 +37,7 @@ public class SingleOpenHelper
             OpenDic[typeStr] = temp;
             return temp;
         }
+
         return default;
     }
 }

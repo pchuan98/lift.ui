@@ -89,7 +89,8 @@ public class Poptip : AdornerElement
     }
 
     public static readonly DependencyProperty ContentTemplateSelectorProperty = DependencyProperty.Register(
-        nameof(ContentTemplateSelector), typeof(DataTemplateSelector), typeof(Poptip), new PropertyMetadata(default(DataTemplateSelector)));
+        nameof(ContentTemplateSelector), typeof(DataTemplateSelector), typeof(Poptip),
+        new PropertyMetadata(default(DataTemplateSelector)));
 
     public DataTemplateSelector ContentTemplateSelector
     {
@@ -178,7 +179,8 @@ public class Poptip : AdornerElement
     }
 
     public static readonly DependencyProperty DelayProperty = DependencyProperty.Register(
-        nameof(Delay), typeof(double), typeof(Poptip), new PropertyMetadata(1000.0), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
+        nameof(Delay), typeof(double), typeof(Poptip), new PropertyMetadata(1000.0),
+        ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     public double Delay
     {
@@ -310,7 +312,6 @@ public class Poptip : AdornerElement
         var delay = Delay;
         if (!isShow || HitMode != HitMode.Hover || MathHelper.IsVerySmall(delay))
         {
-
             _popup.IsOpen = isShow;
             Target.SetCurrentValue(IsOpenProperty, isShow);
         }

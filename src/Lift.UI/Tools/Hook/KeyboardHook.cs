@@ -61,6 +61,7 @@ public class KeyboardHook
             return InteropMethods.SetWindowsHookEx((int) InteropValues.HookType.WH_KEYBOARD_LL, proc,
                 InteropMethods.GetModuleHandle(curModule.ModuleName), 0);
         }
+
         return IntPtr.Zero;
     }
 
@@ -99,6 +100,7 @@ public class KeyboardHook
                 KeyUp?.Invoke(null, new KeyboardHookEventArgs(virtualKey, true));
             }
         }
+
         return InteropMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
     }
 }

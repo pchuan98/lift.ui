@@ -17,13 +17,16 @@ public class Rate : RegularItemsControl
     }
 
     public static readonly DependencyProperty AllowHalfProperty = DependencyProperty.Register(
-        nameof(AllowHalf), typeof(bool), typeof(Rate), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
+        nameof(AllowHalf), typeof(bool), typeof(Rate),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static readonly DependencyProperty AllowClearProperty = DependencyProperty.Register(
-        nameof(AllowClear), typeof(bool), typeof(Rate), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
+        nameof(AllowClear), typeof(bool), typeof(Rate),
+        new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
-        nameof(Icon), typeof(Geometry), typeof(Rate), new FrameworkPropertyMetadata(default(Geometry), FrameworkPropertyMetadataOptions.Inherits));
+        nameof(Icon), typeof(Geometry), typeof(Rate),
+        new FrameworkPropertyMetadata(default(Geometry), FrameworkPropertyMetadataOptions.Inherits));
 
     public static readonly DependencyProperty CountProperty = DependencyProperty.Register(
         nameof(Count), typeof(int), typeof(Rate), new PropertyMetadata(ValueBoxes.Int5Box));

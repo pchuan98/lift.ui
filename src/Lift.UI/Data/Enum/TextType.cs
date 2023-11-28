@@ -1,5 +1,4 @@
-﻿
-namespace Lift.UI.Data;
+﻿namespace Lift.UI.Data;
 
 /// <summary>
 /// 文本类型枚举

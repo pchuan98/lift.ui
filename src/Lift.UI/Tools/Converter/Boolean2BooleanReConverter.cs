@@ -12,6 +12,7 @@ public class Boolean2BooleanReConverter : IValueConverter
         {
             return !boolValue;
         }
+
         return value;
     }
 
@@ -21,6 +22,7 @@ public class Boolean2BooleanReConverter : IValueConverter
         {
             return !boolValue;
         }
+
         return value;
     }
 }

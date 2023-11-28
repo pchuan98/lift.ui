@@ -10,6 +10,5 @@ internal class SHARDAPPIDINFOIDLIST
 {
     private IntPtr pidl;
 
-    [MarshalAs(UnmanagedType.LPWStr)]
-    private string pszAppID;
+    [MarshalAs(UnmanagedType.LPWStr)] private string pszAppID;
 }

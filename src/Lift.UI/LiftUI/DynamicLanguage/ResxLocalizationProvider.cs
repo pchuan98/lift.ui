@@ -10,7 +10,6 @@ namespace Lift.UI.Tools;
 /// </summary>
 public class ResxLocalizationProvider : ILocalizationProvider
 {
-
     private readonly ResourceManager resourceManager;
 
     public ResxLocalizationProvider(string baseName, Assembly assembly)
@@ -27,12 +26,14 @@ public class ResxLocalizationProvider : ILocalizationProvider
         {
             // this exception is thrown if the path is completely wrong
             // let's improve the exception message a bit
-            throw new MissingManifestResourceException(string.Format("Could not find any resources. Make sure \"{0}.resources\" was correctly embedded or linked into assembly \"{1}\" at compile time, or that all the satellite assemblies required are loadable and fully signed.", baseName, assembly.GetName().Name));
+            throw new MissingManifestResourceException(string.Format(
+                "Could not find any resources. Make sure \"{0}.resources\" was correctly embedded or linked into assembly \"{1}\" at compile time, or that all the satellite assemblies required are loadable and fully signed.",
+                baseName, assembly.GetName().Name));
         }
     }
-    
+
     public object Localize(string key, CultureInfo cultureInfo)
-{
+    {
         return this.resourceManager.GetString(key, cultureInfo);
     }
 }

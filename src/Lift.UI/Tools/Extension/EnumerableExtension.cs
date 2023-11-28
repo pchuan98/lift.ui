@@ -17,7 +17,8 @@ public static class EnumerableExtension
         return enumerable;
     }
 
-    public static IEnumerable<TSource> DoWithIndex<TSource>(this IEnumerable<TSource> source, Action<TSource, int> predicate)
+    public static IEnumerable<TSource> DoWithIndex<TSource>(this IEnumerable<TSource> source,
+        Action<TSource, int> predicate)
     {
         var enumerable = source as IList<TSource> ?? source.ToList();
         for (var i = 0; i < enumerable.Count; i++)

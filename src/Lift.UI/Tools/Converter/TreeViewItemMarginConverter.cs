@@ -18,8 +18,10 @@ public class TreeViewItemMarginConverter : IValueConverter
             if (element is TreeViewItem)
                 left += 19.0;
         }
+
         return new Thickness(left, 0, 0, 0);
     }
+
     public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
         throw new NotSupportedException();

@@ -9,7 +9,8 @@ namespace Lift.UI.Controls;
 public class Gravatar : ContentControl
 {
     public static readonly DependencyProperty GeneratorProperty = DependencyProperty.Register(
-        nameof(Generator), typeof(IGravatarGenerator), typeof(Gravatar), new PropertyMetadata(new GithubGravatarGenerator()));
+        nameof(Generator), typeof(IGravatarGenerator), typeof(Gravatar),
+        new PropertyMetadata(new GithubGravatarGenerator()));
 
     public IGravatarGenerator Generator
     {
@@ -34,7 +35,8 @@ public class Gravatar : ContentControl
     }
 
     public static readonly DependencyProperty SourceProperty = DependencyProperty.Register(
-        nameof(Source), typeof(ImageSource), typeof(Gravatar), new PropertyMetadata(default(ImageSource), OnSourceChanged));
+        nameof(Source), typeof(ImageSource), typeof(Gravatar),
+        new PropertyMetadata(default(ImageSource), OnSourceChanged));
 
     private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

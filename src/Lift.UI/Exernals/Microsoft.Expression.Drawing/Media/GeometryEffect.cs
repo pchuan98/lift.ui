@@ -25,7 +25,7 @@ public abstract class GeometryEffect : Freezable
     static GeometryEffect()
     {
         DrawingPropertyMetadata.DrawingPropertyChanged +=
-            delegate (object sender, DrawingPropertyChangedEventArgs args)
+            delegate(object sender, DrawingPropertyChangedEventArgs args)
             {
                 if (sender is GeometryEffect effect && args.Metadata.AffectsRender)
                     effect.InvalidateGeometry(InvalidateGeometryReasons.PropertyChanged);

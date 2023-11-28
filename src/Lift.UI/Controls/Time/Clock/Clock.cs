@@ -198,6 +198,7 @@ public class Clock : ClockBase
             SecValue++;
             Update();
         }
+
         e.Handled = true;
     }
 
@@ -212,10 +213,12 @@ public class Clock : ClockBase
         {
             value -= 6;
         }
+
         if (value < 0)
         {
             value = value + 360;
         }
+
         _rotateTransformClock.Angle = value;
 
         Update();
@@ -240,6 +243,7 @@ public class Clock : ClockBase
             {
                 value = value + 360;
             }
+
             value = value - value % 6;
             _rotateTransformClock.Angle = value;
             Update();
@@ -259,6 +263,7 @@ public class Clock : ClockBase
         {
             hValue = 0;
         }
+
         if (hValue == 12 && _buttonAm.IsChecked == true)
         {
             _buttonPm.IsChecked = true;
@@ -321,13 +326,15 @@ public class Clock : ClockBase
         {
             hValue = 0;
         }
+
         var now = DateTime.Now;
-        return new DateTime(now.Year, now.Month, now.Day, hValue, (int) Math.Abs(_rotateTransformClock.Angle) % 360 / 6, _secValue);
+        return new DateTime(now.Year, now.Month, now.Day, hValue, (int) Math.Abs(_rotateTransformClock.Angle) % 360 / 6,
+            _secValue);
     }
 
     private void ButtonAm_OnClick(object sender, RoutedEventArgs e) => Update();
 
     private void ButtonPm_OnClick(object sender, RoutedEventArgs e) => Update();
 
-    #endregion Private Methods       
+    #endregion Private Methods
 }

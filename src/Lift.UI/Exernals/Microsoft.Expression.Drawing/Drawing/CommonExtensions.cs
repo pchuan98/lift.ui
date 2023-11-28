@@ -26,13 +26,15 @@ internal static class CommonExtensions
         }
     }
 
-    public static bool SetIfDifferent(this DependencyObject dependencyObject, DependencyProperty dependencyProperty, object value)
+    public static bool SetIfDifferent(this DependencyObject dependencyObject, DependencyProperty dependencyProperty,
+        object value)
     {
         if (!Equals(dependencyObject.GetValue(dependencyProperty), value))
         {
             dependencyObject.SetValue(dependencyProperty, value);
             return true;
         }
+
         return false;
     }
 
@@ -42,10 +44,12 @@ internal static class CommonExtensions
         {
             throw new ArgumentNullException(nameof(list));
         }
+
         if (count < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(count));
         }
+
         if (!list.EnsureListCountAtLeast(count, factory))
         {
             if (list.Count <= count)
@@ -65,6 +69,7 @@ internal static class CommonExtensions
                 }
             }
         }
+
         return true;
     }
 
@@ -74,10 +79,12 @@ internal static class CommonExtensions
         {
             throw new ArgumentNullException(nameof(list));
         }
+
         if (count < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(count));
         }
+
         if (list.Count >= count)
         {
             return false;
@@ -94,6 +101,7 @@ internal static class CommonExtensions
                 list.Add(factory == null ? default : factory());
             }
         }
+
         return true;
     }
 
@@ -104,6 +112,7 @@ internal static class CommonExtensions
             dependencyObject.ClearValue(dependencyProperty);
             return true;
         }
+
         return false;
     }
 

@@ -28,7 +28,7 @@ public enum BackdropType
 /// </summary>
 public static class MicaHelper
 {
-    internal static bool IsMica = false; 
+    internal static bool IsMica = false;
     private static System.Windows.Window _window;
 
     private static int _pvTrueAttribute = 0x01;
@@ -46,11 +46,16 @@ public static class MicaHelper
 
         return type switch
         {
-            BackdropType.Auto => OSVersionHelper.OSVersion >= new Version(10, 0, 22523), // Insider with new API                
+            BackdropType.Auto => OSVersionHelper.OSVersion >=
+                                 new Version(10, 0, 22523), // Insider with new API                
             BackdropType.Tabbed => OSVersionHelper.OSVersion >= new Version(10, 0, 22523),
             BackdropType.Mica => OSVersionHelper.OSVersion >= new Version(10, 0, 22000),
             BackdropType.Disable => true,
-            BackdropType.Acrylic => (OSVersionHelper.OSVersion >= new Version(6, 0) && OSVersionHelper.OSVersion < new Version(6, 3)) || (OSVersionHelper.OSVersion >= new Version(10, 0) && OSVersionHelper.OSVersion < new Version(10, 0, 22000)) || OSVersionHelper.OSVersion >= new Version(10, 0, 22523),
+            BackdropType.Acrylic => (OSVersionHelper.OSVersion >= new Version(6, 0) &&
+                                     OSVersionHelper.OSVersion < new Version(6, 3)) ||
+                                    (OSVersionHelper.OSVersion >= new Version(10, 0) &&
+                                     OSVersionHelper.OSVersion < new Version(10, 0, 22000)) ||
+                                    OSVersionHelper.OSVersion >= new Version(10, 0, 22523),
             _ => false
         };
     }
@@ -83,6 +88,7 @@ public static class MicaHelper
                             goto stylesetted;
                         }
                     }
+
                     Style style = new Style
                     {
                         TargetType = typeof(Window),
@@ -99,7 +105,7 @@ public static class MicaHelper
                         Value = Brushes.Transparent
                     });
                     window.Style = style;
-stylesetted:;
+                    stylesetted: ;
                 }
                 else
                 {
@@ -130,6 +136,7 @@ stylesetted:;
                 window.Loaded += (sender, e) => SetStyle();
             }
         }
+
         SetWindowChrome(window, true);
 
         Apply(windowHandle, type);
@@ -213,7 +220,8 @@ stylesetted:;
 
         RemoveDarkMode(handle);
 
-        InteropMethods.DwmSetWindowAttribute(handle, InteropValues.DWMWINDOWATTRIBUTE.DWMWA_MICA_EFFECT, ref _pvFalseAttribute,
+        InteropMethods.DwmSetWindowAttribute(handle, InteropValues.DWMWINDOWATTRIBUTE.DWMWA_MICA_EFFECT,
+            ref _pvFalseAttribute,
             Marshal.SizeOf(typeof(int)));
 
         InteropMethods.DwmSetWindowAttribute(handle, InteropValues.DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE,
@@ -457,8 +465,9 @@ stylesetted:;
         else
         {
             chrome.ResizeBorderThickness = new Thickness(8);
-            chrome.GlassFrameThickness = new Thickness(0,0,0,1);
+            chrome.GlassFrameThickness = new Thickness(0, 0, 0, 1);
         }
+
         return chrome;
     }
 

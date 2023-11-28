@@ -91,7 +91,7 @@ internal class AccentColorSet
                 (Byte) ((0x000000FF & nativeColor) >> 0),
                 (Byte) ((0x0000FF00 & nativeColor) >> 8),
                 (Byte) ((0x00FF0000 & nativeColor) >> 16)
-                );
+            );
         }
     }
 

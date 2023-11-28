@@ -127,12 +127,14 @@ internal struct RECT
         try
         {
             RECT rect = (RECT) obj;
-            result = (rect._bottom == this._bottom && rect._left == this._left && rect._right == this._right && rect._top == this._top);
+            result = (rect._bottom == this._bottom && rect._left == this._left && rect._right == this._right &&
+                      rect._top == this._top);
         }
         catch (InvalidCastException)
         {
             result = false;
         }
+
         return result;
     }
 

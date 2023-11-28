@@ -15,8 +15,10 @@ namespace Microsoft.Windows.Controls;
 public sealed class CalendarDateRange : INotifyPropertyChanged
 {
     #region Data
+
     private DateTime _end;
     private DateTime _start;
+
     #endregion Data
 
     /// <summary>
@@ -60,8 +62,8 @@ public sealed class CalendarDateRange : INotifyPropertyChanged
     /// </summary>
     public DateTime End
     {
-        get 
-        { 
+        get
+        {
             return CoerceEnd(_start, _end);
         }
 
@@ -82,13 +84,13 @@ public sealed class CalendarDateRange : INotifyPropertyChanged
     /// </summary>
     public DateTime Start
     {
-        get 
-        { 
-            return _start; 
+        get
+        {
+            return _start;
         }
 
-        set 
-        { 
+        set
+        {
             if (_start != value)
             {
                 DateTime oldEnd = End;

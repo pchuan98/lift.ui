@@ -67,7 +67,8 @@ public class SlidingTabContainer : ContentControl
             return;
         }
 
-        if (_tabControl.ItemContainerGenerator.ContainerFromItem(_tabControl.SelectedItem) is not System.Windows.Controls.TabItem tabItem)
+        if (_tabControl.ItemContainerGenerator.ContainerFromItem(_tabControl.SelectedItem) is not
+            System.Windows.Controls.TabItem tabItem)
         {
             return;
         }
@@ -100,13 +101,15 @@ public class SlidingTabContainer : ContentControl
             var xAnimation = AnimationHelper.CreateAnimation(offset.X);
             xAnimation.EasingFunction = easingFuction;
             Storyboard.SetTarget(xAnimation, _sliding);
-            Storyboard.SetTargetProperty(xAnimation, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
+            Storyboard.SetTargetProperty(xAnimation,
+                new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
             storyboard.Children.Add(xAnimation);
 
             var yAnimation = AnimationHelper.CreateAnimation(offset.Y);
             yAnimation.EasingFunction = easingFuction;
             Storyboard.SetTarget(yAnimation, _sliding);
-            Storyboard.SetTargetProperty(yAnimation, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
+            Storyboard.SetTargetProperty(yAnimation,
+                new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
             storyboard.Children.Add(yAnimation);
 
             storyboard.Begin();

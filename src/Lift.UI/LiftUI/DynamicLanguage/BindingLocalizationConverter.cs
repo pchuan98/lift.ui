@@ -13,10 +13,12 @@ namespace Lift.UI.Tools;
 public class BindingLocalizationConverter : IMultiValueConverter
 {
     ILocalizationProvider localizationProvider = LocalizationManager.Instance.LocalizationProvider;
+
     public BindingLocalizationConverter(ILocalizationProvider provider)
     {
         localizationProvider = provider;
     }
+
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
         if (values == null || values.Length < 2)
@@ -28,10 +30,11 @@ public class BindingLocalizationConverter : IMultiValueConverter
         {
             var args = (parameter as IEnumerable<object> ?? values.Skip(2)).ToArray();
             if (args.Length == 1 && !(args[0] is string) && args[0] is IEnumerable)
-                args = ((IEnumerable)args[0]).Cast<object>().ToArray();
+                args = ((IEnumerable) args[0]).Cast<object>().ToArray();
             if (args.Any())
                 return string.Format(value.ToString(), args);
         }
+
         return value;
     }
 

@@ -8,8 +8,8 @@ namespace Lift.UI.Controls;
 
 public class SpeedoMeter : Control
 {
-
     #region Value
+
     protected virtual void OnValueChanged(FunctionEventArgs<double> e) => RaiseEvent(e);
 
     /// <summary>
@@ -30,19 +30,20 @@ public class SpeedoMeter : Control
 
     public double Value
     {
-        get { return (double)GetValue(ValueProperty); }
+        get { return (double) GetValue(ValueProperty); }
         set { SetValue(ValueProperty, value); }
     }
 
 
     //todo: onceorce removed
     public static readonly DependencyProperty ValueProperty =
-        DependencyProperty.Register("Value", typeof(double), typeof(SpeedoMeter), new PropertyMetadata(ValueBoxes.Double0Box, OnValueChanged, OnCoerceValueChanged));
+        DependencyProperty.Register("Value", typeof(double), typeof(SpeedoMeter),
+            new PropertyMetadata(ValueBoxes.Double0Box, OnValueChanged, OnCoerceValueChanged));
 
     private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        var ctl = (SpeedoMeter)d;
-        var v = (double)e.NewValue;
+        var ctl = (SpeedoMeter) d;
+        var v = (double) e.NewValue;
 
         ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
         {
@@ -52,8 +53,8 @@ public class SpeedoMeter : Control
 
     private static object OnCoerceValueChanged(DependencyObject d, object value)
     {
-        var s = (SpeedoMeter)d;
-        double val = (double)value;
+        var s = (SpeedoMeter) d;
+        double val = (double) value;
         if (val > s.MaximumValue)
             val = s.MaximumValue;
         return val;
@@ -61,28 +62,29 @@ public class SpeedoMeter : Control
 
     public double MaximumValue
     {
-        get { return (double)GetValue(MaximumValueProperty); }
+        get { return (double) GetValue(MaximumValueProperty); }
         set { SetValue(MaximumValueProperty, value); }
     }
 
     public static readonly DependencyProperty MaximumValueProperty =
-        DependencyProperty.Register("MaximumValue", typeof(double), typeof(SpeedoMeter), new PropertyMetadata(ValueBoxes.Double100Box));
-
+        DependencyProperty.Register("MaximumValue", typeof(double), typeof(SpeedoMeter),
+            new PropertyMetadata(ValueBoxes.Double100Box));
 
 
     public double ValueFontSize
     {
-        get { return (double)GetValue(ValueFontSizeProperty); }
+        get { return (double) GetValue(ValueFontSizeProperty); }
         set { SetValue(ValueFontSizeProperty, value); }
     }
 
     public static readonly DependencyProperty ValueFontSizeProperty =
-        DependencyProperty.Register("ValueFontSize", typeof(double), typeof(SpeedoMeter), new PropertyMetadata(ValueBoxes.Double100Box));
+        DependencyProperty.Register("ValueFontSize", typeof(double), typeof(SpeedoMeter),
+            new PropertyMetadata(ValueBoxes.Double100Box));
 
 
     public Brush ValueColor
     {
-        get { return (Brush)GetValue(ValueColorProperty); }
+        get { return (Brush) GetValue(ValueColorProperty); }
         set { SetValue(ValueColorProperty, value); }
     }
 
@@ -90,22 +92,23 @@ public class SpeedoMeter : Control
         DependencyProperty.Register("ValueColor", typeof(Brush), typeof(SpeedoMeter), new PropertyMetadata(null));
 
 
-
     public Visibility ValueVisibility
     {
-        get { return (Visibility)GetValue(ValueVisibilityProperty); }
+        get { return (Visibility) GetValue(ValueVisibilityProperty); }
         set { SetValue(ValueVisibilityProperty, value); }
     }
 
     public static readonly DependencyProperty ValueVisibilityProperty =
-        DependencyProperty.Register("ValueVisibility", typeof(Visibility), typeof(SpeedoMeter), new PropertyMetadata(Visibility.Visible));
+        DependencyProperty.Register("ValueVisibility", typeof(Visibility), typeof(SpeedoMeter),
+            new PropertyMetadata(Visibility.Visible));
 
     #endregion
 
     #region Status
+
     public string Status
     {
-        get { return (string)GetValue(StatusProperty); }
+        get { return (string) GetValue(StatusProperty); }
         set { SetValue(StatusProperty, value); }
     }
 
@@ -115,7 +118,7 @@ public class SpeedoMeter : Control
 
     public Brush StatusColor
     {
-        get { return (Brush)GetValue(StatusColorProperty); }
+        get { return (Brush) GetValue(StatusColorProperty); }
         set { SetValue(StatusColorProperty, value); }
     }
 
@@ -123,31 +126,31 @@ public class SpeedoMeter : Control
         DependencyProperty.Register("StatusColor", typeof(Brush), typeof(SpeedoMeter), new PropertyMetadata(null));
 
 
-
     public double StatusFontSize
     {
-        get { return (double)GetValue(StatusFontSizeProperty); }
+        get { return (double) GetValue(StatusFontSizeProperty); }
         set { SetValue(StatusFontSizeProperty, value); }
     }
 
     public static readonly DependencyProperty StatusFontSizeProperty =
-        DependencyProperty.Register("StatusFontSize", typeof(double), typeof(SpeedoMeter), new PropertyMetadata(ValueBoxes.Double20Box));
+        DependencyProperty.Register("StatusFontSize", typeof(double), typeof(SpeedoMeter),
+            new PropertyMetadata(ValueBoxes.Double20Box));
 
     public Visibility StatusVisibility
     {
-        get { return (Visibility)GetValue(StatusVisibilityProperty); }
+        get { return (Visibility) GetValue(StatusVisibilityProperty); }
         set { SetValue(StatusVisibilityProperty, value); }
     }
 
     public static readonly DependencyProperty StatusVisibilityProperty =
-        DependencyProperty.Register("StatusVisibility", typeof(Visibility), typeof(SpeedoMeter), new PropertyMetadata(Visibility.Visible));
-
+        DependencyProperty.Register("StatusVisibility", typeof(Visibility), typeof(SpeedoMeter),
+            new PropertyMetadata(Visibility.Visible));
 
     #endregion
 
     public double Angle
     {
-        get { return (double)GetValue(AngleProperty); }
+        get { return (double) GetValue(AngleProperty); }
         set { SetValue(AngleProperty, value); }
     }
 
@@ -156,7 +159,7 @@ public class SpeedoMeter : Control
 
     public Brush StrokeColor
     {
-        get { return (Brush)GetValue(StrokeColorProperty); }
+        get { return (Brush) GetValue(StrokeColorProperty); }
         set { SetValue(StrokeColorProperty, value); }
     }
 

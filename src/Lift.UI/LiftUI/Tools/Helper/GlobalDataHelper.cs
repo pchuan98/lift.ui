@@ -10,14 +10,11 @@ public abstract class GlobalDataHelper
 {
     private const string FileVersionKey = "FileVersion";
 
-    [JsonIgnore]
-    public abstract string FileName { get; set; }
+    [JsonIgnore] public abstract string FileName { get; set; }
 
-    [JsonIgnore]
-    public abstract JsonSerializerOptions JsonSerializerOptions { get; set; }
+    [JsonIgnore] public abstract JsonSerializerOptions JsonSerializerOptions { get; set; }
 
-    [JsonIgnore]
-    public abstract int FileVersion { get; set; }
+    [JsonIgnore] public abstract int FileVersion { get; set; }
 
     public GlobalDataHelper()
     {
@@ -32,32 +29,39 @@ public abstract class GlobalDataHelper
 
         if (FileVersion != 0)
         {
-            if (!FileVersion.Equals(RegistryHelper.GetValue<int>(FileVersionKey, Path.GetFileNameWithoutExtension(ApplicationHelper.GetExecutablePathNative()))))
+            if (!FileVersion.Equals(RegistryHelper.GetValue<int>(FileVersionKey,
+                    Path.GetFileNameWithoutExtension(ApplicationHelper.GetExecutablePathNative()))))
             {
                 if (File.Exists(FileName))
                 {
                     File.Delete(FileName);
                 }
-                RegistryHelper.AddOrUpdateKey(FileVersionKey, Path.GetFileNameWithoutExtension(ApplicationHelper.GetExecutablePathNative()), FileVersion);
+
+                RegistryHelper.AddOrUpdateKey(FileVersionKey,
+                    Path.GetFileNameWithoutExtension(ApplicationHelper.GetExecutablePathNative()), FileVersion);
             }
         }
     }
+
     public static T Load<T>() where T : GlobalDataHelper, new()
     {
         T result = new T();
         result = JsonFile.Load<T>(result.FileName) ?? result;
         return result;
     }
+
     public async static Task<T> LoadAsync<T>() where T : GlobalDataHelper, new()
     {
         T result = new T();
         result = await JsonFile.LoadAsync<T>(result.FileName) ?? result;
         return result;
     }
+
     public void Save()
     {
         JsonFile.Save(FileName, this, JsonSerializerOptions);
     }
+
     public async Task SaveAsync()
     {
         await JsonFile.SaveAsync(FileName, this, JsonSerializerOptions);
@@ -72,6 +76,7 @@ public abstract class GlobalDataHelper
         }
     }
 }
+
 internal static class JsonFile
 {
     public static void Save<T>(string fileName, T @object, JsonSerializerOptions options = null)
@@ -84,6 +89,7 @@ internal static class JsonFile
                 options.WriteIndented = true;
                 options.IgnoreNullValues = true;
             }
+
             options.Converters.Add(new PolymorphicJsonConverter<T>());
             string json = JsonSerializer.Serialize(@object, options);
             writer.Write(json);
@@ -98,6 +104,7 @@ internal static class JsonFile
             options.WriteIndented = true;
             options.IgnoreNullValues = true;
         }
+
         options.Converters.Add(new PolymorphicJsonConverter<T>());
         using FileStream createStream = File.Create(fileName);
         await JsonSerializer.SerializeAsync(createStream, @object, options);

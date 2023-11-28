@@ -175,6 +175,7 @@ public class FlexPanel : Panel
             {
                 child.SetCurrentValue(WidthProperty, flexBasis);
             }
+
             child.Measure(childConstraint);
 
             var sz = new UVSize(flexDirection, child.DesiredSize);
@@ -193,7 +194,8 @@ public class FlexPanel : Panel
                     curLineSize = sz;
                     _lineCount++;
 
-                    if (MathHelper.GreaterThan(sz.U, _uvConstraint.U)) //the element is wider then the constrint - give it a separate line
+                    if (MathHelper.GreaterThan(sz.U,
+                            _uvConstraint.U)) //the element is wider then the constrint - give it a separate line
                     {
                         panelSize.U = Math.Max(sz.U, panelSize.U);
                         panelSize.V += sz.V;
@@ -254,13 +256,15 @@ public class FlexPanel : Panel
             }
             else
             {
-                if (MathHelper.GreaterThan(curLineSizeArr[lineIndex].U + sz.U, uvFinalSize.U)) //need to switch to another line
+                if (MathHelper.GreaterThan(curLineSizeArr[lineIndex].U + sz.U,
+                        uvFinalSize.U)) //need to switch to another line
                 {
                     lastInLineArr[lineIndex] = i;
                     lineIndex++;
                     curLineSizeArr[lineIndex] = sz;
 
-                    if (MathHelper.GreaterThan(sz.U, uvFinalSize.U)) //the element is wider then the constraint - give it a separate line
+                    if (MathHelper.GreaterThan(sz.U,
+                            uvFinalSize.U)) //the element is wider then the constraint - give it a separate line
                     {
                         //switch to next line which only contain one element
                         lastInLineArr[lineIndex] = i;
@@ -305,7 +309,9 @@ public class FlexPanel : Panel
                         lineFreeVArr[i] = freeItemV;
                     }
 
-                    accumulatedV = flexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - lineFreeVArr[0] : 0;
+                    accumulatedV = flexWrap == FlexWrap.WrapReverse
+                        ? uvFinalSize.V - curLineSizeArr[0].V - lineFreeVArr[0]
+                        : 0;
                 }
 
                 break;
@@ -325,7 +331,9 @@ public class FlexPanel : Panel
                 wrapReverseAdd = flexWrap == FlexWrap.WrapReverse ? 1 : 0;
                 if (_lineCount > 1)
                 {
-                    accumulatedV = flexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - freeV : freeV;
+                    accumulatedV = flexWrap == FlexWrap.WrapReverse
+                        ? uvFinalSize.V - curLineSizeArr[0].V - freeV
+                        : freeV;
                 }
                 else
                 {
@@ -336,7 +344,9 @@ public class FlexPanel : Panel
             case FlexContentAlignment.Center:
                 if (_lineCount > 1)
                 {
-                    accumulatedV = flexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - freeV * 0.5 : freeV * 0.5;
+                    accumulatedV = flexWrap == FlexWrap.WrapReverse
+                        ? uvFinalSize.V - curLineSizeArr[0].V - freeV * 0.5
+                        : freeV * 0.5;
                 }
 
                 break;
@@ -362,7 +372,9 @@ public class FlexPanel : Panel
                         lineFreeVArr[i] = freeItemV * 2;
                     }
 
-                    accumulatedV = flexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - freeItemV : freeItemV;
+                    accumulatedV = flexWrap == FlexWrap.WrapReverse
+                        ? uvFinalSize.V - curLineSizeArr[0].V - freeItemV
+                        : freeItemV;
                 }
 
                 break;
@@ -395,11 +407,13 @@ public class FlexPanel : Panel
                         ScaleU = scaleU
                     });
 
-                    accumulatedV += (lineFreeVArr[lineIndex] + curLineSizeArr[lineIndex + accumulatedFlag].V) * wrapReverseFlag;
+                    accumulatedV += (lineFreeVArr[lineIndex] + curLineSizeArr[lineIndex + accumulatedFlag].V) *
+                                    wrapReverseFlag;
                     lineIndex++;
                     itemsU = 0;
 
-                    if (i >= lastInLineArr[lineIndex]) //the element is wider then the constraint - give it a separate line
+                    if (i >= lastInLineArr[
+                            lineIndex]) //the element is wider then the constraint - give it a separate line
                     {
                         //switch to next line which only contain one element
                         ArrangeLine(new FlexLineInfo
@@ -414,7 +428,8 @@ public class FlexPanel : Panel
                             ScaleU = scaleU
                         });
 
-                        accumulatedV += (lineFreeVArr[lineIndex] + curLineSizeArr[lineIndex + accumulatedFlag].V) * wrapReverseFlag;
+                        accumulatedV += (lineFreeVArr[lineIndex] + curLineSizeArr[lineIndex + accumulatedFlag].V) *
+                                        wrapReverseFlag;
                         lineIndex++;
                         itemsU = 0;
                     }
@@ -627,7 +642,9 @@ public class FlexPanel : Panel
                     break;
             }
 
-            child.Arrange(isHorizontal ? new Rect(u, v, childSize.U, childSize.V) : new Rect(v, u, childSize.V, childSize.U));
+            child.Arrange(isHorizontal
+                ? new Rect(u, v, childSize.U, childSize.V)
+                : new Rect(v, u, childSize.V, childSize.U));
 
             if (!isReverse)
             {

@@ -43,7 +43,8 @@ public class CoverViewContent : ContentControl
     }
 
     internal static readonly DependencyProperty ManualHeightProperty = DependencyProperty.Register(
-        nameof(ManualHeight), typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double0Box), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
+        nameof(ManualHeight), typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double0Box),
+        ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     internal double ManualHeight
     {
@@ -70,7 +71,9 @@ public class CoverViewContent : ContentControl
 
         if (WaitForUpdate)
         {
-            _triangle.BeginAnimation(MarginProperty, AnimationHelper.CreateAnimation(new Thickness((_index % _groups + .5) * _itemWidth - _triangle.Width / 2, 0, 0, 0)));
+            _triangle.BeginAnimation(MarginProperty,
+                AnimationHelper.CreateAnimation(
+                    new Thickness((_index % _groups + .5) * _itemWidth - _triangle.Width / 2, 0, 0, 0)));
             OpenSwitch(_isOpen);
             WaitForUpdate = false;
         }
@@ -86,7 +89,10 @@ public class CoverViewContent : ContentControl
             WaitForUpdate = true;
             return;
         }
-        _triangle.BeginAnimation(MarginProperty, AnimationHelper.CreateAnimation(new Thickness((index % groups + .5) * itemWidth - _triangle.Width / 2, 0, 0, 0)));
+
+        _triangle.BeginAnimation(MarginProperty,
+            AnimationHelper.CreateAnimation(new Thickness((index % groups + .5) * itemWidth - _triangle.Width / 2, 0, 0,
+                0)));
         if (IsOpen)
         {
             if (ManualHeight > 0 && !MathHelper.AreClose(ManualHeight, ContentHeight))

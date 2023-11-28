@@ -38,7 +38,8 @@ public abstract class ClockBase : Control
     }
 
     public static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
-        nameof(SelectedTime), typeof(DateTime?), typeof(ClockBase), new PropertyMetadata(default(DateTime?), OnSelectedTimeChanged));
+        nameof(SelectedTime), typeof(DateTime?), typeof(ClockBase),
+        new PropertyMetadata(default(DateTime?), OnSelectedTimeChanged));
 
     private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

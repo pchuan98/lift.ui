@@ -35,12 +35,14 @@ public class RangeTrack : FrameworkElement
             {
                 throw new NotSupportedException("SameButtons");
             }
+
             UpdateComponent(_decreaseButton, value);
             _decreaseButton = value;
 
             if (_decreaseButton != null)
             {
-                CommandManager.InvalidateRequerySuggested(); // Should post an idle queue item to update IsEnabled on button
+                CommandManager
+                    .InvalidateRequerySuggested(); // Should post an idle queue item to update IsEnabled on button
             }
         }
     }
@@ -54,12 +56,14 @@ public class RangeTrack : FrameworkElement
             {
                 throw new NotSupportedException("SameButtons");
             }
+
             UpdateComponent(_centerButton, value);
             _centerButton = value;
 
             if (_centerButton != null)
             {
-                CommandManager.InvalidateRequerySuggested(); // Should post an idle queue item to update IsEnabled on button
+                CommandManager
+                    .InvalidateRequerySuggested(); // Should post an idle queue item to update IsEnabled on button
             }
         }
     }
@@ -73,12 +77,14 @@ public class RangeTrack : FrameworkElement
             {
                 throw new NotSupportedException("SameButtons");
             }
+
             UpdateComponent(_increaseButton, value);
             _increaseButton = value;
 
             if (_increaseButton != null)
             {
-                CommandManager.InvalidateRequerySuggested(); // Should post an idle queue item to update IsEnabled on button
+                CommandManager
+                    .InvalidateRequerySuggested(); // Should post an idle queue item to update IsEnabled on button
             }
         }
     }
@@ -179,6 +185,7 @@ public class RangeTrack : FrameworkElement
             // ReSharper disable once LocalizableElement
             throw new ArgumentOutOfRangeException("index", index, "ArgumentOutOfRange");
         }
+
         return _visualChildren[index];
     }
 
@@ -235,17 +242,23 @@ public class RangeTrack : FrameworkElement
             CoerceLength(ref thumbStartLength, arrangeSize.Height);
             CoerceLength(ref thumbEndLength, arrangeSize.Height);
 
-            offset.Y = isDirectionReversed ? decreaseButtonLength + thumbEndLength + centerButtonLength + thumbStartLength : 0;
+            offset.Y = isDirectionReversed
+                ? decreaseButtonLength + thumbEndLength + centerButtonLength + thumbStartLength
+                : 0;
             pieceSize.Height = increaseButtonLength;
 
             IncreaseRepeatButton?.Arrange(new Rect(offset, pieceSize));
 
-            offset.Y = isDirectionReversed ? decreaseButtonLength + thumbEndLength : increaseButtonLength + thumbStartLength;
+            offset.Y = isDirectionReversed
+                ? decreaseButtonLength + thumbEndLength
+                : increaseButtonLength + thumbStartLength;
             pieceSize.Height = centerButtonLength;
 
             CenterRepeatButton?.Arrange(new Rect(offset, pieceSize));
 
-            offset.Y = isDirectionReversed ? 0 : increaseButtonLength + thumbStartLength + centerButtonLength + thumbEndLength;
+            offset.Y = isDirectionReversed
+                ? 0
+                : increaseButtonLength + thumbStartLength + centerButtonLength + thumbEndLength;
             pieceSize.Height = decreaseButtonLength;
 
             DecreaseRepeatButton?.Arrange(new Rect(offset, pieceSize));
@@ -270,17 +283,23 @@ public class RangeTrack : FrameworkElement
             CoerceLength(ref thumbStartLength, arrangeSize.Width);
             CoerceLength(ref thumbEndLength, arrangeSize.Width);
 
-            offset.X = isDirectionReversed ? 0 : decreaseButtonLength + thumbEndLength + centerButtonLength + thumbStartLength;
+            offset.X = isDirectionReversed
+                ? 0
+                : decreaseButtonLength + thumbEndLength + centerButtonLength + thumbStartLength;
             pieceSize.Width = increaseButtonLength;
 
             IncreaseRepeatButton?.Arrange(new Rect(offset, pieceSize));
 
-            offset.X = isDirectionReversed ? increaseButtonLength + thumbStartLength : decreaseButtonLength + thumbEndLength;
+            offset.X = isDirectionReversed
+                ? increaseButtonLength + thumbStartLength
+                : decreaseButtonLength + thumbEndLength;
             pieceSize.Width = centerButtonLength;
 
             CenterRepeatButton?.Arrange(new Rect(offset, pieceSize));
 
-            offset.X = isDirectionReversed ? increaseButtonLength + thumbStartLength + centerButtonLength + thumbEndLength : 0;
+            offset.X = isDirectionReversed
+                ? increaseButtonLength + thumbStartLength + centerButtonLength + thumbEndLength
+                : 0;
             pieceSize.Width = decreaseButtonLength;
 
             DecreaseRepeatButton?.Arrange(new Rect(offset, pieceSize));
@@ -446,6 +465,7 @@ public class RangeTrack : FrameworkElement
                     i++;
                 }
             }
+
             // Add newValue at end of z-order
             _visualChildren[i] = newValue;
 

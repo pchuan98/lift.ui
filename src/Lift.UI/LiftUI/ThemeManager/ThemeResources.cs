@@ -129,11 +129,13 @@ public class ThemeResources : ResourceDictionaryEx, ISupportInitialize
     }
 
     public event EventHandler<FunctionEventArgs<ThemeManager.SystemTheme>> SystemThemeChanged;
+
     public virtual void OnSystemThemeChanged(ThemeManager.SystemTheme theme)
     {
         EventHandler<FunctionEventArgs<ThemeManager.SystemTheme>> handler = SystemThemeChanged;
         handler?.Invoke(this, new FunctionEventArgs<ThemeManager.SystemTheme>(theme));
     }
+
     #region Design Time
 
     private void DesignTimeInit()

@@ -26,7 +26,8 @@ public class BrightnessEffect : EffectBase
     }
 
     public static readonly DependencyProperty BrightnessProperty = DependencyProperty.Register(
-        nameof(Brightness), typeof(double), typeof(BrightnessEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(0)));
+        nameof(Brightness), typeof(double), typeof(BrightnessEffect),
+        new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(0)));
 
     public double Brightness
     {

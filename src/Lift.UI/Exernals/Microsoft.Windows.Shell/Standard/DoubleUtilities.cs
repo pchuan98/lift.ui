@@ -12,6 +12,7 @@ internal static class DoubleUtilities
         {
             return true;
         }
+
         double num = value1 - value2;
         return num < 1.53E-06 && num > -1.53E-06;
     }

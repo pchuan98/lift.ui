@@ -70,7 +70,8 @@ public static class DialogExtension
             throw new InvalidOperationException("The dialog is not a derived class of the FrameworkElement. ");
 
         if (!(frameworkElement.DataContext is TViewModel viewModel))
-            throw new InvalidOperationException($"The view model of the dialog is not the {typeof(TViewModel)} type or its derived class. ");
+            throw new InvalidOperationException(
+                $"The view model of the dialog is not the {typeof(TViewModel)} type or its derived class. ");
 
         return viewModel;
     }

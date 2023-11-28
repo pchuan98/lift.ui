@@ -4,7 +4,8 @@ namespace Lift.UI.Tools;
 
 public static partial class WindowHelper
 {
-    private const string SkinTypeRegistryKeyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
+    private const string SkinTypeRegistryKeyName =
+        @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
 
     private const string SkinTypeRegistryValueName = "AppsUseLightTheme";
 

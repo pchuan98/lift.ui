@@ -29,8 +29,10 @@ public class PropertyGrid : Control
 
     public PropertyGrid()
     {
-        CommandBindings.Add(new CommandBinding(ControlCommands.SortByCategory, SortByCategory, (s, e) => e.CanExecute = ShowSortButton));
-        CommandBindings.Add(new CommandBinding(ControlCommands.SortByName, SortByName, (s, e) => e.CanExecute = ShowSortButton));
+        CommandBindings.Add(new CommandBinding(ControlCommands.SortByCategory, SortByCategory,
+            (s, e) => e.CanExecute = ShowSortButton));
+        CommandBindings.Add(new CommandBinding(ControlCommands.SortByName, SortByName,
+            (s, e) => e.CanExecute = ShowSortButton));
     }
 
     public virtual PropertyResolver PropertyResolver { get; } = new();
@@ -46,7 +48,8 @@ public class PropertyGrid : Control
     }
 
     public static readonly DependencyProperty SelectedObjectProperty = DependencyProperty.Register(
-        nameof(SelectedObject), typeof(object), typeof(PropertyGrid), new PropertyMetadata(default, OnSelectedObjectChanged));
+        nameof(SelectedObject), typeof(object), typeof(PropertyGrid),
+        new PropertyMetadata(default, OnSelectedObjectChanged));
 
     private static void OnSelectedObjectChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -126,7 +129,8 @@ public class PropertyGrid : Control
     {
         if (obj == null || _itemsControl == null) return;
 
-        _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj.GetType()).OfType<PropertyDescriptor>()
+        _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj.GetType())
+            .OfType<PropertyDescriptor>()
             .Where(item => PropertyResolver.ResolveIsBrowsable(item)).Select(CreatePropertyItem)
             .Do(item => item.InitElement()));
 
@@ -142,8 +146,10 @@ public class PropertyGrid : Control
         {
             _dataView.GroupDescriptions.Clear();
             _dataView.SortDescriptions.Clear();
-            _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.CategoryProperty.Name, ListSortDirection.Ascending));
-            _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.DisplayNameProperty.Name, ListSortDirection.Ascending));
+            _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.CategoryProperty.Name,
+                ListSortDirection.Ascending));
+            _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.DisplayNameProperty.Name,
+                ListSortDirection.Ascending));
             _dataView.GroupDescriptions.Add(new PropertyGroupDescription(PropertyItem.CategoryProperty.Name));
         }
     }
@@ -156,7 +162,8 @@ public class PropertyGrid : Control
         {
             _dataView.GroupDescriptions.Clear();
             _dataView.SortDescriptions.Clear();
-            _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.PropertyNameProperty.Name, ListSortDirection.Ascending));
+            _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.PropertyNameProperty.Name,
+                ListSortDirection.Ascending));
         }
     }
 
@@ -176,7 +183,8 @@ public class PropertyGrid : Control
         {
             foreach (PropertyItem item in _dataView)
             {
-                item.Show(item.PropertyName.ToLower().Contains(_searchKey) || item.DisplayName.ToLower().Contains(_searchKey));
+                item.Show(item.PropertyName.ToLower().Contains(_searchKey) ||
+                          item.DisplayName.ToLower().Contains(_searchKey));
             }
         }
     }
@@ -198,6 +206,7 @@ public class PropertyGrid : Control
     protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
     {
         base.OnRenderSizeChanged(sizeInfo);
-        TitleElement.SetTitleWidth(this, new GridLength(Math.Max(MinTitleWidth, Math.Min(MaxTitleWidth, ActualWidth / 3))));
+        TitleElement.SetTitleWidth(this,
+            new GridLength(Math.Max(MinTitleWidth, Math.Min(MaxTitleWidth, ActualWidth / 3))));
     }
 }

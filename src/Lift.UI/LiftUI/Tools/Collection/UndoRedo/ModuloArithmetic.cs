@@ -40,8 +40,11 @@ internal struct ModuloArithmetic : IEquatable<ModuloArithmetic>
     }
 
     #region IEquatable<T> implementation
+
     public bool Equals(ModuloArithmetic item) => this.Equals(item);
+
     #endregion
+
     public override bool Equals(object item) => Value.Equals(((ModuloArithmetic) item).Value);
     public override int GetHashCode() => Value.GetHashCode();
 
@@ -56,8 +59,12 @@ internal struct ModuloArithmetic : IEquatable<ModuloArithmetic>
     public static bool operator !=(ModuloArithmetic item, int value) => !(item == value);
     public static bool operator ==(int value, ModuloArithmetic item) => value == item.Value;
     public static bool operator !=(int value, ModuloArithmetic item) => !(value == item);
-    public static ModuloArithmetic operator ++(ModuloArithmetic item) => new ModuloArithmetic(item.Divisor) { Value = item.NextValue };
-    public static ModuloArithmetic operator --(ModuloArithmetic item) => new ModuloArithmetic(item.Divisor) { Value = item.PreviousValue };
+
+    public static ModuloArithmetic operator ++(ModuloArithmetic item) =>
+        new ModuloArithmetic(item.Divisor) { Value = item.NextValue };
+
+    public static ModuloArithmetic operator --(ModuloArithmetic item) =>
+        new ModuloArithmetic(item.Divisor) { Value = item.PreviousValue };
 
     /// <exception cref="System.InvalidOperationException">Thrown when item1.Divisor and item2.Divisor are different.</exception>
     public static int operator -(ModuloArithmetic item1, ModuloArithmetic item2)

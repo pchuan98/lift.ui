@@ -15,5 +15,6 @@ public class ReadOnlyTextPropertyEditor : PropertyEditorBase
 
     public override BindingMode GetBindingMode(PropertyItem propertyItem) => BindingMode.OneWay;
 
-    protected override IValueConverter GetConverter(PropertyItem propertyItem) => ResourceHelper.GetResourceInternal<IValueConverter>("Object2StringConverter");
+    protected override IValueConverter GetConverter(PropertyItem propertyItem) =>
+        ResourceHelper.GetResourceInternal<IValueConverter>("Object2StringConverter");
 }

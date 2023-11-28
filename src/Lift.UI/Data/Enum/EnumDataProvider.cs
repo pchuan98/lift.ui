@@ -13,6 +13,7 @@ public class EnumDataProvider : ObjectDataProvider
     }
 
     private Type _type;
+
     public Type Type
     {
         get => _type;
@@ -54,7 +55,10 @@ public class EnumDataProvider : ObjectDataProvider
                 continue;
             }
 
-            if (fieldInfo.GetCustomAttributes(typeof(BrowsableAttribute), true) is BrowsableAttribute[] { Length: > 0 } browsableAttributes)
+            if (fieldInfo.GetCustomAttributes(typeof(BrowsableAttribute), true) is BrowsableAttribute[]
+                {
+                    Length: > 0
+                } browsableAttributes)
             {
                 if (!browsableAttributes[0].Browsable)
                 {
@@ -62,7 +66,10 @@ public class EnumDataProvider : ObjectDataProvider
                 }
             }
 
-            if (fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), true) is DescriptionAttribute[] { Length: > 0 } descriptionAttributes)
+            if (fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), true) is DescriptionAttribute[]
+                {
+                    Length: > 0
+                } descriptionAttributes)
             {
                 resultList.Add(new EnumItem
                 {

@@ -9,7 +9,9 @@ namespace Standard;
 [ComImport]
 internal interface IShellFolder
 {
-    void ParseDisplayName([In] IntPtr hwnd, [In] IBindCtx pbc, [MarshalAs(UnmanagedType.LPWStr)][In] string pszDisplayName, [In][Out] ref int pchEaten, out IntPtr ppidl, [In][Out] ref uint pdwAttributes);
+    void ParseDisplayName([In] IntPtr hwnd, [In] IBindCtx pbc,
+        [MarshalAs(UnmanagedType.LPWStr)] [In] string pszDisplayName, [In] [Out] ref int pchEaten, out IntPtr ppidl,
+        [In] [Out] ref uint pdwAttributes);
 
     IEnumIDList EnumObjects([In] IntPtr hwnd, [In] SHCONTF grfFlags);
 
@@ -25,12 +27,15 @@ internal interface IShellFolder
     [return: MarshalAs(UnmanagedType.Interface)]
     object CreateViewObject([In] IntPtr hwndOwner, [In] ref Guid riid);
 
-    void GetAttributesOf([In] uint cidl, [In] IntPtr apidl, [In][Out] ref SFGAO rgfInOut);
+    void GetAttributesOf([In] uint cidl, [In] IntPtr apidl, [In] [Out] ref SFGAO rgfInOut);
 
     [return: MarshalAs(UnmanagedType.Interface)]
-    object GetUIObjectOf([In] IntPtr hwndOwner, [In] uint cidl, [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.SysInt, SizeParamIndex = 2)][In] IntPtr apidl, [In] ref Guid riid, [In][Out] ref uint rgfReserved);
+    object GetUIObjectOf([In] IntPtr hwndOwner, [In] uint cidl,
+        [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.SysInt, SizeParamIndex = 2)] [In] IntPtr apidl,
+        [In] ref Guid riid, [In] [Out] ref uint rgfReserved);
 
     void GetDisplayNameOf([In] IntPtr pidl, [In] SHGDN uFlags, out IntPtr pName);
 
-    void SetNameOf([In] IntPtr hwnd, [In] IntPtr pidl, [MarshalAs(UnmanagedType.LPWStr)][In] string pszName, [In] SHGDN uFlags, out IntPtr ppidlOut);
+    void SetNameOf([In] IntPtr hwnd, [In] IntPtr pidl, [MarshalAs(UnmanagedType.LPWStr)] [In] string pszName,
+        [In] SHGDN uFlags, out IntPtr ppidlOut);
 }

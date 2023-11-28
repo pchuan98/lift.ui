@@ -59,7 +59,8 @@ public class SystemParameters2 : INotifyPropertyChanged
 
     private void _InitializeWindowResizeBorderThickness()
     {
-        Size deviceSize = new Size((double) NativeMethods.GetSystemMetrics(SM.CXFRAME), (double) NativeMethods.GetSystemMetrics(SM.CYFRAME));
+        Size deviceSize = new Size((double) NativeMethods.GetSystemMetrics(SM.CXFRAME),
+            (double) NativeMethods.GetSystemMetrics(SM.CYFRAME));
         Size size = DpiHelper.DeviceSizeToLogical(deviceSize);
         this.WindowResizeBorderThickness = new Thickness(size.Width, size.Height, size.Width, size.Height);
     }
@@ -71,7 +72,8 @@ public class SystemParameters2 : INotifyPropertyChanged
 
     private void _InitializeWindowNonClientFrameThickness()
     {
-        Size deviceSize = new Size((double) NativeMethods.GetSystemMetrics(SM.CXFRAME), (double) NativeMethods.GetSystemMetrics(SM.CYFRAME));
+        Size deviceSize = new Size((double) NativeMethods.GetSystemMetrics(SM.CXFRAME),
+            (double) NativeMethods.GetSystemMetrics(SM.CYFRAME));
         Size size = DpiHelper.DeviceSizeToLogical(deviceSize);
         int systemMetrics = NativeMethods.GetSystemMetrics(SM.CYCAPTION);
         double y = DpiHelper.DevicePixelsToLogical(new Point(0.0, (double) systemMetrics)).Y;
@@ -85,7 +87,8 @@ public class SystemParameters2 : INotifyPropertyChanged
 
     private void _InitializeSmallIconSize()
     {
-        this.SmallIconSize = new Size((double) NativeMethods.GetSystemMetrics(SM.CXSMICON), (double) NativeMethods.GetSystemMetrics(SM.CYSMICON));
+        this.SmallIconSize = new Size((double) NativeMethods.GetSystemMetrics(SM.CXSMICON),
+            (double) NativeMethods.GetSystemMetrics(SM.CYSMICON));
     }
 
     private void _UpdateSmallIconSize(IntPtr wParam, IntPtr lParam)
@@ -100,7 +103,8 @@ public class SystemParameters2 : INotifyPropertyChanged
         int num = NativeMethods.GetSystemMetrics(SM.CXFRAME) + NativeMethods.GetSystemMetrics(SM.CXEDGE);
         int num2 = NativeMethods.GetSystemMetrics(SM.CYFRAME) + NativeMethods.GetSystemMetrics(SM.CYEDGE);
         Rect windowCaptionButtonsLocation = new Rect(0.0, 0.0, (double) (systemMetrics * 3), (double) systemMetrics2);
-        windowCaptionButtonsLocation.Offset((double) (-(double) num) - windowCaptionButtonsLocation.Width, (double) num2);
+        windowCaptionButtonsLocation.Offset((double) (-(double) num) - windowCaptionButtonsLocation.Width,
+            (double) num2);
         this.WindowCaptionButtonsLocation = windowCaptionButtonsLocation;
     }
 
@@ -112,6 +116,7 @@ public class SystemParameters2 : INotifyPropertyChanged
             this._LegacyInitializeCaptionButtonLocation();
             return;
         }
+
         TITLEBARINFOEX titlebarinfoex = new TITLEBARINFOEX
         {
             cbSize = Marshal.SizeOf(typeof(TITLEBARINFOEX))
@@ -129,9 +134,11 @@ public class SystemParameters2 : INotifyPropertyChanged
             NativeMethods.ShowWindow(this._messageHwnd.Handle, SW.HIDE);
             Utility.SafeFreeHGlobal(ref intPtr);
         }
+
         RECT rect = RECT.Union(titlebarinfoex.rgrect_CloseButton, titlebarinfoex.rgrect_MinimizeButton);
         RECT windowRect = NativeMethods.GetWindowRect(this._messageHwnd.Handle);
-        Rect deviceRectangle = new Rect((double) (rect.Left - windowRect.Width - windowRect.Left), (double) (rect.Top - windowRect.Top), (double) rect.Width, (double) rect.Height);
+        Rect deviceRectangle = new Rect((double) (rect.Left - windowRect.Width - windowRect.Left),
+            (double) (rect.Top - windowRect.Top), (double) rect.Width, (double) rect.Height);
         Rect windowCaptionButtonsLocation = DpiHelper.DeviceRectToLogical(deviceRectangle);
         this.WindowCaptionButtonsLocation = windowCaptionButtonsLocation;
     }
@@ -143,7 +150,8 @@ public class SystemParameters2 : INotifyPropertyChanged
 
     private void _InitializeHighContrast()
     {
-        this.HighContrast = ((NativeMethods.SystemParameterInfo_GetHIGHCONTRAST().dwFlags & HCF.HIGHCONTRASTON) != (HCF) 0);
+        this.HighContrast = ((NativeMethods.SystemParameterInfo_GetHIGHCONTRAST().dwFlags & HCF.HIGHCONTRASTON) !=
+                             (HCF) 0);
     }
 
     private void _UpdateHighContrast(IntPtr wParam, IntPtr lParam)
@@ -159,6 +167,7 @@ public class SystemParameters2 : INotifyPropertyChanged
             this.UxThemeColor = "";
             return;
         }
+
         string path;
         string uxThemeColor;
         string text;
@@ -183,6 +192,7 @@ public class SystemParameters2 : INotifyPropertyChanged
                 windowCornerRadius = new CornerRadius(6.0, 6.0, 0.0, 0.0);
                 goto IL_E6;
             }
+
             if (!(a == "AERO"))
             {
                 if (!(a == "CLASSIC") && !(a == "ZUNE") && !(a == "ROYALE"))
@@ -196,12 +206,14 @@ public class SystemParameters2 : INotifyPropertyChanged
                     windowCornerRadius = new CornerRadius(8.0);
                     goto IL_E6;
                 }
+
                 windowCornerRadius = new CornerRadius(6.0, 6.0, 0.0, 0.0);
                 goto IL_E6;
             }
         }
+
         windowCornerRadius = new CornerRadius(0.0);
-IL_E6:
+        IL_E6:
         this.WindowCornerRadius = windowCornerRadius;
     }
 
@@ -212,8 +224,10 @@ IL_E6:
 
     private SystemParameters2()
     {
-        this._messageHwnd = new MessageWindow((CS) 0u, WS.DISABLED | WS.BORDER | WS.DLGFRAME | WS.SYSMENU | WS.THICKFRAME | WS.GROUP | WS.TABSTOP, WS_EX.None, new Rect(-16000.0, -16000.0, 100.0, 100.0), "", new WndProc(this._WndProc));
-        this._messageHwnd.Dispatcher.ShutdownStarted += delegate (object sender, EventArgs e)
+        this._messageHwnd = new MessageWindow((CS) 0u,
+            WS.DISABLED | WS.BORDER | WS.DLGFRAME | WS.SYSMENU | WS.THICKFRAME | WS.GROUP | WS.TABSTOP, WS_EX.None,
+            new Rect(-16000.0, -16000.0, 100.0, 100.0), "", new WndProc(this._WndProc));
+        this._messageHwnd.Dispatcher.ShutdownStarted += delegate(object sender, EventArgs e)
         {
             Utility.SafeDispose<MessageWindow>(ref this._messageHwnd);
         };
@@ -283,6 +297,7 @@ IL_E6:
             {
                 SystemParameters2._threadLocalSingleton = new SystemParameters2();
             }
+
             return SystemParameters2._threadLocalSingleton;
         }
     }
@@ -297,6 +312,7 @@ IL_E6:
                 systemMetricUpdate(wParam, lParam);
             }
         }
+
         return NativeMethods.DefWindowProc(hwnd, msg, wParam, lParam);
     }
 
@@ -507,8 +523,7 @@ IL_E6:
 
     public event PropertyChangedEventHandler PropertyChanged;
 
-    [ThreadStatic]
-    private static SystemParameters2 _threadLocalSingleton;
+    [ThreadStatic] private static SystemParameters2 _threadLocalSingleton;
 
     private MessageWindow _messageHwnd;
 

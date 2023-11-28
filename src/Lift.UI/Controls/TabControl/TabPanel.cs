@@ -115,6 +115,7 @@ public class TabPanel : Panel
             _oldSize = new Size();
             return _oldSize;
         }
+
         constraint.Width += InternalChildren.Count;
 
         var itemWidth = .0;
@@ -138,6 +139,7 @@ public class TabPanel : Panel
             {
                 itemWidth = arr[index];
             }
+
             if (InternalChildren[index] is TabItem tabItem)
             {
                 tabItem.RenderTransform = new TranslateTransform();
@@ -156,6 +158,7 @@ public class TabPanel : Panel
                 size.Width += tabItem.ItemWidth;
             }
         }
+
         size.Height = constraint.Height;
         _oldSize = size;
         return _oldSize;

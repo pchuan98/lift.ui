@@ -37,7 +37,8 @@ internal abstract class ObservableCollectionBase<T> : INotifyCollectionChanged, 
         Items[index] = item;
 
         OnIndexerPropertyChanged();
-        CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, item, oldItem, index));
+        CollectionChanged?.Invoke(this,
+            new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, item, oldItem, index));
     }
 
     protected void InsertItem(int index, T item)
@@ -46,7 +47,8 @@ internal abstract class ObservableCollectionBase<T> : INotifyCollectionChanged, 
 
         OnCountPropertyChanged();
         OnIndexerPropertyChanged();
-        CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, index));
+        CollectionChanged?.Invoke(this,
+            new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, index));
     }
 
     protected void AddItem(T item)
@@ -56,7 +58,8 @@ internal abstract class ObservableCollectionBase<T> : INotifyCollectionChanged, 
 
         OnCountPropertyChanged();
         OnIndexerPropertyChanged();
-        CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, index));
+        CollectionChanged?.Invoke(this,
+            new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, index));
     }
 
     protected void RemoveItemAt(int index)
@@ -66,7 +69,8 @@ internal abstract class ObservableCollectionBase<T> : INotifyCollectionChanged, 
 
         OnCountPropertyChanged();
         OnIndexerPropertyChanged();
-        CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index));
+        CollectionChanged?.Invoke(this,
+            new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index));
     }
 
     protected bool RemoveItem(T item)
@@ -79,7 +83,8 @@ internal abstract class ObservableCollectionBase<T> : INotifyCollectionChanged, 
 
         OnCountPropertyChanged();
         OnIndexerPropertyChanged();
-        CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index));
+        CollectionChanged?.Invoke(this,
+            new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index));
         return true;
     }
 

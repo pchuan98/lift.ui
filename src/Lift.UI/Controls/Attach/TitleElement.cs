@@ -16,7 +16,8 @@ public class TitleElement
         => (string) element.GetValue(TitleProperty);
 
     public static readonly DependencyProperty BackgroundProperty = DependencyProperty.RegisterAttached(
-        "Background", typeof(Brush), typeof(TitleElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
+        "Background", typeof(Brush), typeof(TitleElement),
+        new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetBackground(DependencyObject element, Brush value)
         => element.SetValue(BackgroundProperty, value);
@@ -25,7 +26,8 @@ public class TitleElement
         => (Brush) element.GetValue(BackgroundProperty);
 
     public static readonly DependencyProperty ForegroundProperty = DependencyProperty.RegisterAttached(
-        "Foreground", typeof(Brush), typeof(TitleElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
+        "Foreground", typeof(Brush), typeof(TitleElement),
+        new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetForeground(DependencyObject element, Brush value)
         => element.SetValue(ForegroundProperty, value);
@@ -34,7 +36,8 @@ public class TitleElement
         => (Brush) element.GetValue(ForegroundProperty);
 
     public static readonly DependencyProperty BorderBrushProperty = DependencyProperty.RegisterAttached(
-        "BorderBrush", typeof(Brush), typeof(TitleElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
+        "BorderBrush", typeof(Brush), typeof(TitleElement),
+        new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetBorderBrush(DependencyObject element, Brush value)
         => element.SetValue(BorderBrushProperty, value);
@@ -43,7 +46,8 @@ public class TitleElement
         => (Brush) element.GetValue(BorderBrushProperty);
 
     public static readonly DependencyProperty TitlePlacementProperty = DependencyProperty.RegisterAttached(
-        "TitlePlacement", typeof(TitlePlacementType), typeof(TitleElement), new FrameworkPropertyMetadata(TitlePlacementType.Top, FrameworkPropertyMetadataOptions.Inherits));
+        "TitlePlacement", typeof(TitlePlacementType), typeof(TitleElement),
+        new FrameworkPropertyMetadata(TitlePlacementType.Top, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetTitlePlacement(DependencyObject element, TitlePlacementType value)
         => element.SetValue(TitlePlacementProperty, value);
@@ -52,14 +56,18 @@ public class TitleElement
         => (TitlePlacementType) element.GetValue(TitlePlacementProperty);
 
     public static readonly DependencyProperty TitleWidthProperty = DependencyProperty.RegisterAttached(
-        "TitleWidth", typeof(GridLength), typeof(TitleElement), new FrameworkPropertyMetadata(GridLength.Auto, FrameworkPropertyMetadataOptions.Inherits));
+        "TitleWidth", typeof(GridLength), typeof(TitleElement),
+        new FrameworkPropertyMetadata(GridLength.Auto, FrameworkPropertyMetadataOptions.Inherits));
 
-    public static void SetTitleWidth(DependencyObject element, GridLength value) => element.SetValue(TitleWidthProperty, value);
+    public static void SetTitleWidth(DependencyObject element, GridLength value) =>
+        element.SetValue(TitleWidthProperty, value);
 
-    public static GridLength GetTitleWidth(DependencyObject element) => (GridLength) element.GetValue(TitleWidthProperty);
+    public static GridLength GetTitleWidth(DependencyObject element) =>
+        (GridLength) element.GetValue(TitleWidthProperty);
 
     public static readonly DependencyProperty HorizontalAlignmentProperty = DependencyProperty.RegisterAttached(
-        "HorizontalAlignment", typeof(HorizontalAlignment), typeof(TitleElement), new FrameworkPropertyMetadata(default(HorizontalAlignment), FrameworkPropertyMetadataOptions.Inherits));
+        "HorizontalAlignment", typeof(HorizontalAlignment), typeof(TitleElement),
+        new FrameworkPropertyMetadata(default(HorizontalAlignment), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetHorizontalAlignment(DependencyObject element, HorizontalAlignment value)
         => element.SetValue(HorizontalAlignmentProperty, value);
@@ -68,7 +76,8 @@ public class TitleElement
         => (HorizontalAlignment) element.GetValue(HorizontalAlignmentProperty);
 
     public static readonly DependencyProperty VerticalAlignmentProperty = DependencyProperty.RegisterAttached(
-        "VerticalAlignment", typeof(VerticalAlignment), typeof(TitleElement), new FrameworkPropertyMetadata(default(VerticalAlignment), FrameworkPropertyMetadataOptions.Inherits));
+        "VerticalAlignment", typeof(VerticalAlignment), typeof(TitleElement),
+        new FrameworkPropertyMetadata(default(VerticalAlignment), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetVerticalAlignment(DependencyObject element, VerticalAlignment value)
         => element.SetValue(VerticalAlignmentProperty, value);
@@ -77,7 +86,8 @@ public class TitleElement
         => (VerticalAlignment) element.GetValue(VerticalAlignmentProperty);
 
     public static readonly DependencyProperty MarginOnTheLeftProperty = DependencyProperty.RegisterAttached(
-        "MarginOnTheLeft", typeof(Thickness), typeof(TitleElement), new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.Inherits));
+        "MarginOnTheLeft", typeof(Thickness), typeof(TitleElement),
+        new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetMarginOnTheLeft(DependencyObject element, Thickness value)
         => element.SetValue(MarginOnTheLeftProperty, value);
@@ -86,7 +96,8 @@ public class TitleElement
         => (Thickness) element.GetValue(MarginOnTheLeftProperty);
 
     public static readonly DependencyProperty MarginOnTheTopProperty = DependencyProperty.RegisterAttached(
-        "MarginOnTheTop", typeof(Thickness), typeof(TitleElement), new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.Inherits));
+        "MarginOnTheTop", typeof(Thickness), typeof(TitleElement),
+        new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetMarginOnTheTop(DependencyObject element, Thickness value)
         => element.SetValue(MarginOnTheTopProperty, value);
@@ -95,21 +106,25 @@ public class TitleElement
         => (Thickness) element.GetValue(MarginOnTheTopProperty);
 
     public static readonly DependencyProperty PaddingProperty = DependencyProperty.RegisterAttached(
-        "Padding", typeof(Thickness), typeof(TitleElement), new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.Inherits));
+        "Padding", typeof(Thickness), typeof(TitleElement),
+        new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.Inherits));
 
-    public static void SetPadding(DependencyObject element, Thickness value) => element.SetValue(PaddingProperty, value);
+    public static void SetPadding(DependencyObject element, Thickness value) =>
+        element.SetValue(PaddingProperty, value);
 
     public static Thickness GetPadding(DependencyObject element) => (Thickness) element.GetValue(PaddingProperty);
 
     public static readonly DependencyProperty MinHeightProperty =
-        DependencyProperty.RegisterAttached("MinHeight", typeof(double), typeof(TitleElement), new PropertyMetadata(ValueBoxes.Double0Box));
+        DependencyProperty.RegisterAttached("MinHeight", typeof(double), typeof(TitleElement),
+            new PropertyMetadata(ValueBoxes.Double0Box));
 
     public static double GetMinHeight(DependencyObject obj) => (double) obj.GetValue(MinHeightProperty);
 
     public static void SetMinHeight(DependencyObject obj, double value) => obj.SetValue(MinHeightProperty, value);
 
     public static readonly DependencyProperty MinWidthProperty =
-        DependencyProperty.RegisterAttached("MinWidth", typeof(double), typeof(TitleElement), new PropertyMetadata(ValueBoxes.Double0Box));
+        DependencyProperty.RegisterAttached("MinWidth", typeof(double), typeof(TitleElement),
+            new PropertyMetadata(ValueBoxes.Double0Box));
 
     public static double GetMinWidth(DependencyObject obj) => (double) obj.GetValue(MinWidthProperty);
 

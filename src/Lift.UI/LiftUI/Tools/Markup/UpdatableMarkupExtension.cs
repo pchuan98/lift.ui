@@ -1,4 +1,5 @@
 ﻿// https://thomaslevesque.com/2009/08/23/wpf-markup-extensions-and-templates/
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;

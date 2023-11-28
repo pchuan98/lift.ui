@@ -6,7 +6,9 @@ namespace Lift.UI.Controls;
 public partial class MenuAttach
 {
     public static readonly DependencyProperty AnimationModeProperty = DependencyProperty.RegisterAttached(
-      "AnimationMode", typeof(TransitionMode), typeof(MenuAttach), new FrameworkPropertyMetadata(TransitionMode.Right2LeftWithFade, FrameworkPropertyMetadataOptions.Inherits, OnAnimationModeChanged));
+        "AnimationMode", typeof(TransitionMode), typeof(MenuAttach),
+        new FrameworkPropertyMetadata(TransitionMode.Right2LeftWithFade, FrameworkPropertyMetadataOptions.Inherits,
+            OnAnimationModeChanged));
 
     private static void OnAnimationModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -30,7 +32,8 @@ public partial class MenuAttach
         => (TransitionMode) element.GetValue(AnimationModeProperty);
 
     public static readonly DependencyProperty IsEnabledAnimationProperty = DependencyProperty.RegisterAttached(
-        "IsEnabledAnimation", typeof(bool), typeof(MenuAttach), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
+        "IsEnabledAnimation", typeof(bool), typeof(MenuAttach),
+        new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetIsEnabledAnimation(DependencyObject element, bool value)
         => element.SetValue(IsEnabledAnimationProperty, value);

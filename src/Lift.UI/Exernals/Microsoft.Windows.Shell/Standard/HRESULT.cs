@@ -17,7 +17,8 @@ internal struct HRESULT
 
     public static HRESULT Make(bool severe, Facility facility, int code)
     {
-        return new HRESULT((uint) ((severe ? (Facility) (-2147483648) : Facility.Null) | (Facility) ((int) facility << 16) | (Facility) code));
+        return new HRESULT((uint) ((severe ? (Facility) (-2147483648) : Facility.Null) |
+                                   (Facility) ((int) facility << 16) | (Facility) code));
     }
 
     public Facility Facility
@@ -59,6 +60,7 @@ internal struct HRESULT
                 }
             }
         }
+
         if (this.Facility == Facility.Win32)
         {
             foreach (FieldInfo fieldInfo2 in typeof(Win32Error).GetFields(BindingFlags.Static | BindingFlags.Public))
@@ -73,6 +75,7 @@ internal struct HRESULT
                 }
             }
         }
+
         return string.Format(CultureInfo.InvariantCulture, "0x{0:X8}", new object[]
         {
             this._value
@@ -90,6 +93,7 @@ internal struct HRESULT
         {
             result = false;
         }
+
         return result;
     }
 
@@ -129,7 +133,8 @@ internal struct HRESULT
         this.ThrowIfFailed(null);
     }
 
-    [SuppressMessage("Microsoft.Usage", "CA2201:DoNotRaiseReservedExceptionTypes", Justification = "Only recreating Exceptions that were already raised.")]
+    [SuppressMessage("Microsoft.Usage", "CA2201:DoNotRaiseReservedExceptionTypes",
+        Justification = "Only recreating Exceptions that were already raised.")]
     [SuppressMessage("Microsoft.Security", "CA2122:DoNotIndirectlyExposeMethodsWithLinkDemands")]
     public void ThrowIfFailed(string message)
     {
@@ -139,6 +144,7 @@ internal struct HRESULT
             {
                 message = this.ToString();
             }
+
             Exception ex = Marshal.GetExceptionForHR((int) this._value, new IntPtr(-1));
             if (ex.GetType() == typeof(COMException))
             {
@@ -166,6 +172,7 @@ internal struct HRESULT
                     }) as Exception);
                 }
             }
+
             throw ex;
         }
     }
@@ -175,8 +182,7 @@ internal struct HRESULT
         ((HRESULT) Win32Error.GetLastError()).ThrowIfFailed();
     }
 
-    [FieldOffset(0)]
-    private readonly uint _value;
+    [FieldOffset(0)] private readonly uint _value;
 
     [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
     public static readonly HRESULT S_OK = new HRESULT(0u);

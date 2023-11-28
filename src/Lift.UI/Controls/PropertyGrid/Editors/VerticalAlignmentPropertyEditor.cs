@@ -16,7 +16,8 @@ public class VerticalAlignmentPropertyEditor : PropertyEditorBase
     {
         Style = ResourceHelper.GetResourceInternal<Style>("ComboBoxCapsule"),
         ItemsSource = Enum.GetValues(propertyItem.PropertyType),
-        ItemTemplateSelector = ResourceHelper.GetResourceInternal<DataTemplateSelector>("VerticalAlignmentPathTemplateSelector"),
+        ItemTemplateSelector =
+            ResourceHelper.GetResourceInternal<DataTemplateSelector>("VerticalAlignmentPathTemplateSelector"),
         HorizontalAlignment = HorizontalAlignment.Left
     };
 
@@ -48,16 +49,20 @@ public class VerticalAlignmentPathTemplateSelector : DataTemplateSelector
             switch (verticalAlignment)
             {
                 case VerticalAlignment.Top:
-                    factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignTopGeometry"));
+                    factory.SetValue(Path.DataProperty,
+                        ResourceHelper.GetResourceInternal<Geometry>("AlignTopGeometry"));
                     break;
                 case VerticalAlignment.Center:
-                    factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignVCenterGeometry"));
+                    factory.SetValue(Path.DataProperty,
+                        ResourceHelper.GetResourceInternal<Geometry>("AlignVCenterGeometry"));
                     break;
                 case VerticalAlignment.Bottom:
-                    factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignBottomGeometry"));
+                    factory.SetValue(Path.DataProperty,
+                        ResourceHelper.GetResourceInternal<Geometry>("AlignBottomGeometry"));
                     break;
                 case VerticalAlignment.Stretch:
-                    factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignVStretchGeometry"));
+                    factory.SetValue(Path.DataProperty,
+                        ResourceHelper.GetResourceInternal<Geometry>("AlignVStretchGeometry"));
                     break;
             }
 

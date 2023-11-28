@@ -14,7 +14,8 @@ public class HeaderedSelectableItem : SelectableItem
     }
 
     public static readonly DependencyProperty HeaderTemplateProperty = DependencyProperty.Register(
-        nameof(HeaderTemplate), typeof(DataTemplate), typeof(HeaderedSelectableItem), new PropertyMetadata(default(DataTemplate)));
+        nameof(HeaderTemplate), typeof(DataTemplate), typeof(HeaderedSelectableItem),
+        new PropertyMetadata(default(DataTemplate)));
 
     public DataTemplate HeaderTemplate
     {

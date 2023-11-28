@@ -285,7 +285,8 @@ public class GeometryKeyFrameCollection : Freezable, IList
         {
             if (value == null)
             {
-                throw new ArgumentNullException(string.Format(CultureInfo.InvariantCulture, "DoubleKeyFrameCollection[{0}]", index));
+                throw new ArgumentNullException(string.Format(CultureInfo.InvariantCulture,
+                    "DoubleKeyFrameCollection[{0}]", index));
             }
 
             WritePreamble();

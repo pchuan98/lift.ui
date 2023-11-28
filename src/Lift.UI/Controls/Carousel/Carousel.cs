@@ -392,6 +392,7 @@ public class Carousel : SimpleItemsControl, IDisposable
             Items.Clear();
             ClearItems();
         }
+
         _itemsSourceInternal = newValue;
         if (_itemsSourceInternal != null)
         {
@@ -399,6 +400,7 @@ public class Carousel : SimpleItemsControl, IDisposable
             {
                 s.CollectionChanged += InternalCollectionChanged;
             }
+
             foreach (var item in _itemsSourceInternal)
             {
                 AddItem(item);
@@ -425,6 +427,7 @@ public class Carousel : SimpleItemsControl, IDisposable
                 RemoveItem(item);
             }
         }
+
         if (e.NewItems != null)
         {
             var count = 0;
@@ -445,11 +448,9 @@ public class Carousel : SimpleItemsControl, IDisposable
 
     protected override void OnItemTemplateChanged(DependencyPropertyChangedEventArgs e)
     {
-
     }
 
     protected override void OnItemContainerStyleChanged(DependencyPropertyChangedEventArgs e)
     {
-
     }
 }

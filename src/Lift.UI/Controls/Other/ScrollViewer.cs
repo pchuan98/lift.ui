@@ -49,8 +49,10 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
                 _totalHorizontalOffset = Math.Min(Math.Max(0, _totalHorizontalOffset - e.Delta), ScrollableWidth);
                 CurrentHorizontalOffset = _totalHorizontalOffset;
             }
+
             return;
         }
+
         e.Handled = true;
 
         if (ScrollViewerAttach.GetOrientation(this) == Orientation.Vertical)
@@ -60,6 +62,7 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
                 _totalVerticalOffset = VerticalOffset;
                 CurrentVerticalOffset = VerticalOffset;
             }
+
             _totalVerticalOffset = Math.Min(Math.Max(0, _totalVerticalOffset - e.Delta), ScrollableHeight);
             ScrollToVerticalOffsetWithAnimation(_totalVerticalOffset);
         }
@@ -70,6 +73,7 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
                 _totalHorizontalOffset = HorizontalOffset;
                 CurrentHorizontalOffset = HorizontalOffset;
             }
+
             _totalHorizontalOffset = Math.Min(Math.Max(0, _totalHorizontalOffset - e.Delta), ScrollableWidth);
             ScrollToHorizontalOffsetWithAnimation(_totalHorizontalOffset);
         }
@@ -82,6 +86,7 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
             _totalVerticalOffset = VerticalOffset;
             CurrentVerticalOffset = VerticalOffset;
         }
+
         ScrollToVerticalOffsetWithAnimation(0, milliseconds);
     }
 
@@ -130,9 +135,11 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
     public static readonly DependencyProperty IsInertiaEnabledProperty = DependencyProperty.RegisterAttached(
         "IsInertiaEnabled", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
-    public static void SetIsInertiaEnabled(DependencyObject element, bool value) => element.SetValue(IsInertiaEnabledProperty, ValueBoxes.BooleanBox(value));
+    public static void SetIsInertiaEnabled(DependencyObject element, bool value) =>
+        element.SetValue(IsInertiaEnabledProperty, ValueBoxes.BooleanBox(value));
 
-    public static bool GetIsInertiaEnabled(DependencyObject element) => (bool) element.GetValue(IsInertiaEnabledProperty);
+    public static bool GetIsInertiaEnabled(DependencyObject element) =>
+        (bool) element.GetValue(IsInertiaEnabledProperty);
 
     /// <summary>
     /// 是否支持惯性
@@ -158,7 +165,8 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
         set => SetValue(IsPenetratingProperty, ValueBoxes.BooleanBox(value));
     }
 
-    public static void SetIsPenetrating(DependencyObject element, bool value) => element.SetValue(IsPenetratingProperty, ValueBoxes.BooleanBox(value));
+    public static void SetIsPenetrating(DependencyObject element, bool value) =>
+        element.SetValue(IsPenetratingProperty, ValueBoxes.BooleanBox(value));
 
     public static bool GetIsPenetrating(DependencyObject element) => (bool) element.GetValue(IsPenetratingProperty);
 
@@ -166,7 +174,8 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
     /// 当前垂直滚动偏移
     /// </summary>
     internal static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register(
-        nameof(CurrentVerticalOffset), typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentVerticalOffsetChanged));
+        nameof(CurrentVerticalOffset), typeof(double), typeof(ScrollViewer),
+        new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentVerticalOffsetChanged));
 
     private static void OnCurrentVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -190,7 +199,8 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
     /// 当前水平滚动偏移
     /// </summary>
     internal static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register(
-        nameof(CurrentHorizontalOffset), typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentHorizontalOffsetChanged));
+        nameof(CurrentHorizontalOffset), typeof(double), typeof(ScrollViewer),
+        new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentHorizontalOffsetChanged));
 
     private static void OnCurrentHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

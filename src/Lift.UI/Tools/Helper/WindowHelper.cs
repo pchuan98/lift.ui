@@ -70,6 +70,7 @@ public static partial class WindowHelper
                     }
                 }
             }
+
             return _dpi;
         }
     }
@@ -94,6 +95,7 @@ public static partial class WindowHelper
                         {
                             throw new Win32Exception();
                         }
+
                         try
                         {
                             _dpiX = InteropMethods.GetDeviceCaps(new HandleRef(null, dc), InteropValues.LOGPIXELSX);
@@ -124,10 +126,12 @@ public static partial class WindowHelper
                 {
                     _cacheValid[(int) InteropValues.CacheSlot.WindowResizeBorderThickness] = true;
 
-                    var frameSize = new Size(InteropMethods.GetSystemMetrics(InteropValues.SM.CXSIZEFRAME), InteropMethods.GetSystemMetrics(InteropValues.SM.CYSIZEFRAME));
+                    var frameSize = new Size(InteropMethods.GetSystemMetrics(InteropValues.SM.CXSIZEFRAME),
+                        InteropMethods.GetSystemMetrics(InteropValues.SM.CYSIZEFRAME));
                     var frameSizeInDips = DpiHelper.DeviceSizeToLogical(frameSize, DpiX / 96.0, Dpi / 96.0);
 
-                    _windowResizeBorderThickness = new Thickness(frameSizeInDips.Width, frameSizeInDips.Height, frameSizeInDips.Width, frameSizeInDips.Height);
+                    _windowResizeBorderThickness = new Thickness(frameSizeInDips.Width, frameSizeInDips.Height,
+                        frameSizeInDips.Width, frameSizeInDips.Height);
                 }
             }
 
@@ -145,7 +149,8 @@ public static partial class WindowHelper
             return WindowResizeBorderThickness.Add(new Thickness(autoHide ? -8 : 0));
 #elif NETCOREAPP
             var hdc = InteropMethods.GetDC(IntPtr.Zero);
-            var scale = InteropMethods.GetDeviceCaps(hdc, InteropValues.DESKTOPVERTRES) / (float) InteropMethods.GetDeviceCaps(hdc, InteropValues.VERTRES);
+            var scale = InteropMethods.GetDeviceCaps(hdc, InteropValues.DESKTOPVERTRES) /
+                        (float) InteropMethods.GetDeviceCaps(hdc, InteropValues.VERTRES);
             InteropMethods.ReleaseDC(IntPtr.Zero, hdc);
             return WindowResizeBorderThickness.Add(new Thickness((autoHide ? -4 : 4) * scale));
 #else
@@ -175,11 +180,11 @@ public static partial class WindowHelper
         // [c# - Bring a window to the front in WPF - Stack Overflow](https://stackoverflow.com/questions/257587/bring-a-window-to-the-front-in-wpf )
         // [SetForegroundWindow的正确用法 - 子坞 - 博客园](https://www.cnblogs.com/ziwuge/archive/2012/01/06/2315342.html )
         /*
-           　　1.得到窗口句柄FindWindow 
-        　　　　2.切换键盘输入焦点AttachThreadInput 
-        　　　　3.显示窗口ShowWindow(有些窗口被最小化/隐藏了) 
-        　　　　4.更改窗口的Z Order，SetWindowPos使之最上，为了不影响后续窗口的Z Order,改完之后，再还原 
-        　　　　5.最后SetForegroundWindow 
+           1.得到窗口句柄FindWindow
+        2.切换键盘输入焦点AttachThreadInput
+        3.显示窗口ShowWindow(有些窗口被最小化/隐藏了)
+        4.更改窗口的Z Order，SetWindowPos使之最上，为了不影响后续窗口的Z Order,改完之后，再还原
+        5.最后SetForegroundWindow
          */
 
         InteropMethods.AttachThreadInput(currentForegroundWindowThreadId, thisWindowThreadId, true);

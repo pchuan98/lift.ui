@@ -45,10 +45,12 @@ public class DynamicColorExtensionConverter : TypeConverter
         {
             return true;
         }
+
         return base.CanConvertTo(context, destinationType);
     }
 
-    public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
+    public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value,
+        Type destinationType)
     {
         if (destinationType == typeof(InstanceDescriptor))
         {
@@ -64,6 +66,7 @@ public class DynamicColorExtensionConverter : TypeConverter
             return new InstanceDescriptor(typeof(DynamicColorExtension).GetConstructor(new Type[] { typeof(object) }),
                 new object[] { dynamicResource.ResourceKey });
         }
+
         return base.ConvertTo(context, culture, value, destinationType);
     }
 }

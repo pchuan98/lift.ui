@@ -6,7 +6,8 @@ namespace Lift.UI.Controls;
 public class VisualElement
 {
     public static readonly DependencyProperty HighlightBrushProperty = DependencyProperty.RegisterAttached(
-        "HighlightBrush", typeof(Brush), typeof(VisualElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
+        "HighlightBrush", typeof(Brush), typeof(VisualElement),
+        new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetHighlightBrush(DependencyObject element, Brush value)
         => element.SetValue(HighlightBrushProperty, value);
@@ -15,7 +16,8 @@ public class VisualElement
         => (Brush) element.GetValue(HighlightBrushProperty);
 
     public static readonly DependencyProperty HighlightBackgroundProperty = DependencyProperty.RegisterAttached(
-        "HighlightBackground", typeof(Brush), typeof(VisualElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
+        "HighlightBackground", typeof(Brush), typeof(VisualElement),
+        new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetHighlightBackground(DependencyObject element, Brush value)
         => element.SetValue(HighlightBackgroundProperty, value);
@@ -24,7 +26,8 @@ public class VisualElement
         => (Brush) element.GetValue(HighlightBackgroundProperty);
 
     public static readonly DependencyProperty HighlightBorderBrushProperty = DependencyProperty.RegisterAttached(
-        "HighlightBorderBrush", typeof(Brush), typeof(VisualElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
+        "HighlightBorderBrush", typeof(Brush), typeof(VisualElement),
+        new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetHighlightBorderBrush(DependencyObject element, Brush value)
         => element.SetValue(HighlightBorderBrushProperty, value);
@@ -33,7 +36,8 @@ public class VisualElement
         => (Brush) element.GetValue(HighlightBorderBrushProperty);
 
     public static readonly DependencyProperty HighlightForegroundProperty = DependencyProperty.RegisterAttached(
-        "HighlightForeground", typeof(Brush), typeof(VisualElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
+        "HighlightForeground", typeof(Brush), typeof(VisualElement),
+        new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetHighlightForeground(DependencyObject element, Brush value)
         => element.SetValue(HighlightForegroundProperty, value);

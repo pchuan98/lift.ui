@@ -1,5 +1,4 @@
-﻿
-namespace Lift.UI.Data;
+﻿namespace Lift.UI.Data;
 
 public enum InfoType
 {

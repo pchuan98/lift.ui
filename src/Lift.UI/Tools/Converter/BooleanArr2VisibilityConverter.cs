@@ -28,6 +28,7 @@ public class BooleanArr2VisibilityConverter : IMultiValueConverter
                 return Visibility.Collapsed;
             }
         }
+
         return arr.All(item => item) ? Visibility.Visible : Visibility.Collapsed;
     }
 

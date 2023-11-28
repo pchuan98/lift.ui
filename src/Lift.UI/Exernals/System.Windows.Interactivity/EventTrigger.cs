@@ -4,7 +4,8 @@ namespace Lift.UI.Interactivity;
 
 public class EventTrigger : EventTriggerBase<object>
 {
-    public static readonly DependencyProperty EventNameProperty = DependencyProperty.Register("EventName", typeof(string), typeof(EventTrigger), new FrameworkPropertyMetadata("Loaded", OnEventNameChanged));
+    public static readonly DependencyProperty EventNameProperty = DependencyProperty.Register("EventName",
+        typeof(string), typeof(EventTrigger), new FrameworkPropertyMetadata("Loaded", OnEventNameChanged));
 
     public EventTrigger()
     {

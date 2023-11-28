@@ -35,6 +35,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return;
         }
+
         Window window = (Window) d;
         TaskbarItemInfo taskbarItemInfo = (TaskbarItemInfo) e.OldValue;
         TaskbarItemInfo taskbarItemInfo2 = (TaskbarItemInfo) e.NewValue;
@@ -42,14 +43,17 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return;
         }
+
         if (!Utility.IsOSWindows7OrNewer)
         {
             return;
         }
+
         if (taskbarItemInfo != null && taskbarItemInfo._window != null)
         {
             taskbarItemInfo._DetachWindow();
         }
+
         if (taskbarItemInfo2 != null)
         {
             taskbarItemInfo2._SetWindow(window);
@@ -62,6 +66,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return value;
         }
+
         Verify.IsNotNull<DependencyObject>(d, "d");
         Window window = (Window) d;
         TaskbarItemInfo taskbarItemInfo = (TaskbarItemInfo) value;
@@ -69,6 +74,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             throw new NotSupportedException();
         }
+
         window.VerifyAccess();
         return taskbarItemInfo;
     }
@@ -91,6 +97,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return;
         }
+
         this._UpdateProgressState(true);
     }
 
@@ -108,6 +115,7 @@ public sealed class TaskbarItemInfo : Freezable
                 value = TaskbarItemProgressState.None;
                 break;
         }
+
         return value;
     }
 
@@ -129,6 +137,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return;
         }
+
         this._UpdateProgressValue(true);
     }
 
@@ -138,6 +147,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             progressValue = 0.0;
         }
+
         progressValue = Math.Max(progressValue, 0.0);
         progressValue = Math.Min(1.0, progressValue);
         return progressValue;
@@ -161,6 +171,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return;
         }
+
         this._UpdateOverlay(true);
     }
 
@@ -182,6 +193,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return;
         }
+
         this._UpdateTooltip(true);
     }
 
@@ -203,6 +215,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return;
         }
+
         this._UpdateThumbnailClipping(true);
     }
 
@@ -212,6 +225,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return TaskbarItemInfo._EmptyThickness;
         }
+
         return margin;
     }
 
@@ -235,6 +249,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return;
         }
+
         this._UpdateThumbButtons(true);
     }
 
@@ -244,6 +259,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             this._gdipToken = SafeGdiplusStartupToken.Startup();
         }
+
         return Utility.GenerateHICON(image, dimensions);
     }
 
@@ -263,8 +279,11 @@ public sealed class TaskbarItemInfo : Freezable
             {
                 Utility.SafeRelease<ITaskbarList>(ref taskbarList);
             }
-            this._overlaySize = new Size((double) NativeMethods.GetSystemMetrics(SM.CXSMICON), (double) NativeMethods.GetSystemMetrics(SM.CYSMICON));
+
+            this._overlaySize = new Size((double) NativeMethods.GetSystemMetrics(SM.CXSMICON),
+                (double) NativeMethods.GetSystemMetrics(SM.CYSMICON));
         }
+
         this.ThumbButtonInfos = new ThumbButtonInfoCollection();
     }
 
@@ -274,17 +293,20 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return;
         }
+
         this._window = window;
         if (this._taskbarList == null)
         {
             return;
         }
+
         IntPtr handle = new WindowInteropHelper(this._window).Handle;
         if (!(handle != IntPtr.Zero))
         {
             this._window.SourceInitialized += this._OnWindowSourceInitialized;
             return;
         }
+
         this._hwndSource = HwndSource.FromHwnd(handle);
         this._hwndSource.AddHook(new HwndSourceHook(this._WndProc));
         this._OnIsAttachedChanged(true);
@@ -297,7 +319,8 @@ public sealed class TaskbarItemInfo : Freezable
         this._hwndSource = HwndSource.FromHwnd(handle);
         this._hwndSource.AddHook(new HwndSourceHook(this._WndProc));
         MSGFLTINFO msgfltinfo;
-        NativeMethods.ChangeWindowMessageFilterEx(handle, TaskbarItemInfo.WM_TASKBARBUTTONCREATED, MSGFLT.ALLOW, out msgfltinfo);
+        NativeMethods.ChangeWindowMessageFilterEx(handle, TaskbarItemInfo.WM_TASKBARBUTTONCREATED, MSGFLT.ALLOW,
+            out msgfltinfo);
         NativeMethods.ChangeWindowMessageFilterEx(handle, WM.COMMAND, MSGFLT.ALLOW, out msgfltinfo);
     }
 
@@ -323,6 +346,7 @@ public sealed class TaskbarItemInfo : Freezable
             this._UpdateThumbnailClipping(this._isAttached);
             handled = false;
         }
+
         return IntPtr.Zero;
     }
 
@@ -333,6 +357,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return;
         }
+
         this._UpdateOverlay(attached);
         this._UpdateProgressState(attached);
         this._UpdateProgressValue(attached);
@@ -360,6 +385,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return this._taskbarList.SetOverlayIcon(this._hwndSource.Handle, IntPtr.Zero, null);
         }
+
         IntPtr hIcon = IntPtr.Zero;
         HRESULT result;
         try
@@ -371,6 +397,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             Utility.SafeDestroyIcon(ref hIcon);
         }
+
         return result;
     }
 
@@ -381,15 +408,18 @@ public sealed class TaskbarItemInfo : Freezable
         {
             pszTip = "";
         }
+
         return this._taskbarList.SetThumbnailTooltip(this._hwndSource.Handle, pszTip);
     }
 
     private HRESULT _UpdateProgressValue(bool attached)
     {
-        if (!attached || this.ProgressState == TaskbarItemProgressState.None || this.ProgressState == TaskbarItemProgressState.Indeterminate)
+        if (!attached || this.ProgressState == TaskbarItemProgressState.None ||
+            this.ProgressState == TaskbarItemProgressState.Indeterminate)
         {
             return HRESULT.S_OK;
         }
+
         ulong ullCompleted = (ulong) (this.ProgressValue * 1000.0);
         return this._taskbarList.SetProgressValue(this._hwndSource.Handle, ullCompleted, 1000UL);
     }
@@ -410,11 +440,13 @@ public sealed class TaskbarItemInfo : Freezable
                 _ => TBPF.NOPROGRESS
             };
         }
+
         HRESULT result = this._taskbarList.SetProgressState(this._hwndSource.Handle, tbpFlags);
         if (result.Succeeded)
         {
             result = this._UpdateProgressValue(attached);
         }
+
         return result;
     }
 
@@ -425,18 +457,23 @@ public sealed class TaskbarItemInfo : Freezable
         {
             Thickness thumbnailClipMargin = this.ThumbnailClipMargin;
             RECT clientRect = NativeMethods.GetClientRect(this._hwndSource.Handle);
-            Rect rect = DpiHelper.DeviceRectToLogical(new Rect((double) clientRect.Left, (double) clientRect.Top, (double) clientRect.Width, (double) clientRect.Height));
-            if (thumbnailClipMargin.Left + thumbnailClipMargin.Right >= rect.Width || thumbnailClipMargin.Top + thumbnailClipMargin.Bottom >= rect.Height)
+            Rect rect = DpiHelper.DeviceRectToLogical(new Rect((double) clientRect.Left, (double) clientRect.Top,
+                (double) clientRect.Width, (double) clientRect.Height));
+            if (thumbnailClipMargin.Left + thumbnailClipMargin.Right >= rect.Width ||
+                thumbnailClipMargin.Top + thumbnailClipMargin.Bottom >= rect.Height)
             {
                 prcClip = new RefRECT(0, 0, 0, 0);
             }
             else
             {
-                Rect logicalRectangle = new Rect(thumbnailClipMargin.Left, thumbnailClipMargin.Top, rect.Width - thumbnailClipMargin.Left - thumbnailClipMargin.Right, rect.Height - thumbnailClipMargin.Top - thumbnailClipMargin.Bottom);
+                Rect logicalRectangle = new Rect(thumbnailClipMargin.Left, thumbnailClipMargin.Top,
+                    rect.Width - thumbnailClipMargin.Left - thumbnailClipMargin.Right,
+                    rect.Height - thumbnailClipMargin.Top - thumbnailClipMargin.Bottom);
                 Rect rect2 = DpiHelper.LogicalRectToDevice(logicalRectangle);
                 prcClip = new RefRECT((int) rect2.Left, (int) rect2.Top, (int) rect2.Right, (int) rect2.Bottom);
             }
         }
+
         return this._taskbarList.SetThumbnailClip(this._hwndSource.Handle, prcClip);
     }
 
@@ -455,13 +492,16 @@ public sealed class TaskbarItemInfo : Freezable
                     dwMask = (THB.ICON | THB.TOOLTIP | THB.FLAGS)
                 };
             }
+
             hresult = this._taskbarList.ThumbBarAddButtons(this._hwndSource.Handle, (uint) array.Length, array);
             if (hresult == HRESULT.E_INVALIDARG)
             {
                 hresult = HRESULT.S_FALSE;
             }
+
             this._haveAddedButtons = hresult.Succeeded;
         }
+
         return hresult;
     }
 
@@ -473,6 +513,7 @@ public sealed class TaskbarItemInfo : Freezable
         {
             return result;
         }
+
         ThumbButtonInfoCollection thumbButtonInfos = this.ThumbButtonInfos;
         HRESULT result2;
         try
@@ -482,6 +523,7 @@ public sealed class TaskbarItemInfo : Freezable
             {
                 goto IL_1AE;
             }
+
             using (FreezableCollection<ThumbButtonInfo>.Enumerator enumerator = thumbButtonInfos.GetEnumerator())
             {
                 while (enumerator.MoveNext())
@@ -506,21 +548,24 @@ public sealed class TaskbarItemInfo : Freezable
                         default:
                             goto IL_A5;
                     }
-IL_146:
+
+                    IL_146:
                     array[(int) ((UIntPtr) num)] = thumbbutton;
                     num += 1u;
                     if (num != 7u)
                     {
                         continue;
                     }
+
                     break;
-IL_A5:
+                    IL_A5:
                     thumbbutton.szTip = (thumbButtonInfo.Description ?? "");
                     thumbbutton.hIcon = this._GetHICONFromImageSource(thumbButtonInfo.ImageSource, this._overlaySize);
                     if (!thumbButtonInfo.IsBackgroundVisible)
                     {
                         thumbbutton.dwFlags |= THBF.NOBACKGROUND;
                     }
+
                     if (!thumbButtonInfo.IsEnabled)
                     {
                         thumbbutton.dwFlags |= THBF.DISABLED;
@@ -529,20 +574,25 @@ IL_A5:
                     {
                         thumbbutton.dwFlags = thumbbutton.dwFlags;
                     }
+
                     if (!thumbButtonInfo.IsInteractive)
                     {
                         thumbbutton.dwFlags |= THBF.NONINTERACTIVE;
                     }
+
                     if (thumbButtonInfo.DismissWhenClicked)
                     {
                         thumbbutton.dwFlags |= THBF.DISMISSONCLICK;
                         goto IL_146;
                     }
+
                     goto IL_146;
                 }
+
                 goto IL_1AE;
             }
-IL_179:
+
+            IL_179:
             array[(int) ((UIntPtr) num)] = new THUMBBUTTON
             {
                 iId = num,
@@ -550,11 +600,12 @@ IL_179:
                 dwMask = (THB.ICON | THB.TOOLTIP | THB.FLAGS)
             };
             num += 1u;
-IL_1AE:
+            IL_1AE:
             if (num < 7u)
             {
                 goto IL_179;
             }
+
             result2 = this._taskbarList.ThumbBarUpdateButtons(this._hwndSource.Handle, (uint) array.Length, array);
         }
         finally
@@ -568,6 +619,7 @@ IL_1AE:
                 }
             }
         }
+
         return result2;
     }
 
@@ -591,36 +643,51 @@ IL_1AE:
 
     private bool _isAttached;
 
-    public static readonly DependencyProperty TaskbarItemInfoProperty = DependencyProperty.RegisterAttached("TaskbarItemInfo", typeof(TaskbarItemInfo), typeof(TaskbarItemInfo), new PropertyMetadata(null, new PropertyChangedCallback(TaskbarItemInfo._OnTaskbarItemInfoChanged), new CoerceValueCallback(TaskbarItemInfo._CoerceTaskbarItemInfoValue)));
+    public static readonly DependencyProperty TaskbarItemInfoProperty = DependencyProperty.RegisterAttached(
+        "TaskbarItemInfo", typeof(TaskbarItemInfo), typeof(TaskbarItemInfo),
+        new PropertyMetadata(null, new PropertyChangedCallback(TaskbarItemInfo._OnTaskbarItemInfoChanged),
+            new CoerceValueCallback(TaskbarItemInfo._CoerceTaskbarItemInfoValue)));
 
-    public static readonly DependencyProperty ProgressStateProperty = DependencyProperty.Register("ProgressState", typeof(TaskbarItemProgressState), typeof(TaskbarItemInfo), new PropertyMetadata(TaskbarItemProgressState.None, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((TaskbarItemInfo) d)._OnProgressStateChanged();
-    }, (DependencyObject d, object e) => TaskbarItemInfo._CoerceProgressState((TaskbarItemProgressState) e)));
+    public static readonly DependencyProperty ProgressStateProperty = DependencyProperty.Register("ProgressState",
+        typeof(TaskbarItemProgressState), typeof(TaskbarItemInfo), new PropertyMetadata(TaskbarItemProgressState.None,
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((TaskbarItemInfo) d)._OnProgressStateChanged();
+            }, (DependencyObject d, object e) => TaskbarItemInfo._CoerceProgressState((TaskbarItemProgressState) e)));
 
-    public static readonly DependencyProperty ProgressValueProperty = DependencyProperty.Register("ProgressValue", typeof(double), typeof(TaskbarItemInfo), new PropertyMetadata(0.0, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((TaskbarItemInfo) d)._OnProgressValueChanged();
-    }, (DependencyObject d, object e) => TaskbarItemInfo._CoerceProgressValue((double) e)));
+    public static readonly DependencyProperty ProgressValueProperty = DependencyProperty.Register("ProgressValue",
+        typeof(double), typeof(TaskbarItemInfo), new PropertyMetadata(0.0,
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((TaskbarItemInfo) d)._OnProgressValueChanged();
+            }, (DependencyObject d, object e) => TaskbarItemInfo._CoerceProgressValue((double) e)));
 
-    public static readonly DependencyProperty OverlayProperty = DependencyProperty.Register("Overlay", typeof(ImageSource), typeof(TaskbarItemInfo), new PropertyMetadata(null, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((TaskbarItemInfo) d)._OnOverlayChanged();
-    }));
+    public static readonly DependencyProperty OverlayProperty = DependencyProperty.Register("Overlay",
+        typeof(ImageSource), typeof(TaskbarItemInfo), new PropertyMetadata(null,
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((TaskbarItemInfo) d)._OnOverlayChanged();
+            }));
 
-    public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(TaskbarItemInfo), new PropertyMetadata(string.Empty, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((TaskbarItemInfo) d)._OnDescriptionChanged();
-    }));
+    public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description",
+        typeof(string), typeof(TaskbarItemInfo), new PropertyMetadata(string.Empty,
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((TaskbarItemInfo) d)._OnDescriptionChanged();
+            }));
 
-    public static readonly DependencyProperty ThumbnailClipMarginProperty = DependencyProperty.Register("ThumbnailClipMargin", typeof(Thickness), typeof(TaskbarItemInfo), new PropertyMetadata(default(Thickness), delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((TaskbarItemInfo) d)._OnThumbnailClipMarginChanged();
-    }, (DependencyObject d, object e) => TaskbarItemInfo._CoerceThumbnailClipMargin((Thickness) e)));
+    public static readonly DependencyProperty ThumbnailClipMarginProperty = DependencyProperty.Register(
+        "ThumbnailClipMargin", typeof(Thickness), typeof(TaskbarItemInfo), new PropertyMetadata(default(Thickness),
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((TaskbarItemInfo) d)._OnThumbnailClipMarginChanged();
+            }, (DependencyObject d, object e) => TaskbarItemInfo._CoerceThumbnailClipMargin((Thickness) e)));
 
     [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Infos")]
-    public static readonly DependencyProperty ThumbButtonInfosProperty = DependencyProperty.Register("ThumbButtonInfos", typeof(ThumbButtonInfoCollection), typeof(TaskbarItemInfo), new PropertyMetadata(null, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((TaskbarItemInfo) d)._OnThumbButtonsChanged();
-    }));
+    public static readonly DependencyProperty ThumbButtonInfosProperty = DependencyProperty.Register("ThumbButtonInfos",
+        typeof(ThumbButtonInfoCollection), typeof(TaskbarItemInfo), new PropertyMetadata(null,
+            delegate(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                ((TaskbarItemInfo) d)._OnThumbButtonsChanged();
+            }));
 }

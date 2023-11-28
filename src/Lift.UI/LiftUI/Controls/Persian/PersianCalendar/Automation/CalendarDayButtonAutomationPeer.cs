@@ -20,7 +20,8 @@ namespace Microsoft.Windows.Automation.Peers;
 /// <summary>
 /// AutomationPeer for CalendarDayButton
 /// </summary>
-public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGridItemProvider, ISelectionItemProvider, ITableItemProvider
+public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGridItemProvider, ISelectionItemProvider,
+    ITableItemProvider
 {
     /// <summary>
     /// Initializes a new instance of the CalendarDayButtonAutomationPeer class.
@@ -73,7 +74,7 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
         {
             if (this.OwningCalendarDayButton != null && this.OwningCalendarDayButton.DataContext is DateTime)
             {
-                return (DateTime?)this.OwningCalendarDayButton.DataContext;
+                return (DateTime?) this.OwningCalendarDayButton.DataContext;
             }
             else
             {
@@ -155,7 +156,8 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
         DateTime? date = this.Date;
         if (date.HasValue)
         {
-            string dateString = DateTimeHelper.ToLongDateString(Date, DateTimeHelper.GetCulture(this.OwningCalendarDayButton));
+            string dateString =
+                DateTimeHelper.ToLongDateString(Date, DateTimeHelper.GetCulture(this.OwningCalendarDayButton));
 
             if (this.OwningCalendarDayButton.IsBlackedOut)
             {
@@ -188,7 +190,9 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
     protected override string GetNameCore()
     {
         DateTime? date = this.Date;
-        return date.HasValue ? DateTimeHelper.ToLongDateString(Date, DateTimeHelper.GetCulture(this.OwningCalendarDayButton)) : base.GetNameCore();
+        return date.HasValue
+            ? DateTimeHelper.ToLongDateString(Date, DateTimeHelper.GetCulture(this.OwningCalendarDayButton))
+            : base.GetNameCore();
     }
 
     #endregion Protected Methods
@@ -202,7 +206,7 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
     {
         get
         {
-            return (int)this.OwningCalendarDayButton.GetValue(Grid.ColumnProperty);
+            return (int) this.OwningCalendarDayButton.GetValue(Grid.ColumnProperty);
         }
     }
 
@@ -211,7 +215,7 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
     /// </summary>
     int IGridItemProvider.ColumnSpan
     {
-        get { return (int)this.OwningCalendarDayButton.GetValue(Grid.ColumnSpanProperty); }
+        get { return (int) this.OwningCalendarDayButton.GetValue(Grid.ColumnSpanProperty); }
     }
 
     /// <summary>
@@ -231,11 +235,11 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
     int IGridItemProvider.Row
     {
         get
-        {                
-            Debug.Assert((int)this.OwningCalendarDayButton.GetValue(Grid.RowProperty) > 0);
+        {
+            Debug.Assert((int) this.OwningCalendarDayButton.GetValue(Grid.RowProperty) > 0);
 
             // we decrement the Row value by one since the first row is composed of DayTitles
-            return (int)this.OwningCalendarDayButton.GetValue(Grid.RowProperty) - 1;
+            return (int) this.OwningCalendarDayButton.GetValue(Grid.RowProperty) - 1;
         }
     }
 
@@ -246,7 +250,7 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
     {
         get
         {
-            return (int)this.OwningCalendarDayButton.GetValue(Grid.RowSpanProperty);
+            return (int) this.OwningCalendarDayButton.GetValue(Grid.RowSpanProperty);
         }
     }
 
@@ -257,12 +261,12 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
     /// <summary>
     /// True if the owning CalendarDayButton is selected.
     /// </summary>
-    bool ISelectionItemProvider.IsSelected 
-    { 
-        get 
-        { 
-            return this.OwningCalendarDayButton.IsSelected; 
-        } 
+    bool ISelectionItemProvider.IsSelected
+    {
+        get
+        {
+            return this.OwningCalendarDayButton.IsSelected;
+        }
     }
 
     /// <summary>
@@ -282,7 +286,7 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
     void ISelectionItemProvider.AddToSelection()
     {
         // Return if the item is already selected or a day is already selected in the SingleSelectionMode
-        if (((ISelectionItemProvider)this).IsSelected)
+        if (((ISelectionItemProvider) this).IsSelected)
         {
             return;
         }
@@ -291,11 +295,11 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
         {
             if (this.OwningPersianCalendar.SelectionMode == CalendarSelectionMode.SingleDate)
             {
-                this.OwningPersianCalendar.SelectedDate = (DateTime)this.OwningCalendarDayButton.DataContext;
+                this.OwningPersianCalendar.SelectedDate = (DateTime) this.OwningCalendarDayButton.DataContext;
             }
             else
             {
-                this.OwningPersianCalendar.SelectedDates.Add((DateTime)this.OwningCalendarDayButton.DataContext);
+                this.OwningPersianCalendar.SelectedDates.Add((DateTime) this.OwningCalendarDayButton.DataContext);
             }
         }
     }
@@ -306,14 +310,14 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
     void ISelectionItemProvider.RemoveFromSelection()
     {
         // Return if the item is not already selected.
-        if (!((ISelectionItemProvider)this).IsSelected)
+        if (!((ISelectionItemProvider) this).IsSelected)
         {
             return;
         }
 
         if (this.OwningCalendarDayButton.DataContext is DateTime)
         {
-            this.OwningPersianCalendar.SelectedDates.Remove((DateTime)this.OwningCalendarDayButton.DataContext);
+            this.OwningPersianCalendar.SelectedDates.Remove((DateTime) this.OwningCalendarDayButton.DataContext);
         }
     }
 
@@ -328,7 +332,7 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
 
             if (this.OwningCalendarDayButton.DataContext is DateTime)
             {
-                this.OwningPersianCalendar.SelectedDates.Add((DateTime)this.OwningCalendarDayButton.DataContext);
+                this.OwningPersianCalendar.SelectedDates.Add((DateTime) this.OwningCalendarDayButton.DataContext);
             }
         }
     }
@@ -345,11 +349,12 @@ public sealed class CalendarDayButtonAutomationPeer : ButtonAutomationPeer, IGri
     {
         if (this.OwningPersianCalendar != null && this.OwningCalendarAutomationPeer != null)
         {
-            IRawElementProviderSimple[] headers = ((ITableProvider)CreatePeerForElement(this.OwningPersianCalendar)).GetColumnHeaders();
+            IRawElementProviderSimple[] headers =
+                ((ITableProvider) CreatePeerForElement(this.OwningPersianCalendar)).GetColumnHeaders();
 
             if (headers != null)
             {
-                int column = ((IGridItemProvider)this).Column;
+                int column = ((IGridItemProvider) this).Column;
                 return new IRawElementProviderSimple[] { headers[column] };
             }
         }

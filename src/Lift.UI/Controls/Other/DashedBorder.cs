@@ -38,7 +38,8 @@ public class DashedBorder : Decorator
     }
 
     public static readonly DependencyProperty BorderThicknessProperty = DependencyProperty.Register(
-        nameof(BorderThickness), typeof(Thickness), typeof(DashedBorder), new FrameworkPropertyMetadata(default(Thickness),
+        nameof(BorderThickness), typeof(Thickness), typeof(DashedBorder), new FrameworkPropertyMetadata(
+            default(Thickness),
             FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
             OnClearPenCache));
 
@@ -49,7 +50,8 @@ public class DashedBorder : Decorator
     }
 
     public static readonly DependencyProperty BorderDashThicknessProperty = DependencyProperty.Register(
-        nameof(BorderDashThickness), typeof(double), typeof(DashedBorder), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
+        nameof(BorderDashThickness), typeof(double), typeof(DashedBorder), new FrameworkPropertyMetadata(
+            ValueBoxes.Double0Box,
             FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
             OnClearPenCache));
 
@@ -70,7 +72,8 @@ public class DashedBorder : Decorator
     }
 
     public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(
-        nameof(CornerRadius), typeof(CornerRadius), typeof(DashedBorder), new FrameworkPropertyMetadata(default(CornerRadius),
+        nameof(CornerRadius), typeof(CornerRadius), typeof(DashedBorder), new FrameworkPropertyMetadata(
+            default(CornerRadius),
             FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender));
 
     public CornerRadius CornerRadius
@@ -81,7 +84,8 @@ public class DashedBorder : Decorator
 
     public static readonly DependencyProperty BorderBrushProperty = DependencyProperty.Register(
         nameof(BorderBrush), typeof(Brush), typeof(DashedBorder), new FrameworkPropertyMetadata(default(Brush),
-            FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.SubPropertiesDoNotAffectRender,
+            FrameworkPropertyMetadataOptions.AffectsRender |
+            FrameworkPropertyMetadataOptions.SubPropertiesDoNotAffectRender,
             OnClearPenCache));
 
     public Brush BorderBrush
@@ -92,7 +96,8 @@ public class DashedBorder : Decorator
 
     public static readonly DependencyProperty BackgroundProperty = DependencyProperty.Register(
         nameof(Background), typeof(Brush), typeof(DashedBorder), new FrameworkPropertyMetadata(default(Brush),
-            FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.SubPropertiesDoNotAffectRender,
+            FrameworkPropertyMetadataOptions.AffectsRender |
+            FrameworkPropertyMetadataOptions.SubPropertiesDoNotAffectRender,
             OnClearPenCache));
 
     public Brush Background
@@ -102,7 +107,8 @@ public class DashedBorder : Decorator
     }
 
     public static readonly DependencyProperty BorderDashArrayProperty = DependencyProperty.Register(
-        nameof(BorderDashArray), typeof(DoubleCollection), typeof(DashedBorder), new FrameworkPropertyMetadata(default(DoubleCollection),
+        nameof(BorderDashArray), typeof(DoubleCollection), typeof(DashedBorder), new FrameworkPropertyMetadata(
+            default(DoubleCollection),
             FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
             OnClearPenCache));
 
@@ -113,7 +119,8 @@ public class DashedBorder : Decorator
     }
 
     public static readonly DependencyProperty BorderDashCapProperty = DependencyProperty.Register(
-        nameof(BorderDashCap), typeof(PenLineCap), typeof(DashedBorder), new FrameworkPropertyMetadata(default(PenLineCap),
+        nameof(BorderDashCap), typeof(PenLineCap), typeof(DashedBorder), new FrameworkPropertyMetadata(
+            default(PenLineCap),
             FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
             OnClearPenCache));
 
@@ -124,7 +131,8 @@ public class DashedBorder : Decorator
     }
 
     public static readonly DependencyProperty BorderDashOffsetProperty = DependencyProperty.Register(
-        nameof(BorderDashOffset), typeof(double), typeof(DashedBorder), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
+        nameof(BorderDashOffset), typeof(double), typeof(DashedBorder), new FrameworkPropertyMetadata(
+            ValueBoxes.Double0Box,
             FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
             OnClearPenCache));
 
@@ -276,7 +284,8 @@ public class DashedBorder : Decorator
         if (child != null)
         {
             var combined = new Size(borderSize.Width + paddingSize.Width, borderSize.Height + paddingSize.Height);
-            var childConstraint = new Size(Math.Max(0.0, constraint.Width - combined.Width), Math.Max(0.0, constraint.Height - combined.Height));
+            var childConstraint = new Size(Math.Max(0.0, constraint.Width - combined.Width),
+                Math.Max(0.0, constraint.Height - combined.Height));
 
             child.Measure(childConstraint);
             var childSize = child.DesiredSize;
@@ -461,7 +470,8 @@ public class DashedBorder : Decorator
                 if (borderThickness.IsUniform())
                 {
                     halfThickness = pen.Thickness * 0.5;
-                    var rect = new Rect(new Point(halfThickness, halfThickness), new Point(renderSize.Width - halfThickness, renderSize.Height - halfThickness));
+                    var rect = new Rect(new Point(halfThickness, halfThickness),
+                        new Point(renderSize.Width - halfThickness, renderSize.Height - halfThickness));
 
                     if (roundedCorners)
                     {
@@ -477,7 +487,8 @@ public class DashedBorder : Decorator
                     if (MathHelper.GreaterThan(borderThickness.Left, 0))
                     {
                         halfThickness = pen.Thickness * 0.5;
-                        drawingContext.DrawLine(pen, new Point(halfThickness, 0), new Point(halfThickness, renderSize.Height));
+                        drawingContext.DrawLine(pen, new Point(halfThickness, 0),
+                            new Point(halfThickness, renderSize.Height));
                     }
 
                     if (MathHelper.GreaterThan(borderThickness.Right, 0))
@@ -504,7 +515,8 @@ public class DashedBorder : Decorator
                         }
 
                         halfThickness = pen.Thickness * 0.5;
-                        drawingContext.DrawLine(pen, new Point(renderSize.Width - halfThickness, 0), new Point(renderSize.Width - halfThickness, renderSize.Height));
+                        drawingContext.DrawLine(pen, new Point(renderSize.Width - halfThickness, 0),
+                            new Point(renderSize.Width - halfThickness, renderSize.Height));
                     }
 
                     if (MathHelper.GreaterThan(borderThickness.Top, 0))
@@ -531,7 +543,8 @@ public class DashedBorder : Decorator
                         }
 
                         halfThickness = pen.Thickness * 0.5;
-                        drawingContext.DrawLine(pen, new Point(0, halfThickness), new Point(renderSize.Width, halfThickness));
+                        drawingContext.DrawLine(pen, new Point(0, halfThickness),
+                            new Point(renderSize.Width, halfThickness));
                     }
 
                     if (MathHelper.GreaterThan(borderThickness.Bottom, 0))
@@ -558,7 +571,8 @@ public class DashedBorder : Decorator
                         }
 
                         halfThickness = pen.Thickness * 0.5;
-                        drawingContext.DrawLine(pen, new Point(0, renderSize.Height - halfThickness), new Point(renderSize.Width, renderSize.Height - halfThickness));
+                        drawingContext.DrawLine(pen, new Point(0, renderSize.Height - halfThickness),
+                            new Point(renderSize.Width, renderSize.Height - halfThickness));
                     }
                 }
             }
@@ -569,14 +583,16 @@ public class DashedBorder : Decorator
 
                 if (useLayoutRounding)
                 {
-                    ptTL = new Point(DpiHelper.RoundLayoutValue(borderThickness.Left, dpiScaleX), DpiHelper.RoundLayoutValue(borderThickness.Top, dpiScaleY));
+                    ptTL = new Point(DpiHelper.RoundLayoutValue(borderThickness.Left, dpiScaleX),
+                        DpiHelper.RoundLayoutValue(borderThickness.Top, dpiScaleY));
                     ptBR = new Point(RenderSize.Width - DpiHelper.RoundLayoutValue(borderThickness.Right, dpiScaleX),
                         RenderSize.Height - DpiHelper.RoundLayoutValue(borderThickness.Bottom, dpiScaleY));
                 }
                 else
                 {
                     ptTL = new Point(borderThickness.Left, borderThickness.Top);
-                    ptBR = new Point(RenderSize.Width - borderThickness.Right, RenderSize.Height - borderThickness.Bottom);
+                    ptBR = new Point(RenderSize.Width - borderThickness.Right,
+                        RenderSize.Height - borderThickness.Bottom);
                 }
 
                 if (ptBR.X > ptTL.X && ptBR.Y > ptTL.Y)
@@ -585,7 +601,8 @@ public class DashedBorder : Decorator
                     {
                         var innerRadii = new Radii(cornerRadius, borderThickness, false);
                         var innerCornerRadius = innerRadii.TopLeft;
-                        drawingContext.DrawRoundedRectangle(background, null, new Rect(ptTL, ptBR), innerCornerRadius, innerCornerRadius);
+                        drawingContext.DrawRoundedRectangle(background, null, new Rect(ptTL, ptBR), innerCornerRadius,
+                            innerCornerRadius);
                     }
                     else
                     {
@@ -616,6 +633,7 @@ public class DashedBorder : Decorator
                     LeftTop = radii.TopLeft + left;
                     TopLeft = radii.TopLeft + top;
                 }
+
                 if (MathHelper.IsZero(radii.TopRight))
                 {
                     TopRight = RightTop = 0.0;
@@ -625,6 +643,7 @@ public class DashedBorder : Decorator
                     TopRight = radii.TopRight + top;
                     RightTop = radii.TopRight + right;
                 }
+
                 if (MathHelper.IsZero(radii.BottomRight))
                 {
                     RightBottom = BottomRight = 0.0;
@@ -634,6 +653,7 @@ public class DashedBorder : Decorator
                     RightBottom = radii.BottomRight + right;
                     BottomRight = radii.BottomRight + bottom;
                 }
+
                 if (MathHelper.IsZero(radii.BottomLeft))
                 {
                     BottomLeft = LeftBottom = 0.0;

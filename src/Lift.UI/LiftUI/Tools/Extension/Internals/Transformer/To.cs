@@ -23,9 +23,11 @@ public static class To
     /// <param name="culture"></param>
     /// <param name="transformers"></param>
     /// <returns></returns>
-    public static string Transform(this string input, CultureInfo culture, params ICulturedStringTransformer[] transformers)
+    public static string Transform(this string input, CultureInfo culture,
+        params ICulturedStringTransformer[] transformers)
     {
-        return transformers.Aggregate(input, (current, stringTransformer) => stringTransformer.Transform(current, culture));
+        return transformers.Aggregate(input,
+            (current, stringTransformer) => stringTransformer.Transform(current, culture));
     }
 
     /// <summary>

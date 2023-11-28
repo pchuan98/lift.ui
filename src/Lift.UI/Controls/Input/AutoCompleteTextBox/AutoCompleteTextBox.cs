@@ -19,7 +19,8 @@ public class AutoCompleteTextBox : ComboBox
 
     static AutoCompleteTextBox()
     {
-        TextProperty.OverrideMetadata(typeof(AutoCompleteTextBox), new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+        TextProperty.OverrideMetadata(typeof(AutoCompleteTextBox),
+            new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
     }
 
     public override void OnApplyTemplate()

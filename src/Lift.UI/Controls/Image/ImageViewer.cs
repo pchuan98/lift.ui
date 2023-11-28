@@ -215,7 +215,8 @@ public class ImageViewer : Control
         nameof(ShowImgMap), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
-        nameof(ImageSource), typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame), OnImageSourceChanged));
+        nameof(ImageSource), typeof(BitmapFrame), typeof(ImageViewer),
+        new PropertyMetadata(default(BitmapFrame), OnImageSourceChanged));
 
     public static readonly DependencyProperty UriProperty = DependencyProperty.Register(
         nameof(Uri), typeof(Uri), typeof(ImageViewer), new PropertyMetadata(default(Uri), OnUriChanged));
@@ -227,7 +228,8 @@ public class ImageViewer : Control
         nameof(IsFullScreen), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public static readonly DependencyProperty MoveGestureProperty = DependencyProperty.Register(
-        nameof(MoveGesture), typeof(MouseGesture), typeof(ImageViewer), new UIPropertyMetadata(new MouseGesture(MouseAction.LeftClick), OnMoveGestureChanged));
+        nameof(MoveGesture), typeof(MouseGesture), typeof(ImageViewer),
+        new UIPropertyMetadata(new MouseGesture(MouseAction.LeftClick), OnMoveGestureChanged));
 
     internal static readonly DependencyProperty ImgPathProperty = DependencyProperty.Register(
         nameof(ImgPath), typeof(string), typeof(ImageViewer), new PropertyMetadata(default(string)));
@@ -254,7 +256,8 @@ public class ImageViewer : Control
         nameof(ImageHeight), typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
 
     internal static readonly DependencyProperty ImageScaleProperty = DependencyProperty.Register(
-        nameof(ImageScale), typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double1Box, OnImageScaleChanged));
+        nameof(ImageScale), typeof(double), typeof(ImageViewer),
+        new PropertyMetadata(ValueBoxes.Double1Box, OnImageScaleChanged));
 
     internal static readonly DependencyProperty ScaleStrProperty = DependencyProperty.Register(
         nameof(ScaleStr), typeof(string), typeof(ImageViewer), new PropertyMetadata("100%"));
@@ -428,7 +431,8 @@ public class ImageViewer : Control
         if (_imageMain != null)
         {
             var t = new RotateTransform();
-            BindingOperations.SetBinding(t, RotateTransform.AngleProperty, new Binding(ImageRotateProperty.Name) { Source = this });
+            BindingOperations.SetBinding(t, RotateTransform.AngleProperty,
+                new Binding(ImageRotateProperty.Name) { Source = this });
             _imageMain.LayoutTransform = t;
         }
 
@@ -923,7 +927,8 @@ public class ImageViewer : Control
         e.Handled = true;
     }
 
-    private void CanvasSmallImg_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e) => _imgSmallIsMouseDown = false;
+    private void CanvasSmallImg_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e) =>
+        _imgSmallIsMouseDown = false;
 
     private void CanvasSmallImg_OnMouseMove(object sender, MouseEventArgs e) => MoveSmallImg();
 

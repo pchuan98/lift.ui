@@ -53,6 +53,7 @@ public class MouseDragElementBehavior : Behavior<FrameworkElement>
                 var transform = CloneTransform(AssociatedObject.RenderTransform);
                 RenderTransform = transform;
             }
+
             return _cachedRenderTransform;
         }
         set
@@ -126,6 +127,7 @@ public class MouseDragElementBehavior : Behavior<FrameworkElement>
                         var num2 = rect3.Right - rect.Right;
                         x -= num2;
                     }
+
                     if (rect3.Y < rect.Top)
                     {
                         var num3 = rect3.Y - rect.Top;
@@ -138,6 +140,7 @@ public class MouseDragElementBehavior : Behavior<FrameworkElement>
                     }
                 }
             }
+
             ApplyTranslationTransform(x, y);
         }
     }
@@ -174,6 +177,7 @@ public class MouseDragElementBehavior : Behavior<FrameworkElement>
                     RenderTransform = transform4;
                     return;
                 }
+
                 var group2 = new TransformGroup();
                 transform2 = new TranslateTransform();
                 if (renderTransform != null)
@@ -182,6 +186,7 @@ public class MouseDragElementBehavior : Behavior<FrameworkElement>
                 RenderTransform = group2;
             }
         }
+
         transform2.X += x;
         transform2.Y += y;
     }

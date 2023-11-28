@@ -26,7 +26,8 @@ public class ContrastEffect : EffectBase
     }
 
     public static readonly DependencyProperty ContrastProperty = DependencyProperty.Register(
-        nameof(Contrast), typeof(double), typeof(ContrastEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(0)));
+        nameof(Contrast), typeof(double), typeof(ContrastEffect),
+        new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(0)));
 
     public double Contrast
     {

@@ -75,7 +75,8 @@ public class PersianCalendarWithClock : Control
     #region Public Properties
 
     public static readonly DependencyProperty DateTimeFormatProperty = DependencyProperty.Register(
-        "DateTimeFormat", typeof(string), typeof(PersianCalendarWithClock), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
+        "DateTimeFormat", typeof(string), typeof(PersianCalendarWithClock),
+        new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
 
     public string DateTimeFormat
     {
@@ -93,7 +94,8 @@ public class PersianCalendarWithClock : Control
     }
 
     public static readonly DependencyProperty SelectedDateTimeProperty = DependencyProperty.Register(
-        "SelectedDateTime", typeof(DateTime?), typeof(PersianCalendarWithClock), new PropertyMetadata(default(DateTime?), OnSelectedDateTimeChanged));
+        "SelectedDateTime", typeof(DateTime?), typeof(PersianCalendarWithClock),
+        new PropertyMetadata(default(DateTime?), OnSelectedDateTimeChanged));
 
     private static void OnSelectedDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -112,7 +114,9 @@ public class PersianCalendarWithClock : Control
     }
 
     public static readonly DependencyProperty DisplayDateTimeProperty = DependencyProperty.Register(
-        "DisplayDateTime", typeof(DateTime), typeof(PersianCalendarWithClock), new FrameworkPropertyMetadata(DateTime.MinValue, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayDateTimeChanged));
+        "DisplayDateTime", typeof(DateTime), typeof(PersianCalendarWithClock),
+        new FrameworkPropertyMetadata(DateTime.MinValue, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+            OnDisplayDateTimeChanged));
 
     private static void OnDisplayDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -132,13 +136,14 @@ public class PersianCalendarWithClock : Control
     }
 
     public static readonly DependencyProperty ConfirmButtonTextProperty = DependencyProperty.Register(
-     "ConfirmButtonText", typeof(string), typeof(PersianCalendarWithClock), new PropertyMetadata(Lang.Confirm));
+        "ConfirmButtonText", typeof(string), typeof(PersianCalendarWithClock), new PropertyMetadata(Lang.Confirm));
 
     public string ConfirmButtonText
     {
         get => (string) GetValue(ConfirmButtonTextProperty);
         set => SetValue(ConfirmButtonTextProperty, value);
     }
+
     #endregion
 
     #region Public Methods

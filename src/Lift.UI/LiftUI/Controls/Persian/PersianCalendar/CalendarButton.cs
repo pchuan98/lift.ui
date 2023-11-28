@@ -22,7 +22,8 @@ namespace Microsoft.Windows.Controls.Primitives;
 [TemplateVisualState(Name = VisualStates.StateDisabled, GroupName = VisualStates.GroupCommon)]
 [TemplateVisualState(Name = VisualStates.StateUnselected, GroupName = VisualStates.GroupSelection)]
 [TemplateVisualState(Name = VisualStates.StateSelected, GroupName = VisualStates.GroupSelection)]
-[TemplateVisualState(Name = VisualStates.StateCalendarButtonUnfocused, GroupName = VisualStates.GroupCalendarButtonFocus)]
+[TemplateVisualState(Name = VisualStates.StateCalendarButtonUnfocused,
+    GroupName = VisualStates.GroupCalendarButtonFocus)]
 [TemplateVisualState(Name = VisualStates.StateCalendarButtonFocused, GroupName = VisualStates.GroupCalendarButtonFocus)]
 [TemplateVisualState(Name = VisualStates.StateInactive, GroupName = VisualStates.GroupActive)]
 [TemplateVisualState(Name = VisualStates.StateActive, GroupName = VisualStates.GroupActive)]
@@ -40,7 +41,8 @@ public sealed class CalendarButton : Button
     /// </summary>
     static CalendarButton()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(CalendarButton), new FrameworkPropertyMetadata(typeof(CalendarButton)));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(CalendarButton),
+            new FrameworkPropertyMetadata(typeof(CalendarButton)));
         ContentProperty.OverrideMetadata(typeof(CalendarButton), new FrameworkPropertyMetadata(null, OnCoerceContent));
     }
 
@@ -74,7 +76,7 @@ public sealed class CalendarButton : Button
     /// </summary>
     public bool HasSelectedDays
     {
-        get { return (bool)GetValue(HasSelectedDaysProperty); }
+        get { return (bool) GetValue(HasSelectedDaysProperty); }
         internal set { SetValue(HasSelectedDaysPropertyKey, value); }
     }
 
@@ -101,7 +103,7 @@ public sealed class CalendarButton : Button
     /// </summary>
     public bool IsInactive
     {
-        get { return (bool)GetValue(IsInactiveProperty); }
+        get { return (bool) GetValue(IsInactiveProperty); }
         internal set { SetValue(IsInactivePropertyKey, value); }
     }
 
@@ -211,7 +213,8 @@ public sealed class CalendarButton : Button
         // Update the FocusStates group
         if (IsKeyboardFocused)
         {
-            VisualStates.GoToState(this, useTransitions, VisualStates.StateCalendarButtonFocused, VisualStates.StateCalendarButtonUnfocused);
+            VisualStates.GoToState(this, useTransitions, VisualStates.StateCalendarButtonFocused,
+                VisualStates.StateCalendarButtonUnfocused);
         }
         else
         {
@@ -235,7 +238,7 @@ public sealed class CalendarButton : Button
 
     private static object OnCoerceContent(DependencyObject sender, object baseValue)
     {
-        CalendarButton button = (CalendarButton)sender;
+        CalendarButton button = (CalendarButton) sender;
         if (button._shouldCoerceContent)
         {
             button._shouldCoerceContent = false;

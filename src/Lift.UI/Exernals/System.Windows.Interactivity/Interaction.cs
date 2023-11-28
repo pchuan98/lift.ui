@@ -23,6 +23,7 @@ public static class Interaction
             triggerCollection = new TriggerCollection();
             obj.SetValue(TriggersProperty, triggerCollection);
         }
+
         return triggerCollection;
     }
 
@@ -34,6 +35,7 @@ public static class Interaction
             behaviorCollection = new BehaviorCollection();
             obj.SetValue(BehaviorsProperty, behaviorCollection);
         }
+
         return behaviorCollection;
     }
 

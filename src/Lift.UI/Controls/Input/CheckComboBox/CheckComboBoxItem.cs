@@ -4,5 +4,4 @@ namespace Lift.UI.Controls;
 
 public class CheckComboBoxItem : ListBoxItem
 {
-
 }

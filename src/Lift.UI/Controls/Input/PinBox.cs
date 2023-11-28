@@ -44,7 +44,8 @@ public class PinBox : Control
 
     private void PinBox_Unloaded(object sender, RoutedEventArgs e)
     {
-        RemoveHandler(System.Windows.Controls.PasswordBox.PasswordChangedEvent, _passwordBoxsPasswordChangedEventHandler);
+        RemoveHandler(System.Windows.Controls.PasswordBox.PasswordChangedEvent,
+            _passwordBoxsPasswordChangedEventHandler);
         RemoveHandler(GotFocusEvent, _passwordBoxsGotFocusEventHandler);
 
         Loaded -= PinBox_Loaded;
@@ -106,6 +107,7 @@ public class PinBox : Control
                         Keyboard.ClearFocus();
                         RaiseEvent(new RoutedEventArgs(CompletedEvent, this));
                     }
+
                     return;
                 }
             }
@@ -199,7 +201,8 @@ public class PinBox : Control
         {
             return _panel == null
                 ? string.Empty
-                : string.Join(string.Empty, _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Select(item => item.Password));
+                : string.Join(string.Empty,
+                    _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Select(item => item.Password));
         }
         set
         {
@@ -262,7 +265,8 @@ public class PinBox : Control
     }
 
     public static readonly DependencyProperty LengthProperty = DependencyProperty.Register(
-        nameof(Length), typeof(int), typeof(PinBox), new PropertyMetadata(MinLength, OnLengthChanged, CoerceLength), ValidateHelper.IsInRangeOfPosInt);
+        nameof(Length), typeof(int), typeof(PinBox), new PropertyMetadata(MinLength, OnLengthChanged, CoerceLength),
+        ValidateHelper.IsInRangeOfPosInt);
 
     private static void OnLengthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -270,7 +274,8 @@ public class PinBox : Control
         ctl.UpdateItems();
     }
 
-    private static object CoerceLength(DependencyObject d, object basevalue) => (int) basevalue < 4 ? MinLength : basevalue;
+    private static object CoerceLength(DependencyObject d, object basevalue) =>
+        (int) basevalue < 4 ? MinLength : basevalue;
 
     public int Length
     {
@@ -429,7 +434,8 @@ public class PinBox : Control
 
         passwordBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-        passwordBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+        passwordBox.SetBinding(SelectionTextBrushProperty,
+            new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
         passwordBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
         passwordBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
@@ -460,7 +466,8 @@ public class PinBox : Control
                             valuePtr = Marshal.SecureStringToGlobalAllocUnicode(password);
                             if (_panel.Children[i] is System.Windows.Controls.PasswordBox passwordBox)
                             {
-                                passwordBox.Password = Marshal.PtrToStringUni(valuePtr) ?? throw new InvalidOperationException();
+                                passwordBox.Password = Marshal.PtrToStringUni(valuePtr) ??
+                                                       throw new InvalidOperationException();
                             }
                         }
                         finally

@@ -86,8 +86,8 @@ public class HighlightTextBlock : TextBlock
         var sourceText = SourceText;
         var queries = QueriesText.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         var intervals = from query in queries.Distinct()
-                        from interval in GetQueryIntervals(sourceText, query)
-                        select interval;
+            from interval in GetQueryIntervals(sourceText, query)
+            select interval;
         var mergedIntervals = MergeIntervals(intervals.ToList());
         var fragments = SplitTextByOrderedDisjointIntervals(sourceText, mergedIntervals);
 
@@ -97,9 +97,9 @@ public class HighlightTextBlock : TextBlock
     private IEnumerable GenerateRunElement(IEnumerable<Fragment> fragments)
     {
         return from item in fragments
-               select item.IsQuery
-                   ? GetHighlightRun(item.Text)
-                   : new Run(item.Text);
+            select item.IsQuery
+                ? GetHighlightRun(item.Text)
+                : new Run(item.Text);
     }
 
     private Run GetHighlightRun(string highlightText)
@@ -112,7 +112,8 @@ public class HighlightTextBlock : TextBlock
         return run;
     }
 
-    private static IEnumerable<Fragment> SplitTextByOrderedDisjointIntervals(string sourceText, List<Range> mergedIntervals)
+    private static IEnumerable<Fragment> SplitTextByOrderedDisjointIntervals(string sourceText,
+        List<Range> mergedIntervals)
     {
         if (string.IsNullOrEmpty(sourceText)) yield break;
 
@@ -134,7 +135,8 @@ public class HighlightTextBlock : TextBlock
         {
             int start = range.Start;
             int end = range.End;
-            yield return new Fragment { Text = sourceText.Substring(previousEnd, start - previousEnd), IsQuery = false };
+            yield return new Fragment
+                { Text = sourceText.Substring(previousEnd, start - previousEnd), IsQuery = false };
             yield return new Fragment { Text = sourceText.Substring(start, end - start), IsQuery = true };
             previousEnd = end;
         }
@@ -173,6 +175,7 @@ public class HighlightTextBlock : TextBlock
                 endPointer = end;
             }
         }
+
         result.Add(new Range { Start = startPointer, End = endPointer });
         return result;
     }

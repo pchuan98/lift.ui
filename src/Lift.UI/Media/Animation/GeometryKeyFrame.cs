@@ -11,7 +11,6 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
 
     protected GeometryKeyFrame()
     {
-
     }
 
     protected GeometryKeyFrame(Geometry value)
@@ -39,7 +38,8 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
     }
 
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-        nameof(Value), typeof(Geometry), typeof(GeometryKeyFrame), new PropertyMetadata(default(Geometry), OnValueChanged));
+        nameof(Value), typeof(Geometry), typeof(GeometryKeyFrame),
+        new PropertyMetadata(default(Geometry), OnValueChanged));
 
     private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

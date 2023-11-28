@@ -20,7 +20,7 @@ public enum CalendarMode
     /// The PersianCalendar displays a year at a time.
     /// </summary>
     Year = 1,
-    
+
     /// <summary>
     /// The PersianCalendar displays a decade at a time.
     /// </summary>

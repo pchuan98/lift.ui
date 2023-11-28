@@ -51,6 +51,7 @@ public class ClipboardHook
         {
             ContentChanged?.Invoke();
         }
+
         return IntPtr.Zero;
     }
 }

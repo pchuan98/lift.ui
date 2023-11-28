@@ -501,5 +501,4 @@ public class LangKeys
     /// 查找类似 缩小 的本地化字符串。
     /// </summary>
     public static string ZoomOut = nameof(ZoomOut);
-
 }

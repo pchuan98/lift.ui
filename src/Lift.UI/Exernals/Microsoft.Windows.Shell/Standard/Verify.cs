@@ -28,6 +28,7 @@ internal static class Verify
         {
             throw new ArgumentNullException(name, "The parameter can not be either null or empty.");
         }
+
         if ("" == value)
         {
             throw new ArgumentException("The parameter can not be either null or empty.", name);
@@ -41,11 +42,14 @@ internal static class Verify
     {
         if (value == null)
         {
-            throw new ArgumentNullException(name, "The parameter can not be either null or empty or consist only of white space characters.");
+            throw new ArgumentNullException(name,
+                "The parameter can not be either null or empty or consist only of white space characters.");
         }
+
         if ("" == value.Trim())
         {
-            throw new ArgumentException("The parameter can not be either null or empty or consist only of white space characters.", name);
+            throw new ArgumentException(
+                "The parameter can not be either null or empty or consist only of white space characters.", name);
         }
     }
 
@@ -86,10 +90,11 @@ internal static class Verify
     {
         if (obj == null)
         {
-            throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, "The property {0} cannot be null at this time.", new object[]
-            {
-                name
-            }));
+            throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture,
+                "The property {0} cannot be null at this time.", new object[]
+                {
+                    name
+                }));
         }
     }
 
@@ -99,10 +104,11 @@ internal static class Verify
     {
         if (obj != null)
         {
-            throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, "The property {0} must be null at this time.", new object[]
-            {
-                name
-            }));
+            throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture,
+                "The property {0} must be null at this time.", new object[]
+                {
+                    name
+                }));
         }
     }
 
@@ -177,17 +183,19 @@ internal static class Verify
     {
         if (value < lowerBoundInclusive || value >= upperBoundExclusive)
         {
-            throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, "The integer value must be bounded with [{0}, {1})", new object[]
-            {
-                lowerBoundInclusive,
-                upperBoundExclusive
-            }), parameterName);
+            throw new ArgumentException(string.Format(CultureInfo.InvariantCulture,
+                "The integer value must be bounded with [{0}, {1})", new object[]
+                {
+                    lowerBoundInclusive,
+                    upperBoundExclusive
+                }), parameterName);
         }
     }
 
     [DebuggerStepThrough]
     [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-    public static void BoundedDoubleInc(double lowerBoundInclusive, double value, double upperBoundInclusive, string message, string parameter)
+    public static void BoundedDoubleInc(double lowerBoundInclusive, double value, double upperBoundInclusive,
+        string message, string parameter)
     {
         if (value < lowerBoundInclusive || value > upperBoundInclusive)
         {
@@ -203,7 +211,8 @@ internal static class Verify
         Verify.IsNotNull<Type>(interfaceType, "interfaceType");
         if (type.GetInterface(interfaceType.Name) == null)
         {
-            throw new ArgumentException("The type of this parameter does not support a required interface", parameterName);
+            throw new ArgumentException("The type of this parameter does not support a required interface",
+                parameterName);
         }
     }
 
@@ -214,10 +223,11 @@ internal static class Verify
         Verify.IsNeitherNullNorEmpty(filePath, parameterName);
         if (!File.Exists(filePath))
         {
-            throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, "No file exists at \"{0}\"", new object[]
-            {
-                filePath
-            }), parameterName);
+            throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, "No file exists at \"{0}\"",
+                new object[]
+                {
+                    filePath
+                }), parameterName);
         }
     }
 
@@ -234,12 +244,14 @@ internal static class Verify
                 break;
             }
         }
+
         if (!flag)
         {
-            throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, "The parameter must implement interface {0}.", new object[]
-            {
-                interfaceType.ToString()
-            }), parameterName);
+            throw new ArgumentException(string.Format(CultureInfo.InvariantCulture,
+                "The parameter must implement interface {0}.", new object[]
+                {
+                    interfaceType.ToString()
+                }), parameterName);
         }
     }
 }

@@ -19,9 +19,11 @@ public abstract class PropertyEditorBase : DependencyObject
 
     public abstract DependencyProperty GetDependencyProperty();
 
-    public virtual BindingMode GetBindingMode(PropertyItem propertyItem) => propertyItem.IsReadOnly ? BindingMode.OneWay : BindingMode.TwoWay;
+    public virtual BindingMode GetBindingMode(PropertyItem propertyItem) =>
+        propertyItem.IsReadOnly ? BindingMode.OneWay : BindingMode.TwoWay;
 
-    public virtual UpdateSourceTrigger GetUpdateSourceTrigger(PropertyItem propertyItem) => UpdateSourceTrigger.PropertyChanged;
+    public virtual UpdateSourceTrigger GetUpdateSourceTrigger(PropertyItem propertyItem) =>
+        UpdateSourceTrigger.PropertyChanged;
 
     protected virtual IValueConverter GetConverter(PropertyItem propertyItem) => null;
 }

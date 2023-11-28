@@ -42,7 +42,6 @@ internal sealed class SyncDelegateCommand : IDelegateCommand
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
-
 }
 
 #endif

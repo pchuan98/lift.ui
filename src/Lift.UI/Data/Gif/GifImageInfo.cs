@@ -68,7 +68,8 @@ public class GifImageInfo
                 _frameDelay = new int[FrameCount];
                 for (var i = 0; i < FrameCount; ++i)
                 {
-                    _frameDelay[i] = values[i * 4] + 256 * values[i * 4 + 1] + 256 * 256 * values[i * 4 + 2] + 256 * 256 * 256 * values[i * 4 + 3];
+                    _frameDelay[i] = values[i * 4] + 256 * values[i * 4 + 1] + 256 * 256 * values[i * 4 + 2] +
+                                     256 * 256 * 256 * values[i * 4 + 3];
                 }
             }
         }

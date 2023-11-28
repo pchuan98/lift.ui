@@ -12,7 +12,7 @@ public class ValueToBrushConverter : IMultiValueConverter
     {
         if (values != null)
         {
-            var currentValue = System.Convert.ToInt32(values[0]) / (double)values[1];
+            var currentValue = System.Convert.ToInt32(values[0]) / (double) values[1];
 
             var color = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush);
             if (currentValue < 0.30)
@@ -26,6 +26,7 @@ public class ValueToBrushConverter : IMultiValueConverter
 
             return color;
         }
+
         return ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush);
     }
 

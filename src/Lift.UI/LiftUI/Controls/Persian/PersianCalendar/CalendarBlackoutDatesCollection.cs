@@ -124,7 +124,7 @@ public sealed class CalendarBlackoutDatesCollection : ObservableCollection<Calen
             return null;
         }
 
-        if ((range = GetContainingDateRange((DateTime)currentDate)) == null)
+        if ((range = GetContainingDateRange((DateTime) currentDate)) == null)
         {
             return requestedDate;
         }
@@ -136,16 +136,13 @@ public sealed class CalendarBlackoutDatesCollection : ObservableCollection<Calen
                 // Moving Forwards.
                 // The DateRanges require start <= end
                 currentDate = DateTimeHelper.AddDays(range.End, dayInterval);
-
             }
             else
             {
                 //Moving backwards.
                 currentDate = DateTimeHelper.AddDays(range.Start, dayInterval);
             }
-
-        } while (currentDate != null && ((range = GetContainingDateRange((DateTime)currentDate)) != null));
-
+        } while (currentDate != null && ((range = GetContainingDateRange((DateTime) currentDate)) != null));
 
 
         return currentDate;
@@ -162,7 +159,8 @@ public sealed class CalendarBlackoutDatesCollection : ObservableCollection<Calen
     {
         if (!IsValidThread())
         {
-            throw new NotSupportedException("This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
+            throw new NotSupportedException(
+                "This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
         }
 
         foreach (CalendarDateRange item in Items)
@@ -183,7 +181,8 @@ public sealed class CalendarBlackoutDatesCollection : ObservableCollection<Calen
     {
         if (!IsValidThread())
         {
-            throw new NotSupportedException("This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
+            throw new NotSupportedException(
+                "This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
         }
 
         if (IsValid(item))
@@ -206,7 +205,8 @@ public sealed class CalendarBlackoutDatesCollection : ObservableCollection<Calen
     {
         if (!IsValidThread())
         {
-            throw new NotSupportedException("This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
+            throw new NotSupportedException(
+                "This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
         }
 
         if (index >= 0 && index < this.Count)
@@ -227,7 +227,8 @@ public sealed class CalendarBlackoutDatesCollection : ObservableCollection<Calen
     {
         if (!IsValidThread())
         {
-            throw new NotSupportedException("This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
+            throw new NotSupportedException(
+                "This type of Collection does not support changes to its SourceCollection from a thread different from the Dispatcher thread.");
         }
 
         if (IsValid(item))
@@ -363,9 +364,9 @@ public sealed class CalendarBlackoutDatesCollection : ObservableCollection<Calen
                 return this[i];
             }
         }
+
         return null;
     }
 
     #endregion Private Methods
 }
-

@@ -9,21 +9,22 @@ namespace Standard;
 [ComImport]
 internal interface IShellLinkW
 {
-    void GetPath([MarshalAs(UnmanagedType.LPWStr)][Out] StringBuilder pszFile, int cchMaxPath, [In][Out] WIN32_FIND_DATAW pfd, SLGP fFlags);
+    void GetPath([MarshalAs(UnmanagedType.LPWStr)] [Out] StringBuilder pszFile, int cchMaxPath,
+        [In] [Out] WIN32_FIND_DATAW pfd, SLGP fFlags);
 
     void GetIDList(out IntPtr ppidl);
 
     void SetIDList(IntPtr pidl);
 
-    void GetDescription([MarshalAs(UnmanagedType.LPWStr)][Out] StringBuilder pszFile, int cchMaxName);
+    void GetDescription([MarshalAs(UnmanagedType.LPWStr)] [Out] StringBuilder pszFile, int cchMaxName);
 
     void SetDescription([MarshalAs(UnmanagedType.LPWStr)] string pszName);
 
-    void GetWorkingDirectory([MarshalAs(UnmanagedType.LPWStr)][Out] StringBuilder pszDir, int cchMaxPath);
+    void GetWorkingDirectory([MarshalAs(UnmanagedType.LPWStr)] [Out] StringBuilder pszDir, int cchMaxPath);
 
     void SetWorkingDirectory([MarshalAs(UnmanagedType.LPWStr)] string pszDir);
 
-    void GetArguments([MarshalAs(UnmanagedType.LPWStr)][Out] StringBuilder pszArgs, int cchMaxPath);
+    void GetArguments([MarshalAs(UnmanagedType.LPWStr)] [Out] StringBuilder pszArgs, int cchMaxPath);
 
     void SetArguments([MarshalAs(UnmanagedType.LPWStr)] string pszArgs);
 
@@ -35,7 +36,8 @@ internal interface IShellLinkW
 
     void SetShowCmd(uint iShowCmd);
 
-    void GetIconLocation([MarshalAs(UnmanagedType.LPWStr)][Out] StringBuilder pszIconPath, int cchIconPath, out int piIcon);
+    void GetIconLocation([MarshalAs(UnmanagedType.LPWStr)] [Out] StringBuilder pszIconPath, int cchIconPath,
+        out int piIcon);
 
     void SetIconLocation([MarshalAs(UnmanagedType.LPWStr)] string pszIconPath, int iIcon);
 

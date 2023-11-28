@@ -20,7 +20,6 @@ namespace Lift.UI.Controls;
 public class ComboBox : System.Windows.Controls.ComboBox
 {
 #if NET40
-
     private string _searchText;
 
     private DispatcherTimer _autoCompleteTimer;
@@ -68,11 +67,14 @@ public class ComboBox : System.Windows.Controls.ComboBox
 
             if (_editableTextBox != null)
             {
-                _editableTextBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
+                _editableTextBox.SetBinding(SelectionBrushProperty,
+                    new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-                _editableTextBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+                _editableTextBox.SetBinding(SelectionTextBrushProperty,
+                    new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
-                _editableTextBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
+                _editableTextBox.SetBinding(SelectionOpacityProperty,
+                    new Binding(SelectionOpacityProperty.Name) { Source = this });
                 _editableTextBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
 
                 if (AutoComplete)
@@ -86,15 +88,16 @@ public class ComboBox : System.Windows.Controls.ComboBox
 #endif
                     _autoPopupAutoComplete = GetTemplateChild(AutoPopupAutoComplete) as Popup;
                     _autoCompletePanel = GetTemplateChild(AutoCompletePanel) as Panel;
-                    _editableTextBox.SetBinding(System.Windows.Controls.TextBox.TextProperty, new Binding(SearchTextProperty.Name)
-                    {
-                        UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
-                        Mode = BindingMode.OneWayToSource,
+                    _editableTextBox.SetBinding(System.Windows.Controls.TextBox.TextProperty,
+                        new Binding(SearchTextProperty.Name)
+                        {
+                            UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
+                            Mode = BindingMode.OneWayToSource,
 #if !NET40
-                        Delay = 500,
+                            Delay = 500,
 #endif
-                        Source = this
-                    });
+                            Source = this
+                        });
                     _editableTextBox.GotFocus += EditableTextBox_GotFocus;
                     _editableTextBox.LostFocus += EditableTextBox_LostFocus;
                 }
@@ -103,7 +106,6 @@ public class ComboBox : System.Windows.Controls.ComboBox
     }
 
 #if NET40
-
     private void AutoCompleteTimer_Tick(object sender, EventArgs e)
     {
         UpdateSearchItems(_searchText);
@@ -156,7 +158,8 @@ public class ComboBox : System.Windows.Controls.ComboBox
     /// 是否自动完成输入
     /// </summary>
     public static readonly DependencyProperty AutoCompleteProperty = DependencyProperty.Register(
-        nameof(AutoComplete), typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox, OnAutoCompleteChanged));
+        nameof(AutoComplete), typeof(bool), typeof(ComboBox),
+        new PropertyMetadata(ValueBoxes.FalseBox, OnAutoCompleteChanged));
 
     private static void OnAutoCompleteChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -180,7 +183,8 @@ public class ComboBox : System.Windows.Controls.ComboBox
     /// 搜索文本
     /// </summary>
     internal static readonly DependencyProperty SearchTextProperty = DependencyProperty.Register(
-        nameof(SearchText), typeof(string), typeof(ComboBox), new PropertyMetadata(default(string), OnSearchTextChanged));
+        nameof(SearchText), typeof(string), typeof(ComboBox),
+        new PropertyMetadata(default(string), OnSearchTextChanged));
 
     private static void OnSearchTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

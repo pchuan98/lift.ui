@@ -10,8 +10,7 @@ public static class DpiHelper
 {
     private const double LogicalDpi = 96.0;
 
-    [ThreadStatic]
-    private static Matrix _transformToDip;
+    [ThreadStatic] private static Matrix _transformToDip;
 
     static DpiHelper()
     {

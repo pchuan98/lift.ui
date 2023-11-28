@@ -27,7 +27,8 @@ namespace Lift.UI.Controls
 
         static RibbonTabHeader()
         {
-            VisibilityProperty.OverrideMetadata(typeof(RibbonTabHeader), new FrameworkPropertyMetadata(null, CoerceVisibility));
+            VisibilityProperty.OverrideMetadata(typeof(RibbonTabHeader),
+                new FrameworkPropertyMetadata(null, CoerceVisibility));
         }
 
         public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
@@ -53,7 +54,6 @@ namespace Lift.UI.Controls
 
         protected virtual void OnIsSelectedChanged(bool oldIsSelected, bool newIsSelected)
         {
-
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)

@@ -16,7 +16,8 @@ public static class UIElementExtension
     /// </summary>
     /// <param name="element"></param>
     /// <param name="show"></param>
-    public static void Show(this UIElement element, bool show) => element.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
+    public static void Show(this UIElement element, bool show) =>
+        element.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
 
     /// <summary>
     /// Unrealistic elements, but reserve space

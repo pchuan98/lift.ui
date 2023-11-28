@@ -40,6 +40,7 @@ public class SimpleItemsControl : Control
             {
                 SetValue(HasItemsPropertyKey, ValueBoxes.TrueBox);
             }
+
             OnItemsChanged(s, e);
         };
         Items = items;

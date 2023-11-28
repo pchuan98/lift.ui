@@ -6,6 +6,7 @@ namespace Lift.UI.Tools;
 public partial class PersianDateTime
 {
     #region Year
+
     /// <summary>
     /// Get Shamsi Year From Miladi Year
     /// </summary>
@@ -15,6 +16,7 @@ public partial class PersianDateTime
     {
         return persianCalendar.GetYear(dateTime);
     }
+
     /// <summary>
     /// Get Short Shamsi Year From Miladi Year In String
     /// </summary>
@@ -24,6 +26,7 @@ public partial class PersianDateTime
     {
         return dateTime.ToString("yy", CultureInfo.CreateSpecificCulture("fa"));
     }
+
     /// <summary>
     /// Get Shamsi Year From Miladi Year In String
     /// </summary>
@@ -33,9 +36,11 @@ public partial class PersianDateTime
     {
         return persianCalendar.GetYear(dateTime).ToString();
     }
+
     #endregion
 
     #region Month
+
     /// <summary>
     /// Get Shamsi Month From Miladi Month
     /// </summary>
@@ -45,6 +50,7 @@ public partial class PersianDateTime
     {
         return persianCalendar.GetMonth(dateTime);
     }
+
     /// <summary>
     /// Get Shamsi Month Number From Miladi Month In String
     /// </summary>
@@ -54,6 +60,7 @@ public partial class PersianDateTime
     {
         return persianCalendar.GetMonth(dateTime).ToString("00");
     }
+
     /// <summary>
     /// Get Shamsi Month From Miladi Month Number
     /// </summary>
@@ -63,6 +70,7 @@ public partial class PersianDateTime
     {
         return persianCalendar.GetMonth(dateTime);
     }
+
     /// <summary>
     /// Get Shamsi Month Name From Miladi Month
     /// </summary>
@@ -72,9 +80,11 @@ public partial class PersianDateTime
     {
         return dateTime.ToString("MMMM", CultureInfo.CreateSpecificCulture("fa"));
     }
+
     #endregion
 
     #region Day
+
     /// <summary>
     /// Get Shamsi Day From Miladi Month
     /// </summary>
@@ -84,6 +94,7 @@ public partial class PersianDateTime
     {
         return persianCalendar.GetDayOfMonth(dateTime);
     }
+
     /// <summary>
     /// Get Shamsi Day From Miladi Month In String
     /// </summary>
@@ -93,6 +104,7 @@ public partial class PersianDateTime
     {
         return persianCalendar.GetDayOfMonth(dateTime).ToString("00");
     }
+
     /// <summary>
     /// Get Shamsi Day Name From Miladi Month
     /// </summary>
@@ -102,6 +114,7 @@ public partial class PersianDateTime
     {
         return dateTime.ToString("dddd", CultureInfo.CreateSpecificCulture("fa"));
     }
+
     /// <summary>
     /// Get Shamsi Day ShortName From Miladi Month
     /// </summary>
@@ -111,6 +124,7 @@ public partial class PersianDateTime
     {
         return dateTime.ToString("dddd", CultureInfo.CreateSpecificCulture("fa")).Substring(0, 1);
     }
+
     #endregion
 
     /// <summary>

@@ -22,7 +22,8 @@ public static class MergedDictionariesExtension
         }
     }
 
-    public static void InsertOrReplace(this Collection<ResourceDictionary> mergedDictionaries, int index, ResourceDictionary item)
+    public static void InsertOrReplace(this Collection<ResourceDictionary> mergedDictionaries, int index,
+        ResourceDictionary item)
     {
         if (mergedDictionaries.Count > index)
         {
@@ -45,7 +46,8 @@ public static class MergedDictionariesExtension
         }
     }
 
-    public static void InsertIfNotExists(this Collection<ResourceDictionary> mergedDictionaries, int index, ResourceDictionary item)
+    public static void InsertIfNotExists(this Collection<ResourceDictionary> mergedDictionaries, int index,
+        ResourceDictionary item)
     {
         if (!mergedDictionaries.Contains(item))
         {

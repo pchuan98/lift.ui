@@ -83,7 +83,8 @@ public class TabControl : System.Windows.Controls.TabControl
     /// 是否显示关闭按钮
     /// </summary>
     public static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.RegisterAttached(
-        "ShowCloseButton", typeof(bool), typeof(TabControl), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
+        "ShowCloseButton", typeof(bool), typeof(TabControl),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetShowCloseButton(DependencyObject element, bool value)
         => element.SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
@@ -104,7 +105,8 @@ public class TabControl : System.Windows.Controls.TabControl
     /// 是否显示上下文菜单
     /// </summary>
     public static readonly DependencyProperty ShowContextMenuProperty = DependencyProperty.RegisterAttached(
-        "ShowContextMenu", typeof(bool), typeof(TabControl), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
+        "ShowContextMenu", typeof(bool), typeof(TabControl),
+        new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetShowContextMenu(DependencyObject element, bool value)
         => element.SetValue(ShowContextMenuProperty, ValueBoxes.BooleanBox(value));
@@ -122,7 +124,8 @@ public class TabControl : System.Windows.Controls.TabControl
     }
 
     public static readonly DependencyProperty CanBeClosedByMiddleButtonProperty =
-        DependencyProperty.Register(nameof(CanBeClosedByMiddleButton), typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.TrueBox));
+        DependencyProperty.Register(nameof(CanBeClosedByMiddleButton), typeof(bool), typeof(TabControl),
+            new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool CanBeClosedByMiddleButton
     {
@@ -221,7 +224,8 @@ public class TabControl : System.Windows.Controls.TabControl
     }
 
     public static readonly DependencyProperty OverflowMenuDisplayMemberPathProperty = DependencyProperty.Register(
-        nameof(OverflowMenuDisplayMemberPath), typeof(string), typeof(TabControl), new PropertyMetadata(default(string)));
+        nameof(OverflowMenuDisplayMemberPath), typeof(string), typeof(TabControl),
+        new PropertyMetadata(default(string)));
 
     public string OverflowMenuDisplayMemberPath
     {
@@ -376,18 +380,20 @@ public class TabControl : System.Windows.Controls.TabControl
                     }
                     else
                     {
-                        menuItem.SetBinding(HeaderedItemsControl.HeaderProperty, new Binding(OverflowMenuDisplayMemberPath)
-                        {
-                            Source = item.DataContext
-                        });
+                        menuItem.SetBinding(HeaderedItemsControl.HeaderProperty,
+                            new Binding(OverflowMenuDisplayMemberPath)
+                            {
+                                Source = item.DataContext
+                            });
                     }
                 }
                 else
                 {
-                    menuItem.SetBinding(HeaderedItemsControl.HeaderProperty, new Binding(HeaderedItemsControl.HeaderProperty.Name)
-                    {
-                        Source = item
-                    });
+                    menuItem.SetBinding(HeaderedItemsControl.HeaderProperty,
+                        new Binding(HeaderedItemsControl.HeaderProperty.Name)
+                        {
+                            Source = item
+                        });
                 }
 
                 menuItem.Click += delegate
@@ -424,10 +430,11 @@ public class TabControl : System.Windows.Controls.TabControl
 
     internal double GetHorizontalOffset() => _scrollViewerOverflow?.CurrentHorizontalOffset ?? 0;
 
-    internal void UpdateScroll() => _scrollViewerOverflow?.RaiseEvent(new MouseWheelEventArgs(Mouse.PrimaryDevice, Environment.TickCount, 0)
-    {
-        RoutedEvent = MouseWheelEvent
-    });
+    internal void UpdateScroll() => _scrollViewerOverflow?.RaiseEvent(
+        new MouseWheelEventArgs(Mouse.PrimaryDevice, Environment.TickCount, 0)
+        {
+            RoutedEvent = MouseWheelEvent
+        });
 
     internal void CloseAllItems() => CloseOtherItems(null);
 

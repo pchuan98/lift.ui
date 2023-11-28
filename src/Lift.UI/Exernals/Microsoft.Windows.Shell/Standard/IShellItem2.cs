@@ -25,7 +25,8 @@ internal interface IShellItem2 : IShellItem
     object GetPropertyStore(GPS flags, [In] ref Guid riid);
 
     [return: MarshalAs(UnmanagedType.Interface)]
-    object GetPropertyStoreWithCreateObject(GPS flags, [MarshalAs(UnmanagedType.IUnknown)] object punkCreateObject, [In] ref Guid riid);
+    object GetPropertyStoreWithCreateObject(GPS flags, [MarshalAs(UnmanagedType.IUnknown)] object punkCreateObject,
+        [In] ref Guid riid);
 
     [return: MarshalAs(UnmanagedType.Interface)]
     object GetPropertyStoreForKeys(IntPtr rgKeys, uint cKeys, GPS flags, [In] ref Guid riid);

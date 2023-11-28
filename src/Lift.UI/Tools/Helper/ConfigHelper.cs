@@ -10,13 +10,13 @@ using System.Windows.Navigation;
 using Lift.UI.Data;
 using Lift.UI.Properties.Langs;
 using Timeline = System.Windows.Media.Animation.Timeline;
+
 namespace Lift.UI.Tools;
 
 public class ConfigHelper : INotifyPropertyChanged
 {
     private ConfigHelper()
     {
-        
     }
 
     public static ConfigHelper Instance = new Lazy<ConfigHelper>(() => new ConfigHelper()).Value;

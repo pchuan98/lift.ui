@@ -47,10 +47,12 @@ public class CoverFlow : Control
         {
             return 0;
         }
+
         if (v >= ctl._contentDic.Count)
         {
             return ctl._contentDic.Count - 1;
         }
+
         return v;
     }
 
@@ -143,7 +145,10 @@ public class CoverFlow : Control
 
         UpdateShowRange();
 
-        _point3DAnimation = new Point3DAnimation(new Point3D(CoverFlowItem.Interval * PageIndex, _camera.Position.Y, _camera.Position.Z), new Duration(TimeSpan.FromMilliseconds(200)));
+        _point3DAnimation =
+            new Point3DAnimation(
+                new Point3D(CoverFlowItem.Interval * PageIndex, _camera.Position.Y, _camera.Position.Z),
+                new Duration(TimeSpan.FromMilliseconds(200)));
         _camera.BeginAnimation(ProjectionCamera.PositionProperty, _point3DAnimation);
     }
 

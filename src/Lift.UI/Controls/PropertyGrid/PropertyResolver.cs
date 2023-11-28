@@ -34,11 +34,9 @@ public class PropertyResolver
     {
         var categoryAttribute = propertyDescriptor.Attributes.OfType<CategoryAttribute>().FirstOrDefault();
 
-        return categoryAttribute == null ?
-            Lang.Miscellaneous :
-            string.IsNullOrEmpty(categoryAttribute.Category) ?
-                Lang.Miscellaneous :
-                categoryAttribute.Category;
+        return categoryAttribute == null ? Lang.Miscellaneous :
+            string.IsNullOrEmpty(categoryAttribute.Category) ? Lang.Miscellaneous :
+            categoryAttribute.Category;
     }
 
     public string ResolveDisplayName(PropertyDescriptor propertyDescriptor)
@@ -102,7 +100,8 @@ public class PropertyResolver
                 ? new EnumPropertyEditor()
                 : new ReadOnlyTextPropertyEditor();
 
-    public virtual PropertyEditorBase CreateEditor(Type type) => Activator.CreateInstance(type) as PropertyEditorBase ?? new ReadOnlyTextPropertyEditor();
+    public virtual PropertyEditorBase CreateEditor(Type type) =>
+        Activator.CreateInstance(type) as PropertyEditorBase ?? new ReadOnlyTextPropertyEditor();
 
     private enum EditorTypeCode
     {

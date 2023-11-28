@@ -94,7 +94,8 @@ public class ImageBlock : FrameworkElement
 
     public static readonly DependencyProperty StartColumnProperty = DependencyProperty.Register(
         nameof(StartColumn), typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int0Box,
-            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged));
+            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
+            OnPositionsChanged));
 
     public int StartColumn
     {
@@ -104,7 +105,8 @@ public class ImageBlock : FrameworkElement
 
     public static readonly DependencyProperty StartRowProperty = DependencyProperty.Register(
         nameof(StartRow), typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int0Box,
-            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged));
+            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
+            OnPositionsChanged));
 
     public int StartRow
     {
@@ -114,7 +116,8 @@ public class ImageBlock : FrameworkElement
 
     public static readonly DependencyProperty EndColumnProperty = DependencyProperty.Register(
         nameof(EndColumn), typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int0Box,
-            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged));
+            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
+            OnPositionsChanged));
 
     public int EndColumn
     {
@@ -124,7 +127,8 @@ public class ImageBlock : FrameworkElement
 
     public static readonly DependencyProperty EndRowProperty = DependencyProperty.Register(
         nameof(EndRow), typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int0Box,
-            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged));
+            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
+            OnPositionsChanged));
 
     public int EndRow
     {
@@ -134,7 +138,8 @@ public class ImageBlock : FrameworkElement
 
     public static readonly DependencyProperty IsPlayingProperty = DependencyProperty.Register(
         nameof(IsPlaying), typeof(bool), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox,
-            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnIsPlayingChanged));
+            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
+            OnIsPlayingChanged));
 
     private static void OnIsPlayingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -157,7 +162,8 @@ public class ImageBlock : FrameworkElement
 
     public static readonly DependencyProperty ColumnsProperty = DependencyProperty.Register(
         nameof(Columns), typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int1Box,
-            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int) obj >= 1);
+            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
+            OnPositionsChanged), obj => (int) obj >= 1);
 
     public int Columns
     {
@@ -167,7 +173,8 @@ public class ImageBlock : FrameworkElement
 
     public static readonly DependencyProperty RowsProperty = DependencyProperty.Register(
         nameof(Rows), typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int1Box,
-            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int) obj >= 1);
+            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
+            OnPositionsChanged), obj => (int) obj >= 1);
 
     public int Rows
     {
@@ -176,7 +183,8 @@ public class ImageBlock : FrameworkElement
     }
 
     public static readonly DependencyProperty IntervalProperty = DependencyProperty.Register(
-        nameof(Interval), typeof(TimeSpan), typeof(ImageBlock), new PropertyMetadata(TimeSpan.FromSeconds(1), OnIntervalChanged));
+        nameof(Interval), typeof(TimeSpan), typeof(ImageBlock),
+        new PropertyMetadata(TimeSpan.FromSeconds(1), OnIntervalChanged));
 
     private static void OnIntervalChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -192,7 +200,8 @@ public class ImageBlock : FrameworkElement
 
     public static readonly DependencyProperty SourceProperty = DependencyProperty.Register(
         nameof(Source), typeof(ImageSource), typeof(ImageBlock), new FrameworkPropertyMetadata(default(ImageSource),
-            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnSourceChanged));
+            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
+            OnSourceChanged));
 
     private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

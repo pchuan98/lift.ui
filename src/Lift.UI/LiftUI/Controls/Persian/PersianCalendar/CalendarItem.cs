@@ -29,6 +29,7 @@ namespace Microsoft.Windows.Controls.Primitives;
 public sealed partial class CalendarItem : Control
 {
     #region Constants
+
     private const string ElementRoot = "PART_Root";
     private const string ElementHeaderButton = "PART_HeaderButton";
     private const string ElementPreviousButton = "PART_PreviousButton";
@@ -63,10 +64,13 @@ public sealed partial class CalendarItem : Control
 
     static CalendarItem()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(CalendarItem), new FrameworkPropertyMetadata(typeof(CalendarItem)));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(CalendarItem),
+            new FrameworkPropertyMetadata(typeof(CalendarItem)));
         FocusableProperty.OverrideMetadata(typeof(CalendarItem), new FrameworkPropertyMetadata(false));
-        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(CalendarItem), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
-        KeyboardNavigation.DirectionalNavigationProperty.OverrideMetadata(typeof(CalendarItem), new FrameworkPropertyMetadata(KeyboardNavigationMode.Contained));
+        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(CalendarItem),
+            new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
+        KeyboardNavigation.DirectionalNavigationProperty.OverrideMetadata(typeof(CalendarItem),
+            new FrameworkPropertyMetadata(KeyboardNavigationMode.Contained));
     }
 
     /// <summary>
@@ -217,18 +221,18 @@ public sealed partial class CalendarItem : Control
         {
             switch (this.Owner.DisplayMode)
             {
-                case CalendarMode.Year: 
-                    UpdateYearMode(); 
+                case CalendarMode.Year:
+                    UpdateYearMode();
                     break;
-                case CalendarMode.Decade: 
-                    UpdateDecadeMode(); 
+                case CalendarMode.Decade:
+                    UpdateDecadeMode();
                     break;
-                case CalendarMode.Month: 
-                    UpdateMonthMode(); 
+                case CalendarMode.Month:
+                    UpdateMonthMode();
                     break;
 
-                default: 
-                    Debug.Assert(false); 
+                default:
+                    Debug.Assert(false);
                     break;
             }
         }
@@ -367,7 +371,7 @@ public sealed partial class CalendarItem : Control
         {
             if (b != null && b.DataContext is DateTime)
             {
-                if (DateTimeHelper.CompareDays(date, (DateTime)b.DataContext) == 0)
+                if (DateTimeHelper.CompareDays(date, (DateTime) b.DataContext) == 0)
                 {
                     return b;
                 }
@@ -387,14 +391,14 @@ public sealed partial class CalendarItem : Control
             {
                 if (mode == CalendarMode.Year)
                 {
-                    if (DateTimeHelper.CompareYearMonth(date, (DateTime)b.DataContext) == 0)
+                    if (DateTimeHelper.CompareYearMonth(date, (DateTime) b.DataContext) == 0)
                     {
                         return b;
                     }
                 }
                 else
                 {
-                    if (_calendar.GetYear(date) == _calendar.GetYear(((DateTime)b.DataContext)))
+                    if (_calendar.GetYear(date) == _calendar.GetYear(((DateTime) b.DataContext)))
                     {
                         return b;
                     }
@@ -419,7 +423,7 @@ public sealed partial class CalendarItem : Control
     }
 
     private IEnumerable<CalendarButton> GetCalendarButtons()
-    {            
+    {
         foreach (UIElement element in this.YearView.Children)
         {
             CalendarButton b = element as CalendarButton;
@@ -483,7 +487,7 @@ public sealed partial class CalendarItem : Control
                 CalendarButton child = yearViewChildren[0] as CalendarButton;
                 if (child != null &&
                     child.DataContext is DateTime &&
-                    _calendar.GetYear(((DateTime)child.DataContext)) == _calendar.GetYear(selectedYear))
+                    _calendar.GetYear(((DateTime) child.DataContext)) == _calendar.GetYear(selectedYear))
                 {
                     return _calendar.AddYears(decade, 10);
                 }
@@ -494,12 +498,13 @@ public sealed partial class CalendarItem : Control
                 CalendarButton child = yearViewChildren[count - 1] as CalendarButton;
                 if (child != null &&
                     child.DataContext is DateTime &&
-                    ((DateTime)child.DataContext).Year == selectedYear.Year)
+                    ((DateTime) child.DataContext).Year == selectedYear.Year)
                 {
                     return _calendar.AddYears(decade, -10);
                 }
             }
         }
+
         return decade;
     }
 
@@ -514,7 +519,8 @@ public sealed partial class CalendarItem : Control
                 if (
                     ctrl &&
                     DateTime.Compare(this.Owner.HoverStart.Value, selectedDate) == 0 &&
-                    (Owner.SelectionMode == CalendarSelectionMode.SingleDate || Owner.SelectionMode == CalendarSelectionMode.MultipleRange))
+                    (Owner.SelectionMode == CalendarSelectionMode.SingleDate ||
+                     Owner.SelectionMode == CalendarSelectionMode.MultipleRange))
                 {
                     // Ctrl + single click = toggle
                     this.Owner.SelectedDates.Toggle(selectedDate);
@@ -562,7 +568,7 @@ public sealed partial class CalendarItem : Control
         // If the day is a blackout day selection is not allowed
         if (!b.IsBlackedOut)
         {
-            DateTime clickedDate = (DateTime)b.DataContext;
+            DateTime clickedDate = (DateTime) b.DataContext;
             bool ctrl, shift;
 
             KeyboardHelper.GetMetaKeyState(out ctrl, out shift);
@@ -589,50 +595,50 @@ public sealed partial class CalendarItem : Control
                 }
 
                 case CalendarSelectionMode.SingleRange:
+                {
+                    DateTime? lastDate = this.Owner.CurrentDate;
+                    this.Owner.SelectedDates.ClearInternal(true /*fireChangeNotification*/);
+                    if (shift && lastDate.HasValue)
                     {
-                        DateTime? lastDate = this.Owner.CurrentDate;
-                        this.Owner.SelectedDates.ClearInternal(true /*fireChangeNotification*/);
-                        if (shift && lastDate.HasValue)
-                        {
-                            this.Owner.SelectedDates.AddRangeInternal(lastDate.Value, clickedDate);
-                        }
-                        else
-                        {
-                            this.Owner.SelectedDate = clickedDate;
-                            this.Owner.HoverStart = null;
-                            this.Owner.HoverEnd = null;
-                        }
-
-                        break;
+                        this.Owner.SelectedDates.AddRangeInternal(lastDate.Value, clickedDate);
+                    }
+                    else
+                    {
+                        this.Owner.SelectedDate = clickedDate;
+                        this.Owner.HoverStart = null;
+                        this.Owner.HoverEnd = null;
                     }
 
+                    break;
+                }
+
                 case CalendarSelectionMode.MultipleRange:
+                {
+                    if (!ctrl)
+                    {
+                        this.Owner.SelectedDates.ClearInternal(true /*fireChangeNotification*/);
+                    }
+
+                    if (shift)
+                    {
+                        this.Owner.SelectedDates.AddRangeInternal(this.Owner.CurrentDate, clickedDate);
+                    }
+                    else
                     {
                         if (!ctrl)
                         {
-                            this.Owner.SelectedDates.ClearInternal(true /*fireChangeNotification*/);
-                        }
-
-                        if (shift)
-                        {
-                            this.Owner.SelectedDates.AddRangeInternal(this.Owner.CurrentDate, clickedDate);
+                            this.Owner.SelectedDate = clickedDate;
                         }
                         else
                         {
-                            if (!ctrl)
-                            {
-                                this.Owner.SelectedDate = clickedDate;
-                            }
-                            else
-                            {
-                                this.Owner.SelectedDates.Toggle(clickedDate);
-                                this.Owner.HoverStart = null;
-                                this.Owner.HoverEnd = null;
-                            }
+                            this.Owner.SelectedDates.Toggle(clickedDate);
+                            this.Owner.HoverStart = null;
+                            this.Owner.HoverEnd = null;
                         }
-
-                        break;
                     }
+
+                    break;
+                }
             }
 
             this.Owner.OnDayClick(clickedDate);
@@ -667,7 +673,7 @@ public sealed partial class CalendarItem : Control
             bool ctrl, shift;
             KeyboardHelper.GetMetaKeyState(out ctrl, out shift);
 
-            DateTime selectedDate = (DateTime)b.DataContext;
+            DateTime selectedDate = (DateTime) b.DataContext;
             Debug.Assert(selectedDate != null);
 
             switch (this.Owner.SelectionMode)
@@ -761,7 +767,7 @@ public sealed partial class CalendarItem : Control
                 return;
             }
 
-            DateTime selectedDate = (DateTime)b.DataContext;
+            DateTime selectedDate = (DateTime) b.DataContext;
 
             switch (this.Owner.SelectionMode)
             {
@@ -811,7 +817,7 @@ public sealed partial class CalendarItem : Control
             return;
         }
 
-        FinishSelection((DateTime)b.DataContext);
+        FinishSelection((DateTime) b.DataContext);
         e.Handled = true;
     }
 
@@ -820,7 +826,8 @@ public sealed partial class CalendarItem : Control
         bool ctrl, shift;
         KeyboardHelper.GetMetaKeyState(out ctrl, out shift);
 
-        if (this.Owner.SelectionMode == CalendarSelectionMode.None || this.Owner.SelectionMode == CalendarSelectionMode.SingleDate)
+        if (this.Owner.SelectionMode == CalendarSelectionMode.None ||
+            this.Owner.SelectionMode == CalendarSelectionMode.SingleDate)
         {
             this.Owner.OnDayClick(selectedDate);
             return;
@@ -945,7 +952,7 @@ public sealed partial class CalendarItem : Control
             {
                 for (int i = 0; i < COLS; i++)
                 {
-                    FrameworkElement titleCell = (FrameworkElement)this._dayTitleTemplate.LoadContent();
+                    FrameworkElement titleCell = (FrameworkElement) this._dayTitleTemplate.LoadContent();
                     titleCell.SetValue(Grid.RowProperty, 0);
                     titleCell.SetValue(Grid.ColumnProperty, i);
                     this._monthView.Children.Add(titleCell);
@@ -962,8 +969,10 @@ public sealed partial class CalendarItem : Control
                     dayCell.SetValue(Grid.RowProperty, i);
                     dayCell.SetValue(Grid.ColumnProperty, j);
                     dayCell.SetBinding(CalendarDayButton.StyleProperty, GetOwnerBinding("CalendarDayButtonStyle"));
-                    dayCell.AddHandler(CalendarDayButton.MouseLeftButtonDownEvent, new MouseButtonEventHandler(Cell_MouseLeftButtonDown), true);
-                    dayCell.AddHandler(CalendarDayButton.MouseLeftButtonUpEvent, new MouseButtonEventHandler(Cell_MouseLeftButtonUp), true);
+                    dayCell.AddHandler(CalendarDayButton.MouseLeftButtonDownEvent,
+                        new MouseButtonEventHandler(Cell_MouseLeftButtonDown), true);
+                    dayCell.AddHandler(CalendarDayButton.MouseLeftButtonUpEvent,
+                        new MouseButtonEventHandler(Cell_MouseLeftButtonUp), true);
                     dayCell.AddHandler(CalendarDayButton.MouseEnterEvent, new MouseEventHandler(Cell_MouseEnter), true);
                     dayCell.Click += new RoutedEventHandler(Cell_Clicked);
                     dayCell.AddHandler(PreviewKeyDownEvent, new RoutedEventHandler(CellOrMonth_PreviewKeyDown), true);
@@ -987,10 +996,13 @@ public sealed partial class CalendarItem : Control
                     monthCell.SetValue(Grid.RowProperty, i);
                     monthCell.SetValue(Grid.ColumnProperty, j);
                     monthCell.SetBinding(CalendarButton.StyleProperty, GetOwnerBinding("CalendarButtonStyle"));
-                    monthCell.AddHandler(CalendarButton.MouseLeftButtonDownEvent, new MouseButtonEventHandler(Month_MouseLeftButtonDown), true);
-                    monthCell.AddHandler(CalendarButton.MouseLeftButtonUpEvent, new MouseButtonEventHandler(Month_MouseLeftButtonUp), true);
+                    monthCell.AddHandler(CalendarButton.MouseLeftButtonDownEvent,
+                        new MouseButtonEventHandler(Month_MouseLeftButtonDown), true);
+                    monthCell.AddHandler(CalendarButton.MouseLeftButtonUpEvent,
+                        new MouseButtonEventHandler(Month_MouseLeftButtonUp), true);
                     monthCell.AddHandler(CalendarButton.MouseEnterEvent, new MouseEventHandler(Month_MouseEnter), true);
-                    monthCell.AddHandler(UIElement.PreviewKeyDownEvent, new RoutedEventHandler(CellOrMonth_PreviewKeyDown), true);
+                    monthCell.AddHandler(UIElement.PreviewKeyDownEvent,
+                        new RoutedEventHandler(CellOrMonth_PreviewKeyDown), true);
                     monthCell.Click += new RoutedEventHandler(Month_Clicked);
                     this._yearView.Children.Add(monthCell);
                     count++;
@@ -1011,16 +1023,20 @@ public sealed partial class CalendarItem : Control
             for (int childIndex = 0; childIndex < COLS; childIndex++)
             {
                 FrameworkElement daytitle = _monthView.Children[childIndex] as FrameworkElement;
-                
+
                 if (daytitle != null && shortestDayNames != null && shortestDayNames.Length > 0)
                 {
                     if (this.Owner != null)
                     {
-                        daytitle.DataContext = shortestDayNames[(childIndex + (int)this.Owner.FirstDayOfWeek) % shortestDayNames.Length];
+                        daytitle.DataContext =
+                            shortestDayNames[(childIndex + (int) this.Owner.FirstDayOfWeek) % shortestDayNames.Length];
                     }
                     else
                     {
-                        daytitle.DataContext = shortestDayNames[(childIndex + (int)DateTimeHelper.GetDateFormat(DateTimeHelper.GetCulture(this)).FirstDayOfWeek) % shortestDayNames.Length];
+                        daytitle.DataContext =
+                            shortestDayNames[
+                                (childIndex + (int) DateTimeHelper.GetDateFormat(DateTimeHelper.GetCulture(this))
+                                    .FirstDayOfWeek) % shortestDayNames.Length];
                     }
                 }
             }
@@ -1070,7 +1086,8 @@ public sealed partial class CalendarItem : Control
                 childButton.Visibility = Visibility.Visible;
 
                 // If the day is outside the DisplayDateStart/End boundary, do not show it
-                if (DateTimeHelper.CompareDays(dateToAdd.Value, this.Owner.DisplayDateStartInternal) < 0 || DateTimeHelper.CompareDays(dateToAdd.Value, this.Owner.DisplayDateEndInternal) > 0)
+                if (DateTimeHelper.CompareDays(dateToAdd.Value, this.Owner.DisplayDateStartInternal) < 0 ||
+                    DateTimeHelper.CompareDays(dateToAdd.Value, this.Owner.DisplayDateEndInternal) > 0)
                 {
                     childButton.IsEnabled = false;
                     childButton.Visibility = Visibility.Hidden;
@@ -1081,19 +1098,19 @@ public sealed partial class CalendarItem : Control
 
                     // SET IF THE DAY IS SELECTABLE OR NOT
                     childButton.SetValue(
-                        CalendarDayButton.IsBlackedOutPropertyKey, 
+                        CalendarDayButton.IsBlackedOutPropertyKey,
                         this.Owner.BlackoutDates.Contains(dateToAdd.Value));
 
                     // SET IF THE DAY IS ACTIVE OR NOT: set if the day is a trailing day or not
                     childButton.SetValue(
-                        CalendarDayButton.IsInactivePropertyKey, 
+                        CalendarDayButton.IsInactivePropertyKey,
                         DateTimeHelper.CompareYearMonth(dateToAdd.Value, this.Owner.DisplayDateInternal) != 0);
 
                     // SET IF THE DAY IS TODAY OR NOT
                     if (DateTimeHelper.CompareDays(dateToAdd.Value, DateTime.Today) == 0)
                     {
                         childButton.SetValue(CalendarDayButton.IsTodayPropertyKey, true);
-                        
+
                         // PersianCalendar.IsTodayHighlighted affects the final visual state for Today buttons 
                         // but childButton property change callbacks are no called in response to 
                         // PersianCalendar.IsTodayHighlighted changing so we must explicitly update the visual state
@@ -1109,7 +1126,7 @@ public sealed partial class CalendarItem : Control
                     bool isSelected = false;
                     foreach (DateTime item in this.Owner.SelectedDates)
                     {
-                        isSelected |= (DateTimeHelper.CompareDays(dateToAdd.Value, item) == 0);                            
+                        isSelected |= (DateTimeHelper.CompareDays(dateToAdd.Value, item) == 0);
                     }
 
                     childButton.SetValue(CalendarDayButton.IsSelectedPropertyKey, isSelected);
@@ -1157,7 +1174,7 @@ public sealed partial class CalendarItem : Control
                 CalendarDayButton childButton = _monthView.Children[childIndex] as CalendarDayButton;
                 if (childButton.DataContext is DateTime)
                 {
-                    DateTime date = (DateTime)childButton.DataContext;
+                    DateTime date = (DateTime) childButton.DataContext;
                     childButton.SetValue(
                         CalendarDayButton.IsHighlightedPropertyKey,
                         (daysToHighlight != 0) && DateTimeHelper.InRange(date, hStart, hEnd));
@@ -1184,10 +1201,11 @@ public sealed partial class CalendarItem : Control
     {
         if (this._headerButton != null)
         {
-            this._headerButton.Content = DateTimeHelper.ToYearMonthPatternString(DisplayDate, DateTimeHelper.GetCulture(this));
+            this._headerButton.Content =
+                DateTimeHelper.ToYearMonthPatternString(DisplayDate, DateTimeHelper.GetCulture(this));
 
             if (this.Owner != null)
-            {                    
+            {
                 this._headerButton.IsEnabled = true;
             }
         }
@@ -1209,7 +1227,8 @@ public sealed partial class CalendarItem : Control
                 // Since we are sure DisplayDate is not equal to DateTime.MaxValue, 
                 // it is safe to use AddMonths  
                 DateTime firstDayOfNextMonth = _calendar.AddMonths(firstDayOfMonth, 1);
-                _nextButton.IsEnabled = (DateTimeHelper.CompareDays(this.Owner.DisplayDateEndInternal, firstDayOfNextMonth) > -1);
+                _nextButton.IsEnabled =
+                    (DateTimeHelper.CompareDays(this.Owner.DisplayDateEndInternal, firstDayOfNextMonth) > -1);
             }
         }
     }
@@ -1219,7 +1238,8 @@ public sealed partial class CalendarItem : Control
         if (this.Owner != null && _previousButton != null)
         {
             DateTime firstDayOfMonth = DateTimeHelper.DiscardDayTime(DisplayDate);
-            _previousButton.IsEnabled = (DateTimeHelper.CompareDays(this.Owner.DisplayDateStartInternal, firstDayOfMonth) < 0);
+            _previousButton.IsEnabled =
+                (DateTimeHelper.CompareDays(this.Owner.DisplayDateStartInternal, firstDayOfMonth) < 0);
         }
     }
 
@@ -1251,7 +1271,8 @@ public sealed partial class CalendarItem : Control
                 {
                     childButton.HasSelectedDays = (_calendar.GetYear(Owner.DisplayDate) == year);
 
-                    if (year < this.Owner.DisplayDateStartInternal.Year || year > this.Owner.DisplayDateEndInternal.Year)
+                    if (year < this.Owner.DisplayDateStartInternal.Year ||
+                        year > this.Owner.DisplayDateEndInternal.Year)
                     {
                         childButton.IsEnabled = false;
                         childButton.Opacity = 0;
@@ -1284,21 +1305,24 @@ public sealed partial class CalendarItem : Control
         {
             CalendarButton childButton = child as CalendarButton;
             Debug.Assert(childButton != null);
-            
+
             // There should be no time component. Time is 12:00 AM
             int year = _calendar.GetYear(DisplayDate);
             int month = count + 1;
             DateTime day = _calendar.ToDateTime(year, month, 1, 0, 0, 0, 0);
             childButton.DataContext = day;
-            childButton.SetContentInternal(DateTimeHelper.ToAbbreviatedMonthString(day, DateTimeHelper.GetCulture(this)));
+            childButton.SetContentInternal(
+                DateTimeHelper.ToAbbreviatedMonthString(day, DateTimeHelper.GetCulture(this)));
             childButton.Visibility = Visibility.Visible;
 
             if (this.Owner != null)
             {
                 Debug.Assert(this.Owner.DisplayDateInternal != null);
-                childButton.HasSelectedDays = (DateTimeHelper.CompareYearMonth(day, this.Owner.DisplayDateInternal) == 0);
+                childButton.HasSelectedDays =
+                    (DateTimeHelper.CompareYearMonth(day, this.Owner.DisplayDateInternal) == 0);
 
-                if (DateTimeHelper.CompareYearMonth(day, this.Owner.DisplayDateStartInternal) < 0 || DateTimeHelper.CompareYearMonth(day, this.Owner.DisplayDateEndInternal) > 0)
+                if (DateTimeHelper.CompareYearMonth(day, this.Owner.DisplayDateStartInternal) < 0 ||
+                    DateTimeHelper.CompareYearMonth(day, this.Owner.DisplayDateEndInternal) > 0)
                 {
                     childButton.IsEnabled = false;
                     childButton.Opacity = 0;
@@ -1387,7 +1411,8 @@ public sealed partial class CalendarItem : Control
         }
         else
         {
-            i = ((day - DateTimeHelper.GetDateFormat(DateTimeHelper.GetCulture(this)).FirstDayOfWeek + NUMBER_OF_DAYS_IN_WEEK) % NUMBER_OF_DAYS_IN_WEEK);
+            i = ((day - DateTimeHelper.GetDateFormat(DateTimeHelper.GetCulture(this)).FirstDayOfWeek +
+                  NUMBER_OF_DAYS_IN_WEEK) % NUMBER_OF_DAYS_IN_WEEK);
         }
 
         if (i == 0)

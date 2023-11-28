@@ -13,8 +13,6 @@
     <PackageId>Lift.UI</PackageId>
   </PropertyGroup>
 
-  <Import Project="..\Lift.UI.Shared\Lift.UI.Shared.projitems" Label="Shared" />
-
   <!--reference-->
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">

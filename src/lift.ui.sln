@@ -5,11 +5,9 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lift.UI", "Lift.UI\Lift.UI.csproj", "{AE7D7E8D-E64A-49E2-B73B-16B6E3F7A9C8}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Lift.UI.Shared", "Lift.UI.Shared\Lift.UI.Shared.shproj", "{F8515A76-80F1-4073-A46E-D16749EF668A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lift.UI.Core", "Lift.UI.Core\Lift.UI.Core.csproj", "{986380CC-A0C3-4151-A849-4AB09C78F2A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lift.UI.Test", "Lift.UI.Test\Lift.UI.Test.csproj", "{8050F7D9-7611-406A-88C7-A537AAF641AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lift.UI.Test", "Lift.UI.Test\Lift.UI.Test.csproj", "{8050F7D9-7611-406A-88C7-A537AAF641AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +36,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Lift.UI.Shared\Lift.UI.Shared.projitems*{ae7d7e8d-e64a-49e2-b73b-16b6e3f7a9c8}*SharedItemsImports = 5
-		Lift.UI.Shared\Lift.UI.Shared.projitems*{f8515a76-80f1-4073-a46e-d16749ef668a}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

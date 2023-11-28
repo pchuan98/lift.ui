@@ -9,11 +9,6 @@
     <Import_RootNamespace>Lift.UI.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Collections\ManualObservableCollection`1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Collections\Pool\IPool`1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Collections\Pool\SimplePool`1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Collections\Pool\SynchronizedPool`1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Collections\Queue\Deque`1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\BorderElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\DataGridAttach.cs" />

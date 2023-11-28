@@ -40,19 +40,19 @@
   ################################################################################################
   -->
   <ItemGroup>
-    <Resource Include="..\Lift.UI.Shared\Resources\Effects\BrightnessEffect.ps">
+    <Resource Include="Resources\Effects\BrightnessEffect.ps">
       <Link>Resources\Effects\BrightnessEffect.ps</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Effects\ColorComplementEffect.ps">
+    <Resource Include="Resources\Effects\ColorComplementEffect.ps">
       <Link>Resources\Effects\ColorComplementEffect.ps</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Effects\ColorMatrixEffect.ps">
+    <Resource Include="Resources\Effects\ColorMatrixEffect.ps">
       <Link>Resources\Effects\ColorMatrixEffect.ps</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Effects\ContrastEffect.ps">
+    <Resource Include="Resources\Effects\ContrastEffect.ps">
       <Link>Resources\Effects\ContrastEffect.ps</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Effects\GrayScaleEffect.ps">
+    <Resource Include="Resources\Effects\GrayScaleEffect.ps">
       <Link>Resources\Effects\GrayScaleEffect.ps</Link>
     </Resource>
   </ItemGroup>
@@ -60,52 +60,52 @@
 
   <!--picture-->
   <ItemGroup>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\bottom.png">
+    <Resource Include="Resources\Images\GlowWindow\bottom.png">
       <Link>Resources\Images\GlowWindow\bottom.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\bottomleft.png">
+    <Resource Include="Resources\Images\GlowWindow\bottomleft.png">
       <Link>Resources\Images\GlowWindow\bottomleft.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\bottomright.png">
+    <Resource Include="Resources\Images\GlowWindow\bottomright.png">
       <Link>Resources\Images\GlowWindow\bottomright.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\cornerbottomleft.png">
+    <Resource Include="Resources\Images\GlowWindow\cornerbottomleft.png">
       <Link>Resources\Images\GlowWindow\cornerbottomleft.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\cornerbottomright.png">
+    <Resource Include="Resources\Images\GlowWindow\cornerbottomright.png">
       <Link>Resources\Images\GlowWindow\cornerbottomright.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\cornertopleft.png">
+    <Resource Include="Resources\Images\GlowWindow\cornertopleft.png">
       <Link>Resources\Images\GlowWindow\cornertopleft.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\cornertopright.png">
+    <Resource Include="Resources\Images\GlowWindow\cornertopright.png">
       <Link>Resources\Images\GlowWindow\cornertopright.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\left.png">
+    <Resource Include="Resources\Images\GlowWindow\left.png">
       <Link>Resources\Images\GlowWindow\left.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\leftbottom.png">
+    <Resource Include="Resources\Images\GlowWindow\leftbottom.png">
       <Link>Resources\Images\GlowWindow\leftbottom.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\lefttop.png">
+    <Resource Include="Resources\Images\GlowWindow\lefttop.png">
       <Link>Resources\Images\GlowWindow\lefttop.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\right.png">
+    <Resource Include="Resources\Images\GlowWindow\right.png">
       <Link>Resources\Images\GlowWindow\right.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\rightbottom.png">
+    <Resource Include="Resources\Images\GlowWindow\rightbottom.png">
       <Link>Resources\Images\GlowWindow\rightbottom.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\righttop.png">
+    <Resource Include="Resources\Images\GlowWindow\righttop.png">
       <Link>Resources\Images\GlowWindow\righttop.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\top.png">
+    <Resource Include="Resources\Images\GlowWindow\top.png">
       <Link>Resources\Images\GlowWindow\top.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\topleft.png">
+    <Resource Include="Resources\Images\GlowWindow\topleft.png">
       <Link>Resources\Images\GlowWindow\topleft.png</Link>
     </Resource>
-    <Resource Include="..\Lift.UI.Shared\Resources\Images\GlowWindow\topright.png">
+    <Resource Include="Resources\Images\GlowWindow\topright.png">
       <Link>Resources\Images\GlowWindow\topright.png</Link>
     </Resource>
   </ItemGroup>
@@ -171,7 +171,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="..\Lift.UI.Shared\Resources\dropper.cur">
+    <Resource Include="Resources\dropper.cur">
       <Link>Resources\dropper.cur</Link>
     </Resource>
   </ItemGroup>

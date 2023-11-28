@@ -175,22 +175,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)LiftUI\Tools\Markup\IfExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LiftUI\Tools\Markup\Internals\MultiBindingExtensionBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LiftUI\Tools\Markup\UpdatableMarkupExtension.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\DiscreteGeometryKeyFrame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\EasingGeometryKeyFrame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryAnimation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryAnimationBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryAnimationUsingKeyFrames.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryKeyFrame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryKeyFrameCollection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\LinearGeometryKeyFrame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\ResolvedKeyFrameEntry.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\SplineGeometryKeyFrame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\BrightnessEffect.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorComplementEffect.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorMatrixEffect.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ContrastEffect.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\EffectBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Themes\SharedResourceDictionary.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -202,11 +186,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\BrightnessEffect.fx" />
-    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ColorComplementEffect.fx" />
-    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ColorMatrixEffect.fx" />
-    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ContrastEffect.fx" />
-    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\GrayScaleEffect.fx" />
     <None Include="$(MSBuildThisFileDirectory)Themes\Basic\Behaviors.xaml">
       <SubType>Designer</SubType>
     </None>
@@ -765,80 +744,5 @@
     <None Include="$(MSBuildThisFileDirectory)Themes\Styles\Window.xaml">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.AnimationPath.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.AxleCanvas.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Badge.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.BlendEffectBox.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.ButtonGroup.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.CalendarWithClock.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Card.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Carousel.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.CheckComboBox.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.CirclePanel.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.CircleProgressBar.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Clock.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Col.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.ColorPicker.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.CompareSlider.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.ContextMenuButton.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.ContextMenuToggleButton.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.CoverFlow.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.CoverView.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.DashedBorder.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.DateTimePicker.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Dialog.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Divider.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Drawer.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Empty.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.FlexPanel.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.FlipClock.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.GifImage.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.GotoTop.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Gravatar.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Growl.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.HoneycombPanel.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.ImageBlock.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.ImageSelector.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.ImageViewer.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.ListClock.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.LoadingCircle.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.LoadingLine.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Magnifier.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.NotifyIcon.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.NumericUpDown.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.OutlineText.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Pagination.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.PinBox.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Poptip.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.PreviewSlider.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.ProgressButton.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.PropertyGrid.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.RangeSlider.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.RelativePanel.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Row.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.RunningBlock.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.SearchBar.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Shield.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.SideMenu.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.SimplePanel.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.SimpleStackPanel.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.SimpleText.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.SplitButton.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.StepBar.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Tag.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.TagContainer.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.TimeBar.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.TimePicker.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.ToggleBlock.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Transfer.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.TransitioningContentControl.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.UniformSpacingPanel.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.WaterfallPanel.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.Watermark.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.WatermarkTextBox.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Controls.WaveProgressBar.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LiftUI.Expression.Shapes.Arc.icon.bmp" />
   </ItemGroup>
 </Project>

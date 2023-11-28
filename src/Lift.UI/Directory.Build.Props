@@ -12,7 +12,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <XAMLCombineItems Include="$(SharedPath)\Lang.xaml">
+    <XAMLCombineItems Include="Themes\Lang.xaml">
       <TargetFile>$(TargetFile)</TargetFile>
       <Visible>False</Visible>
     </XAMLCombineItems>
@@ -110,6 +110,24 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="Resources\dropper.cur">
+      <Link>Resources\dropper.cur</Link>
+    </Resource>
+  </ItemGroup>
+
+  <!--
+  ################################################################################################
+  -->
+
+  <!--NOTE: must be using link-->
+  <!--<ItemGroup>
+    <Compile Include="..\Lift.UI.Shared\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>-->
+
+
   <!--Language-->
   <ItemGroup>
     <!--<Compile Include="..\Lift.UI.Shared\Properties\Langs\Lang.Designer.cs">
@@ -127,7 +145,7 @@
     </Compile>-->
 
 
-    
+
     <!--<Compile Include="..\Lift.UI.Shared\Properties\Langs\LangProvider.cs">
       <Link>Properties\Langs\LangProvider.cs</Link>
       <AutoGen>True</AutoGen>
@@ -135,71 +153,53 @@
       <DependentUpon>LangProvider.tt</DependentUpon>
     </Compile>-->
 
-    <!--<EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.tr.resx">
+    <!--<EmbeddedResource Include="Properties\Langs\Lang.tr.resx">
       <Link>Properties\Langs\Lang.tr.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.ca-ES.resx">
+    </EmbeddedResource>-->
+    <!--<EmbeddedResource Include="Properties\Langs\Lang.ca-ES.resx">
       <Link>Properties\Langs\Lang.ca-ES.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.en.resx">
+    <EmbeddedResource Include="Properties\Langs\Lang.en.resx">
       <Link>Properties\Langs\Lang.en.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.es.resx">
+    <EmbeddedResource Include="Properties\Langs\Lang.es.resx">
       <Link>Properties\Langs\Lang.es.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.fa.resx">
+    <EmbeddedResource Include="Properties\Langs\Lang.fa.resx">
       <Link>Properties\Langs\Lang.fa.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.fr.resx">
+    <EmbeddedResource Include="Properties\Langs\Lang.fr.resx">
       <Link>Properties\Langs\Lang.fr.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.ja.resx">
+    <EmbeddedResource Include="Properties\Langs\Lang.ja.resx">
       <Link>Properties\Langs\Lang.ja.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.ko-KR.resx">
+    <EmbeddedResource Include="Properties\Langs\Lang.ko-KR.resx">
       <Link>Properties\Langs\Lang.ko-KR.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.pl.resx">
+    <EmbeddedResource Include="Properties\Langs\Lang.pl.resx">
       <Link>Properties\Langs\Lang.pl.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.pt-BR.resx">
+    <EmbeddedResource Include="Properties\Langs\Lang.pt-BR.resx">
       <Link>Properties\Langs\Lang.pt-BR.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.ru.resx">
+    <EmbeddedResource Include="Properties\Langs\Lang.ru.resx">
       <Link>Properties\Langs\Lang.ru.resx</Link>
     </EmbeddedResource>-->
 
 
-    
+
     <!--<EmbeddedResource Include="..\Lift.UI.Shared\Properties\Langs\Lang.resx">
       <Link>Properties\Langs\Lang.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>-->
 
-    
+
     <!--<Content Include="..\Lift.UI.Shared\Properties\Langs\LangProvider.tt">
       <Link>Properties\Langs\LangProvider.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LangProvider.cs</LastGenOutput>
     </Content>-->
   </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\dropper.cur">
-      <Link>Resources\dropper.cur</Link>
-    </Resource>
-  </ItemGroup>
-
-  <!--
-  ################################################################################################
-  -->
-
-  <!--NOTE: must be using link-->
-  <!--<ItemGroup>
-    <Compile Include="..\Lift.UI.Shared\Properties\AssemblyInfo.cs">
-      <Link>Properties\AssemblyInfo.cs</Link>
-    </Compile>
-  </ItemGroup>-->
-  
 </Project>

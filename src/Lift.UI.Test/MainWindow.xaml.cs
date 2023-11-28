@@ -23,6 +23,7 @@ namespace Lift.UI.Test
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }

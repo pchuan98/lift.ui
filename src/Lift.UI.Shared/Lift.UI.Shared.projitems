@@ -9,9 +9,6 @@
     <Import_RootNamespace>Lift.UI.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Themes\SharedResourceDictionary.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Basic\Colors\Dark.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -42,9 +39,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="$(MSBuildThisFileDirectory)Themes\Basic\Sizes.xaml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)Themes\Lang.xaml">
       <SubType>Designer</SubType>
     </None>
     <None Include="$(MSBuildThisFileDirectory)Themes\Styles\AutoCompleteTextBox.xaml">

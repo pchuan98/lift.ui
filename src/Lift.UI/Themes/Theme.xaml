@@ -4,193 +4,193 @@
 -->
 <!--
 Source files:
-..\Lift.UI.Shared\Themes\Basic\Behaviors.xaml
-..\Lift.UI.Shared\Themes\Basic\Converters.xaml
-..\Lift.UI.Shared\Themes\Basic\Effects.xaml
-..\Lift.UI.Shared\Themes\Basic\Fonts.xaml
-..\Lift.UI.Shared\Themes\Basic\Geometries.xaml
-..\Lift.UI.Shared\Themes\Basic\Paths.xaml
-..\Lift.UI.Shared\Themes\Basic\Sizes.xaml
-..\Lift.UI.Shared\Themes\Styles\AutoCompleteTextBox.xaml
-..\Lift.UI.Shared\Themes\Styles\Badge.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\AutoCompleteTextBoxBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\BadgeBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\BaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ButtonBaseBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ButtonBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ButtonGroupBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\CardBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ChatBubbleBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\CheckBoxBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\CheckComboBoxBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ColorPickerBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ComboBoxBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ContextMenuBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\CoverFlowBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\CoverViewBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\DataGridBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\DatePickerBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\DateTimePickerBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\DialogBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\DividerBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\DrawerBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ElementGroupBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\EmptyBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ExpanderBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\FlowDocumentBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\FrameBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\GotoTopBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\GravatarBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\GroupBoxBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ImageSelectorBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ItemsPanelTemplate.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\LabelBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\LiftUI\ModernListBoxBaseStyles.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\LiftUI\PersianDatePickerBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\LiftUI\PersianDateTimePickerBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ListBoxBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ListViewBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\LoadingBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\LoadingCircleBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\LoadingLineBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\MagnifierBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\MenuBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\NavigationWindowBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\NumericUpDownBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\PasswordBoxBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\PinBoxBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\PoptipBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ProgressBarBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ProgressButtonBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\PropertyGridBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\RadioButtonBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\RateBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\RepeatButtonBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\RunningBlockBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ScrollViewerBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\SearchBarBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\SeparatorBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ShieldBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\SideMenuBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\SliderBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\SplitButtonBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\StatusBarBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\StepBarBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\TabControlBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\TagBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\TextBlockBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\TextBoxBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\TimePickerBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ToggleBlockBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ToggleButtonBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ToolBarBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\ToolTipBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\TransferBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\TreeViewBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\Base\WatermarkBaseStyle.xaml
-..\Lift.UI.Shared\Themes\Styles\BlendEffectBox.xaml
-..\Lift.UI.Shared\Themes\Styles\Border.xaml
-..\Lift.UI.Shared\Themes\Styles\Button.xaml
-..\Lift.UI.Shared\Themes\Styles\ButtonGroup.xaml
-..\Lift.UI.Shared\Themes\Styles\Calendar.xaml
-..\Lift.UI.Shared\Themes\Styles\CalendarWithClock.xaml
-..\Lift.UI.Shared\Themes\Styles\Card.xaml
-..\Lift.UI.Shared\Themes\Styles\Carousel.xaml
-..\Lift.UI.Shared\Themes\Styles\ChatBubble.xaml
-..\Lift.UI.Shared\Themes\Styles\CheckBox.xaml
-..\Lift.UI.Shared\Themes\Styles\CheckComboBox.xaml
-..\Lift.UI.Shared\Themes\Styles\Clock.xaml
-..\Lift.UI.Shared\Themes\Styles\Col.xaml
-..\Lift.UI.Shared\Themes\Styles\ColorPicker.xaml
-..\Lift.UI.Shared\Themes\Styles\ComboBox.xaml
-..\Lift.UI.Shared\Themes\Styles\ContentControl.xaml
-..\Lift.UI.Shared\Themes\Styles\ContextMenu.xaml
-..\Lift.UI.Shared\Themes\Styles\CoverFlow.xaml
-..\Lift.UI.Shared\Themes\Styles\CoverView.xaml
-..\Lift.UI.Shared\Themes\Styles\DataGrid.xaml
-..\Lift.UI.Shared\Themes\Styles\DatePicker.xaml
-..\Lift.UI.Shared\Themes\Styles\DateTimePicker.xaml
-..\Lift.UI.Shared\Themes\Styles\Dialog.xaml
-..\Lift.UI.Shared\Themes\Styles\Divider.xaml
-..\Lift.UI.Shared\Themes\Styles\Drawer.xaml
-..\Lift.UI.Shared\Themes\Styles\ElementGroup.xaml
-..\Lift.UI.Shared\Themes\Styles\Empty.xaml
-..\Lift.UI.Shared\Themes\Styles\Expander.xaml
-..\Lift.UI.Shared\Themes\Styles\FlipClock.xaml
-..\Lift.UI.Shared\Themes\Styles\FloatingBlock.xaml
-..\Lift.UI.Shared\Themes\Styles\FlowDocument.xaml
-..\Lift.UI.Shared\Themes\Styles\Frame.xaml
-..\Lift.UI.Shared\Themes\Styles\GotoTop.xaml
-..\Lift.UI.Shared\Themes\Styles\Gravatar.xaml
-..\Lift.UI.Shared\Themes\Styles\GridSplitter.xaml
-..\Lift.UI.Shared\Themes\Styles\GroupBox.xaml
-..\Lift.UI.Shared\Themes\Styles\Growl.xaml
-..\Lift.UI.Shared\Themes\Styles\ImageSelector.xaml
-..\Lift.UI.Shared\Themes\Styles\ImageViewer.xaml
-..\Lift.UI.Shared\Themes\Styles\Label.xaml
-..\Lift.UI.Shared\Themes\Styles\LiftUI\BusyIndicator.xaml
-..\Lift.UI.Shared\Themes\Styles\LiftUI\CheckTreeView.xaml
-..\Lift.UI.Shared\Themes\Styles\LiftUI\CommonStyles.xaml
-..\Lift.UI.Shared\Themes\Styles\LiftUI\LoadingIndicator.xaml
-..\Lift.UI.Shared\Themes\Styles\LiftUI\PersianCalendar.xaml
-..\Lift.UI.Shared\Themes\Styles\LiftUI\PersianCalendarWithClock.xaml
-..\Lift.UI.Shared\Themes\Styles\LiftUI\PersianDatePicker.xaml
-..\Lift.UI.Shared\Themes\Styles\LiftUI\PersianDateTimePicker.xaml
-..\Lift.UI.Shared\Themes\Styles\LiftUI\SpeedoMeter.xaml
-..\Lift.UI.Shared\Themes\Styles\ListBox.xaml
-..\Lift.UI.Shared\Themes\Styles\ListView.xaml
-..\Lift.UI.Shared\Themes\Styles\Loading.xaml
-..\Lift.UI.Shared\Themes\Styles\Magnifier.xaml
-..\Lift.UI.Shared\Themes\Styles\Menu.xaml
-..\Lift.UI.Shared\Themes\Styles\MessageBox.xaml
-..\Lift.UI.Shared\Themes\Styles\NavigationWindow.xaml
-..\Lift.UI.Shared\Themes\Styles\Notification.xaml
-..\Lift.UI.Shared\Themes\Styles\NumericUpDown.xaml
-..\Lift.UI.Shared\Themes\Styles\Pagination.xaml
-..\Lift.UI.Shared\Themes\Styles\PasswordBox.xaml
-..\Lift.UI.Shared\Themes\Styles\PinBox.xaml
-..\Lift.UI.Shared\Themes\Styles\Poptip.xaml
-..\Lift.UI.Shared\Themes\Styles\PopupWindow.xaml
-..\Lift.UI.Shared\Themes\Styles\ProgressBar.xaml
-..\Lift.UI.Shared\Themes\Styles\ProgressButton.xaml
-..\Lift.UI.Shared\Themes\Styles\PropertyGrid.xaml
-..\Lift.UI.Shared\Themes\Styles\RadioButton.xaml
-..\Lift.UI.Shared\Themes\Styles\Rate.xaml
-..\Lift.UI.Shared\Themes\Styles\Rectangle.xaml
-..\Lift.UI.Shared\Themes\Styles\RepeatButton.xaml
-..\Lift.UI.Shared\Themes\Styles\Ribbon.xaml
-..\Lift.UI.Shared\Themes\Styles\RichTextBox.xaml
-..\Lift.UI.Shared\Themes\Styles\RunningBlock.xaml
-..\Lift.UI.Shared\Themes\Styles\Screenshot.xaml
-..\Lift.UI.Shared\Themes\Styles\ScrollViewer.xaml
-..\Lift.UI.Shared\Themes\Styles\SearchBar.xaml
-..\Lift.UI.Shared\Themes\Styles\Separator.xaml
-..\Lift.UI.Shared\Themes\Styles\Shield.xaml
-..\Lift.UI.Shared\Themes\Styles\SideMenu.xaml
-..\Lift.UI.Shared\Themes\Styles\SimpleItemsControl.xaml
-..\Lift.UI.Shared\Themes\Styles\Slider.xaml
-..\Lift.UI.Shared\Themes\Styles\SplitButton.xaml
-..\Lift.UI.Shared\Themes\Styles\Sprite.xaml
-..\Lift.UI.Shared\Themes\Styles\StatusBar.xaml
-..\Lift.UI.Shared\Themes\Styles\StepBar.xaml
-..\Lift.UI.Shared\Themes\Styles\TabControl.xaml
-..\Lift.UI.Shared\Themes\Styles\Tag.xaml
-..\Lift.UI.Shared\Themes\Styles\TextBlock.xaml
-..\Lift.UI.Shared\Themes\Styles\TextBox.xaml
-..\Lift.UI.Shared\Themes\Styles\TimeBar.xaml
-..\Lift.UI.Shared\Themes\Styles\TimePicker.xaml
-..\Lift.UI.Shared\Themes\Styles\ToggleBlock.xaml
-..\Lift.UI.Shared\Themes\Styles\ToggleButton.xaml
-..\Lift.UI.Shared\Themes\Styles\ToolBar.xaml
-..\Lift.UI.Shared\Themes\Styles\ToolTip.xaml
-..\Lift.UI.Shared\Themes\Styles\Transfer.xaml
-..\Lift.UI.Shared\Themes\Styles\TransitioningContentControl.xaml
-..\Lift.UI.Shared\Themes\Styles\TreeView.xaml
-..\Lift.UI.Shared\Themes\Styles\Watermark.xaml
-..\Lift.UI.Shared\Themes\Styles\Window.xaml
+Themes\Basic\Behaviors.xaml
+Themes\Basic\Converters.xaml
+Themes\Basic\Effects.xaml
+Themes\Basic\Fonts.xaml
+Themes\Basic\Geometries.xaml
+Themes\Basic\Paths.xaml
+Themes\Basic\Sizes.xaml
 Themes\Lang.xaml
+Themes\Styles\AutoCompleteTextBox.xaml
+Themes\Styles\Badge.xaml
+Themes\Styles\Base\AutoCompleteTextBoxBaseStyle.xaml
+Themes\Styles\Base\BadgeBaseStyle.xaml
+Themes\Styles\Base\BaseStyle.xaml
+Themes\Styles\Base\ButtonBaseBaseStyle.xaml
+Themes\Styles\Base\ButtonBaseStyle.xaml
+Themes\Styles\Base\ButtonGroupBaseStyle.xaml
+Themes\Styles\Base\CardBaseStyle.xaml
+Themes\Styles\Base\ChatBubbleBaseStyle.xaml
+Themes\Styles\Base\CheckBoxBaseStyle.xaml
+Themes\Styles\Base\CheckComboBoxBaseStyle.xaml
+Themes\Styles\Base\ColorPickerBaseStyle.xaml
+Themes\Styles\Base\ComboBoxBaseStyle.xaml
+Themes\Styles\Base\ContextMenuBaseStyle.xaml
+Themes\Styles\Base\CoverFlowBaseStyle.xaml
+Themes\Styles\Base\CoverViewBaseStyle.xaml
+Themes\Styles\Base\DataGridBaseStyle.xaml
+Themes\Styles\Base\DatePickerBaseStyle.xaml
+Themes\Styles\Base\DateTimePickerBaseStyle.xaml
+Themes\Styles\Base\DialogBaseStyle.xaml
+Themes\Styles\Base\DividerBaseStyle.xaml
+Themes\Styles\Base\DrawerBaseStyle.xaml
+Themes\Styles\Base\ElementGroupBaseStyle.xaml
+Themes\Styles\Base\EmptyBaseStyle.xaml
+Themes\Styles\Base\ExpanderBaseStyle.xaml
+Themes\Styles\Base\FlowDocumentBaseStyle.xaml
+Themes\Styles\Base\FrameBaseStyle.xaml
+Themes\Styles\Base\GotoTopBaseStyle.xaml
+Themes\Styles\Base\GravatarBaseStyle.xaml
+Themes\Styles\Base\GroupBoxBaseStyle.xaml
+Themes\Styles\Base\ImageSelectorBaseStyle.xaml
+Themes\Styles\Base\ItemsPanelTemplate.xaml
+Themes\Styles\Base\LabelBaseStyle.xaml
+Themes\Styles\Base\LiftUI\ModernListBoxBaseStyles.xaml
+Themes\Styles\Base\LiftUI\PersianDatePickerBaseStyle.xaml
+Themes\Styles\Base\LiftUI\PersianDateTimePickerBaseStyle.xaml
+Themes\Styles\Base\ListBoxBaseStyle.xaml
+Themes\Styles\Base\ListViewBaseStyle.xaml
+Themes\Styles\Base\LoadingBaseStyle.xaml
+Themes\Styles\Base\LoadingCircleBaseStyle.xaml
+Themes\Styles\Base\LoadingLineBaseStyle.xaml
+Themes\Styles\Base\MagnifierBaseStyle.xaml
+Themes\Styles\Base\MenuBaseStyle.xaml
+Themes\Styles\Base\NavigationWindowBaseStyle.xaml
+Themes\Styles\Base\NumericUpDownBaseStyle.xaml
+Themes\Styles\Base\PasswordBoxBaseStyle.xaml
+Themes\Styles\Base\PinBoxBaseStyle.xaml
+Themes\Styles\Base\PoptipBaseStyle.xaml
+Themes\Styles\Base\ProgressBarBaseStyle.xaml
+Themes\Styles\Base\ProgressButtonBaseStyle.xaml
+Themes\Styles\Base\PropertyGridBaseStyle.xaml
+Themes\Styles\Base\RadioButtonBaseStyle.xaml
+Themes\Styles\Base\RateBaseStyle.xaml
+Themes\Styles\Base\RepeatButtonBaseStyle.xaml
+Themes\Styles\Base\RunningBlockBaseStyle.xaml
+Themes\Styles\Base\ScrollViewerBaseStyle.xaml
+Themes\Styles\Base\SearchBarBaseStyle.xaml
+Themes\Styles\Base\SeparatorBaseStyle.xaml
+Themes\Styles\Base\ShieldBaseStyle.xaml
+Themes\Styles\Base\SideMenuBaseStyle.xaml
+Themes\Styles\Base\SliderBaseStyle.xaml
+Themes\Styles\Base\SplitButtonBaseStyle.xaml
+Themes\Styles\Base\StatusBarBaseStyle.xaml
+Themes\Styles\Base\StepBarBaseStyle.xaml
+Themes\Styles\Base\TabControlBaseStyle.xaml
+Themes\Styles\Base\TagBaseStyle.xaml
+Themes\Styles\Base\TextBlockBaseStyle.xaml
+Themes\Styles\Base\TextBoxBaseStyle.xaml
+Themes\Styles\Base\TimePickerBaseStyle.xaml
+Themes\Styles\Base\ToggleBlockBaseStyle.xaml
+Themes\Styles\Base\ToggleButtonBaseStyle.xaml
+Themes\Styles\Base\ToolBarBaseStyle.xaml
+Themes\Styles\Base\ToolTipBaseStyle.xaml
+Themes\Styles\Base\TransferBaseStyle.xaml
+Themes\Styles\Base\TreeViewBaseStyle.xaml
+Themes\Styles\Base\WatermarkBaseStyle.xaml
+Themes\Styles\BlendEffectBox.xaml
+Themes\Styles\Border.xaml
+Themes\Styles\Button.xaml
+Themes\Styles\ButtonGroup.xaml
+Themes\Styles\Calendar.xaml
+Themes\Styles\CalendarWithClock.xaml
+Themes\Styles\Card.xaml
+Themes\Styles\Carousel.xaml
+Themes\Styles\ChatBubble.xaml
+Themes\Styles\CheckBox.xaml
+Themes\Styles\CheckComboBox.xaml
+Themes\Styles\Clock.xaml
+Themes\Styles\Col.xaml
+Themes\Styles\ColorPicker.xaml
+Themes\Styles\ComboBox.xaml
+Themes\Styles\ContentControl.xaml
+Themes\Styles\ContextMenu.xaml
+Themes\Styles\CoverFlow.xaml
+Themes\Styles\CoverView.xaml
+Themes\Styles\DataGrid.xaml
+Themes\Styles\DatePicker.xaml
+Themes\Styles\DateTimePicker.xaml
+Themes\Styles\Dialog.xaml
+Themes\Styles\Divider.xaml
+Themes\Styles\Drawer.xaml
+Themes\Styles\ElementGroup.xaml
+Themes\Styles\Empty.xaml
+Themes\Styles\Expander.xaml
+Themes\Styles\FlipClock.xaml
+Themes\Styles\FloatingBlock.xaml
+Themes\Styles\FlowDocument.xaml
+Themes\Styles\Frame.xaml
+Themes\Styles\GotoTop.xaml
+Themes\Styles\Gravatar.xaml
+Themes\Styles\GridSplitter.xaml
+Themes\Styles\GroupBox.xaml
+Themes\Styles\Growl.xaml
+Themes\Styles\ImageSelector.xaml
+Themes\Styles\ImageViewer.xaml
+Themes\Styles\Label.xaml
+Themes\Styles\LiftUI\BusyIndicator.xaml
+Themes\Styles\LiftUI\CheckTreeView.xaml
+Themes\Styles\LiftUI\CommonStyles.xaml
+Themes\Styles\LiftUI\LoadingIndicator.xaml
+Themes\Styles\LiftUI\PersianCalendar.xaml
+Themes\Styles\LiftUI\PersianCalendarWithClock.xaml
+Themes\Styles\LiftUI\PersianDatePicker.xaml
+Themes\Styles\LiftUI\PersianDateTimePicker.xaml
+Themes\Styles\LiftUI\SpeedoMeter.xaml
+Themes\Styles\ListBox.xaml
+Themes\Styles\ListView.xaml
+Themes\Styles\Loading.xaml
+Themes\Styles\Magnifier.xaml
+Themes\Styles\Menu.xaml
+Themes\Styles\MessageBox.xaml
+Themes\Styles\NavigationWindow.xaml
+Themes\Styles\Notification.xaml
+Themes\Styles\NumericUpDown.xaml
+Themes\Styles\Pagination.xaml
+Themes\Styles\PasswordBox.xaml
+Themes\Styles\PinBox.xaml
+Themes\Styles\Poptip.xaml
+Themes\Styles\PopupWindow.xaml
+Themes\Styles\ProgressBar.xaml
+Themes\Styles\ProgressButton.xaml
+Themes\Styles\PropertyGrid.xaml
+Themes\Styles\RadioButton.xaml
+Themes\Styles\Rate.xaml
+Themes\Styles\Rectangle.xaml
+Themes\Styles\RepeatButton.xaml
+Themes\Styles\Ribbon.xaml
+Themes\Styles\RichTextBox.xaml
+Themes\Styles\RunningBlock.xaml
+Themes\Styles\Screenshot.xaml
+Themes\Styles\ScrollViewer.xaml
+Themes\Styles\SearchBar.xaml
+Themes\Styles\Separator.xaml
+Themes\Styles\Shield.xaml
+Themes\Styles\SideMenu.xaml
+Themes\Styles\SimpleItemsControl.xaml
+Themes\Styles\Slider.xaml
+Themes\Styles\SplitButton.xaml
+Themes\Styles\Sprite.xaml
+Themes\Styles\StatusBar.xaml
+Themes\Styles\StepBar.xaml
+Themes\Styles\TabControl.xaml
+Themes\Styles\Tag.xaml
+Themes\Styles\TextBlock.xaml
+Themes\Styles\TextBox.xaml
+Themes\Styles\TimeBar.xaml
+Themes\Styles\TimePicker.xaml
+Themes\Styles\ToggleBlock.xaml
+Themes\Styles\ToggleButton.xaml
+Themes\Styles\ToolBar.xaml
+Themes\Styles\ToolTip.xaml
+Themes\Styles\Transfer.xaml
+Themes\Styles\TransitioningContentControl.xaml
+Themes\Styles\TreeView.xaml
+Themes\Styles\Watermark.xaml
+Themes\Styles\Window.xaml
 -->
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:interactivity="clr-namespace:Lift.UI.Interactivity" xmlns:converter="clr-namespace:Lift.UI.Tools.Converter" xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:liftui="clr-namespace:Lift.UI.Controls" xmlns:tools="clr-namespace:Lift.UI.Tools" xmlns:ex="clr-namespace:Lift.UI.Tools.Extension" xmlns:langs="clr-namespace:Lift.UI.Properties.Langs" xmlns:primitives="clr-namespace:Microsoft.Windows.Controls.Primitives" xmlns:shapes="clr-namespace:Lift.UI.Expression.Shapes" xmlns:conv="clr-namespace:Lift.UI.Tools.Converter" xmlns:local="clr-namespace:Lift.UI.Controls" xmlns:lang="clr-namespace:Lift.UI.Properties.Langs">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:interactivity="clr-namespace:Lift.UI.Interactivity" xmlns:converter="clr-namespace:Lift.UI.Tools.Converter" xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:langs="clr-namespace:Lift.UI.Properties.Langs" xmlns:liftui="clr-namespace:Lift.UI.Controls" xmlns:tools="clr-namespace:Lift.UI.Tools" xmlns:ex="clr-namespace:Lift.UI.Tools.Extension" xmlns:conv="clr-namespace:Lift.UI.Tools.Converter" xmlns:lang="clr-namespace:Lift.UI.Properties.Langs" xmlns:local="clr-namespace:Lift.UI.Controls" xmlns:primitives="clr-namespace:Microsoft.Windows.Controls.Primitives" xmlns:shapes="clr-namespace:Lift.UI.Expression.Shapes">
   <interactivity:FluidMoveBehavior x:Key="BehaviorXY200" x:Shared="False" AppliesTo="Children" Duration="0:0:.2">
     <interactivity:FluidMoveBehavior.EaseX>
       <PowerEase />
@@ -264,62 +264,62 @@ Themes\Lang.xaml
   <sys:Double x:Key="HeadFontSize">20</sys:Double>
   <sys:Double x:Key="SubHeadFontSize">16</sys:Double>
   <sys:Double x:Key="TextFontSize">12</sys:Double>
-  <Geometry o:Freeze="True" x:Key="CalendarGeometry">M377.897477 116.291025l265.298718 0 0 47.459125-265.298718 0 0-47.459125ZM888.317416 116.291025 748.229288 116.291025l0 47.459125 123.54866 0c18.167626 0 32.894732 14.727106 32.894732 32.894732l0 92.92987L115.42936 289.574752l0-92.92987c0-18.167626 14.727106-32.894732 32.894732-32.894732l123.54866 0 0-47.459125L131.776437 116.291025c-35.244356 0-63.814389 28.571056-63.814389 63.815412l0.004093 713.966329c0 35.243333 28.571056 63.814389 63.814389 63.814389l756.540979 0c35.244356 0 63.814389-28.571056 63.814389-63.815412l-0.004093-713.966329C952.131805 144.861058 923.560749 116.291025 888.317416 116.291025zM904.67268 337.033877l0 540.498398c0 18.167626-14.727106 32.894732-32.894732 32.894732L148.324092 910.427007c-18.167626 0-32.894732-14.727106-32.894732-32.894732L115.42936 337.033877 904.67268 337.033877zM300.659736 64.801927l47.459125 0 0 170.241292-47.459125 0 0-170.241292ZM672.97481 64.801927l47.450938 0 0 170.241292-47.450938 0 0-170.241292ZM358.384138 547.939214l0 231.021432 52.863464 0L411.247602 459.226591l-34.580198 0-2.651514 3.804835c-18.000819 25.896006-41.448959 48.758786-69.681285 67.955908l-3.886703 2.643327 0 53.742526 13.441772-8.069156C330.690097 569.215794 345.588103 558.712075 358.384138 547.939214zM618.031888 726.552576c-10.287791 6.395971-24.435678 8.069156-42.059902 4.948946-16.094309-2.842881-27.898712-18.373321-35.082666-46.159464l-2.261615-8.753781-48.312603 13.424375 1.68956 8.129534c6.270098 30.168514 18.347737 52.052967 35.884976 65.017855 17.120734 12.705979 35.542152 19.777364 54.731087 21.043255 3.358652 0.225138 6.655903 0.337707 9.897892 0.337707 14.859119 0 28.430857-2.374184 40.452211-7.072408 14.417029-5.641758 26.88866-13.338413 37.076162-22.86278 10.365566-9.723922 18.230051-22.143362 23.378552-36.920612 4.918246-14.170401 7.739636-28.296797 8.385373-42.025108 0.60685-13.658723-0.667228-26.650218-3.791531-38.619382l-0.008187-0.017397c-3.111-11.777796-8.133628-23.738773-14.946104-35.551363-7.353831-12.679372-19.028268-22.750211-34.710165-29.952586-15.037183-6.872854-30.927843-10.685876-47.24729-11.32752-11.414505-0.415482-23.487027 1.386646-36.04462 5.434017 3.813022-14.568486 7.648557-31.884681 11.465673-51.775637l113.87693 0 0-49.357449L535.645647 464.492778l-1.495122 7.028404c-24.621928 115.77116-31.589954 145.497585-33.102473 150.039235l-3.432334 10.338958 45.829943 5.391036 3.054716-4.20292c8.146931-11.214951 18.247448-18.139996 30.879746-21.164011 13.004799-3.137607 24.743707-3.180588 34.879018-0.129966 9.857981 2.95545 17.822756 8.771178 24.327202 17.758284 6.512633 9.03111 10.084143 20.392401 10.617311 33.757421 0.519864 13.849067-1.603598 26.442477-6.314102 37.440476C636.315153 711.429431 628.843637 719.871089 618.031888 726.552576z</Geometry>
-  <Geometry o:Freeze="True" x:Key="DeleteGeometry">M512 620.544l253.3376 253.3376a76.6976 76.6976 0 1 0 108.544-108.544L620.6464 512l253.2352-253.3376a76.6976 76.6976 0 1 0-108.544-108.544L512 403.3536 258.6624 150.1184a76.6976 76.6976 0 1 0-108.544 108.544L403.3536 512 150.1184 765.3376a76.6976 76.6976 0 1 0 108.544 108.544L512 620.6464z</Geometry>
-  <Geometry o:Freeze="True" x:Key="DeleteFillCircleGeometry">M7.4038057,6.4038057 C7.1478834,6.4038057 6.8919611,6.5014372 6.6966991,6.6966991 6.3061748,7.0872235 6.3061748,7.7203884 6.6966991,8.1109123 L10.585787,12 6.6966991,15.889088 C6.3061748,16.279612 6.3061748,16.912777 6.6966991,17.303301 7.0872235,17.693825 7.7203879,17.693825 8.1109123,17.303301 L12,13.414213 15.889088,17.303301 C16.279612,17.693825 16.912777,17.693825 17.303301,17.303301 17.693825,16.912777 17.693825,16.279612 17.303301,15.889088 L13.414213,12 17.303301,8.1109123 C17.693825,7.7203884 17.693825,7.0872235 17.303301,6.6966991 16.912777,6.3061748 16.279612,6.3061748 15.889088,6.6966991 L12,10.585787 8.1109123,6.6966991 C7.9156504,6.5014372 7.6597281,6.4038057 7.4038057,6.4038057 z M12,0 C18.627417,0 24,5.3725829 24,12 24,18.627417 18.627417,24 12,24 5.3725829,24 0,18.627417 0,12 0,5.3725829 5.3725829,0 12,0 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="CloseGeometry">M0.7,0 L5,4.3 L9.3,0 L10,0.7 L5.7,5 L10,9.3 L9.3,10 L5,5.7 L0.7,10 L0,9.3 L4.3,5 L0,0.7 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="DownGeometry">M512 801.6896L5.12 282.0096l58.1632-59.5968L512 682.3936l448.7168-460.0832 58.1632 59.5968-506.88 519.7824z</Geometry>
-  <Geometry o:Freeze="True" x:Key="UpGeometry">M50.000001,0 L100,51.262779 94.262627,57.141584 50.000001,11.767713 5.7373757,57.151686 0,51.27288 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="ClockGeometry">M498.506684 256.571517 425.359734 256.571517 425.359734 622.190635 720.166063 622.190635 720.166063 549.725206 498.506684 549.725206ZM512.714268 80.162738c-245.740844 0-445.181175 197.577914-445.181175 441.024505s199.439308 441.024505 445.181175 441.024505c245.738797 0 445.178105-197.577914 445.178105-441.024505S758.453065 80.162738 512.714268 80.162738zM512.714268 874.005824c-195.880249 0-356.145349-158.768003-356.145349-352.818581s160.2651-352.821651 356.145349-352.821651c195.877179 0 356.14228 158.77005 356.14228 352.821651S708.591447 874.005824 512.714268 874.005824z</Geometry>
-  <Geometry o:Freeze="True" x:Key="LeftGeometry">M394.24 512L683.52 248.32c10.24-10.24 10.24-25.6 0-35.84-10.24-10.24-25.6-10.24-35.84 0l-307.2 279.04c-5.12 5.12-7.68 12.8-7.68 20.48 0 7.68 2.56 15.36 7.68 20.48l307.2 279.04c10.24 10.24 25.6 10.24 35.84 0 10.24-10.24 10.24-25.6 0-35.84L394.24 512z</Geometry>
-  <Geometry o:Freeze="True" x:Key="RightGeometry">M4.1666641,0 C5.2083321,0 6.25,0.41666794 7.0833321,1.25 L57.083331,46.666664 C57.916664,47.499998 58.33333,48.749998 58.333329,49.999998 58.33333,51.249997 57.916664,52.499997 57.083331,53.333331 L7.0833321,98.749996 C5.4166641,100.41666 2.9166641,100.41666 1.2499962,98.749996 -0.41666794,97.083328 -0.41666794,94.583328 1.2499962,92.916664 L48.333331,49.999998 1.2499962,7.0833321 C-0.41666794,5.4166641 -0.41666794,2.9166641 1.2499962,1.25 2.0833282,0.41666794 3.1249962,0 4.1666641,0 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="RotateLeftGeometry">M165.238899 508.178506C164.450369 456.442676 171.767779 404.485842 187.244542 353.863631 266.138632 95.812692 533.436225-51.353028 784.380224 25.368251 1035.324219 102.08953 1174.62994 373.566359 1095.735851 631.617298 1016.84176 889.66824 749.544168 1036.833959 498.600172 960.11268 424.134741 937.346313 357.837833 896.870788 303.973868 842.276436 291.310328 829.441176 291.396506 808.495802 304.166356 795.493625 316.936205 782.491452 337.554042 782.356136 350.217582 795.191397 396.640587 842.243889 453.73137 877.098901 517.975091 896.740177 734.436966 962.919213 965.320335 835.802028 1033.557737 612.607541 1101.795139 389.413057 981.467179 154.919792 765.005305 88.740755 548.543428 22.561718 317.660056 149.678904 249.422655 372.873388 235.597198 418.094418 229.294871 464.461039 230.4403 510.559881L311.240978 429.759202C323.584094 417.416085 343.892513 417.712357 356.601099 430.420946 369.309686 443.129535 369.605959 463.437952 357.262842 475.781068L230.778782 602.265128C229.273826 605.769679 227.098877 609.041396 224.251145 611.889128 211.908029 624.232245 191.59961 623.935974 178.891024 611.227385L40.825428 473.16179C28.11684 460.453206 27.820569 440.144784 40.163685 427.801668 52.506801 415.458551 72.815218 415.754827 85.523806 428.463411L165.238899 508.178506Z</Geometry>
-  <Geometry o:Freeze="True" x:Key="RotateRightGeometry">M13.1117823382705,0.00108644926083379C18.7165758868546,0.0742913923738762 23.9197352191299,3.84162509632329 25.6893389483779,9.62980814885544 26.1165926715226,11.0273168346189 26.3185999652236,12.461670228202 26.296833302626,13.8899238456496L28.4974711200089,11.6892569876356C28.8483088275283,11.3384168617557 29.4089472552627,11.330238049977 29.7496950885147,11.6709881771838 30.0904429217666,12.0117402117628 30.0822642108291,12.572387459387 29.7314265033096,12.923229492639L25.9199488421768,16.7347560556155C25.5691111346572,17.0855980888674 25.0084688922257,17.0937769006462 24.6677210589736,16.7530248660672 24.5891077777236,16.674408708165 24.5290644427627,16.5840870073788 24.4875185748428,16.4873374624474L20.9957621356339,12.9955379708416C20.6550143023818,12.6547878436347 20.6631930133193,12.0941405960106 21.0140307208389,11.7432985627585 21.3648684283584,11.3924565295065 21.9255068560928,11.3842777177278 22.2662546893447,11.7250297523068L24.4968645831436,13.9556652415401C24.5284846087783,12.6830303030582 24.3545000811904,11.4030042974954 23.9728319903702,10.1546044295501 22.0890505572647,3.99295504901009 15.7152140399307,0.483677352708723 9.73950221742095,2.3106585349176 3.76379420960845,4.13763876344051 0.441986348280352,10.6112083411418 2.32576778138575,16.7728577216819 4.20954921449125,22.9345051948497 10.5833819171279,26.4437838448372 16.5590937396377,24.6168036163144 18.3326227923721,24.0745720467974 19.9086878558486,23.1123447593618 21.1902544757217,21.8133823630949 21.5398485919327,21.4590441166922 22.1090319415421,21.4627806587338 22.4615595599502,21.8217271162507 22.8140871783584,22.1806735737676 22.8164675494522,22.7589048852417 22.4668734332412,23.1132431316444 20.9798891803115,24.6204085496776 19.1496775409072,25.7378005615073 17.0939638873428,26.3663063881084 10.1663286944717,28.484321088751 2.78723170960845,24.4215726325395 0.609260823377952,17.2976520950044 -1.56871387754975,10.1737353722136 2.27700069154205,2.6791733248245 9.20463588441315,0.561156716809679 10.5035670062393,0.164028483596132 11.8183710833877,-0.0158071458708005 13.1117823382705,0.00108644926083379z</Geometry>
-  <Geometry o:Freeze="True" x:Key="EnlargeGeometry">M750.3 198.7C598 46.4 351.1 46.4 198.7 198.7s-152.3 399.2 0 551.5C345.1 896.6 578.8 902.3 732 767.3l172.1 172.1 35.4-35.4-172.1-171.9c135-153.2 129.3-387-17.1-533.4z m39.3 403.8c-17.1 42.1-42.2 80-74.7 112.4-32.5 32.5-70.3 57.6-112.4 74.7-40.7 16.5-83.8 24.9-128 24.9s-87.2-8.4-128-24.9c-42.1-17.1-80-42.2-112.4-74.7s-57.6-70.3-74.7-112.4c-16.5-40.7-24.9-83.8-24.9-128s8.4-87.2 24.9-128c17.1-42.1 42.2-80 74.7-112.4s70.3-57.6 112.4-74.7c40.7-16.5 83.8-24.9 128-24.9s87.2 8.4 128 24.9c42.1 17.1 80 42.2 112.4 74.7 32.5 32.5 57.6 70.3 74.7 112.4 16.5 40.7 24.9 83.8 24.9 128s-8.4 87.3-24.9 128zM671 502H496v175h-50V502H271v-50h175V277h50v175h175v50z</Geometry>
-  <Geometry o:Freeze="True" x:Key="ReduceGeometry">M750.3 198.7C598 46.4 351.1 46.4 198.7 198.7s-152.3 399.2 0 551.5C345.1 896.6 578.8 902.3 732 767.3l172.1 172.1 35.4-35.4-172.1-171.9c135-153.2 129.3-387-17.1-533.4z m39.3 403.8c-17.1 42.1-42.2 80-74.7 112.4-32.5 32.5-70.3 57.6-112.4 74.7-40.7 16.5-83.8 24.9-128 24.9s-87.2-8.4-128-24.9c-42.1-17.1-80-42.2-112.4-74.7s-57.6-70.3-74.7-112.4c-16.5-40.7-24.9-83.8-24.9-128s8.4-87.2 24.9-128c17.1-42.1 42.2-80 74.7-112.4s70.3-57.6 112.4-74.7c40.7-16.5 83.8-24.9 128-24.9s87.2 8.4 128 24.9c42.1 17.1 80 42.2 112.4 74.7 32.5 32.5 57.6 70.3 74.7 112.4 16.5 40.7 24.9 83.8 24.9 128s-8.4 87.3-24.9 128zM671 502H271v-50h400v50z</Geometry>
-  <Geometry o:Freeze="True" x:Key="DownloadGeometry">M868.100096 742.600704l-0.049152 0L216.246272 742.600704l-0.049152 0c-13.98784 0-25.327616 11.33568-25.327616 25.352192 0 13.993984 11.360256 25.327616 25.327616 25.327616l0.049152 0 651.804672 0 0.049152 0c13.996032 0 25.33376-11.333632 25.33376-25.327616C893.431808 753.936384 882.096128 742.600704 868.100096 742.600704L868.100096 742.600704 868.100096 742.600704M523.15136 688.433152c4.728832 4.757504 11.237376 7.733248 18.47296 7.733248l0 0 0 0c7.231488 0 13.740032-2.951168 18.42176-7.757824l314.836992-314.83904c4.732928-4.704256 7.714816-11.214848 7.7312-18.395136 0-14.342144-11.712512-25.9584-25.972736-25.9584-7.213056-0.02048-13.694976 2.930688-18.376704 7.636992L567.578624 607.51872 567.578624 117.52448c-0.024576-0.026624-0.024576-0.026624-0.024576-0.0512 0.024576-14.344192-11.59168-25.980928-25.901056-25.980928-14.348288 0-25.960448 11.634688-25.960448 25.980928 0 0 0 0.024576 0.024576 0.0512l0 489.967616L245.055488 336.826368c-4.683776-4.704256-11.2128-7.6288-18.374656-7.60832-14.342144-0.02048-25.954304 11.614208-26.005504 25.9072 0 7.20896 2.951168 13.768704 7.684096 18.423808L523.15136 688.433152 523.15136 688.433152 523.15136 688.433152M523.15136 688.433152 523.15136 688.433152z</Geometry>
-  <Geometry o:Freeze="True" x:Key="SaveGeometry">M608 320C625.664 320 640 305.696 640 288L640 160C640 142.304 625.664 128 608 128 590.336 128 576 142.304 576 160L576 288C576 305.696 590.336 320 608 320L608 320ZM960 896C960 931.328 931.328 960 896 960L128 960C92.672 960 64 931.328 64 896L64 128C64 92.672 92.672 64 128 64L192 64 192 384C192 419.328 220.672 448 256 448L768 448C803.328 448 832 419.328 832 384L832 64 896 64C931.328 64 960 92.672 960 128L960 896 960 896ZM256 64 768 64 768 352C768 369.696 753.664 384 736 384L288 384C270.336 384 256 369.696 256 352L256 64 256 64ZM896 0 128 0C57.312 0 0 57.312 0 128L0 896C0 966.688 57.312 1024 128 1024L896 1024C966.688 1024 1024 966.688 1024 896L1024 128C1024 57.312 966.688 0 896 0L896 0Z</Geometry>
-  <Geometry o:Freeze="True" x:Key="WindowsGeometry">M426.276571 574.829714l0 372.004571-389.705143-53.686857 0-318.317714 389.705143 0zM426.276571 150.308571l0 376.539429-389.705143 0 0-322.852571zM987.428571 574.829714l0 449.170286-518.290286-71.460571 0-377.709714 518.290286 0zM987.428571 73.142857l0 453.705143-518.290286 0 0-382.317714z</Geometry>
-  <Geometry o:Freeze="True" x:Key="FullScreenGeometry">M942 82v320h-50V167.4l-274 274-35.4-35.4 274-274H622V82h320zM406 582.6l-274 274V622H82v320h320v-50H167.4l274-274-35.4-35.4zM132 132h302V82H82v352h50V132z m760 760H590v50h352V590h-50v302z</Geometry>
-  <Geometry o:Freeze="True" x:Key="FullScreenReturnGeometry">M94.186081,59.07 L100,59.07 100,100 59.07,100 59.07,94.186081 94.186081,94.186081 z M4.5814285,58.208999 L41.791,58.208999 41.791,95.418571 35.977005,95.418571 35.977005,68.139304 4.1163101,100 0,95.88369 31.860695,64.022995 4.5814285,64.022995 z M95.88369,0 L100,4.1163101 68.139304,35.977005 95.418571,35.977005 95.418571,41.791 58.208999,41.791 58.208999,4.5814285 64.022995,4.5814285 64.022995,31.860695 z M0,0 L40.929998,0 40.929998,5.8139191 5.8139191,5.8139191 5.8139191,40.929998 0,40.929998 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="SearchGeometry">M716.6003 213.800623c-138.851102-138.915088-364.020238-138.915088-502.935326 0s-138.915088 364.084225 0 502.935326a355.573996 355.573996 0 0 0 502.935326 0 355.573996 355.573996 0 0 0 0-502.935326z m-580.359212 580.359212a465.183184 465.183184 0 1 1 657.783099 0 465.183184 465.183184 0 0 1-657.783099 0z m868.939152 211.156054a63.474789 63.474789 0 0 1-89.837303 0l-89.773316-89.837303a63.410803 63.410803 0 1 1 89.773316-89.773316l89.837303 89.773316a63.346816 63.346816 0 0 1 0 89.837303z</Geometry>
-  <Geometry o:Freeze="True" x:Key="UpDownGeometry">M454.464 143.68l-253.44 253.44c-12.032 12.032-12.032 31.36 0 43.392 11.968 11.968 31.36 11.968 43.328 0l237.376-237.376 237.376 237.376c11.968 11.968 31.36 11.968 43.328 0 12.032-12.032 12.032-31.36 0-43.392l-253.44-253.44C491.264 126.016 478.016 124.032 454.464 143.68zM507.968 947.648l252.48-253.376c11.968-11.968 11.968-31.36 0-43.392-11.968-11.968-31.296-11.968-43.264 0l-236.48 237.376L244.16 650.88c-11.968-11.968-31.296-11.968-43.264 0-11.968 12.032-11.968 31.424 0 43.392l252.48 253.376C465.984 960 491.136 964.48 507.968 947.648z</Geometry>
-  <Geometry o:Freeze="True" x:Key="WindowMinGeometry">M0,4 L10,4 L10,5 L0,5 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="WindowRestoreGeometry">M1,3 L1,9 L7,9 L7,3 z M3,1 L3,2 L8,2 L8,7 L9,7 L9,1 z M2,0 L10,0 L10,8 L8,8 L8,10 L0,10 L0,2 L2,2 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="WindowMaxGeometry">M1,1 L1,9 L9,9 L9,1 z M0,0 L10,0 L10,10 L0,10 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="CheckedGeometry">M 0,2 3,5 8,0</Geometry>
-  <Geometry o:Freeze="True" x:Key="AlignLeftGeometry">M0,8 L4,8 4,10 0,10 z M0,4 L8,4 8,6 0,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AlignRightGeometry">M8,8 L12,8 12,10 8,10 z M4,4 L12,4 12,6 4,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AlignHCenterGeometry">M4,8 L8,8 8,10 4,10 z M2,4 L10,4 10,6 2,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AlignHStretchGeometry">M0,8 L12,8 12,10 0,10 z M0,4 L12,4 12,6 0,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AlignTopGeometry">M8,0 L10,0 10,4 8,4 z M4,0 L6,0 6,8 4,8 z M0,0 L2,0 2,12 0,12 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AlignBottomGeometry">M8,8 L10,8 10,12 8,12 z M4,4 L6,4 6,12 4,12 z M0,0 L2,0 2,12 0,12 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AlignVCenterGeometry">M8,4 L10,4 10,8 8,8 z M4,2 L6,2 6,10 4,10 z M0,0 L2,0 2,12 0,12 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AlignVStretchGeometry">M8,0 L10,0 10,12 8,12 z M4,0 L6,0 6,12 4,12 z M0,0 L2,0 2,12 0,12 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="PageModeGeometry">M1.0000002,12 L1.0000002,13 11,13 11,12 z M1.0000002,10 L1.0000002,11 11,11 11,10 z M1.0000002,8 L1.0000002,9 11,9 11,8 z M1.0000002,6 L1.0000002,7 11,7 11,6 z M1.0000002,4 L1.0000002,5 11,5 11,4 z M1.0000002,2 L1.0000002,3 11,3 11,2 z M0,0 L12,0 12,14 0,14 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="TwoPageModeGeometry">M8.99999988079071,12L8.99999988079071,13 13,13 13,12z M1,12L1,13 5,13 5,12z M9.00000011920929,10L9.00000011920929,11 13,11 13,10z M1,10L1,11 5,11 5,10z M9.00000011920929,8L9.00000011920929,9 13,9 13,8z M1,8L1,9 5,9 5,8z M9.00000011920929,6L9.00000011920929,7 13,7 13,6z M1,6L1,7 5,7 5,6z M9.00000011920929,4L9.00000011920929,5 13,5 13,4z M1,4L1,5 5,5 5,4z M8.99999988079071,2L8.99999988079071,3 13,3 13,2z M1,2L1,3 5,3 5,2z M7.99999994039536,0L14,0 14,14 7.99999994039536,14z M0,0L6,0 6,14 0,14z</Geometry>
-  <Geometry o:Freeze="True" x:Key="ScrollModeGeometry">M1,12L1,13 8,13 8,12z M1,10L1,11 8,11 8,10z M1,8L1,9 8,9 8,8z M1,6L1,7 8,7 8,6z M11.0000002384186,5L11.0000002384186,9 13,9 13,5z M1,4L1,5 8,5 8,4z M1,2L1,3 8,3 8,2z M10.0000000298023,0L14,0 14,14 10.0000000298023,14z M0,0L9.00000011920929,0 9.00000011920929,14 0,14z</Geometry>
-  <Geometry o:Freeze="True" x:Key="EyeOpenGeometry">M928 406.4c-100.8-137.6-249.6-224-416-224s-315.2 86.4-416 224c-44.8 60.8-44.8 150.4 0 211.2 102.4 137.6 251.2 224 416 224 166.4 0 315.2-86.4 416-224 46.4-60.8 46.4-150.4 0-211.2zM512 721.6c-115.2 0-209.6-94.4-209.6-209.6 0-115.2 94.4-209.6 209.6-209.6 115.2 0 209.6 94.4 209.6 209.6 1.6 115.2-92.8 209.6-209.6 209.6z m0-360c-83.2 0-150.4 67.2-150.4 150.4s67.2 150.4 150.4 150.4 150.4-67.2 150.4-150.4-67.2-150.4-150.4-150.4z m0 0</Geometry>
-  <Geometry o:Freeze="True" x:Key="EyeCloseGeometry">M950.4 361.6c8-20.8 0-43.2-19.2-54.4-9.6-4.8-20.8-6.4-32-3.2s-19.2 11.2-24 22.4c-56 132.8-208 228.8-361.6 228.8-155.2 0-307.2-97.6-363.2-232-4.8-11.2-12.8-19.2-24-24-9.6-4.8-20.8-3.2-32 0-20.8 9.6-30.4 35.2-20.8 56 25.6 60.8 67.2 118.4 123.2 164.8l-67.2 70.4c-14.4 16-14.4 40 0 57.6 8 8 17.6 14.4 28.8 14.4s22.4-3.2 30.4-11.2l76.8-81.6c35.2 20.8 73.6 38.4 113.6 49.6l-28.8 83.2c-8 22.4 3.2 46.4 24 54.4 4.8 1.6 9.6 3.2 14.4 3.2 6.4 0 11.2-1.6 17.6-3.2 9.6-4.8 17.6-12.8 22.4-24l33.6-96c41.6 4.8 81.6 3.2 123.2-3.2l32 94.4c3.2 11.2 11.2 19.2 22.4 24 9.6 4.8 20.8 4.8 32 1.6 20.8-8 32-32 24-54.4l-28.8-84.8c30.4-9.6 59.2-22.4 86.4-38.4l62.4 65.6c14.4 16 43.2 16 57.6 0 16-16 16-43.2 0-60.8l-51.2-54.4c56-43.2 100.8-100.8 128-164.8z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AudioGeometry">M627.52666696 962L550.66666696 890.47999971c116.82-92.99999971 191.09999971-230.94 191.09999971-385.2 0-146.99999971-67.61999971-279-174.96-371.57999942L643.84666667 62C770.86666638 172.99999971 850.66666667 330.2 850.66666667 505.09999971c0 182.27999971-86.58 345.42-223.13999971 456.90000029zM405.64666638 782l-76.32-77.22a227.88 227.88 0 0 0 116.40000058-199.26A228.06 228.06 0 0 0 347.86666638 317.84000029L422.86666696 242A334.37999971 334.37999971 0 0 1 550.66666696 505.52 334.62 334.62 0 0 1 405.64666638 782zM205.66666638 596.6C164.26666638 596.6 130.66666667 562.51999971 130.66666667 520.64 130.66666667 478.76000029 164.26666638 444.79999971 205.66666638 444.79999971s74.99999971 33.95999971 75.00000058 75.90000058c0 41.87999971-33.59999971 75.84000029-75.00000058 75.83999942z</Geometry>
-  <Geometry o:Freeze="True" x:Key="BubbleTailGeometry">M0,0L28,0 28,14.0000006258488 28,15.0010000765324 28.0151405334473,15.0010000765324 28.0455417633057,15.8010965883732C28.4084091186524,22.9596563875675,30.92209815979,29.5507589876652,34.9532623291016,34.9410597383976L34.9984359741211,34.9999815523624 34.0966339111328,34.9885679781437C15.1841707229614,34.5094191133976,2.0535663480814E-07,19.0279375612736,0,0z</Geometry>
-  <Geometry o:Freeze="True" x:Key="StarGeometry">M535.9 165.2l96.5 195.4c3.9 7.9 11.4 13.3 20.1 14.6l215.7 31.3c21.9 3.2 30.6 30 14.8 45.5L726.8 604.1c-6.3 6.1-9.1 14.9-7.7 23.6L756 842.5c3.7 21.8-19.1 38.4-38.7 28.1L524.4 769.2c-7.8-4.1-17-4.1-24.8 0L306.7 870.6c-19.6 10.3-42.4-6.3-38.7-28.1l36.8-214.8c1.5-8.6-1.4-17.5-7.7-23.6L141.1 452c-15.8-15.4-7.1-42.3 14.8-45.5l215.7-31.3c8.7-1.3 16.2-6.7 20.1-14.6l96.5-195.4c9.7-19.9 37.9-19.9 47.7 0z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AddGeometry">M8,0 C8.5522847,0 9,0.44771525 9,1 L9,7 15,7 C15.552285,7 16,7.4477153 16,8 16,8.5522852 15.552285,9 15,9 L9,9 9,15 C9,15.552285 8.5522847,16 8,16 7.4477153,16 7,15.552285 7,15 L7,9 1,9 C0.44771528,9 0,8.5522852 0,8 0,7.4477153 0.44771528,7 1,7 L7,7 7,1 C7,0.44771525 7.4477153,0 8,0 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="RemoveGeometry">M10.899495,0 C11.155417,0 11.411339,0.097630501 11.606602,0.29289246 11.997126,0.68341732 11.997126,1.3165817 11.606602,1.7071066 L7.3639612,5.9497471 11.606602,10.192388 C11.997126,10.582912 11.997126,11.216077 11.606602,11.606601 11.216077,11.997126 10.582912,11.997126 10.192388,11.606601 L5.9497476,7.3639607 1.7071068,11.606601 C1.3165827,11.997126 0.68341756,11.997126 0.29289341,11.606601 -0.097630978,11.216077 -0.097630978,10.582912 0.29289341,10.192388 L4.5355338,5.9497471 0.29289341,1.7071066 C-0.097630978,1.3165817 -0.097630978,0.68341732 0.29289341,0.29289246 0.48815536,0.097630501 0.74407768,0 1,0 1.2559223,0 1.5118446,0.097630501 1.7071068,0.29289246 L5.9497476,4.5355334 10.192388,0.29289246 C10.38765,0.097630501 10.643572,0 10.899495,0 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="SubGeometry">M62.5797 488.9508c0.2632 42.5185 34.985 77.2116 77.5035 77.5035l743.0216-0.6728c42.5185 0.3215 76.7437-33.9333 76.4518-76.4805l0 0c-0.2918-42.5175-34.985-77.2106-77.5045-77.5035l-743.0216-0.087C96.513 411.4473 62.2879 446.4323 62.5797 488.9508L62.5797 488.9508z</Geometry>
-  <Geometry o:Freeze="True" x:Key="WarningGeometry">M943.644188 827.215696l-351.176649-608.204749c-42.945473-74.36249-113.147387-74.36249-156.092861 0l-351.176649 608.204749c-42.946498 74.431167-7.811716 135.14955 78.012605 135.14955l702.420949 0C951.455904 962.36422 986.555836 901.645838 943.644188 827.215696zM466.187532 391.579035c12.621133-13.644108 28.66175-20.466675 48.233578-20.466675 19.580028 0 35.612444 6.75389 48.241778 20.194018 12.544256 13.473954 18.820484 30.325365 18.820484 50.587035 0 17.430551-26.19759 145.621205-34.929778 238.882082l-63.105666 0c-7.666162-93.259852-36.090106-221.450507-36.090106-238.882082C447.358847 421.938226 453.643275 405.155491 466.187532 391.579035zM561.76804 835.026386c-13.268949 12.928641-29.062535 19.375023-47.345906 19.375023-18.275171 0-34.076957-6.447407-47.346931-19.375023-13.235123-12.89379-19.818859-28.517221-19.818859-46.869269 0-18.249546 6.583736-34.043131 19.818859-47.278254 13.268949-13.235123 29.07176-19.852685 47.346931-19.852685 18.283371 0 34.076957 6.617562 47.345906 19.852685 13.235123 13.235123 19.827059 29.028709 19.827059 47.278254C581.595099 806.51019 575.003163 822.132597 561.76804 835.026386z</Geometry>
-  <Geometry o:Freeze="True" x:Key="InfoGeometry">M505.6512 39.0144c-261.2224 3.4816-470.1184 218.112-466.6368 479.4368 3.4816 261.12 218.112 470.1184 479.3344 466.6368 261.2224-3.4816 470.1184-218.112 466.7392-479.3344C981.504 244.4288 766.8736 35.5328 505.6512 39.0144zM558.08 196.608c48.128 0 62.2592 27.9552 62.2592 59.8016 0 39.8336-31.9488 76.6976-86.3232 76.6976-45.568 0-67.1744-22.9376-65.9456-60.8256C468.0704 240.4352 494.7968 196.608 558.08 196.608zM434.7904 807.6288c-32.8704 0-56.9344-19.968-33.8944-107.6224l37.6832-155.5456c6.5536-24.8832 7.68-34.9184 0-34.9184-9.8304 0-52.5312 17.2032-77.7216 34.2016l-16.384-26.9312c79.9744-66.7648 171.8272-105.8816 211.2512-105.8816 32.8704 0 38.2976 38.912 21.9136 98.6112l-43.2128 163.5328c-7.68 28.8768-4.4032 38.912 3.2768 38.912 9.9328 0 42.1888-11.9808 73.9328-36.9664l18.6368 24.8832C552.5504 777.728 467.6608 807.6288 434.7904 807.6288z</Geometry>
-  <Geometry o:Freeze="True" x:Key="ErrorGeometry">M495.469714 0C224.621714 0 0 224.621714 0 495.469714c0 270.884571 224.621714 495.506286 495.469714 495.506286 270.884571 0 495.506286-224.621714 495.506286-495.506286C990.976 224.621714 766.354286 0 495.469714 0z m211.419429 634.221714c19.821714 19.821714 19.821714 46.226286 0 66.048s-46.226286 19.821714-66.048 0l-138.752-138.715428-145.334857 145.334857a51.858286 51.858286 0 0 1-72.667429 0 51.858286 51.858286 0 0 1 0-72.667429l145.334857-145.334857-138.752-138.752c-19.821714-19.821714-19.821714-46.226286 0-66.048s46.262857-19.821714 66.084572 0l138.715428 138.715429 145.371429-145.334857a51.858286 51.858286 0 0 1 72.667428 0 51.858286 51.858286 0 0 1 0 72.667428l-145.371428 145.334857 138.752 138.752z</Geometry>
-  <Geometry o:Freeze="True" x:Key="SuccessGeometry">M512.66048 64.64c-247.424 0-448 200.57728-448 448s200.576 448 448 448 448-200.57728 448-448c0-247.424-200.57728-448-448-448z m250.71232 334.86336L480.98176 681.89312c-15.49568 15.49696-40.61952 15.49696-56.11648 0l-162.9184-162.9184c-15.49568-15.49568-15.49568-40.61824 0-56.1152s40.61952-15.49568 56.11648 0l134.85952 134.85952L707.25504 343.3856c15.49568-15.49568 40.61952-15.49568 56.11648 0s15.49696 40.6208 0.00128 56.11776z</Geometry>
-  <Geometry o:Freeze="True" x:Key="FatalGeometry">M716.8 375.466667l34.133333 34.133333c17.066667 17.066667 42.666667 17.066667 59.733334 0 17.066667-17.066667 17.066667-42.666667 0-59.733333l-34.133334-34.133334 34.133334-34.133333c17.066667-17.066667 17.066667-42.666667 0-59.733333-17.066667-17.066667-42.666667-17.066667-59.733334 0l-34.133333 34.133333-34.133333-34.133333c-17.066667-17.066667-42.666667-17.066667-59.733334 0-17.066667 17.066667-17.066667 42.666667 0 59.733333l34.133334 34.133333-34.133334 34.133334c-17.066667 17.066667-17.066667 42.666667 0 59.733333 17.066667 17.066667 42.666667 17.066667 59.733334 0l34.133333-34.133333z m-426.666667 0l34.133334 34.133333c17.066667 17.066667 42.666667 17.066667 59.733333 0 17.066667-17.066667 17.066667-42.666667 0-59.733333l-34.133333-34.133334 34.133333-34.133333c17.066667-17.066667 17.066667-42.666667 0-59.733333-17.066667-17.066667-42.666667-17.066667-59.733333 0l-34.133334 34.133333-34.133333-34.133333c-17.066667-17.066667-42.666667-17.066667-59.733333 0-17.066667 17.066667-17.066667 42.666667 0 59.733333l34.133333 34.133333-34.133333 34.133334c-17.066667 17.066667-17.066667 42.666667 0 59.733333 17.066667 17.066667 42.666667 17.066667 59.733333 0l34.133333-34.133333zM0 85.333333c0-51.2 42.666667-85.333333 85.333333-85.333333h853.333334c51.2 0 85.333333 42.666667 85.333333 85.333333v853.333334c0 51.2-42.666667 85.333333-85.333333 85.333333H85.333333c-51.2 0-85.333333-42.666667-85.333333-85.333333V85.333333z m512 469.333334c-136.533333 0-230.4 68.266667-290.133333 196.266666-8.533333 17.066667 0 42.666667 17.066666 59.733334s42.666667 0 59.733334-17.066667c51.2-93.866667 110.933333-145.066667 221.866666-145.066667 102.4 0 170.666667 51.2 221.866667 145.066667 8.533333 17.066667 34.133333 25.6 59.733333 17.066667 17.066667-8.533333 25.6-34.133333 17.066667-59.733334-76.8-128-170.666667-196.266667-307.2-196.266666z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AskGeometry">M512 0 30.11843 240.941297l0 542.117406 481.88157 240.941297 481.88157-240.941297L993.88157 240.941297 512 0zM575.776472 768.799969 460.188012 768.799969 460.188012 656.222073l115.588459 0L575.776472 768.799969zM623.335603 509.329685c-52.375829 36.723353-59.600363 55.988096-59.600363 84.885211l0 19.866447L468.616977 614.081343l0-26.489278c0-45.754021 13.846342-80.67124 61.406497-116.791866 46.957428-36.723353 57.79423-62.0082 57.79423-84.282484 0-25.284848-21.67258-54.181962-55.386393-54.181962-42.743457 0-70.436142 26.489278-82.477374 85.486914l-105.956088-21.67258c24.683144-111.976192 82.477374-157.127486 205.289345-157.127486 98.12985 0 157.72919 63.212631 157.72919 131.842639C707.017407 423.240044 688.956071 461.76953 623.335603 509.329685z</Geometry>
-  <Geometry o:Freeze="True" x:Key="AllGeometry">M 721.005 638.949 C 758.74 638.949 789.333 669.56 789.333 707.312 C 789.333 745.047 758.74 775.657 721.005 775.657 C 683.253 775.657 652.66 745.047 652.66 707.312 C 652.66 669.56 683.253 638.949 721.005 638.949 Z M 512.017 638.949 C 549.77 638.949 580.38 669.56 580.38 707.312 C 580.38 745.047 549.77 775.657 512.017 775.657 C 474.265 775.657 443.672 745.047 443.672 707.312 C 443.672 669.56 474.265 638.949 512.017 638.949 Z M 303.029 638.949 C 340.781 638.949 371.392 669.56 371.392 707.312 C 371.392 745.047 340.781 775.657 303.029 775.657 C 265.277 775.657 234.667 745.047 234.667 707.312 C 234.667 669.56 265.277 638.949 303.029 638.949 Z M 721.005 443.655 C 758.74 443.655 789.333 474.265 789.333 512.017 C 789.333 549.769 758.74 580.363 721.005 580.363 C 683.253 580.363 652.66 549.769 652.66 512.017 C 652.66 474.265 683.253 443.655 721.005 443.655 Z M 512.017 443.655 C 549.77 443.655 580.38 474.265 580.38 512.017 C 580.38 549.769 549.77 580.363 512.017 580.363 C 474.265 580.363 443.672 549.769 443.672 512.017 C 443.672 474.265 474.265 443.655 512.017 443.655 Z M 303.029 443.655 C 340.781 443.655 371.392 474.265 371.392 512.017 C 371.392 549.769 340.781 580.363 303.029 580.363 C 265.277 580.363 234.667 549.769 234.667 512.017 C 234.667 474.265 265.277 443.655 303.029 443.655 Z M 721.005 248.343 C 758.74 248.343 789.333 278.953 789.333 316.688 C 789.333 354.44 758.74 385.051 721.005 385.051 C 683.253 385.051 652.66 354.44 652.66 316.688 C 652.66 278.953 683.253 248.343 721.005 248.343 Z M 512.017 248.343 C 549.77 248.343 580.38 278.953 580.38 316.688 C 580.38 354.44 549.77 385.051 512.017 385.051 C 474.265 385.051 443.672 354.44 443.672 316.688 C 443.672 278.953 474.265 248.343 512.017 248.343 Z M 303.029 248.343 C 340.781 248.343 371.392 278.953 371.392 316.688 C 371.392 354.44 340.781 385.051 303.029 385.051 C 265.277 385.051 234.667 354.44 234.667 316.688 C 234.667 278.953 265.277 248.343 303.029 248.343 Z</Geometry>
-  <Geometry o:Freeze="True" x:Key="DragVerticalGeometry">M2,12 C3.1045694,12 4,12.895431 4,14 4,15.104569 3.1045694,16 2,16 0.89543051,16 0,15.104569 0,14 0,12.895431 0.89543051,12 2,12 z M2,6 C3.1045694,6 4,6.8954306 4,8 4,9.1045694 3.1045694,10 2,10 0.89543051,10 0,9.1045694 0,8 0,6.8954306 0.89543051,6 2,6 z M2,0 C3.1045694,0 4,0.89543056 4,2 4,3.1045694 3.1045694,4 2,4 0.89543051,4 0,3.1045694 0,2 0,0.89543056 0.89543051,0 2,0 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="DragHorizontalGeometry">M14,0 C15.104569,0 16,0.89543051 16,2 16,3.1045694 15.104569,4 14,4 12.895431,4 12,3.1045694 12,2 12,0.89543051 12.895431,0 14,0 z M8,0 C9.1045694,0 10,0.89543051 10,2 10,3.1045694 9.1045694,4 8,4 6.8954306,4 6,3.1045694 6,2 6,0.89543051 6.8954306,0 8,0 z M2,0 C3.1045694,0 4,0.89543051 4,2 4,3.1045694 3.1045694,4 2,4 0.89543056,4 0,3.1045694 0,2 0,0.89543051 0.89543056,0 2,0 z</Geometry>
-  <Geometry o:Freeze="True" x:Key="DropperGeometry">M798.165333 97.834667a42.624 42.624 0 0 0-60.330666 0l-140.629334 140.629333-55.381333-55.296-60.330667 60.330667 55.381334 55.296-353.706667 353.706666a42.709333 42.709333 0 0 0-11.221333 19.84l-42.666667 170.666667a42.538667 42.538667 0 0 0 51.712 51.712l170.666667-42.666667c7.509333-1.877333 14.378667-5.76 19.84-11.221333l353.792-353.792 55.210666 55.125333 60.330667-60.330666-55.210667-55.125334 140.544-140.544a42.624 42.624 0 0 0 0-60.330666l-128-128zM319.488 772.138667l-90.197333 22.570666 22.570666-90.197333 345.386667-345.386667 67.669333 67.584-345.429333 345.429334z</Geometry>
-  <Geometry o:Freeze="True" x:Key="VisualStudioGeometry">M23.063,0L11,12L3,6L0,7v15l3,2l8-6l11.875,12L30,27V2.938L23.063,0z M3,19v-8l5,4L3,19z M23,21l-8-6l8-6V21z</Geometry>
-  <Geometry o:Freeze="True" x:Key="ConfigGeometry">M827.904 541.184a278.592 278.592 0 0 0 0-58.368l73.728-58.368c15.872-13.056 20.224-35.584 9.728-53.504l-78.592-137.728c-9.984-17.408-31.232-25.856-51.712-18.176l-86.528 35.072c-15.872-11.52-32.512-21.248-49.664-29.184l-12.8-92.928c-3.072-20.224-20.736-35.584-41.216-35.584h-157.44c-20.736 0-38.144 14.848-41.216 35.84L378.88 221.44c-17.152 7.936-33.792 17.92-49.664 29.184L242.688 215.296c-18.688-7.168-41.216 0.768-51.2 18.176L112.64 371.2c-10.24 17.92-6.144 40.448 10.24 53.76l73.472 58.112c-1.024 9.472-1.536 19.2-1.536 29.184 0 9.728 0.512 19.456 1.536 29.184l-73.984 58.368c-15.872 13.056-19.968 35.584-9.728 53.248l78.848 137.728c9.984 17.408 32 25.856 51.456 17.92l86.528-35.072c15.872 11.52 32.512 21.248 49.664 29.184l13.056 93.696c3.328 20.48 20.48 35.328 41.216 35.328h157.44c20.48 0 38.144-15.36 41.216-35.84l13.056-93.184c17.152-7.936 33.792-17.664 49.664-29.184l86.784 35.328c4.864 1.792 9.984 2.816 15.104 2.816 14.848 0 28.672-7.936 36.096-20.992l78.592-137.728c10.24-17.664 6.4-40.192-9.984-53.76l-73.472-58.112z m-25.344 231.168l-99.584-40.448c-7.424-3.072-15.872-1.792-22.272 3.072-19.712 15.36-40.704 27.648-62.464 36.608-7.424 3.072-12.544 9.728-13.568 17.664l-14.592 104.96-155.392 2.304-15.104-107.264c-1.024-7.936-6.4-14.592-13.568-17.664-21.76-8.96-42.752-21.504-62.464-36.608-4.096-3.072-8.96-4.608-13.824-4.608-2.816 0-5.888 0.512-8.448 1.536l-96.256 41.472-80.896-137.216 84.48-66.816c6.144-4.864 9.472-12.8 8.448-20.48-1.536-12.032-2.56-24.32-2.56-36.608 0-12.288 1.024-24.576 2.56-36.608 1.024-7.936-2.048-15.616-8.448-20.48l-83.712-64 76.544-139.264 99.584 40.448c7.424 3.072 15.872 1.792 22.272-3.072 19.712-15.36 40.96-27.648 62.72-36.864 7.424-3.072 12.544-9.728 13.568-17.664l12.544-104.704 157.696-2.304 15.104 107.264c1.024 7.936 6.4 14.592 13.568 17.664 21.76 8.96 42.752 21.504 62.464 36.864 6.4 4.864 14.848 6.144 22.272 3.072l96.256-41.472 80.896 137.216-84.48 66.816c-6.144 4.864-9.472 12.544-8.448 20.48 1.536 12.032 2.56 24.32 2.56 36.608 0 12.288-1.024 24.576-2.56 36.608-1.024 7.936 2.304 15.616 8.448 20.48l83.712 63.744-77.056 139.264zM512 345.6c-91.136 0-165.12 74.752-165.12 166.4s73.984 166.4 165.12 166.4 165.12-74.752 165.12-166.4-73.984-166.4-165.12-166.4z m0 297.216c-71.168 0-129.28-58.624-129.28-130.816 0-72.192 58.112-130.816 129.28-130.816s129.28 58.624 129.28 130.816c0 72.192-57.856 130.816-129.28 130.816z</Geometry>
-  <Geometry o:Freeze="True" x:Key="NewGeometry">M512 0h1216a512 512 0 1 1 0 1024H512A512 512 0 1 1 512 0zM420.16 311.04V768h74.88V433.92h2.56l228.48 334.08h72.96V311.04h-75.52v329.6h-2.56l-225.92-329.6h-74.88z m468.48 0V768h340.48v-64h-265.6V565.76h239.36v-64h-239.36V375.04h254.72v-64h-329.6z m369.28 0l131.2 456.96h80l89.6-343.68h2.56l88.96 343.68h79.36l131.84-456.96h-84.48l-85.76 347.52h-2.56l-90.24-347.52h-77.44l-90.24 347.52h-2.56l-85.76-347.52h-84.48z</Geometry>
+  <Geometry x:Key="CalendarGeometry" o:Freeze="True">M377.897477 116.291025l265.298718 0 0 47.459125-265.298718 0 0-47.459125ZM888.317416 116.291025 748.229288 116.291025l0 47.459125 123.54866 0c18.167626 0 32.894732 14.727106 32.894732 32.894732l0 92.92987L115.42936 289.574752l0-92.92987c0-18.167626 14.727106-32.894732 32.894732-32.894732l123.54866 0 0-47.459125L131.776437 116.291025c-35.244356 0-63.814389 28.571056-63.814389 63.815412l0.004093 713.966329c0 35.243333 28.571056 63.814389 63.814389 63.814389l756.540979 0c35.244356 0 63.814389-28.571056 63.814389-63.815412l-0.004093-713.966329C952.131805 144.861058 923.560749 116.291025 888.317416 116.291025zM904.67268 337.033877l0 540.498398c0 18.167626-14.727106 32.894732-32.894732 32.894732L148.324092 910.427007c-18.167626 0-32.894732-14.727106-32.894732-32.894732L115.42936 337.033877 904.67268 337.033877zM300.659736 64.801927l47.459125 0 0 170.241292-47.459125 0 0-170.241292ZM672.97481 64.801927l47.450938 0 0 170.241292-47.450938 0 0-170.241292ZM358.384138 547.939214l0 231.021432 52.863464 0L411.247602 459.226591l-34.580198 0-2.651514 3.804835c-18.000819 25.896006-41.448959 48.758786-69.681285 67.955908l-3.886703 2.643327 0 53.742526 13.441772-8.069156C330.690097 569.215794 345.588103 558.712075 358.384138 547.939214zM618.031888 726.552576c-10.287791 6.395971-24.435678 8.069156-42.059902 4.948946-16.094309-2.842881-27.898712-18.373321-35.082666-46.159464l-2.261615-8.753781-48.312603 13.424375 1.68956 8.129534c6.270098 30.168514 18.347737 52.052967 35.884976 65.017855 17.120734 12.705979 35.542152 19.777364 54.731087 21.043255 3.358652 0.225138 6.655903 0.337707 9.897892 0.337707 14.859119 0 28.430857-2.374184 40.452211-7.072408 14.417029-5.641758 26.88866-13.338413 37.076162-22.86278 10.365566-9.723922 18.230051-22.143362 23.378552-36.920612 4.918246-14.170401 7.739636-28.296797 8.385373-42.025108 0.60685-13.658723-0.667228-26.650218-3.791531-38.619382l-0.008187-0.017397c-3.111-11.777796-8.133628-23.738773-14.946104-35.551363-7.353831-12.679372-19.028268-22.750211-34.710165-29.952586-15.037183-6.872854-30.927843-10.685876-47.24729-11.32752-11.414505-0.415482-23.487027 1.386646-36.04462 5.434017 3.813022-14.568486 7.648557-31.884681 11.465673-51.775637l113.87693 0 0-49.357449L535.645647 464.492778l-1.495122 7.028404c-24.621928 115.77116-31.589954 145.497585-33.102473 150.039235l-3.432334 10.338958 45.829943 5.391036 3.054716-4.20292c8.146931-11.214951 18.247448-18.139996 30.879746-21.164011 13.004799-3.137607 24.743707-3.180588 34.879018-0.129966 9.857981 2.95545 17.822756 8.771178 24.327202 17.758284 6.512633 9.03111 10.084143 20.392401 10.617311 33.757421 0.519864 13.849067-1.603598 26.442477-6.314102 37.440476C636.315153 711.429431 628.843637 719.871089 618.031888 726.552576z</Geometry>
+  <Geometry x:Key="DeleteGeometry" o:Freeze="True">M512 620.544l253.3376 253.3376a76.6976 76.6976 0 1 0 108.544-108.544L620.6464 512l253.2352-253.3376a76.6976 76.6976 0 1 0-108.544-108.544L512 403.3536 258.6624 150.1184a76.6976 76.6976 0 1 0-108.544 108.544L403.3536 512 150.1184 765.3376a76.6976 76.6976 0 1 0 108.544 108.544L512 620.6464z</Geometry>
+  <Geometry x:Key="DeleteFillCircleGeometry" o:Freeze="True">M7.4038057,6.4038057 C7.1478834,6.4038057 6.8919611,6.5014372 6.6966991,6.6966991 6.3061748,7.0872235 6.3061748,7.7203884 6.6966991,8.1109123 L10.585787,12 6.6966991,15.889088 C6.3061748,16.279612 6.3061748,16.912777 6.6966991,17.303301 7.0872235,17.693825 7.7203879,17.693825 8.1109123,17.303301 L12,13.414213 15.889088,17.303301 C16.279612,17.693825 16.912777,17.693825 17.303301,17.303301 17.693825,16.912777 17.693825,16.279612 17.303301,15.889088 L13.414213,12 17.303301,8.1109123 C17.693825,7.7203884 17.693825,7.0872235 17.303301,6.6966991 16.912777,6.3061748 16.279612,6.3061748 15.889088,6.6966991 L12,10.585787 8.1109123,6.6966991 C7.9156504,6.5014372 7.6597281,6.4038057 7.4038057,6.4038057 z M12,0 C18.627417,0 24,5.3725829 24,12 24,18.627417 18.627417,24 12,24 5.3725829,24 0,18.627417 0,12 0,5.3725829 5.3725829,0 12,0 z</Geometry>
+  <Geometry x:Key="CloseGeometry" o:Freeze="True">M0.7,0 L5,4.3 L9.3,0 L10,0.7 L5.7,5 L10,9.3 L9.3,10 L5,5.7 L0.7,10 L0,9.3 L4.3,5 L0,0.7 z</Geometry>
+  <Geometry x:Key="DownGeometry" o:Freeze="True">M512 801.6896L5.12 282.0096l58.1632-59.5968L512 682.3936l448.7168-460.0832 58.1632 59.5968-506.88 519.7824z</Geometry>
+  <Geometry x:Key="UpGeometry" o:Freeze="True">M50.000001,0 L100,51.262779 94.262627,57.141584 50.000001,11.767713 5.7373757,57.151686 0,51.27288 z</Geometry>
+  <Geometry x:Key="ClockGeometry" o:Freeze="True">M498.506684 256.571517 425.359734 256.571517 425.359734 622.190635 720.166063 622.190635 720.166063 549.725206 498.506684 549.725206ZM512.714268 80.162738c-245.740844 0-445.181175 197.577914-445.181175 441.024505s199.439308 441.024505 445.181175 441.024505c245.738797 0 445.178105-197.577914 445.178105-441.024505S758.453065 80.162738 512.714268 80.162738zM512.714268 874.005824c-195.880249 0-356.145349-158.768003-356.145349-352.818581s160.2651-352.821651 356.145349-352.821651c195.877179 0 356.14228 158.77005 356.14228 352.821651S708.591447 874.005824 512.714268 874.005824z</Geometry>
+  <Geometry x:Key="LeftGeometry" o:Freeze="True">M394.24 512L683.52 248.32c10.24-10.24 10.24-25.6 0-35.84-10.24-10.24-25.6-10.24-35.84 0l-307.2 279.04c-5.12 5.12-7.68 12.8-7.68 20.48 0 7.68 2.56 15.36 7.68 20.48l307.2 279.04c10.24 10.24 25.6 10.24 35.84 0 10.24-10.24 10.24-25.6 0-35.84L394.24 512z</Geometry>
+  <Geometry x:Key="RightGeometry" o:Freeze="True">M4.1666641,0 C5.2083321,0 6.25,0.41666794 7.0833321,1.25 L57.083331,46.666664 C57.916664,47.499998 58.33333,48.749998 58.333329,49.999998 58.33333,51.249997 57.916664,52.499997 57.083331,53.333331 L7.0833321,98.749996 C5.4166641,100.41666 2.9166641,100.41666 1.2499962,98.749996 -0.41666794,97.083328 -0.41666794,94.583328 1.2499962,92.916664 L48.333331,49.999998 1.2499962,7.0833321 C-0.41666794,5.4166641 -0.41666794,2.9166641 1.2499962,1.25 2.0833282,0.41666794 3.1249962,0 4.1666641,0 z</Geometry>
+  <Geometry x:Key="RotateLeftGeometry" o:Freeze="True">M165.238899 508.178506C164.450369 456.442676 171.767779 404.485842 187.244542 353.863631 266.138632 95.812692 533.436225-51.353028 784.380224 25.368251 1035.324219 102.08953 1174.62994 373.566359 1095.735851 631.617298 1016.84176 889.66824 749.544168 1036.833959 498.600172 960.11268 424.134741 937.346313 357.837833 896.870788 303.973868 842.276436 291.310328 829.441176 291.396506 808.495802 304.166356 795.493625 316.936205 782.491452 337.554042 782.356136 350.217582 795.191397 396.640587 842.243889 453.73137 877.098901 517.975091 896.740177 734.436966 962.919213 965.320335 835.802028 1033.557737 612.607541 1101.795139 389.413057 981.467179 154.919792 765.005305 88.740755 548.543428 22.561718 317.660056 149.678904 249.422655 372.873388 235.597198 418.094418 229.294871 464.461039 230.4403 510.559881L311.240978 429.759202C323.584094 417.416085 343.892513 417.712357 356.601099 430.420946 369.309686 443.129535 369.605959 463.437952 357.262842 475.781068L230.778782 602.265128C229.273826 605.769679 227.098877 609.041396 224.251145 611.889128 211.908029 624.232245 191.59961 623.935974 178.891024 611.227385L40.825428 473.16179C28.11684 460.453206 27.820569 440.144784 40.163685 427.801668 52.506801 415.458551 72.815218 415.754827 85.523806 428.463411L165.238899 508.178506Z</Geometry>
+  <Geometry x:Key="RotateRightGeometry" o:Freeze="True">M13.1117823382705,0.00108644926083379C18.7165758868546,0.0742913923738762 23.9197352191299,3.84162509632329 25.6893389483779,9.62980814885544 26.1165926715226,11.0273168346189 26.3185999652236,12.461670228202 26.296833302626,13.8899238456496L28.4974711200089,11.6892569876356C28.8483088275283,11.3384168617557 29.4089472552627,11.330238049977 29.7496950885147,11.6709881771838 30.0904429217666,12.0117402117628 30.0822642108291,12.572387459387 29.7314265033096,12.923229492639L25.9199488421768,16.7347560556155C25.5691111346572,17.0855980888674 25.0084688922257,17.0937769006462 24.6677210589736,16.7530248660672 24.5891077777236,16.674408708165 24.5290644427627,16.5840870073788 24.4875185748428,16.4873374624474L20.9957621356339,12.9955379708416C20.6550143023818,12.6547878436347 20.6631930133193,12.0941405960106 21.0140307208389,11.7432985627585 21.3648684283584,11.3924565295065 21.9255068560928,11.3842777177278 22.2662546893447,11.7250297523068L24.4968645831436,13.9556652415401C24.5284846087783,12.6830303030582 24.3545000811904,11.4030042974954 23.9728319903702,10.1546044295501 22.0890505572647,3.99295504901009 15.7152140399307,0.483677352708723 9.73950221742095,2.3106585349176 3.76379420960845,4.13763876344051 0.441986348280352,10.6112083411418 2.32576778138575,16.7728577216819 4.20954921449125,22.9345051948497 10.5833819171279,26.4437838448372 16.5590937396377,24.6168036163144 18.3326227923721,24.0745720467974 19.9086878558486,23.1123447593618 21.1902544757217,21.8133823630949 21.5398485919327,21.4590441166922 22.1090319415421,21.4627806587338 22.4615595599502,21.8217271162507 22.8140871783584,22.1806735737676 22.8164675494522,22.7589048852417 22.4668734332412,23.1132431316444 20.9798891803115,24.6204085496776 19.1496775409072,25.7378005615073 17.0939638873428,26.3663063881084 10.1663286944717,28.484321088751 2.78723170960845,24.4215726325395 0.609260823377952,17.2976520950044 -1.56871387754975,10.1737353722136 2.27700069154205,2.6791733248245 9.20463588441315,0.561156716809679 10.5035670062393,0.164028483596132 11.8183710833877,-0.0158071458708005 13.1117823382705,0.00108644926083379z</Geometry>
+  <Geometry x:Key="EnlargeGeometry" o:Freeze="True">M750.3 198.7C598 46.4 351.1 46.4 198.7 198.7s-152.3 399.2 0 551.5C345.1 896.6 578.8 902.3 732 767.3l172.1 172.1 35.4-35.4-172.1-171.9c135-153.2 129.3-387-17.1-533.4z m39.3 403.8c-17.1 42.1-42.2 80-74.7 112.4-32.5 32.5-70.3 57.6-112.4 74.7-40.7 16.5-83.8 24.9-128 24.9s-87.2-8.4-128-24.9c-42.1-17.1-80-42.2-112.4-74.7s-57.6-70.3-74.7-112.4c-16.5-40.7-24.9-83.8-24.9-128s8.4-87.2 24.9-128c17.1-42.1 42.2-80 74.7-112.4s70.3-57.6 112.4-74.7c40.7-16.5 83.8-24.9 128-24.9s87.2 8.4 128 24.9c42.1 17.1 80 42.2 112.4 74.7 32.5 32.5 57.6 70.3 74.7 112.4 16.5 40.7 24.9 83.8 24.9 128s-8.4 87.3-24.9 128zM671 502H496v175h-50V502H271v-50h175V277h50v175h175v50z</Geometry>
+  <Geometry x:Key="ReduceGeometry" o:Freeze="True">M750.3 198.7C598 46.4 351.1 46.4 198.7 198.7s-152.3 399.2 0 551.5C345.1 896.6 578.8 902.3 732 767.3l172.1 172.1 35.4-35.4-172.1-171.9c135-153.2 129.3-387-17.1-533.4z m39.3 403.8c-17.1 42.1-42.2 80-74.7 112.4-32.5 32.5-70.3 57.6-112.4 74.7-40.7 16.5-83.8 24.9-128 24.9s-87.2-8.4-128-24.9c-42.1-17.1-80-42.2-112.4-74.7s-57.6-70.3-74.7-112.4c-16.5-40.7-24.9-83.8-24.9-128s8.4-87.2 24.9-128c17.1-42.1 42.2-80 74.7-112.4s70.3-57.6 112.4-74.7c40.7-16.5 83.8-24.9 128-24.9s87.2 8.4 128 24.9c42.1 17.1 80 42.2 112.4 74.7 32.5 32.5 57.6 70.3 74.7 112.4 16.5 40.7 24.9 83.8 24.9 128s-8.4 87.3-24.9 128zM671 502H271v-50h400v50z</Geometry>
+  <Geometry x:Key="DownloadGeometry" o:Freeze="True">M868.100096 742.600704l-0.049152 0L216.246272 742.600704l-0.049152 0c-13.98784 0-25.327616 11.33568-25.327616 25.352192 0 13.993984 11.360256 25.327616 25.327616 25.327616l0.049152 0 651.804672 0 0.049152 0c13.996032 0 25.33376-11.333632 25.33376-25.327616C893.431808 753.936384 882.096128 742.600704 868.100096 742.600704L868.100096 742.600704 868.100096 742.600704M523.15136 688.433152c4.728832 4.757504 11.237376 7.733248 18.47296 7.733248l0 0 0 0c7.231488 0 13.740032-2.951168 18.42176-7.757824l314.836992-314.83904c4.732928-4.704256 7.714816-11.214848 7.7312-18.395136 0-14.342144-11.712512-25.9584-25.972736-25.9584-7.213056-0.02048-13.694976 2.930688-18.376704 7.636992L567.578624 607.51872 567.578624 117.52448c-0.024576-0.026624-0.024576-0.026624-0.024576-0.0512 0.024576-14.344192-11.59168-25.980928-25.901056-25.980928-14.348288 0-25.960448 11.634688-25.960448 25.980928 0 0 0 0.024576 0.024576 0.0512l0 489.967616L245.055488 336.826368c-4.683776-4.704256-11.2128-7.6288-18.374656-7.60832-14.342144-0.02048-25.954304 11.614208-26.005504 25.9072 0 7.20896 2.951168 13.768704 7.684096 18.423808L523.15136 688.433152 523.15136 688.433152 523.15136 688.433152M523.15136 688.433152 523.15136 688.433152z</Geometry>
+  <Geometry x:Key="SaveGeometry" o:Freeze="True">M608 320C625.664 320 640 305.696 640 288L640 160C640 142.304 625.664 128 608 128 590.336 128 576 142.304 576 160L576 288C576 305.696 590.336 320 608 320L608 320ZM960 896C960 931.328 931.328 960 896 960L128 960C92.672 960 64 931.328 64 896L64 128C64 92.672 92.672 64 128 64L192 64 192 384C192 419.328 220.672 448 256 448L768 448C803.328 448 832 419.328 832 384L832 64 896 64C931.328 64 960 92.672 960 128L960 896 960 896ZM256 64 768 64 768 352C768 369.696 753.664 384 736 384L288 384C270.336 384 256 369.696 256 352L256 64 256 64ZM896 0 128 0C57.312 0 0 57.312 0 128L0 896C0 966.688 57.312 1024 128 1024L896 1024C966.688 1024 1024 966.688 1024 896L1024 128C1024 57.312 966.688 0 896 0L896 0Z</Geometry>
+  <Geometry x:Key="WindowsGeometry" o:Freeze="True">M426.276571 574.829714l0 372.004571-389.705143-53.686857 0-318.317714 389.705143 0zM426.276571 150.308571l0 376.539429-389.705143 0 0-322.852571zM987.428571 574.829714l0 449.170286-518.290286-71.460571 0-377.709714 518.290286 0zM987.428571 73.142857l0 453.705143-518.290286 0 0-382.317714z</Geometry>
+  <Geometry x:Key="FullScreenGeometry" o:Freeze="True">M942 82v320h-50V167.4l-274 274-35.4-35.4 274-274H622V82h320zM406 582.6l-274 274V622H82v320h320v-50H167.4l274-274-35.4-35.4zM132 132h302V82H82v352h50V132z m760 760H590v50h352V590h-50v302z</Geometry>
+  <Geometry x:Key="FullScreenReturnGeometry" o:Freeze="True">M94.186081,59.07 L100,59.07 100,100 59.07,100 59.07,94.186081 94.186081,94.186081 z M4.5814285,58.208999 L41.791,58.208999 41.791,95.418571 35.977005,95.418571 35.977005,68.139304 4.1163101,100 0,95.88369 31.860695,64.022995 4.5814285,64.022995 z M95.88369,0 L100,4.1163101 68.139304,35.977005 95.418571,35.977005 95.418571,41.791 58.208999,41.791 58.208999,4.5814285 64.022995,4.5814285 64.022995,31.860695 z M0,0 L40.929998,0 40.929998,5.8139191 5.8139191,5.8139191 5.8139191,40.929998 0,40.929998 z</Geometry>
+  <Geometry x:Key="SearchGeometry" o:Freeze="True">M716.6003 213.800623c-138.851102-138.915088-364.020238-138.915088-502.935326 0s-138.915088 364.084225 0 502.935326a355.573996 355.573996 0 0 0 502.935326 0 355.573996 355.573996 0 0 0 0-502.935326z m-580.359212 580.359212a465.183184 465.183184 0 1 1 657.783099 0 465.183184 465.183184 0 0 1-657.783099 0z m868.939152 211.156054a63.474789 63.474789 0 0 1-89.837303 0l-89.773316-89.837303a63.410803 63.410803 0 1 1 89.773316-89.773316l89.837303 89.773316a63.346816 63.346816 0 0 1 0 89.837303z</Geometry>
+  <Geometry x:Key="UpDownGeometry" o:Freeze="True">M454.464 143.68l-253.44 253.44c-12.032 12.032-12.032 31.36 0 43.392 11.968 11.968 31.36 11.968 43.328 0l237.376-237.376 237.376 237.376c11.968 11.968 31.36 11.968 43.328 0 12.032-12.032 12.032-31.36 0-43.392l-253.44-253.44C491.264 126.016 478.016 124.032 454.464 143.68zM507.968 947.648l252.48-253.376c11.968-11.968 11.968-31.36 0-43.392-11.968-11.968-31.296-11.968-43.264 0l-236.48 237.376L244.16 650.88c-11.968-11.968-31.296-11.968-43.264 0-11.968 12.032-11.968 31.424 0 43.392l252.48 253.376C465.984 960 491.136 964.48 507.968 947.648z</Geometry>
+  <Geometry x:Key="WindowMinGeometry" o:Freeze="True">M0,4 L10,4 L10,5 L0,5 z</Geometry>
+  <Geometry x:Key="WindowRestoreGeometry" o:Freeze="True">M1,3 L1,9 L7,9 L7,3 z M3,1 L3,2 L8,2 L8,7 L9,7 L9,1 z M2,0 L10,0 L10,8 L8,8 L8,10 L0,10 L0,2 L2,2 z</Geometry>
+  <Geometry x:Key="WindowMaxGeometry" o:Freeze="True">M1,1 L1,9 L9,9 L9,1 z M0,0 L10,0 L10,10 L0,10 z</Geometry>
+  <Geometry x:Key="CheckedGeometry" o:Freeze="True">M 0,2 3,5 8,0</Geometry>
+  <Geometry x:Key="AlignLeftGeometry" o:Freeze="True">M0,8 L4,8 4,10 0,10 z M0,4 L8,4 8,6 0,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
+  <Geometry x:Key="AlignRightGeometry" o:Freeze="True">M8,8 L12,8 12,10 8,10 z M4,4 L12,4 12,6 4,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
+  <Geometry x:Key="AlignHCenterGeometry" o:Freeze="True">M4,8 L8,8 8,10 4,10 z M2,4 L10,4 10,6 2,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
+  <Geometry x:Key="AlignHStretchGeometry" o:Freeze="True">M0,8 L12,8 12,10 0,10 z M0,4 L12,4 12,6 0,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
+  <Geometry x:Key="AlignTopGeometry" o:Freeze="True">M8,0 L10,0 10,4 8,4 z M4,0 L6,0 6,8 4,8 z M0,0 L2,0 2,12 0,12 z</Geometry>
+  <Geometry x:Key="AlignBottomGeometry" o:Freeze="True">M8,8 L10,8 10,12 8,12 z M4,4 L6,4 6,12 4,12 z M0,0 L2,0 2,12 0,12 z</Geometry>
+  <Geometry x:Key="AlignVCenterGeometry" o:Freeze="True">M8,4 L10,4 10,8 8,8 z M4,2 L6,2 6,10 4,10 z M0,0 L2,0 2,12 0,12 z</Geometry>
+  <Geometry x:Key="AlignVStretchGeometry" o:Freeze="True">M8,0 L10,0 10,12 8,12 z M4,0 L6,0 6,12 4,12 z M0,0 L2,0 2,12 0,12 z</Geometry>
+  <Geometry x:Key="PageModeGeometry" o:Freeze="True">M1.0000002,12 L1.0000002,13 11,13 11,12 z M1.0000002,10 L1.0000002,11 11,11 11,10 z M1.0000002,8 L1.0000002,9 11,9 11,8 z M1.0000002,6 L1.0000002,7 11,7 11,6 z M1.0000002,4 L1.0000002,5 11,5 11,4 z M1.0000002,2 L1.0000002,3 11,3 11,2 z M0,0 L12,0 12,14 0,14 z</Geometry>
+  <Geometry x:Key="TwoPageModeGeometry" o:Freeze="True">M8.99999988079071,12L8.99999988079071,13 13,13 13,12z M1,12L1,13 5,13 5,12z M9.00000011920929,10L9.00000011920929,11 13,11 13,10z M1,10L1,11 5,11 5,10z M9.00000011920929,8L9.00000011920929,9 13,9 13,8z M1,8L1,9 5,9 5,8z M9.00000011920929,6L9.00000011920929,7 13,7 13,6z M1,6L1,7 5,7 5,6z M9.00000011920929,4L9.00000011920929,5 13,5 13,4z M1,4L1,5 5,5 5,4z M8.99999988079071,2L8.99999988079071,3 13,3 13,2z M1,2L1,3 5,3 5,2z M7.99999994039536,0L14,0 14,14 7.99999994039536,14z M0,0L6,0 6,14 0,14z</Geometry>
+  <Geometry x:Key="ScrollModeGeometry" o:Freeze="True">M1,12L1,13 8,13 8,12z M1,10L1,11 8,11 8,10z M1,8L1,9 8,9 8,8z M1,6L1,7 8,7 8,6z M11.0000002384186,5L11.0000002384186,9 13,9 13,5z M1,4L1,5 8,5 8,4z M1,2L1,3 8,3 8,2z M10.0000000298023,0L14,0 14,14 10.0000000298023,14z M0,0L9.00000011920929,0 9.00000011920929,14 0,14z</Geometry>
+  <Geometry x:Key="EyeOpenGeometry" o:Freeze="True">M928 406.4c-100.8-137.6-249.6-224-416-224s-315.2 86.4-416 224c-44.8 60.8-44.8 150.4 0 211.2 102.4 137.6 251.2 224 416 224 166.4 0 315.2-86.4 416-224 46.4-60.8 46.4-150.4 0-211.2zM512 721.6c-115.2 0-209.6-94.4-209.6-209.6 0-115.2 94.4-209.6 209.6-209.6 115.2 0 209.6 94.4 209.6 209.6 1.6 115.2-92.8 209.6-209.6 209.6z m0-360c-83.2 0-150.4 67.2-150.4 150.4s67.2 150.4 150.4 150.4 150.4-67.2 150.4-150.4-67.2-150.4-150.4-150.4z m0 0</Geometry>
+  <Geometry x:Key="EyeCloseGeometry" o:Freeze="True">M950.4 361.6c8-20.8 0-43.2-19.2-54.4-9.6-4.8-20.8-6.4-32-3.2s-19.2 11.2-24 22.4c-56 132.8-208 228.8-361.6 228.8-155.2 0-307.2-97.6-363.2-232-4.8-11.2-12.8-19.2-24-24-9.6-4.8-20.8-3.2-32 0-20.8 9.6-30.4 35.2-20.8 56 25.6 60.8 67.2 118.4 123.2 164.8l-67.2 70.4c-14.4 16-14.4 40 0 57.6 8 8 17.6 14.4 28.8 14.4s22.4-3.2 30.4-11.2l76.8-81.6c35.2 20.8 73.6 38.4 113.6 49.6l-28.8 83.2c-8 22.4 3.2 46.4 24 54.4 4.8 1.6 9.6 3.2 14.4 3.2 6.4 0 11.2-1.6 17.6-3.2 9.6-4.8 17.6-12.8 22.4-24l33.6-96c41.6 4.8 81.6 3.2 123.2-3.2l32 94.4c3.2 11.2 11.2 19.2 22.4 24 9.6 4.8 20.8 4.8 32 1.6 20.8-8 32-32 24-54.4l-28.8-84.8c30.4-9.6 59.2-22.4 86.4-38.4l62.4 65.6c14.4 16 43.2 16 57.6 0 16-16 16-43.2 0-60.8l-51.2-54.4c56-43.2 100.8-100.8 128-164.8z</Geometry>
+  <Geometry x:Key="AudioGeometry" o:Freeze="True">M627.52666696 962L550.66666696 890.47999971c116.82-92.99999971 191.09999971-230.94 191.09999971-385.2 0-146.99999971-67.61999971-279-174.96-371.57999942L643.84666667 62C770.86666638 172.99999971 850.66666667 330.2 850.66666667 505.09999971c0 182.27999971-86.58 345.42-223.13999971 456.90000029zM405.64666638 782l-76.32-77.22a227.88 227.88 0 0 0 116.40000058-199.26A228.06 228.06 0 0 0 347.86666638 317.84000029L422.86666696 242A334.37999971 334.37999971 0 0 1 550.66666696 505.52 334.62 334.62 0 0 1 405.64666638 782zM205.66666638 596.6C164.26666638 596.6 130.66666667 562.51999971 130.66666667 520.64 130.66666667 478.76000029 164.26666638 444.79999971 205.66666638 444.79999971s74.99999971 33.95999971 75.00000058 75.90000058c0 41.87999971-33.59999971 75.84000029-75.00000058 75.83999942z</Geometry>
+  <Geometry x:Key="BubbleTailGeometry" o:Freeze="True">M0,0L28,0 28,14.0000006258488 28,15.0010000765324 28.0151405334473,15.0010000765324 28.0455417633057,15.8010965883732C28.4084091186524,22.9596563875675,30.92209815979,29.5507589876652,34.9532623291016,34.9410597383976L34.9984359741211,34.9999815523624 34.0966339111328,34.9885679781437C15.1841707229614,34.5094191133976,2.0535663480814E-07,19.0279375612736,0,0z</Geometry>
+  <Geometry x:Key="StarGeometry" o:Freeze="True">M535.9 165.2l96.5 195.4c3.9 7.9 11.4 13.3 20.1 14.6l215.7 31.3c21.9 3.2 30.6 30 14.8 45.5L726.8 604.1c-6.3 6.1-9.1 14.9-7.7 23.6L756 842.5c3.7 21.8-19.1 38.4-38.7 28.1L524.4 769.2c-7.8-4.1-17-4.1-24.8 0L306.7 870.6c-19.6 10.3-42.4-6.3-38.7-28.1l36.8-214.8c1.5-8.6-1.4-17.5-7.7-23.6L141.1 452c-15.8-15.4-7.1-42.3 14.8-45.5l215.7-31.3c8.7-1.3 16.2-6.7 20.1-14.6l96.5-195.4c9.7-19.9 37.9-19.9 47.7 0z</Geometry>
+  <Geometry x:Key="AddGeometry" o:Freeze="True">M8,0 C8.5522847,0 9,0.44771525 9,1 L9,7 15,7 C15.552285,7 16,7.4477153 16,8 16,8.5522852 15.552285,9 15,9 L9,9 9,15 C9,15.552285 8.5522847,16 8,16 7.4477153,16 7,15.552285 7,15 L7,9 1,9 C0.44771528,9 0,8.5522852 0,8 0,7.4477153 0.44771528,7 1,7 L7,7 7,1 C7,0.44771525 7.4477153,0 8,0 z</Geometry>
+  <Geometry x:Key="RemoveGeometry" o:Freeze="True">M10.899495,0 C11.155417,0 11.411339,0.097630501 11.606602,0.29289246 11.997126,0.68341732 11.997126,1.3165817 11.606602,1.7071066 L7.3639612,5.9497471 11.606602,10.192388 C11.997126,10.582912 11.997126,11.216077 11.606602,11.606601 11.216077,11.997126 10.582912,11.997126 10.192388,11.606601 L5.9497476,7.3639607 1.7071068,11.606601 C1.3165827,11.997126 0.68341756,11.997126 0.29289341,11.606601 -0.097630978,11.216077 -0.097630978,10.582912 0.29289341,10.192388 L4.5355338,5.9497471 0.29289341,1.7071066 C-0.097630978,1.3165817 -0.097630978,0.68341732 0.29289341,0.29289246 0.48815536,0.097630501 0.74407768,0 1,0 1.2559223,0 1.5118446,0.097630501 1.7071068,0.29289246 L5.9497476,4.5355334 10.192388,0.29289246 C10.38765,0.097630501 10.643572,0 10.899495,0 z</Geometry>
+  <Geometry x:Key="SubGeometry" o:Freeze="True">M62.5797 488.9508c0.2632 42.5185 34.985 77.2116 77.5035 77.5035l743.0216-0.6728c42.5185 0.3215 76.7437-33.9333 76.4518-76.4805l0 0c-0.2918-42.5175-34.985-77.2106-77.5045-77.5035l-743.0216-0.087C96.513 411.4473 62.2879 446.4323 62.5797 488.9508L62.5797 488.9508z</Geometry>
+  <Geometry x:Key="WarningGeometry" o:Freeze="True">M943.644188 827.215696l-351.176649-608.204749c-42.945473-74.36249-113.147387-74.36249-156.092861 0l-351.176649 608.204749c-42.946498 74.431167-7.811716 135.14955 78.012605 135.14955l702.420949 0C951.455904 962.36422 986.555836 901.645838 943.644188 827.215696zM466.187532 391.579035c12.621133-13.644108 28.66175-20.466675 48.233578-20.466675 19.580028 0 35.612444 6.75389 48.241778 20.194018 12.544256 13.473954 18.820484 30.325365 18.820484 50.587035 0 17.430551-26.19759 145.621205-34.929778 238.882082l-63.105666 0c-7.666162-93.259852-36.090106-221.450507-36.090106-238.882082C447.358847 421.938226 453.643275 405.155491 466.187532 391.579035zM561.76804 835.026386c-13.268949 12.928641-29.062535 19.375023-47.345906 19.375023-18.275171 0-34.076957-6.447407-47.346931-19.375023-13.235123-12.89379-19.818859-28.517221-19.818859-46.869269 0-18.249546 6.583736-34.043131 19.818859-47.278254 13.268949-13.235123 29.07176-19.852685 47.346931-19.852685 18.283371 0 34.076957 6.617562 47.345906 19.852685 13.235123 13.235123 19.827059 29.028709 19.827059 47.278254C581.595099 806.51019 575.003163 822.132597 561.76804 835.026386z</Geometry>
+  <Geometry x:Key="InfoGeometry" o:Freeze="True">M505.6512 39.0144c-261.2224 3.4816-470.1184 218.112-466.6368 479.4368 3.4816 261.12 218.112 470.1184 479.3344 466.6368 261.2224-3.4816 470.1184-218.112 466.7392-479.3344C981.504 244.4288 766.8736 35.5328 505.6512 39.0144zM558.08 196.608c48.128 0 62.2592 27.9552 62.2592 59.8016 0 39.8336-31.9488 76.6976-86.3232 76.6976-45.568 0-67.1744-22.9376-65.9456-60.8256C468.0704 240.4352 494.7968 196.608 558.08 196.608zM434.7904 807.6288c-32.8704 0-56.9344-19.968-33.8944-107.6224l37.6832-155.5456c6.5536-24.8832 7.68-34.9184 0-34.9184-9.8304 0-52.5312 17.2032-77.7216 34.2016l-16.384-26.9312c79.9744-66.7648 171.8272-105.8816 211.2512-105.8816 32.8704 0 38.2976 38.912 21.9136 98.6112l-43.2128 163.5328c-7.68 28.8768-4.4032 38.912 3.2768 38.912 9.9328 0 42.1888-11.9808 73.9328-36.9664l18.6368 24.8832C552.5504 777.728 467.6608 807.6288 434.7904 807.6288z</Geometry>
+  <Geometry x:Key="ErrorGeometry" o:Freeze="True">M495.469714 0C224.621714 0 0 224.621714 0 495.469714c0 270.884571 224.621714 495.506286 495.469714 495.506286 270.884571 0 495.506286-224.621714 495.506286-495.506286C990.976 224.621714 766.354286 0 495.469714 0z m211.419429 634.221714c19.821714 19.821714 19.821714 46.226286 0 66.048s-46.226286 19.821714-66.048 0l-138.752-138.715428-145.334857 145.334857a51.858286 51.858286 0 0 1-72.667429 0 51.858286 51.858286 0 0 1 0-72.667429l145.334857-145.334857-138.752-138.752c-19.821714-19.821714-19.821714-46.226286 0-66.048s46.262857-19.821714 66.084572 0l138.715428 138.715429 145.371429-145.334857a51.858286 51.858286 0 0 1 72.667428 0 51.858286 51.858286 0 0 1 0 72.667428l-145.371428 145.334857 138.752 138.752z</Geometry>
+  <Geometry x:Key="SuccessGeometry" o:Freeze="True">M512.66048 64.64c-247.424 0-448 200.57728-448 448s200.576 448 448 448 448-200.57728 448-448c0-247.424-200.57728-448-448-448z m250.71232 334.86336L480.98176 681.89312c-15.49568 15.49696-40.61952 15.49696-56.11648 0l-162.9184-162.9184c-15.49568-15.49568-15.49568-40.61824 0-56.1152s40.61952-15.49568 56.11648 0l134.85952 134.85952L707.25504 343.3856c15.49568-15.49568 40.61952-15.49568 56.11648 0s15.49696 40.6208 0.00128 56.11776z</Geometry>
+  <Geometry x:Key="FatalGeometry" o:Freeze="True">M716.8 375.466667l34.133333 34.133333c17.066667 17.066667 42.666667 17.066667 59.733334 0 17.066667-17.066667 17.066667-42.666667 0-59.733333l-34.133334-34.133334 34.133334-34.133333c17.066667-17.066667 17.066667-42.666667 0-59.733333-17.066667-17.066667-42.666667-17.066667-59.733334 0l-34.133333 34.133333-34.133333-34.133333c-17.066667-17.066667-42.666667-17.066667-59.733334 0-17.066667 17.066667-17.066667 42.666667 0 59.733333l34.133334 34.133333-34.133334 34.133334c-17.066667 17.066667-17.066667 42.666667 0 59.733333 17.066667 17.066667 42.666667 17.066667 59.733334 0l34.133333-34.133333z m-426.666667 0l34.133334 34.133333c17.066667 17.066667 42.666667 17.066667 59.733333 0 17.066667-17.066667 17.066667-42.666667 0-59.733333l-34.133333-34.133334 34.133333-34.133333c17.066667-17.066667 17.066667-42.666667 0-59.733333-17.066667-17.066667-42.666667-17.066667-59.733333 0l-34.133334 34.133333-34.133333-34.133333c-17.066667-17.066667-42.666667-17.066667-59.733333 0-17.066667 17.066667-17.066667 42.666667 0 59.733333l34.133333 34.133333-34.133333 34.133334c-17.066667 17.066667-17.066667 42.666667 0 59.733333 17.066667 17.066667 42.666667 17.066667 59.733333 0l34.133333-34.133333zM0 85.333333c0-51.2 42.666667-85.333333 85.333333-85.333333h853.333334c51.2 0 85.333333 42.666667 85.333333 85.333333v853.333334c0 51.2-42.666667 85.333333-85.333333 85.333333H85.333333c-51.2 0-85.333333-42.666667-85.333333-85.333333V85.333333z m512 469.333334c-136.533333 0-230.4 68.266667-290.133333 196.266666-8.533333 17.066667 0 42.666667 17.066666 59.733334s42.666667 0 59.733334-17.066667c51.2-93.866667 110.933333-145.066667 221.866666-145.066667 102.4 0 170.666667 51.2 221.866667 145.066667 8.533333 17.066667 34.133333 25.6 59.733333 17.066667 17.066667-8.533333 25.6-34.133333 17.066667-59.733334-76.8-128-170.666667-196.266667-307.2-196.266666z</Geometry>
+  <Geometry x:Key="AskGeometry" o:Freeze="True">M512 0 30.11843 240.941297l0 542.117406 481.88157 240.941297 481.88157-240.941297L993.88157 240.941297 512 0zM575.776472 768.799969 460.188012 768.799969 460.188012 656.222073l115.588459 0L575.776472 768.799969zM623.335603 509.329685c-52.375829 36.723353-59.600363 55.988096-59.600363 84.885211l0 19.866447L468.616977 614.081343l0-26.489278c0-45.754021 13.846342-80.67124 61.406497-116.791866 46.957428-36.723353 57.79423-62.0082 57.79423-84.282484 0-25.284848-21.67258-54.181962-55.386393-54.181962-42.743457 0-70.436142 26.489278-82.477374 85.486914l-105.956088-21.67258c24.683144-111.976192 82.477374-157.127486 205.289345-157.127486 98.12985 0 157.72919 63.212631 157.72919 131.842639C707.017407 423.240044 688.956071 461.76953 623.335603 509.329685z</Geometry>
+  <Geometry x:Key="AllGeometry" o:Freeze="True">M 721.005 638.949 C 758.74 638.949 789.333 669.56 789.333 707.312 C 789.333 745.047 758.74 775.657 721.005 775.657 C 683.253 775.657 652.66 745.047 652.66 707.312 C 652.66 669.56 683.253 638.949 721.005 638.949 Z M 512.017 638.949 C 549.77 638.949 580.38 669.56 580.38 707.312 C 580.38 745.047 549.77 775.657 512.017 775.657 C 474.265 775.657 443.672 745.047 443.672 707.312 C 443.672 669.56 474.265 638.949 512.017 638.949 Z M 303.029 638.949 C 340.781 638.949 371.392 669.56 371.392 707.312 C 371.392 745.047 340.781 775.657 303.029 775.657 C 265.277 775.657 234.667 745.047 234.667 707.312 C 234.667 669.56 265.277 638.949 303.029 638.949 Z M 721.005 443.655 C 758.74 443.655 789.333 474.265 789.333 512.017 C 789.333 549.769 758.74 580.363 721.005 580.363 C 683.253 580.363 652.66 549.769 652.66 512.017 C 652.66 474.265 683.253 443.655 721.005 443.655 Z M 512.017 443.655 C 549.77 443.655 580.38 474.265 580.38 512.017 C 580.38 549.769 549.77 580.363 512.017 580.363 C 474.265 580.363 443.672 549.769 443.672 512.017 C 443.672 474.265 474.265 443.655 512.017 443.655 Z M 303.029 443.655 C 340.781 443.655 371.392 474.265 371.392 512.017 C 371.392 549.769 340.781 580.363 303.029 580.363 C 265.277 580.363 234.667 549.769 234.667 512.017 C 234.667 474.265 265.277 443.655 303.029 443.655 Z M 721.005 248.343 C 758.74 248.343 789.333 278.953 789.333 316.688 C 789.333 354.44 758.74 385.051 721.005 385.051 C 683.253 385.051 652.66 354.44 652.66 316.688 C 652.66 278.953 683.253 248.343 721.005 248.343 Z M 512.017 248.343 C 549.77 248.343 580.38 278.953 580.38 316.688 C 580.38 354.44 549.77 385.051 512.017 385.051 C 474.265 385.051 443.672 354.44 443.672 316.688 C 443.672 278.953 474.265 248.343 512.017 248.343 Z M 303.029 248.343 C 340.781 248.343 371.392 278.953 371.392 316.688 C 371.392 354.44 340.781 385.051 303.029 385.051 C 265.277 385.051 234.667 354.44 234.667 316.688 C 234.667 278.953 265.277 248.343 303.029 248.343 Z</Geometry>
+  <Geometry x:Key="DragVerticalGeometry" o:Freeze="True">M2,12 C3.1045694,12 4,12.895431 4,14 4,15.104569 3.1045694,16 2,16 0.89543051,16 0,15.104569 0,14 0,12.895431 0.89543051,12 2,12 z M2,6 C3.1045694,6 4,6.8954306 4,8 4,9.1045694 3.1045694,10 2,10 0.89543051,10 0,9.1045694 0,8 0,6.8954306 0.89543051,6 2,6 z M2,0 C3.1045694,0 4,0.89543056 4,2 4,3.1045694 3.1045694,4 2,4 0.89543051,4 0,3.1045694 0,2 0,0.89543056 0.89543051,0 2,0 z</Geometry>
+  <Geometry x:Key="DragHorizontalGeometry" o:Freeze="True">M14,0 C15.104569,0 16,0.89543051 16,2 16,3.1045694 15.104569,4 14,4 12.895431,4 12,3.1045694 12,2 12,0.89543051 12.895431,0 14,0 z M8,0 C9.1045694,0 10,0.89543051 10,2 10,3.1045694 9.1045694,4 8,4 6.8954306,4 6,3.1045694 6,2 6,0.89543051 6.8954306,0 8,0 z M2,0 C3.1045694,0 4,0.89543051 4,2 4,3.1045694 3.1045694,4 2,4 0.89543056,4 0,3.1045694 0,2 0,0.89543051 0.89543056,0 2,0 z</Geometry>
+  <Geometry x:Key="DropperGeometry" o:Freeze="True">M798.165333 97.834667a42.624 42.624 0 0 0-60.330666 0l-140.629334 140.629333-55.381333-55.296-60.330667 60.330667 55.381334 55.296-353.706667 353.706666a42.709333 42.709333 0 0 0-11.221333 19.84l-42.666667 170.666667a42.538667 42.538667 0 0 0 51.712 51.712l170.666667-42.666667c7.509333-1.877333 14.378667-5.76 19.84-11.221333l353.792-353.792 55.210666 55.125333 60.330667-60.330666-55.210667-55.125334 140.544-140.544a42.624 42.624 0 0 0 0-60.330666l-128-128zM319.488 772.138667l-90.197333 22.570666 22.570666-90.197333 345.386667-345.386667 67.669333 67.584-345.429333 345.429334z</Geometry>
+  <Geometry x:Key="VisualStudioGeometry" o:Freeze="True">M23.063,0L11,12L3,6L0,7v15l3,2l8-6l11.875,12L30,27V2.938L23.063,0z M3,19v-8l5,4L3,19z M23,21l-8-6l8-6V21z</Geometry>
+  <Geometry x:Key="ConfigGeometry" o:Freeze="True">M827.904 541.184a278.592 278.592 0 0 0 0-58.368l73.728-58.368c15.872-13.056 20.224-35.584 9.728-53.504l-78.592-137.728c-9.984-17.408-31.232-25.856-51.712-18.176l-86.528 35.072c-15.872-11.52-32.512-21.248-49.664-29.184l-12.8-92.928c-3.072-20.224-20.736-35.584-41.216-35.584h-157.44c-20.736 0-38.144 14.848-41.216 35.84L378.88 221.44c-17.152 7.936-33.792 17.92-49.664 29.184L242.688 215.296c-18.688-7.168-41.216 0.768-51.2 18.176L112.64 371.2c-10.24 17.92-6.144 40.448 10.24 53.76l73.472 58.112c-1.024 9.472-1.536 19.2-1.536 29.184 0 9.728 0.512 19.456 1.536 29.184l-73.984 58.368c-15.872 13.056-19.968 35.584-9.728 53.248l78.848 137.728c9.984 17.408 32 25.856 51.456 17.92l86.528-35.072c15.872 11.52 32.512 21.248 49.664 29.184l13.056 93.696c3.328 20.48 20.48 35.328 41.216 35.328h157.44c20.48 0 38.144-15.36 41.216-35.84l13.056-93.184c17.152-7.936 33.792-17.664 49.664-29.184l86.784 35.328c4.864 1.792 9.984 2.816 15.104 2.816 14.848 0 28.672-7.936 36.096-20.992l78.592-137.728c10.24-17.664 6.4-40.192-9.984-53.76l-73.472-58.112z m-25.344 231.168l-99.584-40.448c-7.424-3.072-15.872-1.792-22.272 3.072-19.712 15.36-40.704 27.648-62.464 36.608-7.424 3.072-12.544 9.728-13.568 17.664l-14.592 104.96-155.392 2.304-15.104-107.264c-1.024-7.936-6.4-14.592-13.568-17.664-21.76-8.96-42.752-21.504-62.464-36.608-4.096-3.072-8.96-4.608-13.824-4.608-2.816 0-5.888 0.512-8.448 1.536l-96.256 41.472-80.896-137.216 84.48-66.816c6.144-4.864 9.472-12.8 8.448-20.48-1.536-12.032-2.56-24.32-2.56-36.608 0-12.288 1.024-24.576 2.56-36.608 1.024-7.936-2.048-15.616-8.448-20.48l-83.712-64 76.544-139.264 99.584 40.448c7.424 3.072 15.872 1.792 22.272-3.072 19.712-15.36 40.96-27.648 62.72-36.864 7.424-3.072 12.544-9.728 13.568-17.664l12.544-104.704 157.696-2.304 15.104 107.264c1.024 7.936 6.4 14.592 13.568 17.664 21.76 8.96 42.752 21.504 62.464 36.864 6.4 4.864 14.848 6.144 22.272 3.072l96.256-41.472 80.896 137.216-84.48 66.816c-6.144 4.864-9.472 12.544-8.448 20.48 1.536 12.032 2.56 24.32 2.56 36.608 0 12.288-1.024 24.576-2.56 36.608-1.024 7.936 2.304 15.616 8.448 20.48l83.712 63.744-77.056 139.264zM512 345.6c-91.136 0-165.12 74.752-165.12 166.4s73.984 166.4 165.12 166.4 165.12-74.752 165.12-166.4-73.984-166.4-165.12-166.4z m0 297.216c-71.168 0-129.28-58.624-129.28-130.816 0-72.192 58.112-130.816 129.28-130.816s129.28 58.624 129.28 130.816c0 72.192-57.856 130.816-129.28 130.816z</Geometry>
+  <Geometry x:Key="NewGeometry" o:Freeze="True">M512 0h1216a512 512 0 1 1 0 1024H512A512 512 0 1 1 512 0zM420.16 311.04V768h74.88V433.92h2.56l228.48 334.08h72.96V311.04h-75.52v329.6h-2.56l-225.92-329.6h-74.88z m468.48 0V768h340.48v-64h-265.6V565.76h239.36v-64h-239.36V375.04h254.72v-64h-329.6z m369.28 0l131.2 456.96h80l89.6-343.68h2.56l88.96 343.68h79.36l131.84-456.96h-84.48l-85.76 347.52h-2.56l-90.24-347.52h-77.44l-90.24 347.52h-2.56l-85.76-347.52h-84.48z</Geometry>
   <Style x:Key="PathBaseStyle" TargetType="Path">
     <Setter Property="Stretch" Value="Uniform" />
     <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -331,11 +331,12 @@ Themes\Lang.xaml
   <Thickness x:Key="DefaultInputPadding">8,0</Thickness>
   <CornerRadius x:Key="DefaultCornerRadius">4</CornerRadius>
   <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarButtonHeightKey}">30</sys:Double>
+  <lang:LangProvider x:Key="Langs" />
   <SineEase x:Key="SineEaseOut" EasingMode="EaseOut" />
   <ControlTemplate x:Key="BadgeDotTemplate" TargetType="liftui:Badge">
     <local:SimplePanel>
       <ContentPresenter />
-      <Border Visibility="{TemplateBinding ShowBadge,Converter={StaticResource Boolean2VisibilityConverter}}" Margin="{TemplateBinding BadgeMargin}" Width="10" Height="10" CornerRadius="5" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+      <Border Width="10" Height="10" Margin="{TemplateBinding BadgeMargin}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5" Visibility="{TemplateBinding ShowBadge,                                              Converter={StaticResource Boolean2VisibilityConverter}}" />
     </local:SimplePanel>
   </ControlTemplate>
   <ItemsPanelTemplate x:Key="ButtonGroupHorizontalUniformItemsPanelTemplate">
@@ -443,7 +444,7 @@ Themes\Lang.xaml
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="Thumb">
-          <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" />
+          <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
@@ -455,7 +456,7 @@ Themes\Lang.xaml
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="Thumb">
-          <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" />
+          <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
@@ -1052,12 +1053,11 @@ Themes\Lang.xaml
     <GradientStop Color="#BBC5D7" Offset="0.75" />
     <GradientStop Color="#6D83A9" Offset="1" />
   </LinearGradientBrush>
-  <lang:LangProvider x:Key="Langs" />
-  <DropShadowEffect x:Key="EffectShadow1" BlurRadius="5" ShadowDepth="1" Direction="270" Color="{StaticResource EffectShadowColor}" Opacity=".2" RenderingBias="Performance" o:Freeze="True" />
-  <DropShadowEffect x:Key="EffectShadow2" BlurRadius="8" ShadowDepth="1.5" Direction="270" Color="{StaticResource EffectShadowColor}" Opacity=".2" RenderingBias="Performance" o:Freeze="True" />
-  <DropShadowEffect x:Key="EffectShadow3" BlurRadius="14" ShadowDepth="4.5" Direction="270" Color="{StaticResource EffectShadowColor}" Opacity=".2" RenderingBias="Performance" o:Freeze="True" />
-  <DropShadowEffect x:Key="EffectShadow4" BlurRadius="25" ShadowDepth="8" Direction="270" Color="{StaticResource EffectShadowColor}" Opacity=".2" RenderingBias="Performance" o:Freeze="True" />
-  <DropShadowEffect x:Key="EffectShadow5" BlurRadius="35" ShadowDepth="13" Direction="270" Color="{StaticResource EffectShadowColor}" Opacity=".2" RenderingBias="Performance" o:Freeze="True" />
+  <DropShadowEffect x:Key="EffectShadow1" o:Freeze="True" BlurRadius="5" Direction="270" Opacity=".2" RenderingBias="Performance" ShadowDepth="1" Color="{StaticResource EffectShadowColor}" />
+  <DropShadowEffect x:Key="EffectShadow2" o:Freeze="True" BlurRadius="8" Direction="270" Opacity=".2" RenderingBias="Performance" ShadowDepth="1.5" Color="{StaticResource EffectShadowColor}" />
+  <DropShadowEffect x:Key="EffectShadow3" o:Freeze="True" BlurRadius="14" Direction="270" Opacity=".2" RenderingBias="Performance" ShadowDepth="4.5" Color="{StaticResource EffectShadowColor}" />
+  <DropShadowEffect x:Key="EffectShadow4" o:Freeze="True" BlurRadius="25" Direction="270" Opacity=".2" RenderingBias="Performance" ShadowDepth="8" Color="{StaticResource EffectShadowColor}" />
+  <DropShadowEffect x:Key="EffectShadow5" o:Freeze="True" BlurRadius="35" Direction="270" Opacity=".2" RenderingBias="Performance" ShadowDepth="13" Color="{StaticResource EffectShadowColor}" />
   <Style x:Key="SearchPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="Path">
     <Setter Property="Data" Value="{StaticResource SearchGeometry}" />
   </Style>
@@ -1108,8 +1108,8 @@ Themes\Lang.xaml
     <Setter Property="RenderTransform">
       <Setter.Value>
         <TransformGroup>
-          <ScaleTransform ScaleY="1" ScaleX="-1" />
-          <SkewTransform AngleY="0" AngleX="0" />
+          <ScaleTransform ScaleX="-1" ScaleY="1" />
+          <SkewTransform AngleX="0" AngleY="0" />
           <RotateTransform Angle="0" />
           <TranslateTransform />
         </TransformGroup>
@@ -1155,19 +1155,19 @@ Themes\Lang.xaml
   <ControlTemplate x:Key="BadgeTextTemplate" TargetType="liftui:Badge">
     <local:SimplePanel>
       <ContentPresenter />
-      <Border x:Name="Border" Visibility="{TemplateBinding ShowBadge,Converter={StaticResource Boolean2VisibilityConverter}}" RenderTransformOrigin="0.5 0.5" Style="{StaticResource BorderCircular}" Margin="{TemplateBinding BadgeMargin}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+      <Border x:Name="Border" Margin="{TemplateBinding BadgeMargin}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" RenderTransformOrigin="0.5 0.5" Style="{StaticResource BorderCircular}" Visibility="{TemplateBinding ShowBadge,                                              Converter={StaticResource Boolean2VisibilityConverter}}">
         <Border.RenderTransform>
           <ScaleTransform />
         </Border.RenderTransform>
-        <ContentPresenter ContentSource="Text" Margin="{TemplateBinding Padding}" />
+        <ContentPresenter Margin="{TemplateBinding Padding}" ContentSource="Text" />
       </Border>
     </local:SimplePanel>
     <ControlTemplate.Triggers>
       <EventTrigger RoutedEvent="liftui:Badge.ValueChanged">
         <BeginStoryboard>
           <Storyboard AutoReverse="True">
-            <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" BeginTime="0" Duration="0:0:.1" From="1" To="1.2" EasingFunction="{StaticResource SineEaseOut}" />
-            <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" BeginTime="0" Duration="0:0:.1" From="1" To="1.2" EasingFunction="{StaticResource SineEaseOut}" />
+            <DoubleAnimation BeginTime="0" EasingFunction="{StaticResource SineEaseOut}" Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:.1" />
+            <DoubleAnimation BeginTime="0" EasingFunction="{StaticResource SineEaseOut}" Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:.1" />
           </Storyboard>
         </BeginStoryboard>
       </EventTrigger>
@@ -1176,7 +1176,7 @@ Themes\Lang.xaml
   <ControlTemplate x:Key="BadgeProcessingTemplate" TargetType="liftui:Badge">
     <local:SimplePanel>
       <ContentPresenter />
-      <Ellipse Visibility="{TemplateBinding ShowBadge,Converter={StaticResource Boolean2VisibilityConverter}}" Height="10" Width="10" Fill="{TemplateBinding Background}" RenderTransformOrigin="0.5 0.5" Margin="{TemplateBinding BadgeMargin}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+      <Ellipse Width="10" Height="10" Margin="{TemplateBinding BadgeMargin}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Fill="{TemplateBinding Background}" RenderTransformOrigin="0.5 0.5" Visibility="{TemplateBinding ShowBadge,                                              Converter={StaticResource Boolean2VisibilityConverter}}">
         <Ellipse.OpacityMask>
           <RadialGradientBrush>
             <GradientStop Offset="0" Color="Transparent" />
@@ -1189,16 +1189,16 @@ Themes\Lang.xaml
         <Ellipse.Triggers>
           <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
-              <Storyboard RepeatBehavior="Forever" DesiredFrameRate="20">
-                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" BeginTime="0" Duration="0:0:1" From="1" To="2" EasingFunction="{StaticResource SineEaseOut}" />
-                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" BeginTime="0" Duration="0:0:1" From="1" To="2" EasingFunction="{StaticResource SineEaseOut}" />
-                <DoubleAnimation Storyboard.TargetProperty="Opacity" BeginTime="0" Duration="0:0:1" From="1" To="0" EasingFunction="{StaticResource SineEaseOut}" />
+              <Storyboard DesiredFrameRate="20" RepeatBehavior="Forever">
+                <DoubleAnimation BeginTime="0" EasingFunction="{StaticResource SineEaseOut}" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" From="1" To="2" Duration="0:0:1" />
+                <DoubleAnimation BeginTime="0" EasingFunction="{StaticResource SineEaseOut}" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" From="1" To="2" Duration="0:0:1" />
+                <DoubleAnimation BeginTime="0" EasingFunction="{StaticResource SineEaseOut}" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:1" />
               </Storyboard>
             </BeginStoryboard>
           </EventTrigger>
         </Ellipse.Triggers>
       </Ellipse>
-      <Border Visibility="{TemplateBinding ShowBadge,Converter={StaticResource Boolean2VisibilityConverter}}" Margin="{TemplateBinding BadgeMargin}" Width="10" Height="10" CornerRadius="5" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+      <Border Width="10" Height="10" Margin="{TemplateBinding BadgeMargin}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5" Visibility="{TemplateBinding ShowBadge,                                              Converter={StaticResource Boolean2VisibilityConverter}}" />
     </local:SimplePanel>
   </ControlTemplate>
   <Style x:Key="BadgeBaseStyle" TargetType="liftui:Badge">
@@ -1805,7 +1805,7 @@ Themes\Lang.xaml
           <Setter Property="Control.Template">
             <Setter.Value>
               <ControlTemplate>
-                <Rectangle Margin="2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4" />
+                <Rectangle Margin="2" Opacity=".6" RadiusX="4" RadiusY="4" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeDashArray="1 1" StrokeThickness="2" />
               </ControlTemplate>
             </Setter.Value>
           </Setter>
@@ -1823,7 +1823,7 @@ Themes\Lang.xaml
       <Setter.Value>
         <ControlTemplate TargetType="DataGridCell">
           <Border Background="Transparent">
-            <Border Margin="0,0,4,0" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+            <Border Margin="0,0,4,0" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" SnapsToDevicePixels="True">
               <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
             </Border>
           </Border>
@@ -1833,33 +1833,33 @@ Themes\Lang.xaml
     <Style.Triggers>
       <MultiDataTrigger>
         <MultiDataTrigger.Conditions>
-          <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource Self}}" Value="true" />
-          <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource FindAncestor,AncestorType=DataGrid}}" Value="Cell" />
+          <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true" />
+          <Condition Binding="{Binding SelectionUnit, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGrid}}" Value="Cell" />
         </MultiDataTrigger.Conditions>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
       </MultiDataTrigger>
       <MultiDataTrigger>
         <MultiDataTrigger.Conditions>
-          <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource Self}}" Value="true" />
-          <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="False" />
-          <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource FindAncestor,AncestorType=DataGrid}}" Value="CellOrRowHeader" />
+          <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true" />
+          <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="False" />
+          <Condition Binding="{Binding SelectionUnit, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGrid}}" Value="CellOrRowHeader" />
         </MultiDataTrigger.Conditions>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
       </MultiDataTrigger>
       <MultiDataTrigger>
         <MultiDataTrigger.Conditions>
-          <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource Self}}" Value="true" />
-          <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="True" />
-          <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource FindAncestor,AncestorType=DataGrid}}" Value="CellOrRowHeader" />
+          <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true" />
+          <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="True" />
+          <Condition Binding="{Binding SelectionUnit, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGrid}}" Value="CellOrRowHeader" />
         </MultiDataTrigger.Conditions>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
       </MultiDataTrigger>
       <MultiDataTrigger>
         <MultiDataTrigger.Conditions>
-          <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource Self}}" Value="true" />
-          <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource FindAncestor,AncestorType=DataGrid}}" Value="FullRow" />
+          <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true" />
+          <Condition Binding="{Binding SelectionUnit, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGrid}}" Value="FullRow" />
         </MultiDataTrigger.Conditions>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
       </MultiDataTrigger>
@@ -1883,7 +1883,7 @@ Themes\Lang.xaml
     <Setter Property="ValidationErrorTemplate">
       <Setter.Value>
         <ControlTemplate>
-          <TextBlock Foreground="Red" Margin="2,0,0,0" Text="!" VerticalAlignment="Center" />
+          <TextBlock Margin="2,0,0,0" VerticalAlignment="Center" Foreground="Red" Text="!" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
@@ -1899,9 +1899,9 @@ Themes\Lang.xaml
               <RowDefinition Height="*" />
               <RowDefinition Height="Auto" />
             </SelectiveScrollingGrid.RowDefinitions>
-            <Border CornerRadius="4" Grid.ColumnSpan="2" x:Name="DGR_Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" />
-            <DataGridCellsPresenter MinHeight="{TemplateBinding MinHeight}" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="1" ItemsPanel="{TemplateBinding ItemsPanel}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-            <DataGridDetailsPresenter Grid.Column="1" Grid.Row="1" SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" Visibility="{TemplateBinding DetailsVisibility}" />
+            <Border x:Name="DGR_Border" Grid.ColumnSpan="2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="4" SnapsToDevicePixels="True" />
+            <DataGridCellsPresenter Grid.Row="0" Grid.Column="1" MinHeight="{TemplateBinding MinHeight}" VerticalContentAlignment="Center" ItemsPanel="{TemplateBinding ItemsPanel}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            <DataGridDetailsPresenter Grid.Row="1" Grid.Column="1" SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" Visibility="{TemplateBinding DetailsVisibility}" />
             <DataGridRowHeader Grid.Row="0" Grid.Column="0" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Row}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
           </SelectiveScrollingGrid>
         </ControlTemplate>
@@ -1930,13 +1930,13 @@ Themes\Lang.xaml
       <Setter.Value>
         <ControlTemplate TargetType="DataGridRowHeader">
           <local:SimplePanel HorizontalAlignment="Center">
-            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Padding="{TemplateBinding Padding}">
+            <Border Padding="{TemplateBinding Padding}" Background="Transparent" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
               <StackPanel Orientation="Horizontal">
-                <ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" />
+                <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
               </StackPanel>
             </Border>
-            <Thumb x:Name="PART_TopHeaderGripper" Style="{StaticResource RowHeaderGripperStyle}" VerticalAlignment="Top" />
-            <Thumb x:Name="PART_BottomHeaderGripper" Style="{StaticResource RowHeaderGripperStyle}" VerticalAlignment="Bottom" />
+            <Thumb x:Name="PART_TopHeaderGripper" VerticalAlignment="Top" Style="{StaticResource RowHeaderGripperStyle}" />
+            <Thumb x:Name="PART_BottomHeaderGripper" VerticalAlignment="Bottom" Style="{StaticResource RowHeaderGripperStyle}" />
           </local:SimplePanel>
         </ControlTemplate>
       </Setter.Value>
@@ -1992,12 +1992,12 @@ Themes\Lang.xaml
       <Setter.Value>
         <ControlTemplate TargetType="TextBox">
           <local:SimplePanel x:Name="root">
-            <Border CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" />
-            <ScrollViewer Margin="-2,0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
+            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" SnapsToDevicePixels="True" />
+            <ScrollViewer x:Name="PART_ContentHost" Margin="-2,0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
           </local:SimplePanel>
           <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-              <Setter Property="Opacity" TargetName="root" Value="0.4" />
+              <Setter TargetName="root" Property="Opacity" Value="0.4" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true">
               <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
@@ -2038,12 +2038,12 @@ Themes\Lang.xaml
       <Setter.Value>
         <ControlTemplate TargetType="TextBox">
           <local:SimplePanel x:Name="root">
-            <Border CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" />
-            <ScrollViewer Margin="-2,0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
+            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" SnapsToDevicePixels="True" />
+            <ScrollViewer x:Name="PART_ContentHost" Margin="-2,0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
           </local:SimplePanel>
           <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-              <Setter Property="Opacity" TargetName="root" Value="0.4" />
+              <Setter TargetName="root" Property="Opacity" Value="0.4" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true">
               <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
@@ -2516,7 +2516,7 @@ Themes\Lang.xaml
     </Style.Triggers>
   </Style>
   <Style x:Key="DatePickerTextBoxStylePersian" TargetType="primitives:DatePickerTextBox">
-    <Setter Property="Foreground" Value="{Binding Foreground,RelativeSource={RelativeSource AncestorType=liftui:PersianDatePicker}}" />
+    <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=liftui:PersianDatePicker}}" />
     <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
     <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
     <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -2526,8 +2526,8 @@ Themes\Lang.xaml
       <Setter.Value>
         <ControlTemplate TargetType="primitives:DatePickerTextBox">
           <local:SimplePanel>
-            <TextBlock VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" Text="{Binding Path=(liftui:InfoElement.Placeholder),RelativeSource={RelativeSource AncestorType=liftui:PersianDatePicker}}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" />
-            <ScrollViewer Margin="-2,0" Padding="{TemplateBinding Padding}" x:Name="PART_ContentHost" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            <TextBlock Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Text="{Binding Path=(liftui:InfoElement.Placeholder), RelativeSource={RelativeSource AncestorType=liftui:PersianDatePicker}}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Visibility="{TemplateBinding Text,                                                          Converter={StaticResource String2VisibilityReConverter}}" />
+            <ScrollViewer x:Name="PART_ContentHost" Margin="-2,0" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
           </local:SimplePanel>
         </ControlTemplate>
       </Setter.Value>
@@ -7736,12 +7736,12 @@ Themes\Lang.xaml
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="ListBoxItem">
-          <Border x:Name="BdSide" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" SnapsToDevicePixels="true">
-            <Border Margin="20,0,10,0" x:Name="Bd" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+          <Border x:Name="BdSide" BorderBrush="{DynamicResource PrimaryBrush}" BorderThickness="0" SnapsToDevicePixels="true">
+            <Border x:Name="Bd" Margin="20,0,10,0" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" SnapsToDevicePixels="true">
               <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                <Path x:Name="ContentPath" SnapsToDevicePixels="True" Stretch="Uniform" Fill="{DynamicResource PrimaryTextBrush}" Width="{Binding Path=(liftui:IconElement.Width),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(liftui:IconElement.Height),RelativeSource={RelativeSource TemplatedParent}}" Data="{Binding Path=(liftui:IconElement.Geometry),RelativeSource={RelativeSource TemplatedParent}}" />
-                <ContentPresenter Margin="10,0" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                <Path Visibility="{Binding Path=(liftui:ListBoxAttach.IsNew),RelativeSource={RelativeSource self},Converter={StaticResource Boolean2VisibilityConverter}}" FlowDirection="LeftToRight" VerticalAlignment="Center" Data="{Binding Path=(liftui:ListBoxAttach.Geometry),RelativeSource={RelativeSource TemplatedParent}}" Stretch="Uniform" Width="{Binding Path=(liftui:ListBoxAttach.Width),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(liftui:ListBoxAttach.Height),RelativeSource={RelativeSource TemplatedParent}}" Fill="{Binding Path=(liftui:ListBoxAttach.GeoemtryBrush),RelativeSource={RelativeSource TemplatedParent}}" />
+                <Path x:Name="ContentPath" Width="{Binding Path=(liftui:IconElement.Width), RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(liftui:IconElement.Height), RelativeSource={RelativeSource TemplatedParent}}" Data="{Binding Path=(liftui:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}}" Fill="{DynamicResource PrimaryTextBrush}" SnapsToDevicePixels="True" Stretch="Uniform" />
+                <ContentPresenter Margin="10,0" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                <Path Width="{Binding Path=(liftui:ListBoxAttach.Width), RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(liftui:ListBoxAttach.Height), RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center" Data="{Binding Path=(liftui:ListBoxAttach.Geometry), RelativeSource={RelativeSource TemplatedParent}}" Fill="{Binding Path=(liftui:ListBoxAttach.GeoemtryBrush), RelativeSource={RelativeSource TemplatedParent}}" FlowDirection="LeftToRight" Stretch="Uniform" Visibility="{Binding Path=(liftui:ListBoxAttach.IsNew), RelativeSource={RelativeSource self}, Converter={StaticResource Boolean2VisibilityConverter}}" />
               </StackPanel>
             </Border>
           </Border>
@@ -7804,7 +7804,7 @@ Themes\Lang.xaml
       </Trigger>
     </Style.Triggers>
   </Style>
-  <Style TargetType="primitives:DatePickerTextBox" BasedOn="{StaticResource DatePickerTextBoxStylePersian}">
+  <Style BasedOn="{StaticResource DatePickerTextBoxStylePersian}" TargetType="primitives:DatePickerTextBox">
     <Setter Property="ContextMenu" Value="{StaticResource TextBoxContextMenu}" />
   </Style>
   <Style x:Key="ListBoxItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="ListBoxItem">
@@ -13605,8 +13605,8 @@ Themes\Lang.xaml
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="ContextMenu">
-          <Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MaxHeight="{TemplateBinding MaxHeight}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
-            <ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="{TemplateBinding Padding}">
+          <Border MaxHeight="{TemplateBinding MaxHeight}" Margin="8" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" Effect="{StaticResource EffectShadow2}">
+            <ScrollViewer Margin="{TemplateBinding Padding}" Style="{StaticResource ScrollViewerUpDown}">
               <ItemsPresenter />
             </ScrollViewer>
           </Border>
@@ -13622,14 +13622,14 @@ Themes\Lang.xaml
       <Setter.Value>
         <ControlTemplate TargetType="DataGridColumnHeader">
           <local:SimplePanel>
-            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Padding="{TemplateBinding Padding}">
+            <Border Padding="{TemplateBinding Padding}" Background="Transparent" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
               <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                 <Grid.ColumnDefinitions>
                   <ColumnDefinition />
                   <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <ContentPresenter RecognizesAccessKey="True" VerticalAlignment="Center" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                <ToggleButton Grid.Column="1" VerticalAlignment="Center" Height="{x:Static system:Double.NaN}" Padding="4,0" Width="20" IsEnabled="False" Opacity="1" Foreground="{DynamicResource PrimaryBrush}" x:Name="ToggleButtonSortDirection" Style="{StaticResource ToggleButtonIconTransparent}" local:IconSwitchElement.Geometry="{StaticResource DownGeometry}" local:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" />
+                <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                <ToggleButton x:Name="ToggleButtonSortDirection" Grid.Column="1" Width="20" Height="{x:Static system:Double.NaN}" Padding="4,0" VerticalAlignment="Center" local:IconSwitchElement.Geometry="{StaticResource DownGeometry}" local:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" Foreground="{DynamicResource PrimaryBrush}" IsEnabled="False" Opacity="1" Style="{StaticResource ToggleButtonIconTransparent}" />
               </Grid>
             </Border>
             <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}" />
@@ -13637,13 +13637,13 @@ Themes\Lang.xaml
           </local:SimplePanel>
           <ControlTemplate.Triggers>
             <Trigger Property="SortDirection" Value="{x:Null}">
-              <Setter Property="Visibility" Value="Collapsed" TargetName="ToggleButtonSortDirection" />
+              <Setter TargetName="ToggleButtonSortDirection" Property="Visibility" Value="Collapsed" />
             </Trigger>
             <Trigger Property="SortDirection" Value="Ascending">
-              <Setter Property="IsChecked" Value="True" TargetName="ToggleButtonSortDirection" />
+              <Setter TargetName="ToggleButtonSortDirection" Property="IsChecked" Value="True" />
             </Trigger>
             <Trigger Property="SortDirection" Value="Descending">
-              <Setter Property="IsChecked" Value="False" TargetName="ToggleButtonSortDirection" />
+              <Setter TargetName="ToggleButtonSortDirection" Property="IsChecked" Value="False" />
             </Trigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -14399,7 +14399,7 @@ Themes\Lang.xaml
     <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxModernItemBaseStyle}" />
   </Style>
   <Style x:Key="ListBoxItemBaseTransparent" BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
-    <Setter Property="Visibility" Value="{Binding IsVisible,Converter={StaticResource Boolean2VisibilityConverter}}" />
+    <Setter Property="Visibility" Value="{Binding IsVisible, Converter={StaticResource Boolean2VisibilityConverter}}" />
     <Setter Property="Background" Value="Transparent" />
   </Style>
   <Style x:Key="ListBoxBaseTransparentStyle" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
@@ -14411,10 +14411,10 @@ Themes\Lang.xaml
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="ListBoxItem">
-          <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+          <Border x:Name="Bd" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
             <StackPanel Orientation="Horizontal">
-              <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-              <Path FlowDirection="LeftToRight" VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Stretch="Uniform" Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource DangerBrush}" />
+              <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+              <Path Width="30" Height="14" Margin="10,0,0,0" VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Fill="{DynamicResource DangerBrush}" FlowDirection="LeftToRight" Stretch="Uniform" />
             </StackPanel>
           </Border>
         </ControlTemplate>
@@ -14425,11 +14425,11 @@ Themes\Lang.xaml
         <Setter Property="Template">
           <Setter.Value>
             <ControlTemplate TargetType="ListBoxItem">
-              <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+              <Border x:Name="Bd" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                 <StackPanel Orientation="Horizontal">
-                  <ContentControl Width="16" Height="16" Content="{Binding Path=(liftui:EdgeElement.LeftContent),RelativeSource={RelativeSource TemplatedParent}}" />
-                  <ContentPresenter Margin="6,0,0,0" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                  <Path FlowDirection="LeftToRight" VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Stretch="Uniform" Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource DangerBrush}" />
+                  <ContentControl Width="16" Height="16" Content="{Binding Path=(liftui:EdgeElement.LeftContent), RelativeSource={RelativeSource TemplatedParent}}" />
+                  <ContentPresenter Margin="6,0,0,0" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                  <Path Width="30" Height="14" Margin="10,0,0,0" VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Fill="{DynamicResource DangerBrush}" FlowDirection="LeftToRight" Stretch="Uniform" />
                 </StackPanel>
               </Border>
             </ControlTemplate>
@@ -14450,34 +14450,34 @@ Themes\Lang.xaml
               <ColumnDefinition />
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Border x:Name="border" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
-            <Button Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Width="14" Style="{StaticResource ButtonIcon}" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" local:IconElement.Geometry="{StaticResource CalendarGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=border}" Focusable="False" Grid.Row="0" />
-            <primitives:DatePickerTextBox Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{StaticResource DatePickerTextBoxStylePersian}" />
-            <Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
+            <Border x:Name="border" Grid.ColumnSpan="2" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+            <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="1" Width="Auto" Height="Auto" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Geometry="{StaticResource CalendarGeometry}" local:IconElement.Width="14" Focusable="False" Foreground="{Binding BorderBrush, ElementName=border}" Style="{StaticResource ButtonIcon}" />
+            <primitives:DatePickerTextBox x:Name="PART_TextBox" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="{TemplateBinding Focusable}" Style="{StaticResource DatePickerTextBoxStylePersian}" />
+            <Popup x:Name="PART_Popup" Grid.Column="0" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" StaysOpen="False" />
           </Grid>
           <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-              <Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
+              <Setter TargetName="PART_Root" Property="Opacity" Value="0.4" />
             </Trigger>
             <MultiTrigger>
               <MultiTrigger.Conditions>
                 <Condition Property="IsMouseOver" Value="true" />
-                <Condition Property="IsOpen" Value="false" SourceName="PART_Popup" />
+                <Condition SourceName="PART_Popup" Property="IsOpen" Value="false" />
               </MultiTrigger.Conditions>
-              <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource SecondaryBorderBrush}" />
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
             </MultiTrigger>
             <MultiTrigger>
               <MultiTrigger.Conditions>
                 <Condition Property="IsMouseOver" Value="true" />
-                <Condition Property="IsOpen" Value="true" SourceName="PART_Popup" />
+                <Condition SourceName="PART_Popup" Property="IsOpen" Value="true" />
               </MultiTrigger.Conditions>
-              <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </MultiTrigger>
-            <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
-              <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+            <Trigger SourceName="PART_TextBox" Property="IsFocused" Value="true">
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
-            <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
-              <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+            <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -14488,93 +14488,93 @@ Themes\Lang.xaml
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
-        <RowDefinition MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(liftui:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
+        <RowDefinition Height="{Binding Path=(liftui:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Double2GridLengthConverter}}" MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}" />
       </Grid.RowDefinitions>
-      <DockPanel LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{Binding Path=(liftui:TitleElement.MarginOnTheTop),RelativeSource={RelativeSource TemplatedParent}}">
-        <ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(liftui:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-        <TextBlock local:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+      <DockPanel Margin="{Binding Path=(liftui:TitleElement.MarginOnTheTop), RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}" LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource String2VisibilityConverter}}">
+        <ContentPresenter Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}" DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Visibility="{Binding Path=(liftui:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
+        <TextBlock local:TextBlockAttach.AutoTooltip="True" Text="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}}" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
       </DockPanel>
       <Grid x:Name="PART_Root" Grid.Row="1">
         <Grid.ColumnDefinitions>
           <ColumnDefinition />
           <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <Border x:Name="border" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
-        <Button Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Width="14" Style="{StaticResource ButtonIcon}" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" local:IconElement.Geometry="{StaticResource CalendarGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=border}" Focusable="False" Grid.Row="0" />
-        <primitives:DatePickerTextBox Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{StaticResource DatePickerTextBoxStylePersian}" />
-        <Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
+        <Border x:Name="border" Grid.ColumnSpan="2" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+        <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="1" Width="Auto" Height="Auto" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Geometry="{StaticResource CalendarGeometry}" local:IconElement.Width="14" Focusable="False" Foreground="{Binding BorderBrush, ElementName=border}" Style="{StaticResource ButtonIcon}" />
+        <primitives:DatePickerTextBox x:Name="PART_TextBox" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="{TemplateBinding Focusable}" Style="{StaticResource DatePickerTextBoxStylePersian}" />
+        <Popup x:Name="PART_Popup" Grid.Column="0" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" StaysOpen="False" />
       </Grid>
     </Grid>
     <ControlTemplate.Triggers>
       <Trigger Property="IsEnabled" Value="false">
-        <Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
+        <Setter TargetName="PART_Root" Property="Opacity" Value="0.4" />
       </Trigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="false" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="false" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource SecondaryBorderBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
       </MultiTrigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="true" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="true" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </MultiTrigger>
-      <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_TextBox" Property="IsFocused" Value="true">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
-      <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
     </ControlTemplate.Triggers>
   </ControlTemplate>
   <ControlTemplate x:Key="DatePickerExtendLeftTemplatePersian" TargetType="liftui:PersianDatePicker">
-    <Grid MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(liftui:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
+    <Grid Height="{Binding Path=(liftui:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}}" MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}">
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="{Binding Path=(liftui:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
+        <ColumnDefinition Width="{Binding Path=(liftui:InfoElement.TitleWidth), RelativeSource={RelativeSource TemplatedParent}}" />
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
-      <DockPanel LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(liftui:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{Binding Path=(liftui:TitleElement.MarginOnTheLeft),RelativeSource={RelativeSource TemplatedParent}}">
-        <ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(liftui:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-        <TextBlock local:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+      <DockPanel Margin="{Binding Path=(liftui:TitleElement.MarginOnTheLeft), RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(liftui:TitleElement.VerticalAlignment), RelativeSource={RelativeSource TemplatedParent}}" LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource String2VisibilityConverter}}">
+        <ContentPresenter Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}" DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Visibility="{Binding Path=(liftui:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
+        <TextBlock local:TextBlockAttach.AutoTooltip="True" Text="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}}" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
       </DockPanel>
       <Grid x:Name="PART_Root" Grid.Column="1">
         <Grid.ColumnDefinitions>
           <ColumnDefinition />
           <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <Border x:Name="border" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
-        <Button Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Width="14" Style="{StaticResource ButtonIcon}" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" local:IconElement.Geometry="{StaticResource CalendarGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=border}" Focusable="False" Grid.Row="0" />
-        <primitives:DatePickerTextBox Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{StaticResource DatePickerTextBoxStylePersian}" />
-        <Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
+        <Border x:Name="border" Grid.ColumnSpan="2" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+        <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="1" Width="Auto" Height="Auto" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Geometry="{StaticResource CalendarGeometry}" local:IconElement.Width="14" Focusable="False" Foreground="{Binding BorderBrush, ElementName=border}" Style="{StaticResource ButtonIcon}" />
+        <primitives:DatePickerTextBox x:Name="PART_TextBox" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="{TemplateBinding Focusable}" Style="{StaticResource DatePickerTextBoxStylePersian}" />
+        <Popup x:Name="PART_Popup" Grid.Column="0" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" StaysOpen="False" />
       </Grid>
     </Grid>
     <ControlTemplate.Triggers>
       <Trigger Property="IsEnabled" Value="false">
-        <Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
+        <Setter TargetName="PART_Root" Property="Opacity" Value="0.4" />
       </Trigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="false" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="false" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource SecondaryBorderBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
       </MultiTrigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="true" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="true" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </MultiTrigger>
-      <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_TextBox" Property="IsFocused" Value="true">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
-      <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
     </ControlTemplate.Triggers>
   </ControlTemplate>
@@ -14601,34 +14601,34 @@ Themes\Lang.xaml
               <ColumnDefinition />
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Border x:Name="border" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
-            <Button Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Width="14" Style="{StaticResource ButtonIcon}" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" local:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=border}" Focusable="False" Grid.Row="0" />
-            <local:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-            <Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
+            <Border x:Name="border" Grid.ColumnSpan="2" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+            <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="1" Width="Auto" Height="Auto" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Geometry="{StaticResource ClockGeometry}" local:IconElement.Width="14" Focusable="False" Foreground="{Binding BorderBrush, ElementName=border}" Style="{StaticResource ButtonIcon}" />
+            <local:WatermarkTextBox x:Name="PART_TextBox" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" CaretBrush="{TemplateBinding CaretBrush}" Focusable="{TemplateBinding Focusable}" Foreground="{TemplateBinding Foreground}" />
+            <Popup x:Name="PART_Popup" Grid.Column="0" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" StaysOpen="False" />
           </Grid>
           <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-              <Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
+              <Setter TargetName="PART_Root" Property="Opacity" Value="0.4" />
             </Trigger>
             <MultiTrigger>
               <MultiTrigger.Conditions>
                 <Condition Property="IsMouseOver" Value="true" />
-                <Condition Property="IsOpen" Value="false" SourceName="PART_Popup" />
+                <Condition SourceName="PART_Popup" Property="IsOpen" Value="false" />
               </MultiTrigger.Conditions>
-              <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource SecondaryBorderBrush}" />
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
             </MultiTrigger>
             <MultiTrigger>
               <MultiTrigger.Conditions>
                 <Condition Property="IsMouseOver" Value="true" />
-                <Condition Property="IsOpen" Value="true" SourceName="PART_Popup" />
+                <Condition SourceName="PART_Popup" Property="IsOpen" Value="true" />
               </MultiTrigger.Conditions>
-              <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </MultiTrigger>
-            <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
-              <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+            <Trigger SourceName="PART_TextBox" Property="IsFocused" Value="true">
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
-            <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
-              <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+            <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
+              <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -14639,93 +14639,93 @@ Themes\Lang.xaml
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
-        <RowDefinition MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(liftui:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
+        <RowDefinition Height="{Binding Path=(liftui:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Double2GridLengthConverter}}" MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}" />
       </Grid.RowDefinitions>
-      <DockPanel LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{Binding Path=(liftui:TitleElement.MarginOnTheTop),RelativeSource={RelativeSource TemplatedParent}}">
-        <ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(liftui:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-        <TextBlock local:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+      <DockPanel Margin="{Binding Path=(liftui:TitleElement.MarginOnTheTop), RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}" LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource String2VisibilityConverter}}">
+        <ContentPresenter Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}" DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Visibility="{Binding Path=(liftui:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
+        <TextBlock local:TextBlockAttach.AutoTooltip="True" Text="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}}" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
       </DockPanel>
       <Grid x:Name="PART_Root" Grid.Row="1">
         <Grid.ColumnDefinitions>
           <ColumnDefinition />
           <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <Border x:Name="border" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
-        <Button Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Width="14" Style="{StaticResource ButtonIcon}" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" local:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=border}" Focusable="False" Grid.Row="0" />
-        <local:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" Watermark="{Binding Path=(liftui:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" x:Name="PART_TextBox" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-        <Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
+        <Border x:Name="border" Grid.ColumnSpan="2" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+        <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="1" Width="Auto" Height="Auto" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Geometry="{StaticResource ClockGeometry}" local:IconElement.Width="14" Focusable="False" Foreground="{Binding BorderBrush, ElementName=border}" Style="{StaticResource ButtonIcon}" />
+        <local:WatermarkTextBox x:Name="PART_TextBox" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" CaretBrush="{TemplateBinding CaretBrush}" Focusable="{TemplateBinding Focusable}" Foreground="{TemplateBinding Foreground}" Watermark="{Binding Path=(liftui:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}" />
+        <Popup x:Name="PART_Popup" Grid.Column="0" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" StaysOpen="False" />
       </Grid>
     </Grid>
     <ControlTemplate.Triggers>
       <Trigger Property="IsEnabled" Value="false">
-        <Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
+        <Setter TargetName="PART_Root" Property="Opacity" Value="0.4" />
       </Trigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="false" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="false" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource SecondaryBorderBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
       </MultiTrigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="true" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="true" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </MultiTrigger>
-      <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_TextBox" Property="IsFocused" Value="true">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
-      <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
     </ControlTemplate.Triggers>
   </ControlTemplate>
   <ControlTemplate x:Key="DateTimePickerExtendLeftTemplatePersian" TargetType="liftui:PersianDateTimePicker">
-    <Grid MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(liftui:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
+    <Grid Height="{Binding Path=(liftui:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}}" MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}">
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="{Binding Path=(liftui:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
+        <ColumnDefinition Width="{Binding Path=(liftui:InfoElement.TitleWidth), RelativeSource={RelativeSource TemplatedParent}}" />
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
-      <DockPanel LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(liftui:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{Binding Path=(liftui:TitleElement.MarginOnTheLeft),RelativeSource={RelativeSource TemplatedParent}}">
-        <ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(liftui:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-        <TextBlock local:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+      <DockPanel Margin="{Binding Path=(liftui:TitleElement.MarginOnTheLeft), RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(liftui:TitleElement.VerticalAlignment), RelativeSource={RelativeSource TemplatedParent}}" LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource String2VisibilityConverter}}">
+        <ContentPresenter Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}" DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Visibility="{Binding Path=(liftui:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
+        <TextBlock local:TextBlockAttach.AutoTooltip="True" Text="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}}" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
       </DockPanel>
       <Grid x:Name="PART_Root" Grid.Column="1">
         <Grid.ColumnDefinitions>
           <ColumnDefinition />
           <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <Border x:Name="border" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
-        <Button Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Width="14" Style="{StaticResource ButtonIcon}" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" local:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=border}" Focusable="False" Grid.Row="0" />
-        <local:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" Watermark="{Binding Path=(liftui:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" x:Name="PART_TextBox" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-        <Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
+        <Border x:Name="border" Grid.ColumnSpan="2" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+        <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="1" Width="Auto" Height="Auto" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Geometry="{StaticResource ClockGeometry}" local:IconElement.Width="14" Focusable="False" Foreground="{Binding BorderBrush, ElementName=border}" Style="{StaticResource ButtonIcon}" />
+        <local:WatermarkTextBox x:Name="PART_TextBox" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" CaretBrush="{TemplateBinding CaretBrush}" Focusable="{TemplateBinding Focusable}" Foreground="{TemplateBinding Foreground}" Watermark="{Binding Path=(liftui:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}" />
+        <Popup x:Name="PART_Popup" Grid.Column="0" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" StaysOpen="False" />
       </Grid>
     </Grid>
     <ControlTemplate.Triggers>
       <Trigger Property="IsEnabled" Value="false">
-        <Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
+        <Setter TargetName="PART_Root" Property="Opacity" Value="0.4" />
       </Trigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="false" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="false" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource SecondaryBorderBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
       </MultiTrigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="true" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="true" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </MultiTrigger>
-      <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_TextBox" Property="IsFocused" Value="true">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
-      <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
     </ControlTemplate.Triggers>
   </ControlTemplate>
@@ -14746,11 +14746,11 @@ Themes\Lang.xaml
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
-        <RowDefinition MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(liftui:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
+        <RowDefinition Height="{Binding Path=(liftui:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Double2GridLengthConverter}}" MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}" />
       </Grid.RowDefinitions>
-      <DockPanel LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{Binding Path=(liftui:TitleElement.MarginOnTheTop),RelativeSource={RelativeSource TemplatedParent}}">
-        <ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(liftui:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-        <TextBlock local:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+      <DockPanel Margin="{Binding Path=(liftui:TitleElement.MarginOnTheTop), RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}" LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource String2VisibilityConverter}}">
+        <ContentPresenter Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}" DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Visibility="{Binding Path=(liftui:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
+        <TextBlock local:TextBlockAttach.AutoTooltip="True" Text="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}}" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
       </DockPanel>
       <Grid x:Name="PART_Root" Grid.Row="1">
         <Grid.ColumnDefinitions>
@@ -14758,55 +14758,55 @@ Themes\Lang.xaml
           <ColumnDefinition Width="Auto" />
           <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <Border x:Name="border" Grid.ColumnSpan="3" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
-        <Button Height="Auto" Width="Auto" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Width="14" Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,0,2,0" local:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=border}" />
-        <Button Height="Auto" Width="Auto" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Width="14" Style="{StaticResource ButtonIcon}" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" local:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=border}" Focusable="False" Grid.Row="0" />
-        <local:WatermarkTextBox x:Name="PART_TextBox" CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" Watermark="{Binding Path=(liftui:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-        <Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
+        <Border x:Name="border" Grid.ColumnSpan="3" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+        <Button Name="ButtonClear" Grid.Column="1" Width="Auto" Height="Auto" Padding="0,0,2,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" local:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" local:IconElement.Width="14" Command="interactivity:ControlCommands.Clear" Foreground="{Binding BorderBrush, ElementName=border}" Style="{StaticResource ButtonIcon}" Visibility="Collapsed" />
+        <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="2" Width="Auto" Height="Auto" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" local:IconElement.Geometry="{StaticResource ClockGeometry}" local:IconElement.Width="14" Focusable="False" Foreground="{Binding BorderBrush, ElementName=border}" Style="{StaticResource ButtonIcon}" />
+        <local:WatermarkTextBox x:Name="PART_TextBox" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" CaretBrush="{TemplateBinding CaretBrush}" Focusable="{TemplateBinding Focusable}" Foreground="{TemplateBinding Foreground}" Watermark="{Binding Path=(liftui:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}" />
+        <Popup x:Name="PART_Popup" Grid.Column="0" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" StaysOpen="False" />
       </Grid>
     </Grid>
     <ControlTemplate.Triggers>
       <Trigger Property="IsEnabled" Value="false">
-        <Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
+        <Setter TargetName="PART_Root" Property="Opacity" Value="0.4" />
       </Trigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="false" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="false" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource SecondaryBorderBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
       </MultiTrigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="true" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="true" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </MultiTrigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
           <Condition Property="liftui:InfoElement.ShowClearButton" Value="True" />
         </MultiTrigger.Conditions>
-        <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
+        <Setter TargetName="ButtonClear" Property="Visibility" Value="Visible" />
       </MultiTrigger>
-      <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_TextBox" Property="IsFocused" Value="true">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
-      <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
     </ControlTemplate.Triggers>
   </ControlTemplate>
   <ControlTemplate x:Key="DateTimePickerPlusLeftTemplatePersian" TargetType="liftui:PersianDateTimePicker">
-    <Grid MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(liftui:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
+    <Grid Height="{Binding Path=(liftui:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}}" MinHeight="{Binding Path=(liftui:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}">
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="{Binding Path=(liftui:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
+        <ColumnDefinition Width="{Binding Path=(liftui:InfoElement.TitleWidth), RelativeSource={RelativeSource TemplatedParent}}" />
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
-      <DockPanel LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(liftui:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{Binding Path=(liftui:TitleElement.MarginOnTheLeft),RelativeSource={RelativeSource TemplatedParent}}">
-        <ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(liftui:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-        <TextBlock local:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(liftui:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+      <DockPanel Margin="{Binding Path=(liftui:TitleElement.MarginOnTheLeft), RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="{Binding Path=(liftui:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(liftui:TitleElement.VerticalAlignment), RelativeSource={RelativeSource TemplatedParent}}" LastChildFill="True" Visibility="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource String2VisibilityConverter}}">
+        <ContentPresenter Margin="4,0,0,0" Content="{Binding Path=(liftui:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}" DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Visibility="{Binding Path=(liftui:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
+        <TextBlock local:TextBlockAttach.AutoTooltip="True" Text="{Binding Path=(liftui:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}}" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
       </DockPanel>
       <Grid x:Name="PART_Root" Grid.Column="1">
         <Grid.ColumnDefinitions>
@@ -14814,43 +14814,43 @@ Themes\Lang.xaml
           <ColumnDefinition Width="Auto" />
           <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <Border x:Name="border" Grid.ColumnSpan="3" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
-        <Button Height="Auto" Width="Auto" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Width="14" Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,0,2,0" local:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=border}" />
-        <Button Height="Auto" Width="Auto" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" local:IconElement.Width="14" Style="{StaticResource ButtonIcon}" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" local:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=border}" Focusable="False" Grid.Row="0" />
-        <local:WatermarkTextBox x:Name="PART_TextBox" CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" Watermark="{Binding Path=(liftui:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-        <Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
+        <Border x:Name="border" Grid.ColumnSpan="3" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+        <Button Name="ButtonClear" Grid.Column="1" Width="Auto" Height="Auto" Padding="0,0,2,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" local:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" local:IconElement.Width="14" Command="interactivity:ControlCommands.Clear" Foreground="{Binding BorderBrush, ElementName=border}" Style="{StaticResource ButtonIcon}" Visibility="Collapsed" />
+        <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="2" Width="Auto" Height="Auto" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" local:IconElement.Geometry="{StaticResource ClockGeometry}" local:IconElement.Width="14" Focusable="False" Foreground="{Binding BorderBrush, ElementName=border}" Style="{StaticResource ButtonIcon}" />
+        <local:WatermarkTextBox x:Name="PART_TextBox" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" CaretBrush="{TemplateBinding CaretBrush}" Focusable="{TemplateBinding Focusable}" Foreground="{TemplateBinding Foreground}" Watermark="{Binding Path=(liftui:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}" />
+        <Popup x:Name="PART_Popup" Grid.Column="0" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" StaysOpen="False" />
       </Grid>
     </Grid>
     <ControlTemplate.Triggers>
       <Trigger Property="IsEnabled" Value="false">
-        <Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
+        <Setter TargetName="PART_Root" Property="Opacity" Value="0.4" />
       </Trigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="false" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="false" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource SecondaryBorderBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
       </MultiTrigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
-          <Condition Property="IsOpen" Value="true" SourceName="PART_Popup" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
+          <Condition SourceName="PART_Popup" Property="IsOpen" Value="true" />
         </MultiTrigger.Conditions>
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </MultiTrigger>
       <MultiTrigger>
         <MultiTrigger.Conditions>
-          <Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
+          <Condition SourceName="PART_Root" Property="IsMouseOver" Value="true" />
           <Condition Property="liftui:InfoElement.ShowClearButton" Value="True" />
         </MultiTrigger.Conditions>
-        <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
+        <Setter TargetName="ButtonClear" Property="Visibility" Value="Visible" />
       </MultiTrigger>
-      <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_TextBox" Property="IsFocused" Value="true">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
-      <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
-        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}" />
+      <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
+        <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
       </Trigger>
     </ControlTemplate.Triggers>
   </ControlTemplate>

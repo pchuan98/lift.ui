@@ -2,7 +2,7 @@
 
   <!--append global shared path value-->
   <PropertyGroup>
-    <SharedPath>..\Lift.UI.Shared\Themes</SharedPath>
+    <SharedPath>Themes</SharedPath>
     <TargetFile>Themes\Theme.xaml</TargetFile>
   </PropertyGroup>
 

@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Lift.UI.Share", "Lift.UI.Share\Lift.UI.Share.shproj", "{3E611340-BDAB-47B7-AF17-80276EA1A7AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lift.UI", "Lift.UI\Lift.UI.csproj", "{AB4BBCB5-60A6-4E15-8174-424ED82BEBD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{258EBB1E-5EEF-4CF2-AFAF-9EBEC49AC988}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lift.UI.Examples", "Lift.UI.Examples\Lift.UI.Examples.csproj", "{ABCEA27C-A24F-4900-A805-27282FE6906C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lift.UI.Core", "Lift.UI.Core\Lift.UI.Core.csproj", "{D42CD18B-3031-444C-BE02-2637610516D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lift.UI.Core.Tests", "Lift.UI.Core.Tests\Lift.UI.Core.Tests.csproj", "{7662C8C5-9CB7-44E6-8825-805034BA68D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB4BBCB5-60A6-4E15-8174-424ED82BEBD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB4BBCB5-60A6-4E15-8174-424ED82BEBD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB4BBCB5-60A6-4E15-8174-424ED82BEBD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB4BBCB5-60A6-4E15-8174-424ED82BEBD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABCEA27C-A24F-4900-A805-27282FE6906C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABCEA27C-A24F-4900-A805-27282FE6906C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABCEA27C-A24F-4900-A805-27282FE6906C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABCEA27C-A24F-4900-A805-27282FE6906C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D42CD18B-3031-444C-BE02-2637610516D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D42CD18B-3031-444C-BE02-2637610516D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D42CD18B-3031-444C-BE02-2637610516D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D42CD18B-3031-444C-BE02-2637610516D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7662C8C5-9CB7-44E6-8825-805034BA68D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7662C8C5-9CB7-44E6-8825-805034BA68D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7662C8C5-9CB7-44E6-8825-805034BA68D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7662C8C5-9CB7-44E6-8825-805034BA68D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {226D9136-E6BF-472D-B8BA-A5402F137FB6}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Lift.UI.Share\Lift.UI.Share.projitems*{3e611340-bdab-47b7-af17-80276ea1a7af}*SharedItemsImports = 13
+		Lift.UI.Share\Lift.UI.Share.projitems*{ab4bbcb5-60a6-4e15-8174-424ed82bebd4}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal

@@ -1,4 +1,5 @@
-﻿namespace Lift.UI.Core.Converters;
+﻿// ReSharper disable once CheckNamespace
+namespace Lift.UI.Core.Converters;
 
 /// <summary>
 /// 多值转换器基类

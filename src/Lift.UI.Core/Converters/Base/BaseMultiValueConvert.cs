@@ -19,9 +19,9 @@ public abstract class BaseMultiValueConvert<T>
     /// <summary>
     /// 单例模式，节省xaml开销（但是有一定概率会出问题）
     /// </summary>
-    private static T? _Instance;
+    private static T? _instance;
 
     /// <inheritdoc/>
     public override object ProvideValue(IServiceProvider serviceProvider)
-        => _Instance ??= new T();
+        => _instance ??= new T();
 }

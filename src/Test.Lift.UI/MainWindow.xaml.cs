@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,37 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CommunityToolkit.Mvvm.ComponentModel;
+using Window = Lift.UI.Controls.Window;
 
-namespace Lift.UI.Test;
+namespace Test.Lift.UI;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow
+public partial class MainWindow : Window
 {
     public MainWindow()
     {
         InitializeComponent();
-
-        var vm = new MainViewModel();
-
-        LiftUiPropertyGrid.SelectedObject = vm;
-        PdPropertyGrid.DataContext = vm;
     }
-}
-
-
-public partial class MainViewModel : ObservableObject
-{
-    [Category("A")]
-    [ObservableProperty]
-    private int _age = 1;
-
-    [Category("B")]
-    [ObservableProperty]
-    private string _name = "kitty";
-
-    [ObservableProperty]
-    private bool _male = true;
 }

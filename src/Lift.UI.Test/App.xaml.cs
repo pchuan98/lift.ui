@@ -19,8 +19,8 @@ namespace Lift.UI.Test
             base.OnStartup(e);
 
 
-            ConfigHelper.Instance.SetLang("");
-            var jump = Lift.UI.Properties.Langs.LangProvider.GetLang("Jump");
+            //ConfigHelper.Instance.SetLang("");
+            //var jump = Lift.UI.Properties.Langs.LangProvider.GetLang("Jump");
 
             var windows = new MainWindow();
             windows.Show();

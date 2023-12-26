@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics.Eventing.Reader;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -143,12 +139,52 @@ public abstract class PropertyEditorBase : DependencyObject
 
     public virtual BindingMode GetBindingMode(PropertyItem propertyItem)
         => propertyItem.ReadOnly ? BindingMode.OneWay : BindingMode.TwoWay;
-
-
 }
 
+public enum PropertyEditorType
+{
+    TextBox,
+    ComboBox,
+    CheckBox,
+    DateTimePicker,
+    ColorPicker,
+    Slider,
+    PasswordBox,
+    Custom
+}
+
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
 public class PropertyGridAttribute : Attribute
 {
+    /// <summary>
+    /// 组名
+    /// </summary>
+    public string? GroupName { get; set; }
+
+    /// <summary>
+    /// 别名
+    /// </summary>
+    public string? Alias { get; set; }
+
+    /// <summary>
+    /// 变量名称用的Tips
+    /// </summary>
+    public string? Tips { get; set; }
+
+    /// <summary>
+    /// 是否变量只读
+    /// </summary>
+    public bool ReadOnly { get; set; } = true;
+
+    /// <summary>
+    /// 对应的控件类型，使用string是为了方便扩展
+    /// </summary>
+    public string? Editor { get; set; }
+
+    /// <summary>
+    /// 是否跳过该数据对象
+    /// </summary>
+    public bool Ignore { get; set; }
 
 }
 
@@ -166,7 +202,7 @@ public class PropertyGrid : Control
 
     }
 
-    private ItemsControl _itemsControl;
+    private ItemsControl? _itemsControl;
 
     private ICollectionView _dataView;
 
@@ -211,13 +247,69 @@ public class PropertyGrid : Control
 
     #endregion
 
+    #region SelectedObject
+
+    public static readonly RoutedEvent SelectedObjectChangedEvent =
+        EventManager.RegisterRoutedEvent("SelectedObjectChanged", RoutingStrategy.Bubble,
+            typeof(RoutedPropertyChangedEventHandler<object>), typeof(PropertyGrid));
+
+    public event RoutedPropertyChangedEventHandler<object> SelectedObjectChanged
+    {
+        add => AddHandler(SelectedObjectChangedEvent, value);
+        remove => RemoveHandler(SelectedObjectChangedEvent, value);
+    }
+
+    public static readonly DependencyProperty SelectedObjectProperty = DependencyProperty.Register(
+        nameof(SelectedObject), typeof(object), typeof(PropertyGrid), new PropertyMetadata(default(object), OnSelectedObjectChanged));
+
+    private static void OnSelectedObjectChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var ctl = (PropertyGrid) d;
+        ctl.OnSelectedObjectChanged(e.OldValue, e.NewValue);
+    }
+
+    protected virtual void OnSelectedObjectChanged(object oldValue, object newValue)
+    {
+        UpdateItems(newValue);
+        RaiseEvent(new RoutedPropertyChangedEventArgs<object>(oldValue, newValue, SelectedObjectChangedEvent));
+    }
+
+    public object SelectedObject
+    {
+        get => (object) GetValue(SelectedObjectProperty);
+        set => SetValue(SelectedObjectProperty, value);
+    }
+
+    #endregion
+
+
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
+
+
+        _itemsControl = GetTemplateChild(ElementItems) as ItemsControl;
+        UpdateItems(SelectedObject);
     }
 
-    void UpdateItems(object obj)
+    void UpdateItems(object? obj)
     {
+        if (obj == null || _itemsControl == null) return;
+
+
+        _dataView = CollectionViewSource.GetDefaultView(obj);
+        _itemsControl.ItemsSource = new List<string>
+        {
+            "Item 1",
+            "Item 2",
+            "Item 3",
+            "Item 4",
+            "Item 5"
+        }; ;
+
+
 
     }
+
+
 }

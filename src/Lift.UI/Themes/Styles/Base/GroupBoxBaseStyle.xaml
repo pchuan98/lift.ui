@@ -65,7 +65,7 @@
                         <TransformGroup>
                             <RotateTransform Angle="-90" />
                         </TransformGroup>
-                    </ContentPresenter.LayoutTransform>
+                    </ContentPresenter.LayoutTransform> 
                 </ContentPresenter>
             </Border>
             <Border Grid.Column="1"

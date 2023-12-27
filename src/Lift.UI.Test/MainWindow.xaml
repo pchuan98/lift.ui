@@ -9,8 +9,9 @@
     xmlns:propertyGrid="clr-namespace:Lift.UI.Test.Controls.PropertyGrid"
     Title="MainWindow"
     Width="800"
-    Height="450"
+    Height="850"
     SystemBackdropType="Tabbed"
+    Topmost="True"
     mc:Ignorable="d">
     <UniformGrid Rows="2">
         <liftui:PropertyGrid x:Name="LiftUiPropertyGrid" Description="hello" />

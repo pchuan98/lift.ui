@@ -2848,7 +2848,7 @@ Themes\Styles\Window.xaml
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="ToolTip">
-          <Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{DynamicResource RegionBrush}" Padding="{TemplateBinding Padding}" BorderThickness="1" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}">
+          <Border Margin="8" Padding="{TemplateBinding Padding}" Background="{DynamicResource RegionBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" Effect="{StaticResource EffectShadow2}">
             <Grid>
               <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -2856,8 +2856,8 @@ Themes\Styles\Window.xaml
               </Grid.RowDefinitions>
               <ContentPresenter x:Name="Presenter" Margin="0,0,0,10" />
               <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <TextBlock FontWeight="Bold" Text="{Binding PropertyTypeName,RelativeSource={RelativeSource AncestorType=liftui:PropertyItem}}" />
-                <TextBlock Text="{Binding PropertyName,RelativeSource={RelativeSource AncestorType=liftui:PropertyItem}}" Margin="6,0,0,0" />
+                <TextBlock FontWeight="Bold" Text="{Binding PropertyTypeName, RelativeSource={RelativeSource AncestorType=liftui:PropertyItem}}" />
+                <TextBlock Margin="6,0,0,0" Text="{Binding PropertyName, RelativeSource={RelativeSource AncestorType=liftui:PropertyItem}}" />
               </StackPanel>
             </Grid>
           </Border>
@@ -2880,7 +2880,7 @@ Themes\Styles\Window.xaml
       <Setter.Value>
         <ControlTemplate TargetType="GroupItem">
           <Expander Header="{Binding Name}" IsExpanded="True">
-            <Border BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" CornerRadius="0,0,4,4">
+            <Border Background="{DynamicResource RegionBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1,0,1,1" CornerRadius="0,0,4,4">
               <ItemsPresenter Margin="{TemplateBinding Padding}" />
             </Border>
           </Expander>
@@ -8130,13 +8130,9 @@ Themes\Styles\Window.xaml
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="liftui:PropertyItem">
-          <GroupBox Style="{StaticResource GroupBoxOriginal}" local:TitleElement.TitlePlacement="Left">
+          <GroupBox local:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}">
             <GroupBox.Header>
-              <TextBlock Padding="0,0,10,0" Width="{Binding Path=(liftui:TitleElement.TitleWidth).Value,RelativeSource={RelativeSource TemplatedParent}}" Text="{TemplateBinding DisplayName}" TextTrimming="CharacterEllipsis">
-                <TextBlock.ToolTip>
-                  <ToolTip Style="{StaticResource PropertyItemToolTipBaseStyle}" Content="{TemplateBinding Description}" />
-                </TextBlock.ToolTip>
-              </TextBlock>
+              <TextBlock Width="{Binding Path=(liftui:TitleElement.TitleWidth).Value, RelativeSource={RelativeSource TemplatedParent}}" Padding="0,0,10,0" Text="{TemplateBinding DisplayName}" TextTrimming="CharacterEllipsis" />
             </GroupBox.Header>
             <ContentPresenter ContentSource="EditorElement" />
           </GroupBox>
@@ -17224,8 +17220,8 @@ Themes\Styles\Window.xaml
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
               </Grid.RowDefinitions>
-              <DockPanel LastChildFill="True" Margin="0,0,0,6">
-                <local:ButtonGroup Margin="0,0,6,0" Visibility="{Binding ShowSortButton,RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" Style="{StaticResource ButtonGroupSolid}">
+              <DockPanel Margin="0,0,0,6" LastChildFill="True">
+                <local:ButtonGroup Margin="0,0,6,0" Style="{StaticResource ButtonGroupSolid}" Visibility="{Binding ShowSortButton, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}">
                   <RadioButton Command="interactivity:ControlCommands.SortByCategory" IsChecked="True">
                     <Rectangle Width="16" Height="16" Fill="{StaticResource SortByCategoryDrawingBrush}" />
                   </RadioButton>
@@ -17233,9 +17229,9 @@ Themes\Styles\Window.xaml
                     <Rectangle Width="16" Height="16" Fill="{StaticResource SortByNameDrawingBrush}" />
                   </RadioButton>
                 </local:ButtonGroup>
-                <local:SearchBar x:Name="PART_SearchBar" IsRealTime="True" local:InfoElement.ShowClearButton="True" Style="{StaticResource SearchBarPlus}" />
+                <local:SearchBar x:Name="PART_SearchBar" local:InfoElement.ShowClearButton="True" IsRealTime="True" Style="{StaticResource SearchBarPlus}" />
               </DockPanel>
-              <local:PropertyItemsControl Grid.Row="1" x:Name="PART_ItemsControl" Style="{StaticResource PropertyItemsControlBaseStyle}">
+              <local:PropertyItemsControl x:Name="PART_ItemsControl" Grid.Row="1" Style="{StaticResource PropertyItemsControlBaseStyle}">
                 <local:PropertyItemsControl.GroupStyle>
                   <GroupStyle ContainerStyle="{StaticResource PropertyGroupItemBaseStyle}" />
                 </local:PropertyItemsControl.GroupStyle>

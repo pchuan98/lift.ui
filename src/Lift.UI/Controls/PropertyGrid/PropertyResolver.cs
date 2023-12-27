@@ -66,6 +66,8 @@ public class PropertyResolver
 
     public PropertyEditorBase ResolveEditor(PropertyDescriptor propertyDescriptor)
     {
+        var name = propertyDescriptor.Name;
+
         var editorAttribute = propertyDescriptor.Attributes.OfType<EditorAttribute>().FirstOrDefault();
         var editor = editorAttribute == null || string.IsNullOrEmpty(editorAttribute.EditorTypeName)
             ? CreateDefaultEditor(propertyDescriptor.PropertyType)

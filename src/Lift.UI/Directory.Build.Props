@@ -24,6 +24,10 @@
       <TargetFile>$(TargetFile)</TargetFile>
       <Visible>False</Visible>
     </XAMLCombineItems>
+    <XAMLCombineItems Include="V2\Themes\*.xaml">
+      <TargetFile>$(TargetFile)</TargetFile>
+      <Visible>False</Visible>
+    </XAMLCombineItems>
     <Folder Include="Themes\" />
   </ItemGroup>
 

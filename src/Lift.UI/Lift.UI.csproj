@@ -6,9 +6,9 @@
     <!--<TargetFrameworks>net6.0-windows;net462-windows</TargetFrameworks>-->
     <TargetFrameworks>net6.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <Version>1.0.0.0</Version>
-    <FileVersion>1.0.0.0</FileVersion>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Version>1.0.0.1</Version>
+    <FileVersion>1.0.0.1</FileVersion>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <PackageId>Lift.UI</PackageId>

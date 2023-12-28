@@ -10,7 +10,7 @@
                 <liftui:ThemeResources RequestedTheme="Dark" />
                 <liftui:Theme />
 
-                <ResourceDictionary Source="../Resources/PropertyGrid.xaml" />
+                <!--<ResourceDictionary Source="../Resources/PropertyGrid.xaml" />-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

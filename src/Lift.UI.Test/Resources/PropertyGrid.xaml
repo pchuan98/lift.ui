@@ -1,43 +1,59 @@
-﻿<ResourceDictionary
+﻿<!--<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:liftui="https://github.com/pchuan98/Lift.UI"
     xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
     xmlns:propertyGrid="clr-namespace:Lift.UI.Test.Controls.PropertyGrid">
 
-    <ControlTemplate x:Key="GroupBoxOriginalTopTemplate" TargetType="GroupBox">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <StackPanel Margin="8,6" Orientation="Horizontal">
-                <ContentPresenter
-                    Margin="1,0,0,0"
-                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                    ContentSource="Header"
-                    RecognizesAccessKey="True"
-                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                    TextElement.Foreground="{TemplateBinding Foreground}" />
-                <ContentPresenter
-                    Margin="4,0,0,0"
-                    Content="{Binding Path=(liftui:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
-                    TextElement.Foreground="{DynamicResource DangerBrush}"
-                    Visibility="{Binding Path=(liftui:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
-            </StackPanel>
-            <Border
-                Grid.Row="1"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
-                <ContentPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-            </Border>
-        </Grid>
-    </ControlTemplate>
+-->
+<!--  鼠标悬停在属性名称时显示的额外提示  -->
+<!--
+    <Style
+        x:Key="PropertyItem.Tooltip.Base"
+        BasedOn="{StaticResource {x:Type ToolTip}}"
+        TargetType="ToolTip">
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border
+                        Margin="8"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{DynamicResource RegionBrush}"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                o:Freeze="True"
+                                BlurRadius="8"
+                                Direction="270"
+                                Opacity=".2"
+                                RenderingBias="Performance"
+                                ShadowDepth="1.5"
+                                Color="#88000000" />
+                        </Border.Effect>
+                        <ContentPresenter x:Name="Presenter" Margin="5,2" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter TargetName="Presenter" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="Content" Value="">
+                            <Setter TargetName="Presenter" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
-    <ControlTemplate x:Key="GroupBoxOriginalLeftTemplate" TargetType="GroupBox">
+-->
+<!--  单个item使用的GroupBox模板  -->
+<!--
+    <ControlTemplate x:Key="PropertyItem.GroupBox.Left" TargetType="GroupBox">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Path=(liftui:InfoElement.TitleWidth), RelativeSource={RelativeSource TemplatedParent}}" />
@@ -53,151 +69,52 @@
                     RecognizesAccessKey="True"
                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                     TextElement.Foreground="{TemplateBinding Foreground}" />
-                <ContentPresenter
-                    Margin="4,0,0,0"
-                    Content="{Binding Path=(liftui:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
-                    TextElement.Foreground="{DynamicResource DangerBrush}"
-                    Visibility="{Binding Path=(liftui:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
             </StackPanel>
-            <Border
+            <ContentPresenter
                 Grid.Column="1"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
-                <ContentPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-            </Border>
+                Margin="{TemplateBinding Padding}"
+                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
         </Grid>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="GroupBoxBaseTopTemplate" TargetType="GroupBox">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Border
-                MinHeight="{Binding Path=(liftui:TitleElement.MinHeight), RelativeSource={RelativeSource TemplatedParent}}"
-                Margin="0,0,0,6"
-                Background="{Binding Path=(liftui:TitleElement.Background), RelativeSource={RelativeSource TemplatedParent}}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
-                <ContentPresenter
-                    Margin="{Binding Path=(liftui:TitleElement.Padding), RelativeSource={RelativeSource TemplatedParent}}"
-                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                    ContentSource="Header"
-                    RecognizesAccessKey="True"
-                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                    TextElement.Foreground="{TemplateBinding Foreground}" />
-            </Border>
-            <Border
-                Grid.Row="1"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
-                <ContentPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-            </Border>
-        </Grid>
-    </ControlTemplate>
-
-    <ControlTemplate x:Key="GroupBoxBaseLeftTemplate" TargetType="GroupBox">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Border
-                MinWidth="{Binding Path=(liftui:TitleElement.MinWidth), RelativeSource={RelativeSource TemplatedParent}}"
-                Margin="0,0,6,0"
-                Background="{Binding Path=(liftui:TitleElement.Background), RelativeSource={RelativeSource TemplatedParent}}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                ClipToBounds="False"
-                CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
-                <ContentPresenter
-                    Margin="{Binding Path=(liftui:TitleElement.Padding), RelativeSource={RelativeSource TemplatedParent}}"
-                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                    ContentSource="Header"
-                    RecognizesAccessKey="True"
-                    RenderTransformOrigin="0.5,0.5"
-                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                    TextElement.Foreground="{TemplateBinding Foreground}">
-                    <ContentPresenter.LayoutTransform>
-                        <TransformGroup>
-                            <RotateTransform Angle="-90" />
-                        </TransformGroup>
-                    </ContentPresenter.LayoutTransform>
-                </ContentPresenter>
-            </Border>
-            <Border
-                Grid.Column="1"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{Binding Path=(liftui:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
-                <ContentPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-            </Border>
-        </Grid>
-    </ControlTemplate>
-
-    <Style x:Key="GroupBoxBaseStyle" TargetType="GroupBox">
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-        <Setter Property="liftui:TitleElement.Background" Value="{DynamicResource SecondaryRegionBrush}" />
-        <Setter Property="liftui:TitleElement.TitlePlacement" Value="Top" />
-        <Setter Property="liftui:TitleElement.Padding" Value="4 0" />
-        <Setter Property="liftui:TitleElement.MinHeight" Value="20" />
-        <Setter Property="liftui:TitleElement.MinWidth" Value="50" />
-        <Setter Property="liftui:BorderElement.CornerRadius" Value="6" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="4" />
-        <Setter Property="Template" Value="{StaticResource GroupBoxBaseTopTemplate}" />
-        <Style.Triggers>
-            <Trigger Property="liftui:TitleElement.TitlePlacement" Value="Left">
-                <Setter Property="Template" Value="{StaticResource GroupBoxBaseLeftTemplate}" />
-                <Setter Property="liftui:TitleElement.Padding" Value="0 4" />
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style
-        x:Key="GroupBoxOriginalBaseStyle"
-        BasedOn="{StaticResource GroupBoxBaseStyle}"
-        TargetType="GroupBox">
-        <Setter Property="liftui:BorderElement.CornerRadius" Value="0" />
-        <Setter Property="VerticalContentAlignment" Value="Top" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="Template" Value="{StaticResource GroupBoxOriginalTopTemplate}" />
-        <Style.Triggers>
-            <Trigger Property="liftui:TitleElement.TitlePlacement" Value="Left">
-                <Setter Property="Template" Value="{StaticResource GroupBoxOriginalLeftTemplate}" />
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="PropertyItem.Base" TargetType="propertyGrid:PropertyItem">
+-->
+<!--  单个Item样式  -->
+<!--
+    <Style x:Key="PropertyGrid.PropertyItem.Base" TargetType="propertyGrid:PropertyItem">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Value" Value="False" />
-        <Setter Property="Margin" Value="5" />
+        <Setter Property="Margin" Value="{Binding Path=Padding, RelativeSource={RelativeSource AncestorType=propertyGrid:PropertyItemsControl}}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="propertyGrid:PropertyItem">
-                    <GroupBox liftui:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginalBaseStyle}">
+                    <GroupBox liftui:TitleElement.TitlePlacement="Left">
+                        <GroupBox.Style>
+                            <Style TargetType="GroupBox">
+                                <Setter Property="liftui:BorderElement.CornerRadius" Value="0" />
+                                <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+                                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+                                <Setter Property="VerticalContentAlignment" Value="Top" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderThickness" Value="0" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="Template" Value="{StaticResource PropertyItem.GroupBox.Left}" />
+                            </Style>
+                        </GroupBox.Style>
                         <GroupBox.Header>
-                            <TextBlock
-                                Width="{Binding Path=(liftui:TitleElement.TitleWidth).Value, RelativeSource={RelativeSource TemplatedParent}}"
-                                Padding="0,0,10,0"
-                                Text="{TemplateBinding DisplayName}"
-                                TextTrimming="CharacterEllipsis" />
+                            <StackPanel Width="{Binding Path=(liftui:TitleElement.TitleWidth).Value, RelativeSource={RelativeSource TemplatedParent}}" Orientation="Horizontal">
+                                <TextBlock
+                                    Padding="0,0,0,0"
+                                    Text="{TemplateBinding DisplayName}"
+                                    TextTrimming="CharacterEllipsis"
+                                    ToolTipService.InitialShowDelay="300">
+                                    <TextBlock.ToolTip>
+                                        <ToolTip
+                                            Content="{TemplateBinding Tips}"
+                                            FontSize="{TemplateBinding FontSize}"
+                                            Style="{StaticResource PropertyItem.Tooltip.Base}" />
+                                    </TextBlock.ToolTip>
+                                </TextBlock>
+                            </StackPanel>
                         </GroupBox.Header>
                         <ContentPresenter ContentSource="EditorElement" />
                     </GroupBox>
@@ -206,15 +123,17 @@
         </Setter>
     </Style>
 
-    <Style x:Key="PropertyItemsControl.Base" TargetType="propertyGrid:PropertyItemsControl">
-        <Setter Property="ItemContainerStyle" Value="{StaticResource PropertyItem.Base}" />
+-->
+<!--  该样式针对整个Item的父容器（非Group）  -->
+<!--
+    <Style x:Key="PropertyGrid.PropertyItemsControl.Base" TargetType="propertyGrid:PropertyItemsControl">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource PropertyGrid.PropertyItem.Base}" />
         <Setter Property="Focusable" Value="False" />
+        <Setter Property="Padding" Value="5" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="propertyGrid:PropertyItemsControl">
-                    <ScrollViewer Focusable="False" HorizontalScrollBarVisibility="Disabled">
-                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                    </ScrollViewer>
+                    <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -226,9 +145,12 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="GroupItem.PropertyGrid.Base" TargetType="GroupItem">
+-->
+<!--  该控件针对Group模式时，Group内的Item的样式  -->
+<!--
+    <Style x:Key="PropertyGrid.GroupItem.Base" TargetType="GroupItem">
         <Setter Property="Margin" Value="0,0,0,6" />
-        <Setter Property="Padding" Value="10,6,6,0" />
+        <Setter Property="Padding" Value="10,6,6,6" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="GroupItem">
@@ -246,33 +168,42 @@
         </Setter>
     </Style>
 
+-->
+<!--  基础PropertyGrid样式  -->
+<!--
     <Style x:Key="PropertyGrid.Base" TargetType="propertyGrid:PropertyGrid">
         <Setter Property="MinTitleWidth" Value="50" />
         <Setter Property="MaxTitleWidth" Value="100" />
-
         <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-
-        <Setter Property="Padding" Value="10" />
+        <Setter Property="Padding" Value="10,5" />
+        <Setter Property="ItemMargin" Value="0 2" />
+        <Setter Property="Margin" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="propertyGrid:PropertyGrid">
                     <Border
+                        Margin="{TemplateBinding Margin}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
-                        <propertyGrid:PropertyItemsControl
-                            x:Name="PART_Items"
-                            Grid.Row="1"
-                            Margin="{TemplateBinding Padding}"
-                            Style="{StaticResource PropertyItemsControl.Base}">
-                            <propertyGrid:PropertyItemsControl.GroupStyle>
-                                <GroupStyle ContainerStyle="{StaticResource GroupItem.PropertyGrid.Base}" />
-                            </propertyGrid:PropertyItemsControl.GroupStyle>
-                        </propertyGrid:PropertyItemsControl>
+                        <ScrollViewer Focusable="False" HorizontalScrollBarVisibility="Disabled">
+                            <propertyGrid:PropertyItemsControl
+                                x:Name="PART_Items"
+                                Margin="{TemplateBinding Padding}"
+                                Padding="{TemplateBinding ItemMargin}"
+                                FontSize="{TemplateBinding FontSize}"
+                                Style="{StaticResource PropertyGrid.PropertyItemsControl.Base}">
+                                <propertyGrid:PropertyItemsControl.GroupStyle>
+                                    <GroupStyle ContainerStyle="{StaticResource PropertyGrid.GroupItem.Base}" />
+                                </propertyGrid:PropertyItemsControl.GroupStyle>
+                            </propertyGrid:PropertyItemsControl>
+                        </ScrollViewer>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
+<!--
 
-</ResourceDictionary>
+</ResourceDictionary>-->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" />

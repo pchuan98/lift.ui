@@ -17,7 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CommunityToolkit.Mvvm.ComponentModel;
-using Lift.UI.Test.Controls.PropertyGrid;
+using Lift.UI.V2.Controls.PropertyGrid;
 
 namespace Lift.UI.Test;
 
@@ -33,24 +33,9 @@ public partial class MainWindow
         var vm = new MainViewModel();
 
         LiftUiPropertyGrid.SelectedObject = vm;
-        PdPropertyGrid.SelectedObject = vm;
 
-
-        Task.Run(() =>
-        {
-            Thread.Sleep(5000);
-
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                PdPropertyGrid.SortByName(true);
-
-                vm.Chinese1 = 100000;
-                LiftUiPropertyGrid.SelectedObject = null;
-                PdPropertyGrid.SelectedObject = null;
-                PdPropertyGrid.SelectedObject = vm;
-                PdPropertyGrid.SelectedObject = vm;
-            });
-        });
+        //LiftUiPropertyGrid.AddEditor(PropertyGrid.EditorDictKeys.ReadOnlyWithTextBox, typeof(ReadOnlyWithTextBoxEditor));
+        //PdPropertyGrid.AddEditor(PropertyGrid.EditorDictKeys.ReadOnlyWithTextBox, typeof(ReadOnlyWithTextBoxEditor));
 
     }
 }
@@ -72,6 +57,7 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     private string _name = "kitty";
 
+    [PropertyGrid(Editor = PropertyGrid.EditorDictKeys.ReadOnlyWithTextBlock)]
     [ObservableProperty]
     private bool _male = true;
 
@@ -79,10 +65,10 @@ public partial class MainViewModel : ObservableObject
     [PropertyGrid(GroupName = "AK")]
     public bool IsInit { get; init; }
 
-    [PropertyGrid(Alias = "中文")]
+    [PropertyGrid(Alias = "中文", Tips = "中文不是英语")]
     public int Chinese1 { get; set; }
 
-    [PropertyGrid(Alias = "英语")]
+    [PropertyGrid(Alias = "英语", Tips = "英语不是中文")]
     public int Chinese2 { get; set; }
 
     [PropertyGrid(Ignore = true)]

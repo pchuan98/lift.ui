@@ -41,7 +41,7 @@ public class ImageViewer : Control
     /// <summary>
     /// 缩放比间隔
     /// </summary>
-    private const double ScaleInternal = 0.01;
+    private const double ScaleInternal = 0.4;
 
     #endregion Constants
 
@@ -980,6 +980,12 @@ public class ImageViewer : Control
         if (d is not ImageViewer viewer) return;
 
         if (e is not { NewValue: BitmapFrame n, OldValue: BitmapFrame o })
+        {
+            viewer.Init();
+            return;
+        }
+
+        if (n.PixelWidth != o.PixelWidth || n.PixelHeight != o.PixelHeight)
         {
             viewer.Init();
             return;

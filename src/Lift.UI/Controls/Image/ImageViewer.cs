@@ -979,13 +979,8 @@ public class ImageViewer : Control
         // todo 改的更合适了
         if (d is not ImageViewer viewer) return;
 
-        if (e is not { NewValue: BitmapFrame n, OldValue: BitmapFrame o })
-        {
-            viewer.Init();
-            return;
-        }
-
-        if (n.PixelWidth != o.PixelWidth || n.PixelHeight != o.PixelHeight)
+        if (!(e.NewValue is BitmapFrame n && e.OldValue is BitmapFrame o) ||
+            n.PixelWidth != o.PixelWidth || n.PixelHeight != o.PixelHeight)
         {
             viewer.Init();
             return;

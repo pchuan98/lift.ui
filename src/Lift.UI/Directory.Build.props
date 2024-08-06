@@ -1,5 +1,4 @@
-﻿<!--此文件为自定义模板生成-->
-<Project>
+﻿<Project>
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>

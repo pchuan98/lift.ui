@@ -1,5 +1,8 @@
-﻿// ReSharper disable once CheckNamespace
-namespace Lift.UI.Core.Converters;
+﻿using System.Globalization;
+using System.Windows.Data;
+using System.Windows.Markup;
+
+namespace Lift.UI.Converters;
 
 /// <summary>
 /// 单值转换器基类

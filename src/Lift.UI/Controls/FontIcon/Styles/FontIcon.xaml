@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Lift.UI.Controls"
+    xmlns:panel="clr-namespace:Lift.UI.Controls.Panel">
+
+    <ControlTemplate x:Key="ControlTemplate.FontIcon.Base" TargetType="controls:FontIcon">
+        <panel:SimplePanel>
+            <Label
+                x:Name="PART_IconLabel"
+                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                Background="{TemplateBinding Background}"
+                Content="{TemplateBinding IconString}"
+                FontFamily="{TemplateBinding FontFamily}"
+                FontSize="{TemplateBinding FontSize}"
+                Foreground="{TemplateBinding Foreground}" />
+        </panel:SimplePanel>
+    </ControlTemplate>
+
+    <Style x:Key="FontIconStyle.Base" TargetType="controls:FontIcon">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Template" Value="{StaticResource ControlTemplate.FontIcon.Base}" />
+        <Setter Property="FontFamily" Value="{StaticResource FluentSystemIconsFilled}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style BasedOn="{StaticResource FontIconStyle.Base}" TargetType="controls:FontIcon" />
+</ResourceDictionary>

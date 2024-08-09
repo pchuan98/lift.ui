@@ -9,13 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\" />
-    <Folder Include="Attach\" />
     <Folder Include="Behaviors\" />
     <Folder Include="Validators\" />
     <Folder Include="Properties\" />
     <Folder Include="Resources\Colors\Base\" />
-    <Folder Include="Resources\Fonts\" />
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Shapes\" />
   </ItemGroup>
@@ -26,6 +23,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\SegoeFluentIcons.ttf" />
+    <Resource Include="Resources\Fonts\HoloSymMDL2.ttf" />
+    <Resource Include="Resources\Fonts\FluentSystemIcons-Filled.ttf" />
+    <Resource Include="Resources\Fonts\FluentSystemIcons-Regular.ttf" />
   </ItemGroup>
 
 </Project>

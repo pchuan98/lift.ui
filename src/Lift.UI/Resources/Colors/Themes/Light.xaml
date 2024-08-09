@@ -14,25 +14,13 @@
         |   TextFillColorDisabledBrush             | 禁用状态的文本颜色，通常用于不可交互的文本或被禁用的控件文本
         |   TextPlaceholderColorBrush              | 占位符文本颜色，通常用于输入框的提示文本 Hint Color
         |   TextFillColorInverseBrush              | 反转强调默认文字颜色
-        |   TextOnAccentFillColorPrimaryBrush      | rest or hover
-        |   TextOnAccentFillColorSecondaryBrush    | pressed
-        |   TextOnAccentFillColorDisabledBrush     | 强调色上的禁用文本颜色
-        |   AccentTextFillColorDisabledBrush       | 禁用状态的强调文本颜色，通常用于禁用的强调文本或控件。 (禁用的强调按钮文本)
-        |   TextOnAccentFillColorSelectedTextBrush | For hightlighted text for entry experiences
     -->
-    <SolidColorBrush x:Key="TextFillColorPrimaryBrush" Color="#E4000000" />
-    <SolidColorBrush x:Key="TextFillColorSecondaryBrush" Color="#9E000000" />
-    <SolidColorBrush x:Key="TextFillColorTertiaryBrush" Color="#72000000" />
-    <SolidColorBrush x:Key="TextFillColorDisabledBrush" Color="#5C000000" />
-    <SolidColorBrush x:Key="TextPlaceholderColorBrush" Color="#9E000000" />
-
-    <SolidColorBrush x:Key="TextFillColorInverseBrush" Color="#FFFFFF" />
-    <SolidColorBrush x:Key="TextOnAccentFillColorPrimaryBrush" Color="#FFFFFF" />
-    <SolidColorBrush x:Key="TextOnAccentFillColorSecondaryBrush" Color="#B3FFFFFF" />
-    <SolidColorBrush x:Key="TextOnAccentFillColorDisabledBrush" Color="#A3FFFFFF" />
-
-    <SolidColorBrush x:Key="TextOnAccentFillColorSelectedTextBrush" Color="#FFFFFF" />
-    <SolidColorBrush x:Key="AccentTextFillColorDisabledBrush" Color="#5C000000" />
+    <SolidColorBrush x:Key="TextBrush.Primary" Color="#E4000000" />
+    <SolidColorBrush x:Key="TextBrush.Secondary" Color="#9E000000" />
+    <SolidColorBrush x:Key="TextBrush.Tertiary" Color="#72000000" />
+    <SolidColorBrush x:Key="TextBrush.Disabled" Color="#5C000000" />
+    <SolidColorBrush x:Key="TextBrush.Placeholder" Color="#9E000000" />
+    <SolidColorBrush x:Key="TextBrush.Inverse" Color="#FFFFFF" />
 
     <!--
         |          Key                              | Usage
@@ -44,12 +32,12 @@
         |   ControlFillColorTransparentBrush        | rest 控件的透明填充颜色，通常用于需要透明背景的控件。
         |   ControlFillColorInputActiveBrush        | active or focused text input fileds 控件的输入激活填充颜色，通常用于输入框激活状态下的背景。
     -->
-    <SolidColorBrush x:Key="ControlFillColorDefaultBrush" Color="#B3FFFFFF" />
-    <SolidColorBrush x:Key="ControlFillColorSecondaryBrush" Color="#80F9F9F9" />
-    <SolidColorBrush x:Key="ControlFillColorTertiaryBrush" Color="#4DF9F9F9" />
-    <SolidColorBrush x:Key="ControlFillColorDisabledBrush" Color="#4DF9F9F9" />
-    <SolidColorBrush x:Key="ControlFillColorTransparentBrush" Color="#00FFFFFF" />
-    <SolidColorBrush x:Key="ControlFillColorInputActiveBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="ControlBrush.Primary" Color="#B3FFFFFF" />
+    <SolidColorBrush x:Key="ControlBrush.Secondary" Color="#80F9F9F9" />
+    <SolidColorBrush x:Key="ControlBrush.Tertiary" Color="#4DF9F9F9" />
+    <SolidColorBrush x:Key="ControlBrush.Disabled" Color="#4DF9F9F9" />
+    <SolidColorBrush x:Key="ControlBrush.Transparent" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="ControlBrush.InputActive" Color="#FFFFFF" />
 
     <!--
         used for controls that must meet contrast ratio requirements of 3:1  such as scrollview->bar
@@ -111,10 +99,10 @@
     <SolidColorBrush x:Key="AccentFillColorDisabledBrush" Color="#37000000" />
 
     <!--  default border brush  -->
-    <SolidColorBrush x:Key="ControlBorderBrush" Color="#37000000" />
+    <SolidColorBrush x:Key="BorderBrush.Control" Color="#37000000" />
     <SolidColorBrush x:Key="CircleBorderBrush" Color="#37000000" />
-    <SolidColorBrush x:Key="TextControlBorderBrush" Color="#37000000" />
-    <SolidColorBrush x:Key="TextControlBorderFocusedBrush" Color="#37000000" />
+    <SolidColorBrush x:Key="BorderBrush.TextControl" Color="#37000000" />
+    <SolidColorBrush x:Key="BorderBrush.FocusedTextControl" Color="#37000000" />
     <SolidColorBrush x:Key="AccentControlBorderBrush" Color="#37000000" />
 
     <!--  used for controls that must meet contrast ratio requirements of 3:1  such as scrollview->bar  -->

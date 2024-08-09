@@ -1,0 +1,57 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:block="clr-namespace:Lift.UI.Controls.Block"
+    xmlns:panel="clr-namespace:Lift.UI.Controls.Panel">
+
+
+    <ControlTemplate x:Key="ControlTemplate.ToggleBlock.Base" TargetType="block:ToggleBlock">
+        <Border
+            Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}">
+            <panel:SimplePanel
+                Margin="{TemplateBinding Padding}"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                <ContentPresenter
+                    Name="ContentPresenterChecked"
+                    ContentSource="CheckedContent"
+                    Visibility="Collapsed" />
+                <ContentPresenter Name="ContentPresenterUnChecked" ContentSource="UnCheckedContent" />
+                <ContentPresenter
+                    Name="ContentPresenterNull"
+                    ContentSource="NullContent"
+                    Visibility="Collapsed" />
+            </panel:SimplePanel>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="ContentPresenterChecked" Property="Visibility" Value="Visible" />
+                <Setter TargetName="ContentPresenterUnChecked" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="ContentPresenterNull" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="False">
+                <Setter TargetName="ContentPresenterChecked" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="ContentPresenterUnChecked" Property="Visibility" Value="Visible" />
+                <Setter TargetName="ContentPresenterNull" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="{x:Null}">
+                <Setter TargetName="ContentPresenterChecked" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="ContentPresenterUnChecked" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="ContentPresenterNull" Property="Visibility" Value="Visible" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+    <Style x:Key="ToggleBlockStyle.Base" TargetType="block:ToggleBlock">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+
+        <Setter Property="Template" Value="{StaticResource ControlTemplate.ToggleBlock.Base}" />
+    </Style>
+
+    <Style BasedOn="{StaticResource ToggleBlockStyle.Base}" TargetType="block:ToggleBlock" />
+
+</ResourceDictionary>

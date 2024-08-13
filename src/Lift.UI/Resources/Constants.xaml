@@ -1,1 +1,33 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <!--  NOTE：调用这里的key的参数尽可能使用StaticResource去提高性能  -->
+
+    <Thickness x:Key="Border.Thickness.Default">1</Thickness>
+
+
+    <!--
+        ScrollViewer
+    -->
+
+
+    <!--
+        Fonts and Icons
+        https://github.com/microsoft/fluentui-system-icons
+        
+        https://github.com/microsoft/fluentui-system-icons/blob/main/fonts/FluentSystemIcons-Regular.ttf
+        https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/fonts/FluentSystemIcons-Regular.json
+        https://github.com/microsoft/fluentui-system-icons/blob/main/icons_regular.md
+        
+        https://github.com/microsoft/fluentui-system-icons/raw/main/fonts/FluentSystemIcons-Filled.ttf
+        https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/fonts/FluentSystemIcons-Filled.json
+    -->
+    <FontFamily x:Key="FluentSystemIconsFilled">pack://application:,,,/Lift.UI;component/Resources/Fonts/#FluentSystemIcons-Filled</FontFamily>
+    <FontFamily x:Key="FluentSystemIconsRegular">pack://application:,,,/Lift.UI;component/Resources/Fonts/#FluentSystemIcons-Regular</FontFamily>
+    <FontFamily x:Key="SegoeFluentIcons">pack://application:,,,/Lift.UI;component/Resources/Fonts/#SegoeFluentIcons</FontFamily>
+
+    <system:String x:Key="Icon.Wifi">&#xE70D;</system:String>
+
+</ResourceDictionary>

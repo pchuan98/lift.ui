@@ -8,12 +8,17 @@
         <panel:SimplePanel>
             <Label
                 x:Name="PART_IconLabel"
+                Width="{TemplateBinding Width}"
+                Height="{TemplateBinding Height}"
+                Margin="{TemplateBinding Margin}"
+                Padding="{TemplateBinding Padding}"
                 HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                 VerticalAlignment="{TemplateBinding VerticalAlignment}"
                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                 Background="{TemplateBinding Background}"
                 Content="{TemplateBinding IconString}"
+                Focusable="False"
                 FontFamily="{TemplateBinding FontFamily}"
                 FontSize="{TemplateBinding FontSize}"
                 Foreground="{TemplateBinding Foreground}" />
@@ -23,11 +28,15 @@
     <Style x:Key="FontIconStyle.Base" TargetType="controls:FontIcon">
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="Template" Value="{StaticResource ControlTemplate.FontIcon.Base}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentSystemIconsFilled}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
     <Style BasedOn="{StaticResource FontIconStyle.Base}" TargetType="controls:FontIcon" />

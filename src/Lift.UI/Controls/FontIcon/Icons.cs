@@ -9,6 +9,7 @@ public enum Icons
     /// Display nothing.
     /// </summary>
     None,
+
     /// <summary>
     /// ic_fluent_accessibility_16_filled	ic_fluent_accessibility_20_filled	ic_fluent_accessibility_24_filled	ic_fluent_accessibility_28_filled	ic_fluent_accessibility_32_filled	ic_fluent_accessibility_48_filled
     /// ic_fluent_accessibility_16_regular	ic_fluent_accessibility_20_regular	ic_fluent_accessibility_24_regular	ic_fluent_accessibility_28_regular	ic_fluent_accessibility_32_regular	ic_fluent_accessibility_48_regular

@@ -3,8 +3,10 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using DependencyPropertyGenerator;
+using Lift.UI.Controls.Panel;
 
 namespace Lift.UI.Controls;
 
@@ -12,7 +14,7 @@ namespace Lift.UI.Controls;
 /// 
 /// </summary>
 [DependencyProperty<Icons>("Icon", DefaultValue = Icons.None)]
-[DependencyProperty<string>("IconString", DefaultValue = "", DefaultBindingMode = DefaultBindingMode.OneWay)]
+[DependencyProperty<string>("IconString", DefaultValue = "")]
 [DependencyProperty<IconFontFamily>("IconFamily", DefaultValue = IconFontFamily.Filled)]
 [TemplatePart(Name = ElementIconLabel, Type = typeof(Label))]
 public partial class FontIcon : ContentControl
@@ -21,37 +23,29 @@ public partial class FontIcon : ContentControl
 
     private Label? _iconLabel;
 
-    partial void OnIconFamilyChanged(IconFontFamily newValue)
+    partial void OnIconFamilyChanged() => RefreshIcon();
+
+    partial void OnIconChanged() => RefreshIcon();
+
+    void RefreshIcon()
     {
-        FontFamily = newValue switch
-        {
-            IconFontFamily.Filled => (FontFamily) FindResource("FluentSystemIconsFilled"),
-            IconFontFamily.Regular => (FontFamily) FindResource("FluentSystemIconsFilled"),
-            _ => throw new ArgumentOutOfRangeException(nameof(newValue), newValue, null)
-        };
-    }
-
-
-
-    partial void OnIconChanged(Icons newValue)
-    {
-        if (newValue == Icons.None) IconString = string.Empty;
-
+        if (Icon == Icons.None) IconString = string.Empty;
         if (!IconsMap.TryGetValue(Icon.ToString(), out var keys)) return;
 
         FontFamily = IconFamily switch
         {
             IconFontFamily.Filled => (FontFamily) FindResource("FluentSystemIconsFilled"),
-            IconFontFamily.Regular => (FontFamily) FindResource("FluentSystemIconsFilled"),
-            _ => throw new ArgumentOutOfRangeException(nameof(newValue), newValue, null)
+            IconFontFamily.Regular => (FontFamily) FindResource("FluentSystemIconsRegular"),
+            _ => throw new ArgumentOutOfRangeException(nameof(IconFamily), IconFamily, null)
         };
 
-        var map = FontFamily.ToString().Contains("FluentSystemIcons-Filled")
-            ? FilledMap : FontFamily.ToString().Contains("FluentSystemIcons-Regular") ? RegularMap
-            : throw new ArgumentOutOfRangeException(nameof(FontFamily), FontFamily.ToString(), "Not support font.");
+        var map = FontFamily.ToString().Contains("Filled")
+            ? FilledMap : FontFamily.ToString().Contains("Regular") ? RegularMap
+                : throw new ArgumentOutOfRangeException(nameof(FontFamily), FontFamily.ToString(), "Not support font.");
 
-        var name = FontFamily.ToString().Contains("FluentSystemIcons-Filled")
-            ? "filled" : FontFamily.ToString().Contains("FluentSystemIcons-Regular") ? "regular"
+
+        var name = FontFamily.ToString().Contains("Filled")
+            ? "filled" : FontFamily.ToString().Contains("Regular") ? "regular"
                 : throw new ArgumentOutOfRangeException(nameof(FontFamily), FontFamily.ToString(), "Not support font.");
 
         var fontsize = FontSize switch
@@ -73,8 +67,8 @@ public partial class FontIcon : ContentControl
         if (keyBestMatch is null && keyMatch is null) return;
 
         IconString = keyBestMatch is not null
-            ? ((char) map[keyBestMatch]).ToString()
-            : ((char) map[keyMatch!]).ToString();
+            ? char.ConvertFromUtf32(map[keyBestMatch])
+            : char.ConvertFromUtf32(map[keyMatch!]);
     }
 
     /// <inheritdoc />
@@ -214,5 +208,108 @@ internal static class FontIconHelper
                      """).ToList();
 
         return string.Join("\n", strs);
+    }
+}
+
+/// <summary>
+/// 测试代码，但是生成速度很慢，需要优化
+/// </summary>
+public class FontIconTest : SimplePanel
+{
+    private readonly UniformGrid _half = new()
+    {
+        Columns = 2,
+    };
+
+    private readonly UniformGrid _fill = new()
+    {
+        Columns = 5,
+        Margin = new Thickness(4)
+    };
+
+    private readonly UniformGrid _regular = new()
+    {
+        Columns = 5,
+        Margin = new Thickness(4)
+    };
+
+    public FontIconTest()
+    {
+        Background = Brushes.AntiqueWhite;
+
+        Children.Add(new ScrollViewer()
+        {
+            Content = _half
+        });
+
+        _half.Children.Add(_regular);
+        _half.Children.Add(_fill);
+
+        AsyncRefresh();
+    }
+
+    void AsyncRefresh()
+    {
+        Application.Current.Dispatcher.BeginInvoke(async () =>
+        {
+            foreach (var icon in Enum.GetValues<Icons>())
+            {
+                await Task.Delay(1);
+
+                _fill.Children.Add(new StackPanel()
+                {
+                    Background = Brushes.WhiteSmoke,
+                    Orientation = Orientation.Vertical,
+                    Margin = new Thickness(4),
+                    Children =
+                    {
+                        new Label()
+                        {
+                            Content = icon,
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            HorizontalContentAlignment = HorizontalAlignment.Center,
+                            VerticalAlignment = VerticalAlignment.Center,
+                            VerticalContentAlignment = VerticalAlignment.Center
+                        },
+                        new Viewbox()
+                        {
+                            Height = 30,
+                            Child = new FontIcon()
+                            {
+                                Icon = icon,
+                                IconFamily = IconFontFamily.Filled
+                            },
+                        }
+                    }
+                });
+
+                _regular.Children.Add(new StackPanel()
+                {
+                    Background = Brushes.WhiteSmoke,
+                    Orientation = Orientation.Vertical,
+                    Margin = new Thickness(4),
+                    Children =
+                    {
+                        new Label()
+                        {
+                            Content = icon,
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            HorizontalContentAlignment = HorizontalAlignment.Center,
+                            VerticalAlignment = VerticalAlignment.Center,
+                            VerticalContentAlignment = VerticalAlignment.Center
+                        },
+                        new Viewbox()
+                        {
+                            Height = 30,
+                            Child = new FontIcon()
+                            {
+                                Icon = icon,
+                                IconFamily = IconFontFamily.Regular
+                            },
+                        }
+                    }
+                });
+            }
+        });
     }
 }
